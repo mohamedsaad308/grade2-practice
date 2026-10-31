@@ -122,14 +122,16 @@ export default function FillInNumber({
       </div>
 
       {/* Submit Button */}
-      <button
-        type="button"
-        className="primary-submit-btn"
-        disabled={disabled || value.trim() === ''}
-        onClick={handleSubmit}
-      >
-        Check Answer ✨
-      </button>
+      <div className="fill-in-sticky-bottom-bar" role="region" aria-label="Submit number">
+        <button
+          type="button"
+          className="primary-submit-btn check-fill-btn sticky-action-btn"
+          disabled={disabled || value.trim() === ''}
+          onClick={handleSubmit}
+        >
+          Check Answer ✨
+        </button>
+      </div>
     </div>
   );
 }

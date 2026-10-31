@@ -1,0 +1,31 @@
+{
+  "name": "Grade 2 Stars! Fun Learning",
+  "short_name": "Grade 2 Stars",
+  "description": "Fun & friendly practice for Grade 2 learners - Math, English, and Reading",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F8FAFC",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

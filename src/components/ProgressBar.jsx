@@ -1,34 +1,42 @@
 import React from 'react';
 
 /**
- * 10-step colorful progress bar with question markers
+ * Single-row compact progress bar with question counter and percentage:
+ * Combines [ Q 3/10 ] [ ====--------- ] [ 30% ] into ONE row (max ~28px tall).
  */
 export default function ProgressBar({ current = 1, total = 10 }) {
   const percent = Math.min(100, Math.round((current / total) * 100));
 
   return (
-    <div className="session-progress-wrapper" aria-label={`Question ${current} of ${total}`}>
-      <div className="progress-info-row">
-        <span className="progress-question-indicator">
-          Question <strong>{current}</strong> of {total}
+    <div className="session-progress-row" aria-label={`Question ${current} of ${total}`}>
+      <div className="progress-question-badge">
+        <span className="q-label">Q</span>
+        <span className="q-numbers">
+          <strong>{current}</strong>/{total}
         </span>
-        <span className="progress-percent-indicator">{percent}%</span>
       </div>
 
-      <div className="progress-track">
+      <div className="progress-track-wrapper">
         <div
-          className="progress-fill"
-          style={{ width: `${percent}%` }}
-        />
-        <div className="progress-steps-dots">
-          {Array.from({ length: total }).map((_, i) => (
-            <div
-              key={i}
-              className={`step-dot ${i < current ? 'completed-dot' : ''} ${i === current - 1 ? 'current-dot' : ''}`}
-            />
-          ))}
+          className="progress-track"
+          role="progressbar"
+          aria-valuenow={percent}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        >
+          <div className="progress-fill" style={{ width: `${percent}%` }} />
+          <div className="progress-steps-dots">
+            {Array.from({ length: total }).map((_, i) => (
+              <div
+                key={i}
+                className={`step-dot ${i < current ? 'completed-dot' : ''} ${i === current - 1 ? 'current-dot' : ''}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
+
+      <span className="progress-percent-badge">{percent}%</span>
     </div>
   );
 }

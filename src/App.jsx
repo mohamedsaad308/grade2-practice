@@ -116,6 +116,10 @@ export default function App() {
           topic={topic}
           level={level}
           settings={settings}
+          onToggleSound={handleToggleSound}
+          onToggleSpokenPraise={handleToggleSpokenPraise}
+          onChangePlayer={() => setIsSwitchingPlayer(true)}
+          onNavigateParent={() => navigate('#/parent')}
           onFinishSession={handleFinishSession}
           onExit={(exitSubjectId) => {
             refreshPlayerData();
@@ -172,19 +176,21 @@ export default function App() {
   }
 
   return (
-    <div className="app-root-shell">
-      <Navbar
-        player={currentPlayer}
-        settings={settings}
-        onToggleSound={handleToggleSound}
-        onToggleSpokenPraise={handleToggleSpokenPraise}
-        onChangePlayer={() => setIsSwitchingPlayer(true)}
-        onNavigateHome={() => navigate('#/')}
-        onNavigateParent={() => navigate('#/parent')}
-        currentRoute={primaryRoute}
-      />
+    <div className={`app-root-shell ${primaryRoute === 'practice' ? 'in-practice-mode' : ''}`}>
+      {primaryRoute !== 'practice' && (
+        <Navbar
+          player={currentPlayer}
+          settings={settings}
+          onToggleSound={handleToggleSound}
+          onToggleSpokenPraise={handleToggleSpokenPraise}
+          onChangePlayer={() => setIsSwitchingPlayer(true)}
+          onNavigateHome={() => navigate('#/')}
+          onNavigateParent={() => navigate('#/parent')}
+          currentRoute={primaryRoute}
+        />
+      )}
 
-      <main className="app-main-viewport">
+      <main className={`app-main-viewport ${primaryRoute === 'practice' ? 'viewport-practice' : ''}`}>
         {currentViewComponent}
       </main>
 

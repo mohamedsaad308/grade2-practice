@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import QuestionDispatcher from '../engine/QuestionDispatcher.jsx';
 import Mascot from '../components/Mascot.jsx';
 import ProgressBar from '../components/ProgressBar.jsx';
+import PracticeHeader from '../components/PracticeHeader.jsx';
 import SpeechButton from '../components/SpeechButton.jsx';
 import ConfettiCanvas from '../components/ConfettiCanvas.jsx';
 import { getFeedback } from '../feedback/feedbackManager.js';
@@ -15,6 +16,10 @@ export default function PracticeSession({
   topic,
   level = 1,
   settings,
+  onToggleSound,
+  onToggleSpokenPraise,
+  onChangePlayer,
+  onNavigateParent,
   onFinishSession,
   onExit
 }) {
@@ -366,32 +371,22 @@ export default function PracticeSession({
     <div className="practice-session-view">
       <ConfettiCanvas trigger={confettiTrigger} />
 
-      {/* Top Header: Topic name, Exit button */}
-      <div className="session-top-bar">
-        <button
-          type="button"
-          className="exit-session-btn"
-          onClick={() => onExit(subject?.id)}
-          aria-label={`Back to ${subject?.title || 'Subject'} topics`}
-        >
-          ← Back to {subject?.title || 'Topics'}
-        </button>
+      {/* Slim Header: Avatar+Name, Stars, Menu, Exit */}
+      <PracticeHeader
+        player={player}
+        settings={settings}
+        onToggleSound={onToggleSound}
+        onToggleSpokenPraise={onToggleSpokenPraise}
+        onChangePlayer={onChangePlayer}
+        onNavigateParent={onNavigateParent}
+        onExit={() => onExit(subject?.id)}
+        subjectTitle={subject?.title}
+      />
 
-        <div className="session-topic-title-badge">
-          <span className="topic-icon-mini">{topic.icon}</span>
-          <span className="topic-title-mini">{topic.title}</span>
-          {topic.levels && topic.levels.length > 1 && (
-            <span className="topic-level-mini">Level {level}</span>
-          )}
-        </div>
-
-        <div className="session-stars-tracker">
-          ⭐ <strong>{sessionStars}</strong> / {sessionTotal}
-        </div>
+      {/* Single-row Progress Bar with Question Counter */}
+      <div className="practice-progress-sticky-line">
+        <ProgressBar current={currentIndex + 1} total={sessionTotal} />
       </div>
-
-      {/* Progress Bar */}
-      <ProgressBar current={currentIndex + 1} total={sessionTotal} />
 
       {/* Main Question Card with Shake on gentle attempt error */}
       <div className={`question-stage-card ${isShake ? 'shake-animation' : ''}`}>
@@ -442,25 +437,27 @@ export default function PracticeSession({
                 </div>
               )}
             </div>
-
-            {/* Next Question button when done */}
-            {isQuestionAnswered && (
-              <button
-                type="button"
-                className="next-question-btn"
-                onClick={handleNextQuestion}
-                autoFocus
-              >
-                {currentIndex + 1 === sessionTotal ? 'See Results! 🏆' : 'Next Question ➡'}
-              </button>
-            )}
           </div>
         )}
       </div>
 
+      {/* Sticky Bottom Action Bar for Next Question / Finish */}
+      {isQuestionAnswered && (
+        <div className="practice-sticky-bottom-bar" role="region" aria-label="Action bar">
+          <button
+            type="button"
+            className="next-question-btn sticky-action-btn"
+            onClick={handleNextQuestion}
+            autoFocus
+          >
+            {currentIndex + 1 === sessionTotal ? 'See Results! 🏆' : 'Next Question ➡'}
+          </button>
+        </div>
+      )}
+
       {/* Reactive Mascot Footer */}
       <div className="session-mascot-footer">
-        <Mascot mood={mascotMood} size={110} />
+        <Mascot mood={mascotMood} size={64} />
         {streak >= 3 && !isQuestionAnswered && (
           <div className="streak-bubble-badge">
             🔥 {streak} in a row, {playerName}!

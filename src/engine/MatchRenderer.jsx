@@ -201,14 +201,14 @@ export default function MatchRenderer({
         </div>
       </div>
 
-      {/* Progress & Submit Bar */}
-      <div className="match-footer-bar">
+      {/* Progress & Sticky Submit Bar */}
+      <div className="match-footer-bar match-sticky-bottom-bar" role="region" aria-label="Submit matches">
         <span className="match-status-counter">
           {Object.keys(matches).length} of {question.pairs.length} pairs matched
         </span>
         <button
           type="button"
-          className="primary-submit-btn check-matches-btn"
+          className="primary-submit-btn check-matches-btn sticky-action-btn"
           disabled={disabled || !isComplete}
           onClick={handleSubmit}
         >

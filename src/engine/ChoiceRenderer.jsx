@@ -95,10 +95,17 @@ export default function ChoiceRenderer({
     );
   };
 
+  const isShortOptions =
+    Array.isArray(question.options) &&
+    question.options.length > 0 &&
+    question.options.every((opt) => String(opt).length <= 14);
+
+  const hasPassage = Boolean(question.passage);
+
   return (
-    <div className="choice-renderer-container">
+    <div className={`choice-renderer-container ${hasPassage ? 'choice-has-passage' : ''}`}>
       {/* Optional passage card displayed ABOVE the question full-height (no inner scroll box) */}
-      {question.passage && (
+      {hasPassage && (
         <div className="choice-passage-card" role="region" aria-label="Passage for question">
           {question.passage.title && (
             <div className="choice-passage-header">
@@ -117,35 +124,41 @@ export default function ChoiceRenderer({
         </div>
       )}
 
-      {/* Optional prompt shown as the instruction above text */}
-      {question.prompt && (
-        <div className="choice-prompt-box">
-          <span className="choice-prompt-text">{question.prompt}</span>
+      <div className="choice-question-pane">
+        {/* Optional prompt shown as the instruction above text */}
+        {question.prompt && (
+          <div className="choice-prompt-box">
+            <span className="choice-prompt-text">{question.prompt}</span>
+          </div>
+        )}
+
+        {/* Actual item text in large type */}
+        <div className={`choice-item-card ${question.text.includes('___') ? 'choice-item-card-blank' : ''}`}>
+          {renderFormattedText()}
         </div>
-      )}
 
-      {/* Actual item text in large type */}
-      <div className="choice-item-card">
-        {renderFormattedText()}
-      </div>
-
-      {/* Answer options as big buttons */}
-      <div className="choice-options-grid" role="group" aria-label="Answer options">
-        {(question.options || []).map((opt, idx) => {
-          const isSelected = selectedChoice === opt;
-          return (
-            <button
-              key={`${opt}-${idx}`}
-              type="button"
-              className={`choice-option-btn ${isSelected ? 'choice-option-selected' : ''}`}
-              disabled={disabled}
-              onClick={() => handleSelect(opt)}
-              aria-pressed={isSelected}
-            >
-              <span className="choice-option-label">{opt}</span>
-            </button>
-          );
-        })}
+        {/* Answer options as big buttons (2-col grid for short options, 1-col for long) */}
+        <div
+          className={`choice-options-grid ${isShortOptions ? 'choice-options-2col' : 'choice-options-1col'}`}
+          role="group"
+          aria-label="Answer options"
+        >
+          {(question.options || []).map((opt, idx) => {
+            const isSelected = selectedChoice === opt;
+            return (
+              <button
+                key={`${opt}-${idx}`}
+                type="button"
+                className={`choice-option-btn ${isSelected ? 'choice-option-selected' : ''}`}
+                disabled={disabled}
+                onClick={() => handleSelect(opt)}
+                aria-pressed={isSelected}
+              >
+                <span className="choice-option-label">{opt}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

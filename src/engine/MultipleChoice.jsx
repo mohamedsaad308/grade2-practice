@@ -61,7 +61,11 @@ export default function MultipleChoice({
       {renderItemContent()}
 
       {/* Answer options */}
-      <div className="options-grid" role="group" aria-label="Multiple choice options">
+      <div
+        className={`options-grid ${options.every(opt => String(opt).length <= 14) ? 'options-grid-2col' : 'options-grid-1col'}`}
+        role="group"
+        aria-label="Multiple choice options"
+      >
         {options.map((opt, idx) => (
           <button
             key={idx}

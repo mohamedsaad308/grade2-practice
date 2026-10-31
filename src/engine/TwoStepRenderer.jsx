@@ -127,10 +127,10 @@ export default function TwoStepRenderer({
       </div>
 
       {/* Submit Button */}
-      <div className="twostep-submit-bar">
+      <div className="twostep-submit-bar twostep-sticky-bottom-bar" role="region" aria-label="Submit two step answer">
         <button
           type="button"
-          className="primary-submit-btn check-twostep-btn"
+          className="primary-submit-btn check-twostep-btn sticky-action-btn"
           disabled={disabled || !isReady}
           onClick={handleSubmit}
         >
