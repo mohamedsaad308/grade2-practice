@@ -27,6 +27,7 @@ Features complete **Math** and **English** subjects, and is architected so you c
   - `WordBank`: Word cards row; child taps a card to fill the blank in a sentence.
   - `MatchPairs`: Tactile two-column matching for vocabulary words and definitions.
   - `TapToSelect`: Tap to select one or multiple sentences (supports multi-select compound sentences).
+  - `PassageComprehension`: Scrollable story card with sentence-level read-aloud and passage audio controls.
   - `TwoStep`: Multi-phase card: pick the target sentence, then select the punctuation mark (`.`, `?`, `!`).
   - `FillInNumber`: Large on-screen number pad (0-9, Backspace, Clear) + hardware keyboard support.
   - `CompareSymbols`: Big interactive cards for `>`, `<`, `=`.
@@ -57,6 +58,10 @@ Features complete **Math** and **English** subjects, and is architected so you c
 11. **Simple or Compound Sentence?** (`MultipleChoice`).
 12. **Compound Subject or Predicate?** (`MultipleChoice`).
 13. **Identify C.S or C.P** (`MultipleChoice`).
+
+### 📚 Reading (2 Comprehension Topics in `src/subjects/reading/content/*.json`)
+1. **Character Traits** (`MultipleChoice`): Read the short paragraph and choose the word that describes Mariam, Sara, Markos, Omar, or Lina.
+2. **Story: All About Butterflies** (`PassageComprehension`): Read the informational passage with sentence-by-sentence read-aloud and answer questions about genre, egg laying, and hatching.
 
 ---
 
@@ -171,6 +176,37 @@ export default {
 ```
 3. Import and add it to the `topics` array in `src/subjects/english/index.js`.
 4. It will immediately appear in the English subject grid!
+
+---
+
+## 📖 How to Add Reading Content
+
+Reading questions are also completely data-driven and stored in `src/subjects/reading/content/`:
+- `characterTraits.json`: Short story paragraphs asking the child to choose the trait that best describes the character.
+- `butterflyPassage.json`: Longer passages with sentence-by-sentence text-to-speech comprehension questions.
+
+### Adding a New Reading Story Passage (`PassageComprehension`)
+To add a new story with questions:
+1. In `src/subjects/reading/content/<storyName>.json`:
+```json
+[
+  {
+    "id": "read_story_1",
+    "type": "PassageComprehension",
+    "prompt": "What did Leo find in the garden?",
+    "promptSpeech": "What did Leo find in the garden?",
+    "data": {
+      "passageTitle": "Leo's Garden Discovery",
+      "passage": "Leo walked into the sunny garden. Behind a tall sunflower, he saw a tiny blue egg resting softly in a nest.",
+      "options": ["A shiny red ball.", "A tiny blue egg.", "A lost kitten."]
+    },
+    "correctAnswer": "A tiny blue egg.",
+    "hint": "Look back at the second sentence of the story!",
+    "explanation": "The story tells us that Leo saw a tiny blue egg in a nest."
+  }
+]
+```
+2. Create a topic file in `src/subjects/reading/topics/<storyName>.js` and add it to `src/subjects/reading/index.js`.
 
 ---
 

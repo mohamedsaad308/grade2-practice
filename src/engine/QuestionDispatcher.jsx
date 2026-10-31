@@ -8,6 +8,7 @@ import WordBank from './WordBank.jsx';
 import MatchPairs from './MatchPairs.jsx';
 import TapToSelect from './TapToSelect.jsx';
 import TwoStep from './TwoStep.jsx';
+import PassageComprehension from './PassageComprehension.jsx';
 
 /**
  * Question Dispatcher: maps question.type to its reusable UI engine component.
@@ -105,6 +106,16 @@ export default function QuestionDispatcher({
     case 'TwoStep':
       return (
         <TwoStep
+          question={question}
+          onSubmit={onSubmit}
+          disabled={disabled}
+          soundEnabled={soundEnabled}
+        />
+      );
+
+    case 'PassageComprehension':
+      return (
+        <PassageComprehension
           question={question}
           onSubmit={onSubmit}
           disabled={disabled}

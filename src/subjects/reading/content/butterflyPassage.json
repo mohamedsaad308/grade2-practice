@@ -1,0 +1,52 @@
+[
+  {
+    "id": "read_butterflies_1",
+    "type": "PassageComprehension",
+    "prompt": "What is the genre of the text?",
+    "promptSpeech": "What is the genre of the text? Fantasy, Realistic fiction, or Informational text?",
+    "data": {
+      "passageTitle": "Butterflies",
+      "passage": "Butterflies are beautiful insects that come in many colors and patterns. They start their life as tiny eggs on leaves. Then, they hatch into caterpillars that eat a lot of leaves to grow. Next, the caterpillar forms a hard shell called a chrysalis. Inside the chrysalis, it changes into a butterfly. When it comes out, it spreads its new wings and flies away.\n\nButterflies love to drink nectar from flowers using their long tongues. They help plants grow by carrying pollen from one flower to another. Butterflies like warm, sunny places and cannot fly when it is cold. Some butterflies travel long distances to find food and warmth. They rest at night and become active when the sun comes up. Butterflies make our world more colorful and beautiful!",
+      "options": ["Fantasy", "Realistic fiction", "Informational text"]
+    },
+    "correctAnswer": "Informational text",
+    "hint": "Facts and real information mean informational text.",
+    "explanation": "The text teaches true, real facts about butterflies and how they grow, so it is an informational text."
+  },
+  {
+    "id": "read_butterflies_2",
+    "type": "PassageComprehension",
+    "prompt": "Where do butterflies lay their eggs?",
+    "promptSpeech": "Where do butterflies lay their eggs?",
+    "data": {
+      "passageTitle": "Butterflies",
+      "passage": "Butterflies are beautiful insects that come in many colors and patterns. They start their life as tiny eggs on leaves. Then, they hatch into caterpillars that eat a lot of leaves to grow. Next, the caterpillar forms a hard shell called a chrysalis. Inside the chrysalis, it changes into a butterfly. When it comes out, it spreads its new wings and flies away.\n\nButterflies love to drink nectar from flowers using their long tongues. They help plants grow by carrying pollen from one flower to another. Butterflies like warm, sunny places and cannot fly when it is cold. Some butterflies travel long distances to find food and warmth. They rest at night and become active when the sun comes up. Butterflies make our world more colorful and beautiful!",
+      "options": [
+        "They lay their eggs on leaves.",
+        "They lay their eggs on the sand.",
+        "They lay their eggs in water."
+      ]
+    },
+    "correctAnswer": "They lay their eggs on leaves.",
+    "hint": "Look back at the text for the sentence about where they start their life.",
+    "explanation": "The text says: 'They start their life as tiny eggs on leaves.'"
+  },
+  {
+    "id": "read_butterflies_3",
+    "type": "PassageComprehension",
+    "prompt": "What hatches from a butterfly egg?",
+    "promptSpeech": "What hatches from a butterfly egg?",
+    "data": {
+      "passageTitle": "Butterflies",
+      "passage": "Butterflies are beautiful insects that come in many colors and patterns. They start their life as tiny eggs on leaves. Then, they hatch into caterpillars that eat a lot of leaves to grow. Next, the caterpillar forms a hard shell called a chrysalis. Inside the chrysalis, it changes into a butterfly. When it comes out, it spreads its new wings and flies away.\n\nButterflies love to drink nectar from flowers using their long tongues. They help plants grow by carrying pollen from one flower to another. Butterflies like warm, sunny places and cannot fly when it is cold. Some butterflies travel long distances to find food and warmth. They rest at night and become active when the sun comes up. Butterflies make our world more colorful and beautiful!",
+      "options": [
+        "A caterpillar hatches from the egg.",
+        "A bee hatches from the egg.",
+        "A spider hatches from the egg."
+      ]
+    },
+    "correctAnswer": "A caterpillar hatches from the egg.",
+    "hint": "Look back at the text for the sentence about what hatches from the egg.",
+    "explanation": "The text says: 'Then, they hatch into caterpillars that eat a lot of leaves to grow.'"
+  }
+]

@@ -98,7 +98,7 @@ describe('End-to-End User Flow & Player Lifecycle', () => {
     expect(leoEnd).toContain('10');
   });
 
-  it('5. Subjects registry has Math and English active, and placeholders for Reading, Science', () => {
+  it('5. Subjects registry has Math, English, and Reading active, and placeholder for Science', () => {
     const mathSubj = getSubjectById('math');
     expect(mathSubj).toBeDefined();
     expect(mathSubj.topics.length).toBe(4);
@@ -110,7 +110,8 @@ describe('End-to-End User Flow & Player Lifecycle', () => {
 
     const readingSubj = getSubjectById('reading');
     expect(readingSubj).toBeDefined();
-    expect(readingSubj.isAvailable).toBe(false);
+    expect(readingSubj.isAvailable).toBe(true);
+    expect(readingSubj.topics.length).toBe(2);
 
     const scienceSubj = getSubjectById('science');
     expect(scienceSubj).toBeDefined();

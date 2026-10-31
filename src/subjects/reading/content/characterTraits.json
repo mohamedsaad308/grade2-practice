@@ -1,0 +1,72 @@
+[
+  {
+    "id": "read_trait_1",
+    "type": "MultipleChoice",
+    "prompt": "Read the paragraph, then choose the word that describes Mariam:",
+    "promptSpeech": "Mariam saw a lost puppy on the street. She gave it food and water. She wanted it to be safe. Which word describes Mariam?",
+    "data": {
+      "paragraph": "Mariam saw a lost puppy on the street. She gave it food and water. She wanted it to be safe.",
+      "character": "Mariam",
+      "options": ["kind", "shy", "lazy"]
+    },
+    "correctAnswer": "kind",
+    "hint": "Think about what the person does, not just what they say. Mariam cares for the puppy and keeps it safe!",
+    "explanation": "Mariam gives food, water, and safety to a lost puppy, which shows she is kind."
+  },
+  {
+    "id": "read_trait_2",
+    "type": "MultipleChoice",
+    "prompt": "Read the paragraph, then choose the word that describes Sara:",
+    "promptSpeech": "Sara always helps her friends when they are sad. She shares her toys and smiles at everyone. Which word describes Sara?",
+    "data": {
+      "paragraph": "Sara always helps her friends when they are sad. She shares her toys and smiles at everyone.",
+      "character": "Sara",
+      "options": ["helpful", "selfish", "mean"]
+    },
+    "correctAnswer": "helpful",
+    "hint": "Think about what the person does, not just what they say. Sara shares and cheers up her friends!",
+    "explanation": "Sara helps her sad friends and shares her toys, which shows she is helpful."
+  },
+  {
+    "id": "read_trait_3",
+    "type": "MultipleChoice",
+    "prompt": "Read the paragraph, then choose the word that describes Markos:",
+    "promptSpeech": "Markos never shares his crayons with anyone. He wants to keep all of them for himself. Which word describes Markos?",
+    "data": {
+      "paragraph": "Markos never shares his crayons with anyone. He wants to keep all of them for himself.",
+      "character": "Markos",
+      "options": ["selfish", "funny", "honest"]
+    },
+    "correctAnswer": "selfish",
+    "hint": "Think about what the person does, not just what they say. Markos keeps everything for himself and won't share.",
+    "explanation": "Markos refuses to share and keeps all the crayons for himself, which shows he is selfish."
+  },
+  {
+    "id": "read_trait_4",
+    "type": "MultipleChoice",
+    "prompt": "Read the paragraph, then choose the word that describes Omar:",
+    "promptSpeech": "Omar always says \"thank you\" and \"please.\" He waits for his turn to speak. Which word describes Omar?",
+    "data": {
+      "paragraph": "Omar always says \"thank you\" and \"please.\" He waits for his turn to speak.",
+      "character": "Omar",
+      "options": ["polite", "rude", "noisy"]
+    },
+    "correctAnswer": "polite",
+    "hint": "Think about what the person does, not just what they say. Saying please, thank you, and taking turns shows good manners!",
+    "explanation": "Omar uses polite words and waits patiently for his turn, which shows he is polite."
+  },
+  {
+    "id": "read_trait_5",
+    "type": "MultipleChoice",
+    "prompt": "Read the paragraph, then choose the word that describes Lina:",
+    "promptSpeech": "Lina tells lies when she breaks something. She doesn't want to get in trouble. Which word describes Lina?",
+    "data": {
+      "paragraph": "Lina tells lies when she breaks something. She doesn't want to get in trouble.",
+      "character": "Lina",
+      "options": ["dishonest", "shy", "brave"]
+    },
+    "correctAnswer": "dishonest",
+    "hint": "Think about what the person does, not just what they say. Telling lies means not telling the truth.",
+    "explanation": "Lina lies when something goes wrong instead of being honest, which shows she is dishonest."
+  }
+]
