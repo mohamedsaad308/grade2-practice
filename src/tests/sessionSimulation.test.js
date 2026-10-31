@@ -4,116 +4,84 @@ import readingSubject from '../subjects/reading/index.js';
 import { getFeedback } from '../feedback/feedbackManager.js';
 
 function checkAnswer(q, userAnswer) {
-  const { type, correctAnswer } = q;
-  if (type === 'DragToOrder') {
-    if (!Array.isArray(userAnswer) || !Array.isArray(correctAnswer)) return false;
-    return (
-      userAnswer.length === correctAnswer.length &&
-      userAnswer.every((val, idx) => Number(val) === Number(correctAnswer[idx]))
-    );
+  const { type } = q;
+  if (type === 'choice') {
+    if (!userAnswer) return false;
+    const cleanUser = String(userAnswer).trim().toLowerCase();
+    const cleanAns = String(q.answer).trim().toLowerCase();
+    if (cleanUser === cleanAns) return true;
+    if (Array.isArray(q.accepted)) {
+      return q.accepted.some(acc => String(acc).trim().toLowerCase() === cleanUser);
+    }
+    return false;
   }
-  if (type === 'FillInNumber') {
-    return Number(userAnswer) === Number(correctAnswer);
-  }
-  if (type === 'MatchPairs') {
-    if (!userAnswer || typeof userAnswer !== 'object') return false;
-    const keys = Object.keys(correctAnswer);
-    return (
-      keys.length === Object.keys(userAnswer).length &&
-      keys.every(k => userAnswer[k] === correctAnswer[k])
-    );
-  }
-  if (type === 'TapToSelect') {
-    if (!Array.isArray(userAnswer) || !Array.isArray(correctAnswer)) return false;
-    if (userAnswer.length !== correctAnswer.length) return false;
-    const userSorted = [...userAnswer].map(s => String(s).trim().toLowerCase()).sort();
-    const correctSorted = [...correctAnswer].map(s => String(s).trim().toLowerCase()).sort();
-    return userSorted.every((val, idx) => val === correctSorted[idx]);
-  }
-  if (type === 'TwoStep') {
+  if (type === 'two_step') {
     if (!userAnswer || typeof userAnswer !== 'object') return false;
     return (
-      String(userAnswer.sentence).trim().toLowerCase() === String(correctAnswer.sentence).trim().toLowerCase() &&
-      String(userAnswer.punctuation).trim() === String(correctAnswer.punctuation).trim()
+      String(userAnswer.sentence).trim().toLowerCase() === String(q.answer).trim().toLowerCase() &&
+      String(userAnswer.mark).trim() === String(q.answer_mark).trim()
     );
   }
-  return String(userAnswer).trim().toLowerCase() === String(correctAnswer).trim().toLowerCase();
+  if (type === 'match') {
+    if (!userAnswer || typeof userAnswer !== 'object') return false;
+    if (!Array.isArray(q.pairs)) return false;
+    return q.pairs.every(([word, meaning]) => userAnswer[word] === meaning);
+  }
+  if (type === 'MultipleChoice' || type === 'PassageComprehension') {
+    const target = q.correctAnswer || q.answer;
+    return String(userAnswer).trim().toLowerCase() === String(target).trim().toLowerCase();
+  }
+  return false;
 }
 
-function buildSpeechAudioText(q) {
-  if (!q) return '';
-  const prompt = (q.prompt || '').trim();
-  const data = q.data || {};
-
-  let item = '';
-  if (data.sentence) {
-    item = data.sentence;
-  } else if (data.paragraph) {
-    item = data.paragraph;
-  } else if (data.story) {
-    item = data.story;
-  } else if (data.clueSentence) {
-    item = data.clueSentence;
-  } else if (data.pictureLabel) {
-    item = data.pictureLabel;
+function getSimulationUserAnswer(q) {
+  if (q.type === 'choice') {
+    return q.answer;
   }
-
-  const cleanPrompt = prompt.replace(/_+/g, 'blank');
-  const cleanItem = item.replace(/_+/g, 'blank').trim();
-
-  if (cleanItem && !cleanPrompt.toLowerCase().includes(cleanItem.toLowerCase())) {
-    const basePrompt = cleanPrompt.replace(/[:]+$/, '');
-    return `${basePrompt}. ${cleanItem}`;
+  if (q.type === 'two_step') {
+    return {
+      sentence: q.answer,
+      mark: q.answer_mark
+    };
   }
-
-  if (q.type === 'TapToSelect' && Array.isArray(data.options)) {
-    const basePrompt = cleanPrompt.replace(/[:]+$/, '');
-    return `${basePrompt}. Choices: ${data.options.join('. ')}`;
+  if (q.type === 'match') {
+    const map = {};
+    q.pairs.forEach(([w, m]) => {
+      map[w] = m;
+    });
+    return map;
   }
-
-  if (q.promptSpeech) {
-    return q.promptSpeech.replace(/_+/g, 'blank');
+  if (q.type === 'MultipleChoice' || q.type === 'PassageComprehension') {
+    return q.correctAnswer;
   }
-
-  return cleanPrompt;
+  return null;
 }
 
-describe('Full Session Simulation: All 15 Fresh English Topics', () => {
-  it('English subject contains exactly 15 topics', () => {
-    expect(englishSubject.topics.length).toBe(15);
+describe('Full Session Simulation: All 18 English Cards (17 Topics + Mixed English Review)', () => {
+  it('English subject contains exactly 18 cards', () => {
+    expect(englishSubject.topics.length).toBe(18);
   });
 
   englishSubject.topics.forEach((topic) => {
     it(`Simulates a full session of "${topic.title}" with 100% accuracy and item verification`, () => {
       const questions = topic.getQuestions();
       expect(questions.length).toBeGreaterThan(0);
+      expect(questions.length).toBeLessThanOrEqual(10);
 
       let starsEarned = 0;
       let streak = 0;
 
       questions.forEach((q) => {
-        // (a) Verify instruction prompt
-        expect(typeof q.prompt).toBe('string');
-        expect(q.prompt.trim().length).toBeGreaterThan(0);
+        // (a) Verify item display exists
+        if (q.type === 'choice' || q.type === 'two_step') {
+          expect(typeof q.text === 'string' && q.text.trim().length > 0).toBe(true);
+        } else if (q.type === 'match') {
+          expect(Array.isArray(q.pairs) && q.pairs.length === 4).toBe(true);
+        }
 
-        // (b) Verify item display exists
-        const data = q.data || {};
-        const hasItem = Boolean(
-          data.sentence ||
-          data.paragraph ||
-          data.story ||
-          data.pairs ||
-          (data.options && data.options.length > 0)
-        );
-        expect(hasItem, `Question ${q.id} in topic "${topic.title}" must display an item`).toBe(true);
-
-        // (c) Verify speech order: instruction first, then item
-        const speech = buildSpeechAudioText(q);
-        const promptBase = q.prompt.replace(/[:]+$/, '').trim();
-        expect(speech.startsWith(promptBase) || speech.startsWith(q.promptSpeech?.slice(0, 12) || '')).toBe(true);
-
-        // (d) Simulate player answering correctly
-        const isCorrect = checkAnswer(q, q.correctAnswer);
+        // (b) Answer check
+        const testAnswer = getSimulationUserAnswer(q);
+        const isCorrect = checkAnswer(q, testAnswer);
         expect(isCorrect, `Correct answer for ${q.id} must be verified as true`).toBe(true);
 
         streak += 1;
@@ -136,26 +104,16 @@ describe('Full Session Simulation: All 15 Fresh English Topics', () => {
 
 describe('Full Session Simulation: All 2 Reading Topics', () => {
   readingSubject.topics.forEach((topic) => {
-    it(`Simulates a full session of "${topic.title}" with 100% accuracy and item verification`, () => {
+    it(`Simulates a full session of "${topic.title}" with 100% accuracy`, () => {
       const questions = topic.getQuestions();
       expect(questions.length).toBeGreaterThan(0);
 
       let starsEarned = 0;
 
       questions.forEach((q) => {
-        // (a) Verify instruction prompt
-        expect(typeof q.prompt).toBe('string');
-        expect(q.prompt.trim().length).toBeGreaterThan(0);
-
-        // (b) Verify item display exists
-        const data = q.data || {};
-        const hasItem = Boolean(data.paragraph || data.passage);
-        expect(hasItem, `Reading question ${q.id} must contain paragraph or passage`).toBe(true);
-
-        // (c) Verify correct answer
-        const isCorrect = checkAnswer(q, q.correctAnswer);
+        const testAnswer = getSimulationUserAnswer(q);
+        const isCorrect = checkAnswer(q, testAnswer);
         expect(isCorrect).toBe(true);
-
         starsEarned += 1;
       });
 

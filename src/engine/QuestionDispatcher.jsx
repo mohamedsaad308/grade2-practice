@@ -3,26 +3,61 @@ import FillInNumber from './FillInNumber.jsx';
 import CompareSymbols from './CompareSymbols.jsx';
 import DragToOrder from './DragToOrder.jsx';
 import MultipleChoice from './MultipleChoice.jsx';
-import LetterTiles from './LetterTiles.jsx';
-import WordBank from './WordBank.jsx';
-import MatchPairs from './MatchPairs.jsx';
-import TapToSelect from './TapToSelect.jsx';
-import TwoStep from './TwoStep.jsx';
 import PassageComprehension from './PassageComprehension.jsx';
+import ChoiceRenderer from './ChoiceRenderer.jsx';
+import TwoStepRenderer from './TwoStepRenderer.jsx';
+import MatchRenderer from './MatchRenderer.jsx';
 
 /**
- * Question Dispatcher: maps question.type to its reusable UI engine component.
- * Allows subjects (Math, English, Reading, Science) to use any question type transparently.
+ * Question Dispatcher: maps question.type to its engine renderer component.
+ * Supports:
+ * - English exact renderers: "choice", "two_step", "match"
+ * - Math renderers: "FillInNumber", "CompareSymbols", "DragToOrder"
+ * - Reading renderers: "MultipleChoice", "PassageComprehension"
  */
 export default function QuestionDispatcher({
   question,
   onSubmit,
   disabled = false,
-  soundEnabled = true
+  soundEnabled = true,
+  userAnswer = null
 }) {
   if (!question) return null;
 
   switch (question.type) {
+    // English renderers
+    case 'choice':
+      return (
+        <ChoiceRenderer
+          question={question}
+          onSubmit={onSubmit}
+          disabled={disabled}
+          soundEnabled={soundEnabled}
+          userAnswer={userAnswer}
+        />
+      );
+
+    case 'two_step':
+      return (
+        <TwoStepRenderer
+          question={question}
+          onSubmit={onSubmit}
+          disabled={disabled}
+          soundEnabled={soundEnabled}
+        />
+      );
+
+    case 'match':
+      return (
+        <MatchRenderer
+          question={question}
+          onSubmit={onSubmit}
+          disabled={disabled}
+          soundEnabled={soundEnabled}
+        />
+      );
+
+    // Math renderers
     case 'FillInNumber':
       return (
         <FillInNumber
@@ -53,59 +88,10 @@ export default function QuestionDispatcher({
         />
       );
 
+    // Reading renderers
     case 'MultipleChoice':
       return (
         <MultipleChoice
-          question={question}
-          onSubmit={onSubmit}
-          disabled={disabled}
-          soundEnabled={soundEnabled}
-        />
-      );
-
-    case 'LetterTiles':
-      return (
-        <LetterTiles
-          question={question}
-          onSubmit={onSubmit}
-          disabled={disabled}
-          soundEnabled={soundEnabled}
-        />
-      );
-
-    case 'WordBank':
-      return (
-        <WordBank
-          question={question}
-          onSubmit={onSubmit}
-          disabled={disabled}
-          soundEnabled={soundEnabled}
-        />
-      );
-
-    case 'MatchPairs':
-      return (
-        <MatchPairs
-          question={question}
-          onSubmit={onSubmit}
-          disabled={disabled}
-          soundEnabled={soundEnabled}
-        />
-      );
-
-    case 'TapToSelect':
-      return (
-        <TapToSelect
-          question={question}
-          onSubmit={onSubmit}
-          disabled={disabled}
-          soundEnabled={soundEnabled}
-        />
-      );
-
-    case 'TwoStep':
-      return (
-        <TwoStep
           question={question}
           onSubmit={onSubmit}
           disabled={disabled}
@@ -124,10 +110,6 @@ export default function QuestionDispatcher({
       );
 
     default:
-      return (
-        <div className="unsupported-question-type">
-          <p>Unknown question type: {question.type}</p>
-        </div>
-      );
+      throw new Error(`Unsupported question type: "${question.type}"`);
   }
 }

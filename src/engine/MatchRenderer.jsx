@@ -3,42 +3,55 @@ import { playPop } from '../utils/audio.js';
 import { shuffle } from '../utils/mathHelpers.js';
 
 const PAIR_COLORS = [
-  { bg: '#EFF6FF', border: '#3B82F6', badge: '#2563EB', badgeText: '#FFFFFF', num: '1' },
-  { bg: '#ECFDF5', border: '#10B981', badge: '#059669', badgeText: '#FFFFFF', num: '2' },
-  { bg: '#FFFBEB', border: '#F59E0B', badge: '#D97706', badgeText: '#FFFFFF', num: '3' },
-  { bg: '#FDF2F8', border: '#EC4899', badge: '#DB2777', badgeText: '#FFFFFF', num: '4' }
+  { bg: '#EFF6FF', border: '#3B82F6', badge: '#2563EB', text: '#1E3A8A', num: '1' },
+  { bg: '#ECFDF5', border: '#10B981', badge: '#059669', text: '#064E3B', num: '2' },
+  { bg: '#FFFBEB', border: '#F59E0B', badge: '#D97706', text: '#78350F', num: '3' },
+  { bg: '#FDF2F8', border: '#EC4899', badge: '#DB2777', text: '#831843', num: '4' }
 ];
 
-export default function MatchPairs({
+/**
+ * Renderer for "match" questions:
+ * Tap a word, then tap its meaning; matched pairs lock with a color.
+ * All 4 pairs must be matched to submit.
+ *
+ * Throws a visible error if pairs are missing.
+ */
+export default function MatchRenderer({
   question,
   onSubmit,
   disabled = false,
   soundEnabled = true
 }) {
-  const { pairs = [] } = question.data || {};
+  if (!question) return null;
 
-  const [words, setWords] = useState([]);
-  const [meanings, setMeanings] = useState([]);
+  // Strict quality check
+  if (!Array.isArray(question.pairs) || question.pairs.length === 0) {
+    throw new Error(
+      `MatchRenderer: question "${question.id || 'unknown'}" is missing required "pairs" array.`
+    );
+  }
+
+  const [words, setWords] = useState(() => (question?.pairs ? question.pairs.map(p => p[0]) : []));
+  const [meanings, setMeanings] = useState(() => (question?.pairs ? shuffle(question.pairs.map(p => p[1])) : []));
   const [selectedWord, setSelectedWord] = useState(null);
   const [selectedMeaning, setSelectedMeaning] = useState(null);
   // Map of word -> meaning
   const [matches, setMatches] = useState({});
 
   useEffect(() => {
-    const wordList = pairs.map(p => p.word);
-    const meaningList = shuffle(pairs.map(p => p.meaning));
+    const wordList = question.pairs.map(p => p[0]);
+    const meaningList = shuffle(question.pairs.map(p => p[1]));
     setWords(wordList);
     setMeanings(meaningList);
     setSelectedWord(null);
     setSelectedMeaning(null);
     setMatches({});
-  }, [question?.id]);
+  }, [question.id]);
 
   const handleWordClick = (word) => {
     if (disabled) return;
     playPop(soundEnabled);
 
-    // If meaning is already selected, form a match immediately
     if (selectedMeaning) {
       setMatches(prev => ({
         ...prev,
@@ -47,7 +60,6 @@ export default function MatchPairs({
       setSelectedWord(null);
       setSelectedMeaning(null);
     } else {
-      // Toggle word selection
       setSelectedWord(prev => (prev === word ? null : word));
     }
   };
@@ -56,7 +68,6 @@ export default function MatchPairs({
     if (disabled) return;
     playPop(soundEnabled);
 
-    // If word is already selected, form a match immediately
     if (selectedWord) {
       setMatches(prev => ({
         ...prev,
@@ -65,7 +76,6 @@ export default function MatchPairs({
       setSelectedWord(null);
       setSelectedMeaning(null);
     } else {
-      // Toggle meaning selection
       setSelectedMeaning(prev => (prev === meaning ? null : meaning));
     }
   };
@@ -81,11 +91,10 @@ export default function MatchPairs({
   };
 
   const handleSubmit = () => {
-    if (disabled || Object.keys(matches).length < pairs.length) return;
+    if (disabled || Object.keys(matches).length < question.pairs.length) return;
     onSubmit(matches);
   };
 
-  // Find color index for a matched pair
   const getPairStyle = (word) => {
     const matchedWords = Object.keys(matches);
     const pairIdx = matchedWords.indexOf(word);
@@ -99,19 +108,19 @@ export default function MatchPairs({
     return Object.keys(matches).find(w => matches[w] === meaning);
   };
 
-  const isComplete = Object.keys(matches).length === pairs.length;
+  const isComplete = Object.keys(matches).length === question.pairs.length;
 
   return (
-    <div className="match-pairs-container">
-      <div className="match-pairs-instruction-bar">
-        <span>Tap a word on the left, then tap its meaning on the right to connect them!</span>
+    <div className="match-renderer-container">
+      <div className="match-instruction-bar">
+        <span>👉 Tap a word on the left, then tap its meaning on the right!</span>
       </div>
 
       <div className="match-columns-grid">
-        {/* Left Column: Words */}
+        {/* Words Column */}
         <div className="match-column words-column" role="group" aria-label="Vocabulary words">
-          <h3 className="column-title">Vocabulary Word</h3>
-          <div className="match-cards-list">
+          <h4 className="match-column-header">Vocabulary Word</h4>
+          <div className="match-cards-stack">
             {words.map((word) => {
               const isSelected = selectedWord === word;
               const isPaired = Boolean(matches[word]);
@@ -125,25 +134,26 @@ export default function MatchPairs({
                   style={isPaired && style ? { backgroundColor: style.bg, borderColor: style.border } : {}}
                   disabled={disabled}
                   onClick={() => handleWordClick(word)}
+                  aria-pressed={isSelected}
                   aria-label={`Word ${word}${isPaired ? ' (matched)' : ''}`}
                 >
-                  <span className="card-main-text">{word}</span>
+                  <span className="card-text-primary">{word}</span>
                   {isPaired && style && (
                     <span
-                      className="pair-number-badge"
-                      style={{ backgroundColor: style.badge, color: style.badgeText }}
+                      className="pair-lock-badge"
+                      style={{ backgroundColor: style.badge, color: '#FFFFFF' }}
                     >
                       Pair {style.num}
                     </span>
                   )}
                   {isPaired && !disabled && (
                     <span
-                      className="card-unpair-btn"
+                      className="card-unmatch-x"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleUnmatch(word);
                       }}
-                      title="Unmatch"
+                      title="Undo match"
                     >
                       ✕
                     </span>
@@ -154,10 +164,10 @@ export default function MatchPairs({
           </div>
         </div>
 
-        {/* Right Column: Meanings */}
+        {/* Meanings Column */}
         <div className="match-column meanings-column" role="group" aria-label="Word meanings">
-          <h3 className="column-title">Meaning / Definition</h3>
-          <div className="match-cards-list">
+          <h4 className="match-column-header">Meaning</h4>
+          <div className="match-cards-stack">
             {meanings.map((meaning, idx) => {
               const isSelected = selectedMeaning === meaning;
               const matchedWord = getWordForMeaning(meaning);
@@ -166,19 +176,20 @@ export default function MatchPairs({
 
               return (
                 <button
-                  key={idx}
+                  key={`${meaning}-${idx}`}
                   type="button"
                   className={`match-card-btn meaning-card ${isSelected ? 'card-selected' : ''} ${isPaired ? 'card-paired' : ''}`}
                   style={isPaired && style ? { backgroundColor: style.bg, borderColor: style.border } : {}}
                   disabled={disabled}
                   onClick={() => handleMeaningClick(meaning)}
-                  aria-label={`Meaning: ${meaning}${isPaired ? ` (matched with ${matchedWord})` : ''}`}
+                  aria-pressed={isSelected}
+                  aria-label={`Meaning ${meaning}${isPaired ? ` (matched with ${matchedWord})` : ''}`}
                 >
-                  <span className="card-main-text">{meaning}</span>
+                  <span className="card-text-primary">{meaning}</span>
                   {isPaired && style && (
                     <span
-                      className="pair-number-badge"
-                      style={{ backgroundColor: style.badge, color: style.badgeText }}
+                      className="pair-lock-badge"
+                      style={{ backgroundColor: style.badge, color: '#FFFFFF' }}
                     >
                       Pair {style.num}
                     </span>
@@ -190,10 +201,10 @@ export default function MatchPairs({
         </div>
       </div>
 
-      {/* Progress & Submit */}
+      {/* Progress & Submit Bar */}
       <div className="match-footer-bar">
-        <span className="matched-counter">
-          {Object.keys(matches).length} of {pairs.length} pairs connected
+        <span className="match-status-counter">
+          {Object.keys(matches).length} of {question.pairs.length} pairs matched
         </span>
         <button
           type="button"

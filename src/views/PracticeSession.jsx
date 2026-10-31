@@ -77,9 +77,46 @@ export default function PracticeSession({
 
   const checkAnswer = (userAnswer) => {
     if (!currentQuestion) return false;
-    const { type, correctAnswer } = currentQuestion;
+    const { type } = currentQuestion;
 
+    // English: choice
+    if (type === 'choice') {
+      if (!userAnswer) return false;
+      const cleanUser = String(userAnswer).trim().toLowerCase();
+      const cleanAns = String(currentQuestion.answer).trim().toLowerCase();
+      if (cleanUser === cleanAns) return true;
+      if (Array.isArray(currentQuestion.accepted)) {
+        return currentQuestion.accepted.some(
+          acc => String(acc).trim().toLowerCase() === cleanUser
+        );
+      }
+      return false;
+    }
+
+    // English: two_step
+    if (type === 'two_step') {
+      if (!userAnswer || typeof userAnswer !== 'object') return false;
+      const sentenceMatch =
+        String(userAnswer.sentence).trim().toLowerCase() ===
+        String(currentQuestion.answer).trim().toLowerCase();
+      const markMatch =
+        String(userAnswer.mark).trim() ===
+        String(currentQuestion.answer_mark).trim();
+      return sentenceMatch && markMatch;
+    }
+
+    // English: match
+    if (type === 'match') {
+      if (!userAnswer || typeof userAnswer !== 'object') return false;
+      if (!Array.isArray(currentQuestion.pairs)) return false;
+      return currentQuestion.pairs.every(([word, meaning]) => {
+        return userAnswer[word] === meaning;
+      });
+    }
+
+    // Math: DragToOrder
     if (type === 'DragToOrder') {
+      const correctAnswer = currentQuestion.correctAnswer;
       if (!Array.isArray(userAnswer) || !Array.isArray(correctAnswer)) return false;
       return (
         userAnswer.length === correctAnswer.length &&
@@ -87,37 +124,14 @@ export default function PracticeSession({
       );
     }
 
+    // Math: FillInNumber
     if (type === 'FillInNumber') {
-      return Number(userAnswer) === Number(correctAnswer);
+      return Number(userAnswer) === Number(currentQuestion.correctAnswer);
     }
 
-    if (type === 'MatchPairs') {
-      if (!userAnswer || typeof userAnswer !== 'object') return false;
-      const keys = Object.keys(correctAnswer);
-      return (
-        keys.length === Object.keys(userAnswer).length &&
-        keys.every(k => userAnswer[k] === correctAnswer[k])
-      );
-    }
-
-    if (type === 'TapToSelect') {
-      if (!Array.isArray(userAnswer) || !Array.isArray(correctAnswer)) return false;
-      if (userAnswer.length !== correctAnswer.length) return false;
-      const userSorted = [...userAnswer].map(s => String(s).trim().toLowerCase()).sort();
-      const correctSorted = [...correctAnswer].map(s => String(s).trim().toLowerCase()).sort();
-      return userSorted.every((val, idx) => val === correctSorted[idx]);
-    }
-
-    if (type === 'TwoStep') {
-      if (!userAnswer || typeof userAnswer !== 'object') return false;
-      return (
-        String(userAnswer.sentence).trim().toLowerCase() === String(correctAnswer.sentence).trim().toLowerCase() &&
-        String(userAnswer.punctuation).trim() === String(correctAnswer.punctuation).trim()
-      );
-    }
-
-    // Default string comparison (LetterTiles, WordBank, MultipleChoice)
-    return String(userAnswer).trim().toLowerCase() === String(correctAnswer).trim().toLowerCase();
+    // Math: CompareSymbols / Reading: MultipleChoice / PassageComprehension
+    const target = currentQuestion.correctAnswer || currentQuestion.answer;
+    return String(userAnswer).trim().toLowerCase() === String(target).trim().toLowerCase();
   };
 
   const handleAnswerSubmit = (userAnswer) => {
@@ -172,14 +186,14 @@ export default function PracticeSession({
       playGentleWrongSound(soundEnabled);
 
       if (attemptNumber === 1) {
-        // First try failed: gentle encouragement and teaching hint, allow retry!
+        // First try failed: gentle encouragement and topic hint, allow retry!
         const gentleMsg = getFeedback('wrong', playerName);
         setFeedback({
           type: 'wrong',
           text: gentleMsg,
           isCorrect: false,
           showExplanation: false,
-          hint: currentQuestion.hint
+          hint: currentQuestion.topicHint || currentQuestion.hint
         });
         setMascotMood('thinking');
         setAttemptNumber(2);
@@ -189,15 +203,13 @@ export default function PracticeSession({
         }
       } else {
         // Second try failed: reveal answer gently with explanation
-        let displayAns = currentQuestion.correctAnswer;
-        if (Array.isArray(currentQuestion.correctAnswer)) {
-          displayAns = currentQuestion.correctAnswer.join(', ');
-        } else if (currentQuestion.type === 'TwoStep' && typeof currentQuestion.correctAnswer === 'object') {
-          const optObj = currentQuestion.data?.options?.find(o => o.id === currentQuestion.correctAnswer.sentence);
-          const sentText = optObj ? optObj.text : currentQuestion.correctAnswer.sentence;
-          displayAns = `"${sentText}" with end mark [ ${currentQuestion.correctAnswer.punctuation} ]`;
-        } else if (typeof currentQuestion.correctAnswer === 'object' && currentQuestion.correctAnswer !== null) {
-          displayAns = Object.entries(currentQuestion.correctAnswer).map(([w, m]) => `${w} = ${m}`).join(' | ');
+        let displayAns = currentQuestion.answer || currentQuestion.correctAnswer;
+        if (currentQuestion.type === 'two_step') {
+          displayAns = `"${currentQuestion.answer}" with end mark [ ${currentQuestion.answer_mark} ]`;
+        } else if (currentQuestion.type === 'match' && Array.isArray(currentQuestion.pairs)) {
+          displayAns = currentQuestion.pairs.map(([w, m]) => `${w} = ${m}`).join(' | ');
+        } else if (Array.isArray(displayAns)) {
+          displayAns = displayAns.join(', ');
         }
 
         setFeedback({
@@ -206,7 +218,7 @@ export default function PracticeSession({
           isCorrect: false,
           showExplanation: true,
           correctAnswerDisplay: displayAns,
-          explanation: currentQuestion.explanation
+          explanation: currentQuestion.explanation || currentQuestion.topicHint || currentQuestion.hint
         });
         setMascotMood('supportive');
 
@@ -257,9 +269,53 @@ export default function PracticeSession({
 
   const isQuestionAnswered = feedback?.isCorrect || feedback?.showExplanation;
 
-  // Build audio text for the read aloud button: reads instruction AND item in that order
+  // Build audio text for the read aloud button: reads instruction, then text (say "blank" for ___), then options
   const buildSpeechAudioText = (q) => {
     if (!q) return '';
+
+    // English choice
+    if (q.type === 'choice') {
+      const parts = [];
+      const instruction = q.prompt || q.instruction || topic?.instruction;
+      if (instruction) parts.push(instruction.replace(/[:]+$/, ''));
+      if (q.text) {
+        parts.push(q.text.replace(/_+/g, 'blank'));
+      }
+      if (Array.isArray(q.options) && q.options.length > 0) {
+        parts.push('Options: ' + q.options.join(', '));
+      }
+      return parts.join('. ');
+    }
+
+    // English two_step
+    if (q.type === 'two_step') {
+      const parts = [];
+      if (q.text) parts.push(q.text);
+      if (Array.isArray(q.options)) {
+        parts.push('Sentence choices: ' + q.options.join(', '));
+      }
+      if (Array.isArray(q.marks)) {
+        const markNames = q.marks.map(m =>
+          m === '.' ? 'period' : m === '?' ? 'question mark' : 'exclamation point'
+        );
+        parts.push('Marks: ' + markNames.join(', '));
+      }
+      return parts.join('. ');
+    }
+
+    // English match
+    if (q.type === 'match') {
+      const parts = [];
+      const instruction = q.instruction || topic?.instruction || 'Match each word with its meaning.';
+      parts.push(instruction);
+      if (Array.isArray(q.pairs)) {
+        const words = q.pairs.map(p => p[0]);
+        parts.push('Words to match: ' + words.join(', '));
+      }
+      return parts.join('. ');
+    }
+
+    // Math & Reading existing fallback
     const prompt = (q.prompt || '').trim();
     const data = q.data || {};
 
@@ -298,6 +354,14 @@ export default function PracticeSession({
 
   const fullSpeechPrompt = buildSpeechAudioText(currentQuestion);
 
+  const displayHeaderInstruction =
+    currentQuestion.prompt ||
+    currentQuestion.instruction ||
+    topic?.instruction ||
+    topic?.description ||
+    topic?.title ||
+    currentQuestion.text;
+
   return (
     <div className="practice-session-view">
       <ConfettiCanvas trigger={confettiTrigger} />
@@ -333,7 +397,7 @@ export default function PracticeSession({
       <div className={`question-stage-card ${isShake ? 'shake-animation' : ''}`}>
         <div className="question-header-row">
           <div className="question-prompt-group">
-            <h2 className="question-prompt-text">{currentQuestion.prompt}</h2>
+            <h2 className="question-prompt-text">{displayHeaderInstruction}</h2>
             {currentQuestion.promptSub && (
               <div className="question-sub-prompt">{currentQuestion.promptSub}</div>
             )}
