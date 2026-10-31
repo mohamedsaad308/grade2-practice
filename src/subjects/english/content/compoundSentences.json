@@ -1,0 +1,23 @@
+[
+  {
+    "id": "eng_compound_1",
+    "type": "TapToSelect",
+    "prompt": "Tap to select the compound sentences (2 correct answers):",
+    "promptSpeech": "Tap to select the two compound sentences from the choices below.",
+    "data": {
+      "options": [
+        "I wanted to go outside, but it was too cold.",
+        "Tom finished his homework.",
+        "She goes to the park on Sundays.",
+        "Rita was tired, so she went to bed early."
+      ],
+      "requiredCount": 2
+    },
+    "correctAnswer": [
+      "I wanted to go outside, but it was too cold.",
+      "Rita was tired, so she went to bed early."
+    ],
+    "hint": "A compound sentence joins two complete thoughts with , and / , but / , so;",
+    "explanation": "\"I wanted to go outside, but it was too cold.\" and \"Rita was tired, so she went to bed early.\" both combine two complete sentences with a comma and connecting word (, but / , so)."
+  }
+]

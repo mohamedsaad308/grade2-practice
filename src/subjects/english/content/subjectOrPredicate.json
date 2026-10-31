@@ -1,0 +1,41 @@
+[
+  {
+    "id": "eng_subj_pred_1",
+    "type": "MultipleChoice",
+    "prompt": "Compound subject or compound predicate?",
+    "promptSpeech": "Compound subject or compound predicate: Mr. Scott draws and writes on the computer.",
+    "data": {
+      "sentence": "Mr. Scott draws and writes on the computer.",
+      "options": ["Compound subject", "Compound predicate"]
+    },
+    "correctAnswer": "Compound predicate",
+    "hint": "A compound subject has two or more doers; a compound predicate has two or more actions.",
+    "explanation": "Mr. Scott is doing two actions: 'draws' and 'writes'. That is a compound predicate!"
+  },
+  {
+    "id": "eng_subj_pred_2",
+    "type": "MultipleChoice",
+    "prompt": "Compound subject or compound predicate?",
+    "promptSpeech": "Compound subject or compound predicate: Apples and oranges are healthy.",
+    "data": {
+      "sentence": "Apples and oranges are healthy.",
+      "options": ["Compound subject", "Compound predicate"]
+    },
+    "correctAnswer": "Compound subject",
+    "hint": "A compound subject has two or more doers/naming words; a compound predicate has two or more actions.",
+    "explanation": "There are two naming words: 'Apples and oranges'. That is a compound subject!"
+  },
+  {
+    "id": "eng_subj_pred_3",
+    "type": "MultipleChoice",
+    "prompt": "Compound subject or compound predicate?",
+    "promptSpeech": "Compound subject or compound predicate: The students study and do their homework.",
+    "data": {
+      "sentence": "The students study and do their homework.",
+      "options": ["Compound subject", "Compound predicate"]
+    },
+    "correctAnswer": "Compound predicate",
+    "hint": "A compound subject has two or more doers; a compound predicate has two or more actions.",
+    "explanation": "The students perform two actions: 'study' and 'do'. That is a compound predicate!"
+  }
+]

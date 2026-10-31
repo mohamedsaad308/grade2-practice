@@ -114,22 +114,24 @@ export default function HomeView({
 
                 <p className="topic-card-desc">{topic.description}</p>
 
-                {/* Level Selector */}
-                <div className="level-selector-wrapper">
-                  <span className="level-select-label">Choose Level:</span>
-                  <div className="level-pill-group">
-                    {[1, 2, 3].map(lvl => (
-                      <button
-                        key={lvl}
-                        type="button"
-                        className={`level-pill-btn ${currentLevel === lvl ? 'active-level-pill' : ''}`}
-                        onClick={() => handleLevelChange(topic.id, lvl)}
-                      >
-                        {lvl === 1 ? '1 • Easy' : lvl === 2 ? '2 • Super' : '3 • Star'}
-                      </button>
-                    ))}
+                {/* Level Selector (if topic has multiple difficulty levels) */}
+                {topic.levels && topic.levels.length > 1 && (
+                  <div className="level-selector-wrapper">
+                    <span className="level-select-label">Choose Level:</span>
+                    <div className="level-pill-group">
+                      {topic.levels.map(lvl => (
+                        <button
+                          key={lvl}
+                          type="button"
+                          className={`level-pill-btn ${currentLevel === lvl ? 'active-level-pill' : ''}`}
+                          onClick={() => handleLevelChange(topic.id, lvl)}
+                        >
+                          {lvl === 1 ? '1 • Easy' : lvl === 2 ? '2 • Super' : '3 • Star'}
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {/* Topic Progress Footer */}
                 <div className="topic-card-footer">
@@ -141,7 +143,7 @@ export default function HomeView({
                     className="topic-start-btn"
                     onClick={() => handleStart(topic)}
                   >
-                    Play (10 Qs) ▶
+                    Play ({typeof topic.getQuestions === 'function' ? topic.getQuestions().length : 10} Qs) ▶
                   </button>
                 </div>
               </div>

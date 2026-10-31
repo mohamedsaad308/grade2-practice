@@ -1,7 +1,7 @@
 # Grade 2 Stars! Kid-Friendly Practice Website
 
 A kid-friendly practice website built specifically for a Grade 2 child.
-It starts with Math, but is architected so you can effortlessly add **English**, **Reading**, and **Science** without changing any core engine code.
+Features complete **Math** and **English** subjects, and is architected so you can effortlessly add more content, or add **Reading** and **Science** without changing any core engine code.
 
 ---
 
@@ -21,19 +21,42 @@ It starts with Math, but is architected so you can effortlessly add **English**,
   - Positive streak milestones (3 in a row, 5 in a row, 10/10 perfect score).
   - Gentle, encouraging feedback on first mistakes (*"Almost, Maya! Here's a hint."*) — never uses "wrong" or "bad".
   - Dual sound controls: Sound Effects (synthesized Web Audio) and Spoken Voice Praise (browser SpeechSynthesis).
+  - Read-aloud button on every question with speech synthesis.
 - **Reusable Question Engines (`src/engine/`)**:
-  - `FillInNumber`: Large tactile on-screen number pad (0-9, Backspace, Clear) + hardware keyboard support.
+  - `LetterTiles`: Large touch tiles for spelling and unscrambling with placed slots, undo, and clear.
+  - `WordBank`: Word cards row; child taps a card to fill the blank in a sentence.
+  - `MatchPairs`: Tactile two-column matching for vocabulary words and definitions.
+  - `TapToSelect`: Tap to select one or multiple sentences (supports multi-select compound sentences).
+  - `TwoStep`: Multi-phase card: pick the target sentence, then select the punctuation mark (`.`, `?`, `!`).
+  - `FillInNumber`: Large on-screen number pad (0-9, Backspace, Clear) + hardware keyboard support.
   - `CompareSymbols`: Big interactive cards for `>`, `<`, `=`.
-  - `DragToOrder`: Interactive ordering with both drag-and-drop and intuitive tap-to-swap cards.
-  - `MultipleChoice`: Big touch-ready option buttons.
-- **Grade 2 Math Topics (Numbers 0–999, never negative, computed by code)**:
-  1. **More/Less Than**: $\pm 1, 2, 5, 10, 100$ with place-value crossings (e.g., $630 - 2 = 628$, $295 + 10 = 305$, $399 + 1 = 400$).
-  2. **Compare Numbers**: Plain vs. plain, expanded notation (e.g., $325$ vs $300 + 20 + 5$, $502$ vs $500 + 2$), swapped digits ($418$ vs $481$), and equal cases.
-  3. **Order Greatest to Least**: 3 numbers with escalating shared/anagram digits ($243, 234, 324$).
-  4. **Order Least to Greatest**: 3 numbers ascending.
-- **Parent Dashboard (`/#/parent`)**:
-  - View per-player and per-topic accuracy (first-try mastery vs. second-try recovery).
-  - Rename players, reset individual progress, or delete profiles.
+  - `DragToOrder`: Tactile cards with both drag-and-drop and tap-to-swap ordering.
+  - `MultipleChoice`: Touch-ready option buttons.
+
+---
+
+## 📚 Included Subjects & Topics
+
+### 🔢 Math (Numbers 0–999, Algorithmic & Never Negative)
+1. **More/Less Than**: $\pm 1, 2, 5, 10, 100$ with place-value crossings ($630 - 2 = 628$, $295 + 10 = 305$, $399 + 1 = 400$).
+2. **Compare Numbers**: Plain vs. plain, expanded notation ($325$ vs $300 + 20 + 5$, $502$ vs $500 + 2$), and swapped digits ($418$ vs $481$).
+3. **Order Greatest to Least**: 3 numbers descending with anagram permutations ($243, 234, 324$).
+4. **Order Least to Greatest**: 3 numbers ascending.
+
+### 📖 English (13 Fixed Curriculum Topics in `src/subjects/english/content/*.json`)
+1. **Spelling with Pictures** (`LetterTiles`): Look at picture and spell word (cape, gate, cake, race).
+2. **Unscramble Letters** (`LetterTiles`): Sentence clue to unscramble rule, rose, nose, ride.
+3. **Complete Sentence with Word Bank** (`WordBank`): kit, kite, fin, fine.
+4. **Synonyms of Underlined Words** (`WordBank`): glad, large, warm, clever.
+5. **Vocabulary Match Pairs** (`MatchPairs`): easily, tasty, planet, frenzy.
+6. **Vocabulary Sentence Completion** (`MultipleChoice`): gasped, amount, scowl, perfect, queasy.
+7. **Punctuation: Exclamations** (`TwoStep`): Find exclamation and punctuate with `!`.
+8. **Punctuation: Statements** (`TwoStep`): Find statement and punctuate with `.`.
+9. **What Kind of Sentence Is It?** (`MultipleChoice`): command, exclamation, statement, question.
+10. **Find Compound Sentences** (`TapToSelect`): Select the two compound sentences.
+11. **Simple or Compound Sentence?** (`MultipleChoice`).
+12. **Compound Subject or Predicate?** (`MultipleChoice`).
+13. **Identify C.S or C.P** (`MultipleChoice`).
 
 ---
 
@@ -48,7 +71,7 @@ npm install
 ```bash
 npm run dev
 ```
-Open the local URL in your browser (e.g., `http://localhost:5173/`).
+Open `http://localhost:5173/` in your browser.
 
 ### 3. Run Unit Tests
 ```bash
@@ -59,140 +82,106 @@ npm test
 ```bash
 npm run build
 ```
-The output is generated in `./dist`.
 
 ---
 
-## 🏗️ Architecture & Project Structure
+## 📘 How to Add English Content
 
-```
-grade2/
-├── index.html
-├── package.json
-├── vite.config.js
-├── README.md
-├── src/
-│   ├── main.jsx
-│   ├── App.jsx                        # Hash-based routing & view dispatcher
-│   ├── index.css                      # Kid-friendly design system
-│   ├── player/
-│   │   ├── playerStorage.js           # Multi-player CRUD & per-player statistics
-│   │   ├── avatars.jsx                # 8 custom SVG cartoon animal avatars
-│   │   ├── WelcomeScreen.jsx          # First-load onboarding
-│   │   └── PlayerSwitcherModal.jsx    # Quick switcher & add player modal
-│   ├── feedback/
-│   │   ├── messages.js                # Personalized message templates with {name}
-│   │   └── feedbackManager.js         # Non-repeating randomizer
-│   ├── components/
-│   │   ├── Navbar.jsx                 # Player badge, star counter, sound/voice toggles
-│   │   ├── Mascot.jsx                 # Reactive SVG mascot (idle, waving, thinking, celebrating)
-│   │   ├── ConfettiCanvas.jsx         # Lightweight HTML5 Canvas confetti
-│   │   ├── ProgressBar.jsx            # 10-step colorful progress bar
-│   │   └── SpeechButton.jsx           # Read aloud button (SpeechSynthesis)
-│   ├── engine/
-│   │   ├── QuestionDispatcher.jsx     # Routes question.type to engine component
-│   │   ├── FillInNumber.jsx           # Virtual number pad & keyboard input
-│   │   ├── CompareSymbols.jsx         # Big >, <, = tactile buttons
-│   │   ├── DragToOrder.jsx            # Drag & tap-to-swap reordering
-│   │   └── MultipleChoice.jsx         # Choice grid
-│   ├── views/
-│   │   ├── HomeView.jsx               # Topic selector & level picker (Levels 1-3)
-│   │   ├── PracticeSession.jsx        # 10-question game loop with 1-retry hint flow
-│   │   ├── SessionSummary.jsx         # Star awards & streak recap
-│   │   └── ParentDashboard.jsx        # Per-topic accuracy & player management
-│   ├── subjects/
-│   │   ├── index.js                   # Central Subject Registry
-│   │   ├── math/                      # Math subject (4 topics)
-│   │   ├── english/                   # English placeholder & template
-│   │   ├── reading/                   # Reading placeholder & template
-│   │   └── science/                   # Science placeholder & template
-│   ├── utils/
-│   │   ├── audio.js                   # Web Audio API synthesizers (chime, pop, fanfare)
-│   │   ├── speech.js                  # SpeechSynthesis wrapper
-│   │   └── mathHelpers.js             # Random ranges, permutations, expanded forms
-│   └── tests/
-│       ├── mathGenerators.test.js     # Range 0-999, non-negative, accuracy tests
-│       ├── playerStorage.test.js      # Player isolation, add, switch, delete
-│       └── feedback.test.js           # Template replacement, non-repetition tests
+All English questions are **data-driven** and stored in JSON files under `src/subjects/english/content/`. You can add new questions or edit existing ones **without changing any code**.
+
+### 1. Add a Question to an Existing Topic
+
+Open the relevant JSON file in `src/subjects/english/content/` (e.g., `spelling.json`, `wordBank.json`, `vocabSentences.json`). Add a new JSON object to the array:
+
+#### Example A: Adding a Spelling Question (`LetterTiles`)
+```json
+{
+  "id": "eng_spell_5",
+  "type": "LetterTiles",
+  "prompt": "Look at the picture and spell the word:",
+  "promptSpeech": "Look at the picture and spell the word: lake.",
+  "data": {
+    "word": "lake",
+    "scrambled": ["k", "a", "e", "l"],
+    "pictureLabel": "a blue lake"
+  },
+  "correctAnswer": "lake",
+  "hint": "Silent e makes the vowel say its name! Think of water: l-a-k-e.",
+  "explanation": "l-a-k-e spells lake! The silent e makes the 'a' say its name."
+}
 ```
 
----
+#### Example B: Adding a Sentence Completion Question (`MultipleChoice`)
+```json
+{
+  "id": "eng_vocab_6",
+  "type": "MultipleChoice",
+  "prompt": "Choose the correct word to complete the sentence:",
+  "promptSpeech": "The bird flew over the lake.",
+  "data": {
+    "sentence": "The bird ___ high over the lake.",
+    "options": ["soared", "crawled", "slept"]
+  },
+  "correctAnswer": "soared",
+  "hint": "Which word means flying high in the air?",
+  "explanation": "soared means flew high up in the sky."
+}
+```
 
-## 📘 How to Add a New Subject (Step-by-Step)
+#### Example C: Adding a Word Bank Question (`WordBank`)
+```json
+{
+  "id": "eng_wordbank_4",
+  "type": "WordBank",
+  "prompt": "Choose a word from the word bank to complete the sentence:",
+  "promptSpeech": "The rabbit likes to hop.",
+  "data": {
+    "sentence": "The rabbit likes to ___ in the grass.",
+    "wordBank": ["hop", "hope", "cub", "cube"]
+  },
+  "correctAnswer": "hop",
+  "hint": "A short vowel sound: rabbits like to hop!",
+  "explanation": "hop has a short o sound: The rabbit likes to hop in the grass."
+}
+```
 
-Adding **English**, **Reading**, **Science**, or any new subject requires **zero changes to the core game loop, audio, player tracking, or parent dashboard**.
+### 2. Creating a Brand New English Topic
 
-### Step 1: Create a Topic Generator
-In your subject folder (for example, `src/subjects/english/topics/rhymingWords.js`):
-
+1. Create a new JSON content file in `src/subjects/english/content/<yourTopicName>.json`.
+2. Create a topic loader in `src/subjects/english/topics/<yourTopicName>.js`:
 ```javascript
+import myData from '../content/myTopic.json';
+import { shuffle } from '../../../utils/mathHelpers.js';
+
 export default {
-  id: 'english_rhymes',
-  title: 'Rhyming Words',
-  icon: '🎵',
-  description: 'Find words that end with the same sound.',
-  levels: [1, 2, 3],
-
-  generateQuestion(level = 1) {
-    const pairs = [
-      { word: 'cat', rhyme: 'hat', choices: ['hat', 'dog', 'sun'] },
-      { word: 'cake', rhyme: 'bake', choices: ['bake', 'frog', 'fish'] },
-      { word: 'star', rhyme: 'car', choices: ['car', 'tree', 'book'] }
-    ];
-
-    const item = pairs[Math.floor(Math.random() * pairs.length)];
-
-    return {
-      id: `eng_rhyme_${Date.now()}_${Math.random()}`,
-      type: 'MultipleChoice', // Or 'FillInNumber', 'DragToOrder', etc.
-      prompt: `Which word rhymes with "${item.word}"?`,
-      promptSpeech: `Which word rhymes with ${item.word}?`,
+  id: 'english_my_topic',
+  title: 'My Topic Title',
+  icon: '⭐',
+  description: 'Topic description for learners.',
+  getQuestions() {
+    return myData.map(q => ({
+      ...q,
       data: {
-        options: item.choices
-      },
-      correctAnswer: item.rhyme,
-      hint: 'Listen carefully to the ending sound of both words!',
-      explanation: `"${item.word}" and "${item.rhyme}" both end with the same sound.`
-    };
+        ...q.data,
+        options: q.data.options ? shuffle([...q.data.options]) : undefined
+      }
+    }));
   }
 };
 ```
-
-### Step 2: Register the Topic in the Subject Definition
-Open `src/subjects/english/index.js`:
-
-```javascript
-import rhymingWords from './topics/rhymingWords.js';
-
-export default {
-  id: 'english',
-  title: 'English',
-  icon: '📚',
-  color: '#EC4899',
-  description: 'Spelling, phonics, sight words, and grammar!',
-  isAvailable: true, // Mark active!
-  topics: [
-    rhymingWords
-  ]
-};
-```
-
-### Step 3: That's It!
-Save the file. When you open the website:
-- A new **English** tab will appear on the home screen.
-- Clicking it displays the "Rhyming Words" topic card with Level 1-3 selectors.
-- Starting practice launches the shared 10-question session with the child's name, personalized praise, streak confetti, and mascot reactions.
-- Accuracy statistics for "Rhyming Words" will automatically appear on the `/parent` page.
+3. Import and add it to the `topics` array in `src/subjects/english/index.js`.
+4. It will immediately appear in the English subject grid!
 
 ---
 
 ## 🧪 Testing
 
-Run the Vitest test suite at any time:
+Run the automated test suite at any time:
 ```bash
 npm test
 ```
 The test suite validates:
-- **Math correctness**: boundary checking ($0 \le n \le 999$), non-negativity, place-value crossing arithmetic, and anagram permutations.
+- **Math generation**: range 0–999, non-negativity, expanded notation, and descending/ascending sorting.
+- **English content files**: verifies every question has non-empty prompts, hints, explanations, scrambled anagram integrity, valid options, and correct answers.
 - **Player storage**: multi-player isolation, name sanitization (max 20 characters, trimmed), delete and switch logic.
 - **Feedback personalization**: dynamic name replacement, streak handling, and strict non-consecutive praise alternation.

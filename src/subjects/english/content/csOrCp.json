@@ -1,0 +1,54 @@
+[
+  {
+    "id": "eng_cs_cp_1",
+    "type": "MultipleChoice",
+    "prompt": "Write C.S for compound subject, C.P for compound predicate:",
+    "promptSpeech": "Write C.S for compound subject, C.P for compound predicate: Mary and John played basketball.",
+    "data": {
+      "sentence": "Mary and John played basketball.",
+      "options": ["C.S", "C.P"]
+    },
+    "correctAnswer": "C.S",
+    "hint": "A compound subject (C.S) has two or more doers; a compound predicate (C.P) has two or more actions.",
+    "explanation": "'Mary and John' are two doers (compound subject), so write C.S!"
+  },
+  {
+    "id": "eng_cs_cp_2",
+    "type": "MultipleChoice",
+    "prompt": "Write C.S for compound subject, C.P for compound predicate:",
+    "promptSpeech": "Write C.S for compound subject, C.P for compound predicate: The dog barked and wagged its tail.",
+    "data": {
+      "sentence": "The dog barked and wagged its tail.",
+      "options": ["C.S", "C.P"]
+    },
+    "correctAnswer": "C.P",
+    "hint": "A compound subject (C.S) has two or more doers; a compound predicate (C.P) has two or more actions.",
+    "explanation": "The dog does two actions: 'barked' and 'wagged' (compound predicate), so write C.P!"
+  },
+  {
+    "id": "eng_cs_cp_3",
+    "type": "MultipleChoice",
+    "prompt": "Write C.S for compound subject, C.P for compound predicate:",
+    "promptSpeech": "Write C.S for compound subject, C.P for compound predicate: The boys and girls sang loudly.",
+    "data": {
+      "sentence": "The boys and girls sang loudly.",
+      "options": ["C.S", "C.P"]
+    },
+    "correctAnswer": "C.S",
+    "hint": "A compound subject (C.S) has two or more doers; a compound predicate (C.P) has two or more actions.",
+    "explanation": "'The boys and girls' are two groups of doers (compound subject), so write C.S!"
+  },
+  {
+    "id": "eng_cs_cp_4",
+    "type": "MultipleChoice",
+    "prompt": "Write C.S for compound subject, C.P for compound predicate:",
+    "promptSpeech": "Write C.S for compound subject, C.P for compound predicate: The kids jumped and shouted with joy.",
+    "data": {
+      "sentence": "The kids jumped and shouted with joy.",
+      "options": ["C.S", "C.P"]
+    },
+    "correctAnswer": "C.P",
+    "hint": "A compound subject (C.S) has two or more doers; a compound predicate (C.P) has two or more actions.",
+    "explanation": "The kids do two actions: 'jumped' and 'shouted' (compound predicate), so write C.P!"
+  }
+]

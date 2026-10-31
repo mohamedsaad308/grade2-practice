@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import QuestionDispatcher from '../engine/QuestionDispatcher.jsx';
 import Mascot from '../components/Mascot.jsx';
 import ProgressBar from '../components/ProgressBar.jsx';
@@ -8,8 +8,6 @@ import { getFeedback } from '../feedback/feedbackManager.js';
 import { playSuccessSound, playGentleWrongSound, playCelebrationFanfare } from '../utils/audio.js';
 import { speakText } from '../utils/speech.js';
 import { recordSessionCompletion } from '../player/playerStorage.js';
-
-const SESSION_LENGTH = 10;
 
 export default function PracticeSession({
   player,
@@ -36,25 +34,31 @@ export default function PracticeSession({
   const soundEnabled = settings?.soundEnabled !== false;
   const spokenPraiseEnabled = settings?.spokenPraiseEnabled !== false;
 
-  // Generate 10 unique non-repeating questions on mount or topic/level change
+  // Initialize questions: if topic provides fixed questions via getQuestions(), use them in order.
+  // Otherwise, if topic provides generateQuestion(), generate a session of 10 unique questions.
   useEffect(() => {
-    const generated = [];
-    const signatures = new Set();
-    let safetyCounter = 0;
+    let generated = [];
 
-    while (generated.length < SESSION_LENGTH && safetyCounter < 100) {
-      safetyCounter++;
-      const q = topic.generateQuestion(level);
-      const signature = `${q.prompt}_${JSON.stringify(q.data)}_${q.correctAnswer}`;
-      if (!signatures.has(signature)) {
-        signatures.add(signature);
-        generated.push(q);
+    if (typeof topic.getQuestions === 'function') {
+      generated = topic.getQuestions(level);
+    } else if (typeof topic.generateQuestion === 'function') {
+      const SESSION_LENGTH = 10;
+      const signatures = new Set();
+      let safetyCounter = 0;
+
+      while (generated.length < SESSION_LENGTH && safetyCounter < 100) {
+        safetyCounter++;
+        const q = topic.generateQuestion(level);
+        const signature = `${q.prompt}_${JSON.stringify(q.data)}_${q.correctAnswer}`;
+        if (!signatures.has(signature)) {
+          signatures.add(signature);
+          generated.push(q);
+        }
       }
-    }
 
-    // If topic produced few permutations, top up
-    while (generated.length < SESSION_LENGTH) {
-      generated.push(topic.generateQuestion(level));
+      while (generated.length < SESSION_LENGTH) {
+        generated.push(topic.generateQuestion(level));
+      }
     }
 
     setQuestions(generated);
@@ -68,6 +72,7 @@ export default function PracticeSession({
     setSessionStars(0);
   }, [topic?.id, level]);
 
+  const sessionTotal = questions.length || 10;
   const currentQuestion = questions[currentIndex];
 
   const checkAnswer = (userAnswer) => {
@@ -86,7 +91,33 @@ export default function PracticeSession({
       return Number(userAnswer) === Number(correctAnswer);
     }
 
-    return String(userAnswer).trim() === String(correctAnswer).trim();
+    if (type === 'MatchPairs') {
+      if (!userAnswer || typeof userAnswer !== 'object') return false;
+      const keys = Object.keys(correctAnswer);
+      return (
+        keys.length === Object.keys(userAnswer).length &&
+        keys.every(k => userAnswer[k] === correctAnswer[k])
+      );
+    }
+
+    if (type === 'TapToSelect') {
+      if (!Array.isArray(userAnswer) || !Array.isArray(correctAnswer)) return false;
+      if (userAnswer.length !== correctAnswer.length) return false;
+      const userSorted = [...userAnswer].map(s => String(s).trim().toLowerCase()).sort();
+      const correctSorted = [...correctAnswer].map(s => String(s).trim().toLowerCase()).sort();
+      return userSorted.every((val, idx) => val === correctSorted[idx]);
+    }
+
+    if (type === 'TwoStep') {
+      if (!userAnswer || typeof userAnswer !== 'object') return false;
+      return (
+        String(userAnswer.sentence).trim().toLowerCase() === String(correctAnswer.sentence).trim().toLowerCase() &&
+        String(userAnswer.punctuation).trim() === String(correctAnswer.punctuation).trim()
+      );
+    }
+
+    // Default string comparison (LetterTiles, WordBank, MultipleChoice)
+    return String(userAnswer).trim().toLowerCase() === String(correctAnswer).trim().toLowerCase();
   };
 
   const handleAnswerSubmit = (userAnswer) => {
@@ -158,14 +189,23 @@ export default function PracticeSession({
         }
       } else {
         // Second try failed: reveal answer gently with explanation
+        let displayAns = currentQuestion.correctAnswer;
+        if (Array.isArray(currentQuestion.correctAnswer)) {
+          displayAns = currentQuestion.correctAnswer.join(', ');
+        } else if (currentQuestion.type === 'TwoStep' && typeof currentQuestion.correctAnswer === 'object') {
+          const optObj = currentQuestion.data?.options?.find(o => o.id === currentQuestion.correctAnswer.sentence);
+          const sentText = optObj ? optObj.text : currentQuestion.correctAnswer.sentence;
+          displayAns = `"${sentText}" with end mark [ ${currentQuestion.correctAnswer.punctuation} ]`;
+        } else if (typeof currentQuestion.correctAnswer === 'object' && currentQuestion.correctAnswer !== null) {
+          displayAns = Object.entries(currentQuestion.correctAnswer).map(([w, m]) => `${w} = ${m}`).join(' | ');
+        }
+
         setFeedback({
           type: 'revealed',
           text: `You're working hard, ${playerName}! Here is the answer:`,
           isCorrect: false,
           showExplanation: true,
-          correctAnswerDisplay: Array.isArray(currentQuestion.correctAnswer)
-            ? currentQuestion.correctAnswer.join(', ')
-            : currentQuestion.correctAnswer,
+          correctAnswerDisplay: displayAns,
           explanation: currentQuestion.explanation
         });
         setMascotMood('supportive');
@@ -180,13 +220,13 @@ export default function PracticeSession({
   };
 
   const handleNextQuestion = () => {
-    if (currentIndex + 1 < SESSION_LENGTH) {
+    if (currentIndex + 1 < sessionTotal) {
       setCurrentIndex(prev => prev + 1);
       setAttemptNumber(1);
       setMascotMood('idle');
       setFeedback(null);
     } else {
-      // Completed all 10 questions!
+      // Completed all questions in the topic session!
       const totalStars = sessionStars;
       const updatedResults = [...sessionResults];
 
@@ -198,7 +238,7 @@ export default function PracticeSession({
         stars: totalStars,
         score: totalStars,
         maxStreak,
-        total: SESSION_LENGTH,
+        total: sessionTotal,
         subject,
         topic,
         level
@@ -216,6 +256,12 @@ export default function PracticeSession({
   }
 
   const isQuestionAnswered = feedback?.isCorrect || feedback?.showExplanation;
+
+  // Build audio text for the read aloud button
+  let fullSpeechPrompt = currentQuestion.promptSpeech || currentQuestion.prompt;
+  if (currentQuestion.data?.sentence && !fullSpeechPrompt.includes(currentQuestion.data.sentence)) {
+    fullSpeechPrompt = `${fullSpeechPrompt}. ${currentQuestion.data.sentence}`;
+  }
 
   return (
     <div className="practice-session-view">
@@ -235,16 +281,18 @@ export default function PracticeSession({
         <div className="session-topic-title-badge">
           <span className="topic-icon-mini">{topic.icon}</span>
           <span className="topic-title-mini">{topic.title}</span>
-          <span className="topic-level-mini">Level {level}</span>
+          {topic.levels && topic.levels.length > 1 && (
+            <span className="topic-level-mini">Level {level}</span>
+          )}
         </div>
 
         <div className="session-stars-tracker">
-          ⭐ <strong>{sessionStars}</strong> / {SESSION_LENGTH}
+          ⭐ <strong>{sessionStars}</strong> / {sessionTotal}
         </div>
       </div>
 
       {/* Progress Bar */}
-      <ProgressBar current={currentIndex + 1} total={SESSION_LENGTH} />
+      <ProgressBar current={currentIndex + 1} total={sessionTotal} />
 
       {/* Main Question Card with Shake on gentle attempt error */}
       <div className={`question-stage-card ${isShake ? 'shake-animation' : ''}`}>
@@ -256,7 +304,7 @@ export default function PracticeSession({
             )}
           </div>
           <SpeechButton
-            textToRead={currentQuestion.promptSpeech || currentQuestion.prompt}
+            textToRead={fullSpeechPrompt}
             label="Listen"
           />
         </div>
@@ -304,7 +352,7 @@ export default function PracticeSession({
                 onClick={handleNextQuestion}
                 autoFocus
               >
-                {currentIndex + 1 === SESSION_LENGTH ? 'See Results! 🏆' : 'Next Question ➡'}
+                {currentIndex + 1 === sessionTotal ? 'See Results! 🏆' : 'Next Question ➡'}
               </button>
             )}
           </div>

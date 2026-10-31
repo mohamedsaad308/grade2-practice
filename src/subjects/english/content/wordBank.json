@@ -1,0 +1,41 @@
+[
+  {
+    "id": "eng_wordbank_1",
+    "type": "WordBank",
+    "prompt": "Choose a word from the word bank to complete the sentence:",
+    "promptSpeech": "Tom flies his blank in the park. Choose the word from the word bank.",
+    "data": {
+      "sentence": "Tom flies his ___ in the park.",
+      "wordBank": ["kit", "kite", "fin", "fine"]
+    },
+    "correctAnswer": "kite",
+    "hint": "Silent e makes the vowel say its name! A kite flies high in the sky.",
+    "explanation": "kite has a long I sound with silent e: Tom flies his kite in the park!"
+  },
+  {
+    "id": "eng_wordbank_2",
+    "type": "WordBank",
+    "prompt": "Choose a word from the word bank to complete the sentence:",
+    "promptSpeech": "A fish moves its blank in the pond. Choose the word from the word bank.",
+    "data": {
+      "sentence": "A fish moves its ___ in the pond.",
+      "wordBank": ["kit", "kite", "fin", "fine"]
+    },
+    "correctAnswer": "fin",
+    "hint": "A short vowel sound: a fish uses its fin to swim in water.",
+    "explanation": "fin has a short i sound: A fish moves its fin in the pond!"
+  },
+  {
+    "id": "eng_wordbank_3",
+    "type": "WordBank",
+    "prompt": "Choose a word from the word bank to complete the sentence:",
+    "promptSpeech": "Rihana feels blank and happy. Choose the word from the word bank.",
+    "data": {
+      "sentence": "Rihana feels ___ and happy.",
+      "wordBank": ["kit", "kite", "fin", "fine"]
+    },
+    "correctAnswer": "fine",
+    "hint": "Silent e makes the vowel say its name! fine means feeling well and good.",
+    "explanation": "fine has a long I sound with silent e: Rihana feels fine and happy!"
+  }
+]

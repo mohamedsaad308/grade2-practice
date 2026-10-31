@@ -1,11 +1,16 @@
-/**
- * English Subject Plugin Template
- *
- * To activate English:
- * 1. Implement topic generator(s) in topics/ (e.g. sightWords.js, punctuation.js, nounsVerbs.js)
- * 2. Export the topics below and set isAvailable: true
- * 3. Import and add this subject to src/subjects/index.js
- */
+import spelling from './topics/spelling.js';
+import unscramble from './topics/unscramble.js';
+import completeSentence from './topics/completeSentence.js';
+import synonyms from './topics/synonyms.js';
+import vocabMatchPairs from './topics/vocabMatchPairs.js';
+import vocabSentences from './topics/vocabSentences.js';
+import punctuationExclamation from './topics/punctuationExclamation.js';
+import punctuationStatement from './topics/punctuationStatement.js';
+import sentenceTypes from './topics/sentenceTypes.js';
+import compoundSentences from './topics/compoundSentences.js';
+import simpleOrCompound from './topics/simpleOrCompound.js';
+import subjectOrPredicate from './topics/subjectOrPredicate.js';
+import csOrCp from './topics/csOrCp.js';
 
 export default {
   id: 'english',
@@ -13,30 +18,21 @@ export default {
   icon: '📚',
   color: '#EC4899', // Playful Pink
   lightColor: '#FDF2F8',
-  description: 'Spelling, phonics, sight words, and grammar for Grade 2!',
-  isAvailable: false, // Set to true when topics are ready to play!
+  description: 'Spelling, vocabulary, sentence types, and grammar for Grade 2 superstars!',
+  isAvailable: true,
   topics: [
-    /*
-    {
-      id: 'english_sight_words',
-      title: 'Sight Words & Spelling',
-      icon: '🔤',
-      description: 'Fill in the missing letters or pick the correct word.',
-      levels: [1, 2, 3],
-      generateQuestion(level) {
-        return {
-          id: `eng_sight_${Date.now()}`,
-          type: 'MultipleChoice', // or 'FillInNumber' or custom
-          prompt: 'Choose the word that rhymes with "light":',
-          data: {
-            options: ['night', 'coat', 'tree', 'jump']
-          },
-          correctAnswer: 'night',
-          hint: 'Words that rhyme have the same ending sound!',
-          explanation: '"light" and "night" both end with the "-ight" sound.'
-        };
-      }
-    }
-    */
+    spelling,
+    unscramble,
+    completeSentence,
+    synonyms,
+    vocabMatchPairs,
+    vocabSentences,
+    punctuationExclamation,
+    punctuationStatement,
+    sentenceTypes,
+    compoundSentences,
+    simpleOrCompound,
+    subjectOrPredicate,
+    csOrCp
   ]
 };

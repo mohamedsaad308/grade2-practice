@@ -1,0 +1,54 @@
+[
+  {
+    "id": "eng_sent_type_1",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "What kind of sentence is: What a beautiful day it is!",
+    "data": {
+      "sentence": "What a beautiful day it is!",
+      "options": ["command", "exclamation", "statement"]
+    },
+    "correctAnswer": "exclamation",
+    "hint": "An exclamation shows strong feeling and ends with !; a command tells someone to do something; a statement tells information.",
+    "explanation": "\"What a beautiful day it is!\" expresses excitement and ends with an exclamation point (!), so it is an exclamation."
+  },
+  {
+    "id": "eng_sent_type_2",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "What kind of sentence is: Can you help me with this problem?",
+    "data": {
+      "sentence": "Can you help me with this problem?",
+      "options": ["exclamation", "question", "command"]
+    },
+    "correctAnswer": "question",
+    "hint": "A question asks something and ends with ?; an exclamation shows strong feeling.",
+    "explanation": "\"Can you help me with this problem?\" asks for information or help and ends with a question mark (?), so it is a question."
+  },
+  {
+    "id": "eng_sent_type_3",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "What kind of sentence is: Don't touch that hot stove.",
+    "data": {
+      "sentence": "Don't touch that hot stove.",
+      "options": ["command", "statement", "exclamation"]
+    },
+    "correctAnswer": "command",
+    "hint": "A command tells someone to do (or not do) something; a statement tells facts or information.",
+    "explanation": "\"Don't touch that hot stove.\" gives a direct instruction or order, so it is a command."
+  },
+  {
+    "id": "eng_sent_type_4",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "What kind of sentence is: I can't believe we won the game!",
+    "data": {
+      "sentence": "I can't believe we won the game!",
+      "options": ["command", "exclamation", "question"]
+    },
+    "correctAnswer": "exclamation",
+    "hint": "An exclamation shows strong feeling and excitement and ends with !.",
+    "explanation": "\"I can't believe we won the game!\" shows strong excitement and feeling, so it is an exclamation."
+  }
+]

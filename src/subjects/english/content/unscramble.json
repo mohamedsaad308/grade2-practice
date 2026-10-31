@@ -1,0 +1,62 @@
+[
+  {
+    "id": "eng_unscramble_1",
+    "type": "LetterTiles",
+    "prompt": "Unscramble the letters to write the correct word:",
+    "promptSpeech": "The teacher explained the classroom rule. Unscramble the word.",
+    "data": {
+      "word": "rule",
+      "scrambled": ["r", "e", "u", "l"],
+      "clueSentence": "The teacher explained the classroom reul.",
+      "scrambledWord": "reul"
+    },
+    "correctAnswer": "rule",
+    "hint": "Silent e makes the vowel say its name! Think of a rule in the classroom.",
+    "explanation": "r-u-l-e spells rule. The silent e makes the 'u' say its name!"
+  },
+  {
+    "id": "eng_unscramble_2",
+    "type": "LetterTiles",
+    "prompt": "Unscramble the letters to write the correct word:",
+    "promptSpeech": "There is a nice rose in the vase. Unscramble the word.",
+    "data": {
+      "word": "rose",
+      "scrambled": ["s", "o", "r", "e"],
+      "clueSentence": "There is a nice sore in the vase.",
+      "scrambledWord": "sore"
+    },
+    "correctAnswer": "rose",
+    "hint": "Silent e makes the vowel say its name! What sweet-smelling flower goes in a vase? r-o-s-e.",
+    "explanation": "r-o-s-e spells rose. The flower in the vase is a rose!"
+  },
+  {
+    "id": "eng_unscramble_3",
+    "type": "LetterTiles",
+    "prompt": "Unscramble the letters to write the correct word:",
+    "promptSpeech": "I can smell with my nose. Unscramble the word.",
+    "data": {
+      "word": "nose",
+      "scrambled": ["n", "e", "o", "s"],
+      "clueSentence": "I can smell with my neos.",
+      "scrambledWord": "neos"
+    },
+    "correctAnswer": "nose",
+    "hint": "Silent e makes the vowel say its name! What do you smell with? n-o-s-e.",
+    "explanation": "n-o-s-e spells nose. You smell with your nose!"
+  },
+  {
+    "id": "eng_unscramble_4",
+    "type": "LetterTiles",
+    "prompt": "Unscramble the letters to write the correct word:",
+    "promptSpeech": "I ride my bike. Unscramble the word.",
+    "data": {
+      "word": "ride",
+      "scrambled": ["e", "r", "i", "d"],
+      "clueSentence": "I erid my bike.",
+      "scrambledWord": "erid"
+    },
+    "correctAnswer": "ride",
+    "hint": "Silent e makes the vowel say its name! What do you do on a bike? r-i-d-e.",
+    "explanation": "r-i-d-e spells ride. You ride your bike!"
+  }
+]

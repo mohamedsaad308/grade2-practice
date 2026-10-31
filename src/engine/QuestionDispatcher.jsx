@@ -3,6 +3,11 @@ import FillInNumber from './FillInNumber.jsx';
 import CompareSymbols from './CompareSymbols.jsx';
 import DragToOrder from './DragToOrder.jsx';
 import MultipleChoice from './MultipleChoice.jsx';
+import LetterTiles from './LetterTiles.jsx';
+import WordBank from './WordBank.jsx';
+import MatchPairs from './MatchPairs.jsx';
+import TapToSelect from './TapToSelect.jsx';
+import TwoStep from './TwoStep.jsx';
 
 /**
  * Question Dispatcher: maps question.type to its reusable UI engine component.
@@ -50,6 +55,56 @@ export default function QuestionDispatcher({
     case 'MultipleChoice':
       return (
         <MultipleChoice
+          question={question}
+          onSubmit={onSubmit}
+          disabled={disabled}
+          soundEnabled={soundEnabled}
+        />
+      );
+
+    case 'LetterTiles':
+      return (
+        <LetterTiles
+          question={question}
+          onSubmit={onSubmit}
+          disabled={disabled}
+          soundEnabled={soundEnabled}
+        />
+      );
+
+    case 'WordBank':
+      return (
+        <WordBank
+          question={question}
+          onSubmit={onSubmit}
+          disabled={disabled}
+          soundEnabled={soundEnabled}
+        />
+      );
+
+    case 'MatchPairs':
+      return (
+        <MatchPairs
+          question={question}
+          onSubmit={onSubmit}
+          disabled={disabled}
+          soundEnabled={soundEnabled}
+        />
+      );
+
+    case 'TapToSelect':
+      return (
+        <TapToSelect
+          question={question}
+          onSubmit={onSubmit}
+          disabled={disabled}
+          soundEnabled={soundEnabled}
+        />
+      );
+
+    case 'TwoStep':
+      return (
+        <TwoStep
           question={question}
           onSubmit={onSubmit}
           disabled={disabled}
