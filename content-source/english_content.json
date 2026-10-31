@@ -1,0 +1,2263 @@
+{
+ "meta": {
+  "subject": "English",
+  "grade": 2,
+  "term": "1st Quarter 2026-2027",
+  "note": "Fixed content. No random generation. Spelling is intentionally excluded.",
+  "schema": {
+   "choice": "text (may contain ___ blank), optional prompt shown above text, options[], answer, optional accepted[] (also correct), optional underline (word to underline in text), optional passage{title,sentences[]} (show numbered sentences above question), optional explanation",
+   "two_step": "pick one of options (text is the instruction), then pick an end mark from marks[]; answer and answer_mark are both required",
+   "match": "pairs[[word, meaning]] x4; tap a word then its meaning"
+  }
+ },
+ "topics": [
+  {
+   "id": "synonyms",
+   "title": "Synonyms",
+   "icon": "🔁",
+   "instruction": "Choose the synonym: a word that means almost the same.",
+   "type": "choice",
+   "hint": "Synonyms are words that mean almost the same thing, like happy and glad. Read the sentence, then pick the word with the same meaning.",
+   "source": "revision sheet + practice sheet",
+   "items": [
+    {
+     "text": "The baby is happy.",
+     "options": [
+      "glad",
+      "large",
+      "warm",
+      "clever"
+     ],
+     "answer": "glad",
+     "underline": "happy",
+     "id": "synonyms-01"
+    },
+    {
+     "text": "The box is big.",
+     "options": [
+      "glad",
+      "large",
+      "warm",
+      "clever"
+     ],
+     "answer": "large",
+     "underline": "big",
+     "id": "synonyms-02"
+    },
+    {
+     "text": "The soup is hot.",
+     "options": [
+      "glad",
+      "large",
+      "warm",
+      "clever"
+     ],
+     "answer": "warm",
+     "underline": "hot",
+     "id": "synonyms-03"
+    },
+    {
+     "text": "The student is smart.",
+     "options": [
+      "glad",
+      "large",
+      "warm",
+      "clever"
+     ],
+     "answer": "clever",
+     "underline": "smart",
+     "id": "synonyms-04"
+    },
+    {
+     "text": "What is a synonym for fast?",
+     "options": [
+      "quick",
+      "slow",
+      "cold",
+      "loud"
+     ],
+     "answer": "quick",
+     "underline": "fast",
+     "id": "synonyms-05"
+    },
+    {
+     "text": "What is a synonym for easy?",
+     "options": [
+      "hard",
+      "simple",
+      "strong",
+      "heavy"
+     ],
+     "answer": "simple",
+     "underline": "easy",
+     "id": "synonyms-06"
+    },
+    {
+     "text": "What is a synonym for begin?",
+     "options": [
+      "stop",
+      "finish",
+      "start",
+      "end"
+     ],
+     "answer": "start",
+     "underline": "begin",
+     "id": "synonyms-07"
+    },
+    {
+     "text": "What is a synonym for beautiful?",
+     "options": [
+      "pretty",
+      "ugly",
+      "dirty",
+      "mean"
+     ],
+     "answer": "pretty",
+     "underline": "beautiful",
+     "id": "synonyms-08"
+    },
+    {
+     "text": "What is a synonym for cold?",
+     "options": [
+      "chilly",
+      "hot",
+      "dry",
+      "warm"
+     ],
+     "answer": "chilly",
+     "underline": "cold",
+     "id": "synonyms-09"
+    },
+    {
+     "text": "What is a synonym for small?",
+     "options": [
+      "big",
+      "little",
+      "tall",
+      "loud"
+     ],
+     "answer": "little",
+     "underline": "small",
+     "id": "synonyms-10"
+    },
+    {
+     "text": "What is a synonym for angry?",
+     "options": [
+      "mad",
+      "glad",
+      "sleepy",
+      "calm"
+     ],
+     "answer": "mad",
+     "underline": "angry",
+     "id": "synonyms-11"
+    }
+   ]
+  },
+  {
+   "id": "vocab-sentences",
+   "title": "Power Words: Complete the Sentence",
+   "icon": "✏️",
+   "instruction": "Choose the word that completes the sentence.",
+   "type": "choice",
+   "hint": "Read the whole sentence first. Which word makes sense? Say each word in the blank and listen.",
+   "source": "revision sheet + practice sheet",
+   "items": [
+    {
+     "text": "She ___ in surprise when she saw the beautiful firework.",
+     "options": [
+      "gasped",
+      "strokes",
+      "tumbling"
+     ],
+     "answer": "gasped",
+     "id": "vocab-sentences-01"
+    },
+    {
+     "text": "My dad added a small ___ of sugar to his tea.",
+     "options": [
+      "example",
+      "amount",
+      "wisps"
+     ],
+     "answer": "amount",
+     "id": "vocab-sentences-02"
+    },
+    {
+     "text": "The boy had a ___ on his face when he lost the game.",
+     "options": [
+      "scowl",
+      "feud",
+      "plumes"
+     ],
+     "answer": "scowl",
+     "id": "vocab-sentences-03"
+    },
+    {
+     "text": "Her drawing was ___ and beautiful.",
+     "options": [
+      "disaster",
+      "perfect",
+      "frenzy"
+     ],
+     "answer": "perfect",
+     "id": "vocab-sentences-04"
+    },
+    {
+     "text": "I felt ___ after riding the fast roller coaster.",
+     "options": [
+      "queasy",
+      "mood",
+      "tasty"
+     ],
+     "answer": "queasy",
+     "id": "vocab-sentences-05"
+    },
+    {
+     "text": "When the teacher asked a question, Tom ___ with his pencil instead of answering.",
+     "options": [
+      "hamper",
+      "perfect",
+      "fiddled",
+      "mood"
+     ],
+     "answer": "fiddled",
+     "id": "vocab-sentences-06"
+    },
+    {
+     "text": "I felt ___ after eating too much candy.",
+     "options": [
+      "queasy",
+      "disaster",
+      "hamper",
+      "perfect"
+     ],
+     "answer": "queasy",
+     "id": "vocab-sentences-07"
+    },
+    {
+     "text": "The party was ___ because everything went just right.",
+     "options": [
+      "disaster",
+      "perfect",
+      "mood",
+      "scowl"
+     ],
+     "answer": "perfect",
+     "id": "vocab-sentences-08"
+    },
+    {
+     "text": "The flood was a terrible ___ for the small town.",
+     "options": [
+      "disaster",
+      "fiddled",
+      "scowl",
+      "planned"
+     ],
+     "answer": "disaster",
+     "id": "vocab-sentences-09"
+    },
+    {
+     "text": "We ___ our trip to the park for Saturday morning.",
+     "options": [
+      "scowl",
+      "mood",
+      "planned",
+      "perfect"
+     ],
+     "answer": "planned",
+     "id": "vocab-sentences-10"
+    },
+    {
+     "text": "My dirty clothes go in the ___ near my bed.",
+     "options": [
+      "fiddled",
+      "mood",
+      "planned",
+      "hamper"
+     ],
+     "answer": "hamper",
+     "id": "vocab-sentences-11"
+    },
+    {
+     "text": "The baby made a ___ when he didn't get his toy.",
+     "options": [
+      "scowl",
+      "queasy",
+      "perfect",
+      "hamper"
+     ],
+     "answer": "scowl",
+     "id": "vocab-sentences-12"
+    },
+    {
+     "text": "I was in a happy ___ after I heard the good news.",
+     "options": [
+      "disaster",
+      "mood",
+      "planned",
+      "hamper"
+     ],
+     "answer": "mood",
+     "id": "vocab-sentences-13"
+    }
+   ]
+  },
+  {
+   "id": "vocab-meanings",
+   "title": "Power Words: What Does It Mean?",
+   "icon": "💡",
+   "instruction": "Choose the Power Word that matches the meaning.",
+   "type": "choice",
+   "hint": "Think about what the question describes, then pick the word that fits best.",
+   "source": "practice sheet",
+   "items": [
+    {
+     "text": "Which word describes how you do something that is not too hard?",
+     "options": [
+      "planet",
+      "material",
+      "example",
+      "easily"
+     ],
+     "answer": "easily",
+     "id": "vocab-meanings-01"
+    },
+    {
+     "text": "Which word describes Earth?",
+     "options": [
+      "forms",
+      "planet",
+      "material",
+      "example"
+     ],
+     "answer": "planet",
+     "id": "vocab-meanings-02"
+    },
+    {
+     "text": "Which word describes your favorite food?",
+     "options": [
+      "planet",
+      "easily",
+      "tasty",
+      "amount"
+     ],
+     "answer": "tasty",
+     "id": "vocab-meanings-03"
+    },
+    {
+     "text": "Which word describes what something is made from?",
+     "options": [
+      "space",
+      "example",
+      "material",
+      "forms"
+     ],
+     "answer": "material",
+     "id": "vocab-meanings-04"
+    },
+    {
+     "text": "Which word means almost the same as an open area?",
+     "options": [
+      "forms",
+      "amount",
+      "space",
+      "material"
+     ],
+     "answer": "space",
+     "id": "vocab-meanings-05"
+    },
+    {
+     "text": "Which word tells how much there is of something?",
+     "options": [
+      "amount",
+      "tasty",
+      "easily",
+      "material"
+     ],
+     "answer": "amount",
+     "id": "vocab-meanings-06"
+    },
+    {
+     "text": "Which word describes shapes you can see or make?",
+     "options": [
+      "example",
+      "space",
+      "tasty",
+      "forms"
+     ],
+     "answer": "forms",
+     "id": "vocab-meanings-07"
+    },
+    {
+     "text": "Which word is used to explain how one thing is part of a group?",
+     "options": [
+      "tasty",
+      "amount",
+      "forms",
+      "example"
+     ],
+     "answer": "example",
+     "id": "vocab-meanings-08"
+    }
+   ]
+  },
+  {
+   "id": "vocab-match",
+   "title": "Match Words and Meanings",
+   "icon": "🧩",
+   "instruction": "Match each word with its meaning.",
+   "type": "match",
+   "hint": "Start with the one you are sure about. Then use what is left.",
+   "source": "revision sheet",
+   "items": [
+    {
+     "pairs": [
+      [
+       "easily",
+       "Doing something that is not hard"
+      ],
+      [
+       "tasty",
+       "Describe your favorite food"
+      ],
+      [
+       "planet",
+       "A large object in space, such as Earth, Jupiter, or Mars"
+      ],
+      [
+       "frenzy",
+       "Time of excitement"
+      ]
+     ],
+     "id": "vocab-match-01"
+    }
+   ]
+  },
+  {
+   "id": "vocab-true-false",
+   "title": "Does It Make Sense?",
+   "icon": "✅",
+   "instruction": "Is the sentence true or false?",
+   "type": "choice",
+   "hint": "Think about what the Power Word really means. Does the sentence make sense?",
+   "source": "practice sheet (item 7 was missing a number; renumbered)",
+   "items": [
+    {
+     "text": "A battleground is a place where teams play a friendly game.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": "False",
+     "id": "vocab-true-false-01"
+    },
+    {
+     "text": "A feud is a short and happy friendship.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": "False",
+     "id": "vocab-true-false-02"
+    },
+    {
+     "text": "A frenzy means people are very excited or wild.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": "True",
+     "id": "vocab-true-false-03"
+    },
+    {
+     "text": "When you gasped, you took a quick breath because you were surprised.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": "True",
+     "id": "vocab-true-false-04"
+    },
+    {
+     "text": "Plumes are short and flat pieces of wood.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": "False",
+     "id": "vocab-true-false-05"
+    },
+    {
+     "text": "Rocks tumbling down a hill are rolling and falling.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": "True",
+     "id": "vocab-true-false-06"
+    },
+    {
+     "text": "Wisps of smoke are small, thin lines of smoke in the air.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": "True",
+     "id": "vocab-true-false-07"
+    }
+   ]
+  },
+  {
+   "id": "vocab-think",
+   "title": "Think About the Word",
+   "icon": "🤔",
+   "instruction": "Read the question and choose the best answer.",
+   "type": "choice",
+   "hint": "Use what you know about the Power Word in the question.",
+   "source": "practice sheet (open questions turned into multiple choice)",
+   "items": [
+    {
+     "text": "What might make a person scowl?",
+     "options": [
+      "Feeling angry or annoyed",
+      "Getting a surprise gift",
+      "Eating ice cream"
+     ],
+     "answer": "Feeling angry or annoyed",
+     "id": "vocab-think-01"
+    },
+    {
+     "text": "What is a disaster that can happen in nature?",
+     "options": [
+      "An earthquake, flood, or storm",
+      "A birthday party",
+      "A school picnic"
+     ],
+     "answer": "An earthquake, flood, or storm",
+     "id": "vocab-think-02"
+    },
+    {
+     "text": "Why might someone gasp when watching a scary movie?",
+     "options": [
+      "Because they are frightened or surprised",
+      "Because they are sleepy",
+      "Because they are hungry"
+     ],
+     "answer": "Because they are frightened or surprised",
+     "id": "vocab-think-03"
+    },
+    {
+     "text": "What might cause plumes of smoke to rise into the sky?",
+     "options": [
+      "A fire",
+      "A snowman",
+      "A rainbow"
+     ],
+     "answer": "A fire",
+     "id": "vocab-think-04"
+    },
+    {
+     "text": "How might a person feel after eating too much food?",
+     "options": [
+      "Queasy or sick",
+      "Very hungry",
+      "Cold"
+     ],
+     "answer": "Queasy or sick",
+     "id": "vocab-think-05"
+    },
+    {
+     "text": "Which planet do we live on?",
+     "options": [
+      "Mars",
+      "Earth",
+      "Jupiter"
+     ],
+     "answer": "Earth",
+     "id": "vocab-think-06"
+    }
+   ]
+  },
+  {
+   "id": "end-marks",
+   "title": "Choose the End Mark",
+   "icon": "❗",
+   "instruction": "Choose the correct end mark for the sentence.",
+   "type": "choice",
+   "hint": "A statement or a command ends with a period (.). A question ends with a question mark (?). A sentence that shows strong feeling ends with an exclamation point (!).",
+   "source": "grammar printables 1.3.1, 1.3.3, 1.3.4 + practice sheet",
+   "items": [
+    {
+     "text": "Marteice and her sister have three dolls",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": ".",
+     "id": "end-marks-01"
+    },
+    {
+     "text": "The chicken flapped its wings",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": ".",
+     "id": "end-marks-02"
+    },
+    {
+     "text": "Where is the museum",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "?",
+     "id": "end-marks-03"
+    },
+    {
+     "text": "Is it my turn to play",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "?",
+     "id": "end-marks-04"
+    },
+    {
+     "text": "Rain poured from the sky",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": ".",
+     "id": "end-marks-05"
+    },
+    {
+     "text": "Did you hear the news",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "?",
+     "id": "end-marks-06"
+    },
+    {
+     "text": "The bananas are ripe",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": ".",
+     "id": "end-marks-07"
+    },
+    {
+     "text": "Will you read me a story",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "?",
+     "id": "end-marks-08"
+    },
+    {
+     "text": "Why do dogs pant",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "?",
+     "id": "end-marks-09"
+    },
+    {
+     "text": "Mr. Patel takes photos",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": ".",
+     "id": "end-marks-10"
+    },
+    {
+     "text": "Look both ways before you cross the road",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": ".",
+     "id": "end-marks-11"
+    },
+    {
+     "text": "Can we go to the movies now",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "?",
+     "id": "end-marks-12"
+    },
+    {
+     "text": "Will you help me pull weeds",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "?",
+     "id": "end-marks-13"
+    },
+    {
+     "text": "That tasted delicious",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": ".",
+     "accepted": [
+      "!"
+     ],
+     "id": "end-marks-14"
+    },
+    {
+     "text": "Please wash your hands before dinner",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": ".",
+     "id": "end-marks-15"
+    },
+    {
+     "text": "Are you ready for school",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "?",
+     "id": "end-marks-16"
+    },
+    {
+     "text": "Can you help me carry this bag",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "?",
+     "id": "end-marks-17"
+    },
+    {
+     "text": "The rainbow looks so pretty",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "!",
+     "id": "end-marks-18"
+    },
+    {
+     "text": "My mom really liked my story",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "!",
+     "id": "end-marks-19"
+    },
+    {
+     "text": "I found my lost watch",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "!",
+     "id": "end-marks-20"
+    },
+    {
+     "text": "Our team won the game",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "!",
+     "id": "end-marks-21"
+    },
+    {
+     "text": "That horse runs so fast",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "!",
+     "id": "end-marks-22"
+    },
+    {
+     "text": "The light is too bright",
+     "options": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer": "!",
+     "id": "end-marks-23"
+    }
+   ]
+  },
+  {
+   "id": "pick-punctuate",
+   "title": "Find the Sentence and Punctuate It",
+   "icon": "🔎",
+   "instruction": "Pick the right sentence, then choose its end mark.",
+   "type": "two_step",
+   "hint": "Exclamation = strong feeling (!). Statement = tells something (.).",
+   "source": "revision sheet (typo 'Bath your dog' fixed to 'Bathe')",
+   "items": [
+    {
+     "text": "Find the sentence that is an exclamation and punctuate it.",
+     "options": [
+      "We played soccer last weekend",
+      "Bathe your dog",
+      "That is an amazing dress"
+     ],
+     "answer": "That is an amazing dress",
+     "marks": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer_mark": "!",
+     "id": "pick-punctuate-01"
+    },
+    {
+     "text": "Find the sentence that is a statement and punctuate it.",
+     "options": [
+      "What is your name",
+      "The climbers decided to climb the high mountain",
+      "Look at the sky"
+     ],
+     "answer": "The climbers decided to climb the high mountain",
+     "marks": [
+      ".",
+      "?",
+      "!"
+     ],
+     "answer_mark": ".",
+     "id": "pick-punctuate-02"
+    }
+   ]
+  },
+  {
+   "id": "kinds",
+   "title": "What Kind of Sentence?",
+   "icon": "💬",
+   "instruction": "What kind of sentence is it?",
+   "type": "choice",
+   "hint": "Statement: tells something. Question: asks something. Command: gives an order. Exclamation: shows strong feeling.",
+   "source": "grammar printable 1.3.2 + revision sheet",
+   "items": [
+    {
+     "text": "Bring me your hat.",
+     "options": [
+      "statement",
+      "question",
+      "command",
+      "exclamation"
+     ],
+     "answer": "command",
+     "id": "kinds-01"
+    },
+    {
+     "text": "You can take your sister to the store.",
+     "options": [
+      "statement",
+      "question",
+      "command",
+      "exclamation"
+     ],
+     "answer": "statement",
+     "id": "kinds-02"
+    },
+    {
+     "text": "Jump over this branch.",
+     "options": [
+      "statement",
+      "question",
+      "command",
+      "exclamation"
+     ],
+     "answer": "command",
+     "id": "kinds-03"
+    },
+    {
+     "text": "The bees make honey.",
+     "options": [
+      "statement",
+      "question",
+      "command",
+      "exclamation"
+     ],
+     "answer": "statement",
+     "id": "kinds-04"
+    },
+    {
+     "text": "Find the keys.",
+     "options": [
+      "statement",
+      "question",
+      "command",
+      "exclamation"
+     ],
+     "answer": "command",
+     "id": "kinds-05"
+    },
+    {
+     "text": "Keep your voice down.",
+     "options": [
+      "statement",
+      "question",
+      "command",
+      "exclamation"
+     ],
+     "answer": "command",
+     "id": "kinds-06"
+    },
+    {
+     "text": "It is windy.",
+     "options": [
+      "statement",
+      "question",
+      "command",
+      "exclamation"
+     ],
+     "answer": "statement",
+     "id": "kinds-07"
+    },
+    {
+     "text": "The sun is going down.",
+     "options": [
+      "statement",
+      "question",
+      "command",
+      "exclamation"
+     ],
+     "answer": "statement",
+     "id": "kinds-08"
+    },
+    {
+     "text": "Finish your homework.",
+     "options": [
+      "statement",
+      "question",
+      "command",
+      "exclamation"
+     ],
+     "answer": "command",
+     "id": "kinds-09"
+    },
+    {
+     "text": "Look at the moon.",
+     "options": [
+      "statement",
+      "question",
+      "command",
+      "exclamation"
+     ],
+     "answer": "command",
+     "id": "kinds-10"
+    },
+    {
+     "text": "What a beautiful day it is!",
+     "options": [
+      "command",
+      "exclamation",
+      "statement"
+     ],
+     "answer": "exclamation",
+     "id": "kinds-11"
+    },
+    {
+     "text": "Can you help me with this problem?",
+     "options": [
+      "exclamation",
+      "question",
+      "command"
+     ],
+     "answer": "question",
+     "id": "kinds-12"
+    },
+    {
+     "text": "Don't touch that hot stove.",
+     "options": [
+      "command",
+      "statement",
+      "exclamation"
+     ],
+     "answer": "command",
+     "id": "kinds-13"
+    },
+    {
+     "text": "I can't believe we won the game!",
+     "options": [
+      "command",
+      "exclamation",
+      "question"
+     ],
+     "answer": "exclamation",
+     "id": "kinds-14"
+    }
+   ]
+  },
+  {
+   "id": "change-kind",
+   "title": "Change the Sentence",
+   "icon": "🔄",
+   "instruction": "Choose the sentence that has the new kind.",
+   "type": "choice",
+   "hint": "Look at the word in the instruction: question, command or statement. Then check the first word and the end mark.",
+   "source": "grammar printable 1.3.4 + practice sheet (writing turned into multiple choice)",
+   "items": [
+    {
+     "text": "Change to a question: Luci's mom is a school principal.",
+     "options": [
+      "Is Luci's mom a school principal?",
+      "Luci's mom is a school principal.",
+      "Luci's mom is a school principal!"
+     ],
+     "answer": "Is Luci's mom a school principal?",
+     "id": "change-kind-01"
+    },
+    {
+     "text": "Change to a command: I want you to listen to me.",
+     "options": [
+      "Listen to me.",
+      "Do you listen to me?",
+      "I want you to listen to me!"
+     ],
+     "answer": "Listen to me.",
+     "id": "change-kind-02"
+    },
+    {
+     "text": "Change to a statement: Did Angel finish the test first?",
+     "options": [
+      "Angel finished the test first.",
+      "Did Angel finish the test first!",
+      "Angel finished the test first?"
+     ],
+     "answer": "Angel finished the test first.",
+     "id": "change-kind-03"
+    },
+    {
+     "text": "Change to a command: You should clean your room.",
+     "options": [
+      "Clean your room.",
+      "Should you clean your room?",
+      "You should clean your room!"
+     ],
+     "answer": "Clean your room.",
+     "id": "change-kind-04"
+    },
+    {
+     "text": "Change to a statement: Did Emma read the story?",
+     "options": [
+      "Emma read the story.",
+      "Did Emma read the story!",
+      "Emma read the story?"
+     ],
+     "answer": "Emma read the story.",
+     "id": "change-kind-05"
+    },
+    {
+     "text": "Change to a question: The children are playing outside.",
+     "options": [
+      "Are the children playing outside?",
+      "The children are playing outside!",
+      "Playing the children outside?"
+     ],
+     "answer": "Are the children playing outside?",
+     "id": "change-kind-06"
+    }
+   ]
+  },
+  {
+   "id": "is-compound",
+   "title": "Is It a Compound Sentence?",
+   "icon": "🔗",
+   "instruction": "Is this a compound sentence?",
+   "type": "choice",
+   "hint": "A compound sentence has two complete short sentences joined by a comma and a joining word: , and  / , but  / , or  (also , so).",
+   "source": "grammar printable 1.4.4 + practice sheet + revision sheet",
+   "items": [
+    {
+     "text": "Check the weather before a hike, or you might get rained on.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-01"
+    },
+    {
+     "text": "My job is to feed the pets and give them water.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "No, it is not compound",
+     "explanation": "Only one subject and one verb idea: 'feed' and 'give' share the same subject.",
+     "id": "is-compound-02"
+    },
+    {
+     "text": "Aiden picked apples, and we made a pie with them.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-03"
+    },
+    {
+     "text": "Would you like a salad, a sandwich, or soup for lunch?",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "No, it is not compound",
+     "explanation": "'or' joins things in a list, not two complete sentences.",
+     "id": "is-compound-04"
+    },
+    {
+     "text": "The rain is making puddles. The street is wet.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "No, it is not compound",
+     "explanation": "These are two separate sentences. A compound sentence joins them with , and / , but / , or.",
+     "id": "is-compound-05"
+    },
+    {
+     "text": "We went to the shelter, and we adopted a dog.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-06"
+    },
+    {
+     "text": "The strawberries are sweet, but the grapes are sour.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-07"
+    },
+    {
+     "text": "I have a lot of paper, I need more pencils.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "No, it is not compound",
+     "explanation": "There is a comma but no joining word (and / but / or).",
+     "id": "is-compound-08"
+    },
+    {
+     "text": "Hand me the book, or put it on the table.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-09"
+    },
+    {
+     "text": "The play was good, but it lasted too long.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-10"
+    },
+    {
+     "text": "We can go to the park, or we can stay home.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-11"
+    },
+    {
+     "text": "The sun is bright. The sky is clear.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "No, it is not compound",
+     "id": "is-compound-12"
+    },
+    {
+     "text": "I brought a snack, and I shared it with my friend.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-13"
+    },
+    {
+     "text": "You can take the red pencil or the blue one.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "No, it is not compound",
+     "id": "is-compound-14"
+    },
+    {
+     "text": "The teacher smiled, but the class was noisy.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-15"
+    },
+    {
+     "text": "My brother likes apples. My sister likes oranges.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "No, it is not compound",
+     "id": "is-compound-16"
+    },
+    {
+     "text": "We packed our bags, and we left early for the trip.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-17"
+    },
+    {
+     "text": "It's raining outside, but I forgot my umbrella.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-18"
+    },
+    {
+     "text": "I wanted to go outside, but it was too cold.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-19"
+    },
+    {
+     "text": "Tom finished his homework.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "No, it is not compound",
+     "id": "is-compound-20"
+    },
+    {
+     "text": "She goes to the park on Sundays.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "No, it is not compound",
+     "id": "is-compound-21"
+    },
+    {
+     "text": "Rita was tired, so she went to bed early.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-22"
+    },
+    {
+     "text": "I watched a scary movie.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "No, it is not compound",
+     "id": "is-compound-23"
+    },
+    {
+     "text": "I wanted to travel, but I didn't have enough money.",
+     "options": [
+      "Yes, it is compound",
+      "No, it is not compound"
+     ],
+     "answer": "Yes, it is compound",
+     "id": "is-compound-24"
+    }
+   ]
+  },
+  {
+   "id": "joining-word",
+   "title": "Pick the Joining Word",
+   "icon": "🪢",
+   "instruction": "Choose the joining word that completes the compound sentence.",
+   "type": "choice",
+   "hint": "Use AND to add. Use BUT when the two ideas are different. Use OR when there is a choice. Don't forget the comma before it!",
+   "source": "grammar printables 1.4.1-1.4.3 + practice sheet (writing turned into choosing the joining word)",
+   "items": [
+    {
+     "text": "No one wanted to leave, ___ it was getting late.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "but",
+     "id": "joining-word-01"
+    },
+    {
+     "text": "Runu woke up early, ___ she has to work late.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "and",
+     "id": "joining-word-02"
+    },
+    {
+     "text": "Trey started a campfire, ___ we all gathered around it.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "and",
+     "id": "joining-word-03"
+    },
+    {
+     "text": "Is that a frog, ___ is it a toad?",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "or",
+     "id": "joining-word-04"
+    },
+    {
+     "text": "You can look at the moon, ___ don't look at the sun!",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "but",
+     "id": "joining-word-05"
+    },
+    {
+     "text": "Some lizards live in the desert, ___ others live in tropical places.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "and",
+     "accepted": [
+      "but"
+     ],
+     "id": "joining-word-06"
+    },
+    {
+     "text": "It is hot during the day, ___ it is cold at night.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "but",
+     "accepted": [
+      "and"
+     ],
+     "id": "joining-word-07"
+    },
+    {
+     "text": "Have you seen a desert in person, ___ have you only seen pictures?",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "or",
+     "id": "joining-word-08"
+    },
+    {
+     "text": "I wanted to be Mr. Romero's helper, ___ he chose Shonda instead.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "but",
+     "id": "joining-word-09"
+    },
+    {
+     "text": "Take off your coat, ___ hang it in the closet.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "and",
+     "id": "joining-word-10"
+    },
+    {
+     "text": "Most people had to wait in line, ___ Molly had a special pass.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "but",
+     "id": "joining-word-11"
+    },
+    {
+     "text": "We can go to the cafe, ___ we can make breakfast at home.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "or",
+     "id": "joining-word-12"
+    },
+    {
+     "text": "Xun met his favorite author, ___ she signed a book for him.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "and",
+     "id": "joining-word-13"
+    },
+    {
+     "text": "Lavonne needs change, ___ I only have dollar bills.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "but",
+     "id": "joining-word-14"
+    },
+    {
+     "text": "The mayor finished her speech, ___ everyone clapped.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "and",
+     "id": "joining-word-15"
+    },
+    {
+     "text": "Ben washed the car, ___ he cleaned the windows.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "and",
+     "id": "joining-word-16"
+    },
+    {
+     "text": "We could play soccer, ___ we could ride our bikes.",
+     "options": [
+      "and",
+      "but",
+      "or"
+     ],
+     "answer": "or",
+     "id": "joining-word-17"
+    }
+   ]
+  },
+  {
+   "id": "compound-subject-pick",
+   "title": "Find the Compound Subject",
+   "icon": "👥",
+   "instruction": "Which part is the compound subject?",
+   "type": "choice",
+   "hint": "A compound subject has two or more doers joined by AND or OR. Who or what is the sentence about?",
+   "source": "grammar printable 1.5.1",
+   "items": [
+    {
+     "text": "Our cats and dogs play together.",
+     "options": [
+      "play together",
+      "Our cats",
+      "Our cats and dogs"
+     ],
+     "answer": "Our cats and dogs",
+     "underline": null,
+     "prompt": "Which part is the compound subject?",
+     "id": "compound-subject-pick-01"
+    },
+    {
+     "text": "The wind and rain kept us inside.",
+     "options": [
+      "The wind and rain",
+      "The wind",
+      "kept us inside"
+     ],
+     "answer": "The wind and rain",
+     "underline": null,
+     "prompt": "Which part is the compound subject?",
+     "id": "compound-subject-pick-02"
+    },
+    {
+     "text": "Mom or Dad will take me to practice.",
+     "options": [
+      "Mom or Dad",
+      "will take me to practice",
+      "Mom"
+     ],
+     "answer": "Mom or Dad",
+     "underline": null,
+     "prompt": "Which part is the compound subject?",
+     "id": "compound-subject-pick-03"
+    },
+    {
+     "text": "My sister and I played a board game.",
+     "options": [
+      "My sister and I",
+      "My sister",
+      "played a board game"
+     ],
+     "answer": "My sister and I",
+     "underline": null,
+     "prompt": "Which part is the compound subject?",
+     "id": "compound-subject-pick-04"
+    },
+    {
+     "text": "Pancakes or waffles are good for breakfast.",
+     "options": [
+      "are good for breakfast",
+      "Pancakes",
+      "Pancakes or waffles"
+     ],
+     "answer": "Pancakes or waffles",
+     "underline": null,
+     "prompt": "Which part is the compound subject?",
+     "id": "compound-subject-pick-05"
+    },
+    {
+     "text": "Rosa or I will win first place.",
+     "options": [
+      "will win first place",
+      "Rosa or I",
+      "Rosa"
+     ],
+     "answer": "Rosa or I",
+     "underline": null,
+     "prompt": "Which part is the compound subject?",
+     "id": "compound-subject-pick-06"
+    },
+    {
+     "text": "Jupiter and Saturn have many moons.",
+     "options": [
+      "Jupiter",
+      "Jupiter and Saturn",
+      "have many moons"
+     ],
+     "answer": "Jupiter and Saturn",
+     "underline": null,
+     "prompt": "Which part is the compound subject?",
+     "id": "compound-subject-pick-07"
+    },
+    {
+     "text": "The sheets and towels get washed weekly.",
+     "options": [
+      "get washed weekly",
+      "The sheets and towels",
+      "The sheets"
+     ],
+     "answer": "The sheets and towels",
+     "underline": null,
+     "prompt": "Which part is the compound subject?",
+     "id": "compound-subject-pick-08"
+    },
+    {
+     "text": "Salt and pepper add flavor to food.",
+     "options": [
+      "add flavor to food",
+      "Salt",
+      "Salt and pepper"
+     ],
+     "answer": "Salt and pepper",
+     "underline": null,
+     "prompt": "Which part is the compound subject?",
+     "id": "compound-subject-pick-09"
+    },
+    {
+     "text": "A squirrel or raccoon is in the attic!",
+     "options": [
+      "A squirrel",
+      "is in the attic",
+      "A squirrel or raccoon"
+     ],
+     "answer": "A squirrel or raccoon",
+     "underline": null,
+     "prompt": "Which part is the compound subject?",
+     "id": "compound-subject-pick-10"
+    }
+   ]
+  },
+  {
+   "id": "conjunction",
+   "title": "Find the Joining Word",
+   "icon": "🔍",
+   "instruction": "Which word joins the two subjects?",
+   "type": "choice",
+   "hint": "The joining word (conjunction) sits between the two doers. It is AND or OR.",
+   "source": "grammar printable 1.5.2",
+   "items": [
+    {
+     "text": "Sharks and dolphins swim in the ocean.",
+     "options": [
+      "and",
+      "or",
+      "but"
+     ],
+     "answer": "and",
+     "prompt": "Which word is the coordinating conjunction?",
+     "id": "conjunction-01"
+    },
+    {
+     "text": "Malia or Oliver clears the table after dinner.",
+     "options": [
+      "and",
+      "or",
+      "but"
+     ],
+     "answer": "or",
+     "prompt": "Which word is the coordinating conjunction?",
+     "id": "conjunction-02"
+    },
+    {
+     "text": "Pizza or pasta sounds good for dinner.",
+     "options": [
+      "and",
+      "or",
+      "but"
+     ],
+     "answer": "or",
+     "prompt": "Which word is the coordinating conjunction?",
+     "id": "conjunction-03"
+    },
+    {
+     "text": "Runners and walkers cross the finish line.",
+     "options": [
+      "and",
+      "or",
+      "but"
+     ],
+     "answer": "and",
+     "prompt": "Which word is the coordinating conjunction?",
+     "id": "conjunction-04"
+    },
+    {
+     "text": "Tables and chairs are stacked in the hallway.",
+     "options": [
+      "and",
+      "or",
+      "but"
+     ],
+     "answer": "and",
+     "prompt": "Which word is the coordinating conjunction?",
+     "id": "conjunction-05"
+    }
+   ]
+  },
+  {
+   "id": "compound-predicate-combine",
+   "title": "Combine with a Compound Predicate",
+   "icon": "➕",
+   "instruction": "Choose the sentence that has one subject and two actions.",
+   "type": "choice",
+   "hint": "Say the subject only once, then join the two actions with AND or OR. No second subject and no comma.",
+   "source": "grammar printable 1.5.3 (writing turned into multiple choice)",
+   "items": [
+    {
+     "text": "Jani cleaned. Jani listened to music.",
+     "options": [
+      "Jani cleaned and listened to music.",
+      "Jani cleaned but listened to music.",
+      "Jani cleaned and Jani listened to music."
+     ],
+     "answer": "Jani cleaned and listened to music.",
+     "prompt": "Combine the sentences. Choose the sentence with a compound predicate.",
+     "id": "compound-predicate-combine-01"
+    },
+    {
+     "text": "Koji packs his lunch. Koji buys his lunch.",
+     "options": [
+      "Koji packs but buys his lunch.",
+      "Koji packs or buys his lunch.",
+      "Koji packs or Koji buys his lunch."
+     ],
+     "answer": "Koji packs or buys his lunch.",
+     "prompt": "Combine the sentences. Choose the sentence with a compound predicate.",
+     "id": "compound-predicate-combine-02"
+    },
+    {
+     "text": "The train stops often. The train starts often.",
+     "options": [
+      "The train stops but starts often.",
+      "The train stops and the train starts often.",
+      "The train stops and starts often."
+     ],
+     "answer": "The train stops and starts often.",
+     "prompt": "Combine the sentences. Choose the sentence with a compound predicate.",
+     "id": "compound-predicate-combine-03"
+    },
+    {
+     "text": "We can hike today. We can stay home today.",
+     "options": [
+      "We can hike or stay home today.",
+      "We can hike and stay home today.",
+      "We can hike or we can stay home today."
+     ],
+     "answer": "We can hike or stay home today.",
+     "prompt": "Combine the sentences. Choose the sentence with a compound predicate.",
+     "id": "compound-predicate-combine-04"
+    },
+    {
+     "text": "Aric flipped. Aric landed on his feet.",
+     "options": [
+      "Aric flipped or landed on his feet.",
+      "Aric flipped and Aric landed on his feet.",
+      "Aric flipped and landed on his feet."
+     ],
+     "answer": "Aric flipped and landed on his feet.",
+     "prompt": "Combine the sentences. Choose the sentence with a compound predicate.",
+     "id": "compound-predicate-combine-05"
+    }
+   ]
+  },
+  {
+   "id": "subject-or-predicate",
+   "title": "Compound Subject or Compound Predicate?",
+   "icon": "🎯",
+   "instruction": "Does the sentence have a compound subject (C.S) or a compound predicate (C.P)?",
+   "type": "choice",
+   "hint": "Compound SUBJECT: two or more people or things do ONE action (Tom AND Sam ran). Compound PREDICATE: ONE doer does two or more actions (Tom ran AND jumped).",
+   "source": "grammar printable 1.5.4 + practice sheet + revision sheet (one answer-key error fixed, see notes)",
+   "items": [
+    {
+     "text": "Bob and Fred found paper towels.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-01"
+    },
+    {
+     "text": "Alice made a salad and baked bread.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-02"
+    },
+    {
+     "text": "Theo plays soccer or rides his bike after school.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-03"
+    },
+    {
+     "text": "The principal or secretary can help us.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-04"
+    },
+    {
+     "text": "The shirt and pants match nicely.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-05"
+    },
+    {
+     "text": "Children swing or climb at the playground.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-06"
+    },
+    {
+     "text": "Mika watched the cartoon and laughed.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-07"
+    },
+    {
+     "text": "Matt and Jose ate cheese sandwiches.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-08"
+    },
+    {
+     "text": "Kahlil washed and dried all of the dishes.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-09"
+    },
+    {
+     "text": "Turtles and fish live in this pond.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-10"
+    },
+    {
+     "text": "Jake and Ella built a sandcastle.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-11"
+    },
+    {
+     "text": "Olivia ran and jumped during recess.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-12"
+    },
+    {
+     "text": "The dog or the cat knocked over the vase.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-13"
+    },
+    {
+     "text": "Evan painted and cleaned his room.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-14"
+    },
+    {
+     "text": "The apples and oranges are fresh.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-15"
+    },
+    {
+     "text": "Liam washed and folded the laundry.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-16"
+    },
+    {
+     "text": "The teacher or the assistant will read the story.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-17"
+    },
+    {
+     "text": "Ben cooked dinner and set the table.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-18"
+    },
+    {
+     "text": "The birds and butterflies flew over the garden.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-19"
+    },
+    {
+     "text": "Sara wrote a letter and mailed it to her friend.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-20"
+    },
+    {
+     "text": "The dog barked and chased the cat.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-21"
+    },
+    {
+     "text": "Anna and her brother play soccer after school.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-22"
+    },
+    {
+     "text": "The teacher smiled and clapped for the class.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-23"
+    },
+    {
+     "text": "Mom and Dad cooked dinner together.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-24"
+    },
+    {
+     "text": "The bird sang and danced in the cage.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-25"
+    },
+    {
+     "text": "Lily and Mia cleaned the room before guests arrived.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-26"
+    },
+    {
+     "text": "The baby cried and kicked when he was hungry.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-27"
+    },
+    {
+     "text": "The sun and the moon shine in the sky.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-28"
+    },
+    {
+     "text": "The students read and wrote in their notebooks.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-29"
+    },
+    {
+     "text": "Mr. Scott draws and writes on the computer.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-30"
+    },
+    {
+     "text": "Apples and oranges are healthy.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-31"
+    },
+    {
+     "text": "The students study and do their homework.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-32"
+    },
+    {
+     "text": "Mary and John played basketball.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-33"
+    },
+    {
+     "text": "The dog barked and wagged its tail.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-34"
+    },
+    {
+     "text": "The boys and girls sang loudly.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound subject",
+     "id": "subject-or-predicate-35"
+    },
+    {
+     "text": "The kids jumped and shouted with joy.",
+     "options": [
+      "Compound subject",
+      "Compound predicate"
+     ],
+     "answer": "Compound predicate",
+     "id": "subject-or-predicate-36"
+    }
+   ]
+  },
+  {
+   "id": "fix-paragraph",
+   "title": "Fix the Paragraph",
+   "icon": "📖",
+   "instruction": "Read the paragraph, then choose the best answer.",
+   "type": "choice",
+   "hint": "Read the numbered sentences first. Then check each answer: does it keep the meaning and use the right punctuation?",
+   "source": "grammar printables 1.3.5, 1.4.5, 1.5.5",
+   "items": [
+    {
+     "text": "Every sentence in Raquel's paragraph is a statement. How could she rewrite sentence 7 to make her writing more interesting?",
+     "options": [
+      "Is her fur soft?",
+      "Pet her soft fur.",
+      "Her fur is so soft!",
+      "Her fur is soft."
+     ],
+     "answer": "Her fur is so soft!",
+     "passage": {
+      "title": "Raquel's pet rabbit",
+      "sentences": [
+       "I have a pet rabbit.",
+       "Her name is Muffin Cup.",
+       "She is brown with white paws.",
+       "She twitches her nose when she snacks on a carrot.",
+       "She also likes to eat lettuce.",
+       "I clean her cage once each week.",
+       "I pet her soft fur.",
+       "Maybe I'll get another rabbit."
+      ]
+     },
+     "id": "fix-paragraph-01"
+    },
+    {
+     "text": "Which of the following questions could Raquel write to replace sentence 8?",
+     "options": [
+      "Should I get another rabbit?",
+      "Is Muffin Cup hungry?",
+      "Does Muffin Cup want another snack?",
+      "Who will play with Muffin Cup?"
+     ],
+     "answer": "Should I get another rabbit?",
+     "passage": {
+      "title": "Raquel's pet rabbit",
+      "sentences": [
+       "I have a pet rabbit.",
+       "Her name is Muffin Cup.",
+       "She is brown with white paws.",
+       "She twitches her nose when she snacks on a carrot.",
+       "She also likes to eat lettuce.",
+       "I clean her cage once each week.",
+       "I pet her soft fur.",
+       "Maybe I'll get another rabbit."
+      ]
+     },
+     "id": "fix-paragraph-02"
+    },
+    {
+     "text": "Which sentence shows how to combine sentences 2 and 3?",
+     "options": [
+      "I wanted to see a movie about pirates, my brother wanted to see a movie about outer space.",
+      "I wanted to see a movie about pirates, but my brother wanted to see a movie about outer space."
+     ],
+     "answer": "I wanted to see a movie about pirates, but my brother wanted to see a movie about outer space.",
+     "passage": {
+      "title": "Lili's trip to the movies",
+      "sentences": [
+       "Saturday we went to the movies.",
+       "I wanted to see a movie about pirates.",
+       "My brother wanted to see a movie about outer space.",
+       "My mother had to choose a movie.",
+       "She chose a funny movie.",
+       "We all really liked it."
+      ]
+     },
+     "id": "fix-paragraph-03"
+    },
+    {
+     "text": "Which sentence shows how to combine sentences 5 and 6?",
+     "options": [
+      "She chose a funny movie, and we all really liked it.",
+      "She chose a funny movie but we all really liked it."
+     ],
+     "answer": "She chose a funny movie, and we all really liked it.",
+     "passage": {
+      "title": "Lili's trip to the movies",
+      "sentences": [
+       "Saturday we went to the movies.",
+       "I wanted to see a movie about pirates.",
+       "My brother wanted to see a movie about outer space.",
+       "My mother had to choose a movie.",
+       "She chose a funny movie.",
+       "We all really liked it."
+      ]
+     },
+     "id": "fix-paragraph-04"
+    },
+    {
+     "text": "Which sentence shows how to combine sentences 1 and 2?",
+     "options": [
+      "In the summer, I swim and in the summer I dive at the pool.",
+      "I swim at the pool and I dive at the pool.",
+      "In the summer, I swim and dive at the pool.",
+      "In the summer, I swim at the pool or I dive."
+     ],
+     "answer": "In the summer, I swim and dive at the pool.",
+     "passage": {
+      "title": "Han's summer fun",
+      "sentences": [
+       "In the summer, I swim at the pool.",
+       "In the summer, I dive at the pool.",
+       "Family night is fun.",
+       "Mom swims with me.",
+       "Dad swims with me.",
+       "We pack a picnic and eat there.",
+       "Everyone has a good time!"
+      ]
+     },
+     "id": "fix-paragraph-05"
+    },
+    {
+     "text": "Which sentence shows how to combine sentences 4 and 5?",
+     "options": [
+      "Mom swims with Dad.",
+      "Mom and me swim and Dad swims with me.",
+      "Mom and Dad swim with me.",
+      "Mom swims with me with Dad."
+     ],
+     "answer": "Mom and Dad swim with me.",
+     "passage": {
+      "title": "Han's summer fun",
+      "sentences": [
+       "In the summer, I swim at the pool.",
+       "In the summer, I dive at the pool.",
+       "Family night is fun.",
+       "Mom swims with me.",
+       "Dad swims with me.",
+       "We pack a picnic and eat there.",
+       "Everyone has a good time!"
+      ]
+     },
+     "id": "fix-paragraph-06"
+    }
+   ]
+  }
+ ]
+}

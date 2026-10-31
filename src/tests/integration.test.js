@@ -106,7 +106,7 @@ describe('End-to-End User Flow & Player Lifecycle', () => {
     const englishSubj = getSubjectById('english');
     expect(englishSubj).toBeDefined();
     expect(englishSubj.isAvailable).toBe(true);
-    expect(englishSubj.topics.length).toBe(13);
+    expect(englishSubj.topics.length).toBe(15);
 
     const readingSubj = getSubjectById('reading');
     expect(readingSubj).toBeDefined();

@@ -184,11 +184,15 @@ export default function LetterTiles({
             {clueSentence.split(' ').map((token, i) => {
               const cleanToken = token.replace(/[.,!?]/g, '');
               const isTarget = cleanToken.toLowerCase() === scrambledWord.toLowerCase();
-              return (
-                <span
+              return isTarget ? (
+                <strong
                   key={i}
-                  className={isTarget ? 'scrambled-token-highlight' : ''}
+                  className="scrambled-token-highlight"
                 >
+                  {token}{' '}
+                </strong>
+              ) : (
+                <span key={i}>
                   {token}{' '}
                 </span>
               );

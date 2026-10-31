@@ -1,0 +1,140 @@
+[
+  {
+    "id": "eng_ch_st_1",
+    "type": "MultipleChoice",
+    "prompt": "Change the sentence to a command:",
+    "promptSpeech": "You should clean your room. Change to a command.",
+    "data": {
+      "sentence": "You should clean your room. (Change to a command)",
+      "options": [
+        "Clean your room.",
+        "Did you clean your room?",
+        "Your room is clean!"
+      ]
+    },
+    "correctAnswer": "Clean your room.",
+    "hint": "A command gives an order directly, usually starting with an action verb.",
+    "explanation": "\"Clean your room.\" is a direct command telling someone what to do."
+  },
+  {
+    "id": "eng_ch_st_2",
+    "type": "MultipleChoice",
+    "prompt": "Change the sentence to a statement:",
+    "promptSpeech": "Did Emma read the story? Change to a statement.",
+    "data": {
+      "sentence": "Did Emma read the story? (Change to a statement)",
+      "options": [
+        "Emma read the story.",
+        "Read the story, Emma!",
+        "Is Emma reading the story?"
+      ]
+    },
+    "correctAnswer": "Emma read the story.",
+    "hint": "A statement tells a fact and ends with a period.",
+    "explanation": "\"Emma read the story.\" states what happened as a fact."
+  },
+  {
+    "id": "eng_ch_st_3",
+    "type": "MultipleChoice",
+    "prompt": "Change the sentence to a question:",
+    "promptSpeech": "The children are playing outside. Change to a question.",
+    "data": {
+      "sentence": "The children are playing outside. (Change to a question)",
+      "options": [
+        "Where are the children playing?",
+        "Children, play outside!",
+        "The children play outside."
+      ]
+    },
+    "correctAnswer": "Where are the children playing?",
+    "hint": "A question asks for information and ends with a question mark (?).",
+    "explanation": "\"Where are the children playing?\" asks a question about the children."
+  },
+  {
+    "id": "eng_ch_st_4",
+    "type": "MultipleChoice",
+    "prompt": "Change the sentence to a question:",
+    "promptSpeech": "Luci’s mom is a school principal. Change to a question.",
+    "data": {
+      "sentence": "Luci’s mom is a school principal. (Change to a question)",
+      "options": [
+        "Is Luci’s mom a school principal?",
+        "Luci's mom, be a principal!",
+        "Luci's mom is a great principal."
+      ]
+    },
+    "correctAnswer": "Is Luci’s mom a school principal?",
+    "hint": "To ask a question, start with the helping verb 'Is' and end with ?.",
+    "explanation": "\"Is Luci’s mom a school principal?\" asks a question."
+  },
+  {
+    "id": "eng_ch_st_5",
+    "type": "MultipleChoice",
+    "prompt": "Change the sentence to a command:",
+    "promptSpeech": "I want you to listen to me. Change to a command.",
+    "data": {
+      "sentence": "I want you to listen to me. (Change to a command)",
+      "options": [
+        "Listen to me.",
+        "Are you listening to me?",
+        "You listen to me."
+      ]
+    },
+    "correctAnswer": "Listen to me.",
+    "hint": "A command gives a direct order starting with the verb 'Listen'.",
+    "explanation": "\"Listen to me.\" gives a direct command."
+  },
+  {
+    "id": "eng_ch_st_6",
+    "type": "MultipleChoice",
+    "prompt": "Change the sentence to a statement:",
+    "promptSpeech": "Did Angel finish the test first? Change to a statement.",
+    "data": {
+      "sentence": "Did Angel finish the test first? (Change to a statement)",
+      "options": [
+        "Angel finished the test first.",
+        "Finish the test first, Angel!",
+        "Did Angel finish?"
+      ]
+    },
+    "correctAnswer": "Angel finished the test first.",
+    "hint": "Change the question into a fact ending with a period.",
+    "explanation": "\"Angel finished the test first.\" tells information as a statement."
+  },
+  {
+    "id": "eng_ch_st_7",
+    "type": "MultipleChoice",
+    "prompt": "Connect to Writing: Make the sentence more interesting:",
+    "promptSpeech": "Every sentence in Raquel’s paragraph is a statement. How could she rewrite sentence 7: I pet her soft fur to make her writing more interesting?",
+    "data": {
+      "sentence": "How could Raquel rewrite \"I pet her soft fur.\" to make her writing more interesting with an exclamation?",
+      "options": [
+        "Her fur is so soft!",
+        "Is her fur soft?",
+        "Pet her soft fur.",
+        "Her fur is soft."
+      ]
+    },
+    "correctAnswer": "Her fur is so soft!",
+    "hint": "An exclamation shows strong feeling and excitement to make writing fun to read!",
+    "explanation": "\"Her fur is so soft!\" uses strong feeling (exclamation) to add interest to the writing."
+  },
+  {
+    "id": "eng_ch_st_8",
+    "type": "MultipleChoice",
+    "prompt": "Connect to Writing: Choose the best question:",
+    "promptSpeech": "Which of the following questions could Raquel write to replace sentence 8: Maybe I'll get another rabbit?",
+    "data": {
+      "sentence": "Which question could Raquel write to replace: \"Maybe I’ll get another rabbit.\"?",
+      "options": [
+        "Should I get another rabbit?",
+        "Is Muffin Cup hungry?",
+        "Does Muffin Cup want another snack?",
+        "Who will play with Muffin Cup?"
+      ]
+    },
+    "correctAnswer": "Should I get another rabbit?",
+    "hint": "The question should connect to thinking about getting another rabbit.",
+    "explanation": "\"Should I get another rabbit?\" directly turns the thought about another rabbit into an engaging question."
+  }
+]

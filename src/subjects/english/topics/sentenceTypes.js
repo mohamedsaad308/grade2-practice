@@ -3,9 +3,9 @@ import { shuffle } from '../../../utils/mathHelpers.js';
 
 export default {
   id: 'english_sentence_types',
-  title: 'What Kind of Sentence Is It?',
-  icon: '❓',
-  description: 'Decide if the sentence is a command, exclamation, statement, or question.',
+  title: 'Kinds of Sentences',
+  icon: '💬',
+  description: 'Identify statement, question, command, or exclamation.',
   getQuestions() {
     return sentenceTypesData.map(q => ({
       ...q,

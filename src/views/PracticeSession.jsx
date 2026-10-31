@@ -257,11 +257,46 @@ export default function PracticeSession({
 
   const isQuestionAnswered = feedback?.isCorrect || feedback?.showExplanation;
 
-  // Build audio text for the read aloud button
-  let fullSpeechPrompt = currentQuestion.promptSpeech || currentQuestion.prompt;
-  if (currentQuestion.data?.sentence && !fullSpeechPrompt.includes(currentQuestion.data.sentence)) {
-    fullSpeechPrompt = `${fullSpeechPrompt}. ${currentQuestion.data.sentence}`;
-  }
+  // Build audio text for the read aloud button: reads instruction AND item in that order
+  const buildSpeechAudioText = (q) => {
+    if (!q) return '';
+    const prompt = (q.prompt || '').trim();
+    const data = q.data || {};
+
+    let item = '';
+    if (data.sentence) {
+      item = data.sentence;
+    } else if (data.paragraph) {
+      item = data.paragraph;
+    } else if (data.story) {
+      item = data.story;
+    } else if (data.clueSentence) {
+      item = data.clueSentence;
+    } else if (data.pictureLabel) {
+      item = data.pictureLabel;
+    }
+
+    const cleanPrompt = prompt.replace(/_+/g, 'blank');
+    const cleanItem = item.replace(/_+/g, 'blank').trim();
+
+    if (cleanItem && !cleanPrompt.toLowerCase().includes(cleanItem.toLowerCase())) {
+      const basePrompt = cleanPrompt.replace(/[:]+$/, '');
+      return `${basePrompt}. ${cleanItem}`;
+    }
+
+    if (q.type === 'TapToSelect' && Array.isArray(data.options)) {
+      const basePrompt = cleanPrompt.replace(/[:]+$/, '');
+      return `${basePrompt}. Choices: ${data.options.join('. ')}`;
+    }
+
+    if (q.promptSpeech) {
+      return q.promptSpeech.replace(/_+/g, 'blank');
+    }
+
+    return cleanPrompt;
+  };
+
+  const fullSpeechPrompt = buildSpeechAudioText(currentQuestion);
 
   return (
     <div className="practice-session-view">
@@ -272,10 +307,10 @@ export default function PracticeSession({
         <button
           type="button"
           className="exit-session-btn"
-          onClick={onExit}
-          aria-label="Exit session"
+          onClick={() => onExit(subject?.id)}
+          aria-label={`Back to ${subject?.title || 'Subject'} topics`}
         >
-          ✕ Exit
+          ← Back to {subject?.title || 'Topics'}
         </button>
 
         <div className="session-topic-title-badge">

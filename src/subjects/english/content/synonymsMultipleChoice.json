@@ -1,0 +1,93 @@
+[
+  {
+    "id": "eng_syn_mc_1",
+    "type": "MultipleChoice",
+    "prompt": "Choose the synonym (a word that means the same):",
+    "promptSpeech": "What is a synonym for fast?",
+    "data": {
+      "sentence": "What is a synonym for fast?",
+      "options": ["quick", "slow", "cold", "loud"]
+    },
+    "correctAnswer": "quick",
+    "hint": "A synonym has the same or almost the same meaning. Moving with great speed!",
+    "explanation": "quick is a synonym for fast. Both mean speedy!"
+  },
+  {
+    "id": "eng_syn_mc_2",
+    "type": "MultipleChoice",
+    "prompt": "Choose the synonym (a word that means the same):",
+    "promptSpeech": "What is a synonym for easy?",
+    "data": {
+      "sentence": "What is a synonym for easy?",
+      "options": ["simple", "hard", "strong", "heavy"]
+    },
+    "correctAnswer": "simple",
+    "hint": "Not hard to do, understand, or solve.",
+    "explanation": "simple is a synonym for easy. Both describe something not complicated!"
+  },
+  {
+    "id": "eng_syn_mc_3",
+    "type": "MultipleChoice",
+    "prompt": "Choose the synonym (a word that means the same):",
+    "promptSpeech": "What is a synonym for begin?",
+    "data": {
+      "sentence": "What is a synonym for begin?",
+      "options": ["start", "stop", "finish", "end"]
+    },
+    "correctAnswer": "start",
+    "hint": "The first step or opening moment of an activity.",
+    "explanation": "start is a synonym for begin. Both mean doing the first action!"
+  },
+  {
+    "id": "eng_syn_mc_4",
+    "type": "MultipleChoice",
+    "prompt": "Choose the synonym (a word that means the same):",
+    "promptSpeech": "What is a synonym for beautiful?",
+    "data": {
+      "sentence": "What is a synonym for beautiful?",
+      "options": ["pretty", "ugly", "dirty", "mean"]
+    },
+    "correctAnswer": "pretty",
+    "hint": "Pleasing and lovely to look at.",
+    "explanation": "pretty is a synonym for beautiful. Both describe something lovely!"
+  },
+  {
+    "id": "eng_syn_mc_5",
+    "type": "MultipleChoice",
+    "prompt": "Choose the synonym (a word that means the same):",
+    "promptSpeech": "What is a synonym for cold?",
+    "data": {
+      "sentence": "What is a synonym for cold?",
+      "options": ["chilly", "hot", "dry", "warm"]
+    },
+    "correctAnswer": "chilly",
+    "hint": "Having a low temperature, like ice or winter air.",
+    "explanation": "chilly is a synonym for cold. Both mean low temperature!"
+  },
+  {
+    "id": "eng_syn_mc_6",
+    "type": "MultipleChoice",
+    "prompt": "Choose the synonym (a word that means the same):",
+    "promptSpeech": "What is a synonym for small?",
+    "data": {
+      "sentence": "What is a synonym for small?",
+      "options": ["little", "big", "tall", "loud"]
+    },
+    "correctAnswer": "little",
+    "hint": "Not large or big in size.",
+    "explanation": "little is a synonym for small. Both mean tiny in size!"
+  },
+  {
+    "id": "eng_syn_mc_7",
+    "type": "MultipleChoice",
+    "prompt": "Choose the synonym (a word that means the same):",
+    "promptSpeech": "What is a synonym for angry?",
+    "data": {
+      "sentence": "What is a synonym for angry?",
+      "options": ["mad", "glad", "sleepy", "calm"]
+    },
+    "correctAnswer": "mad",
+    "hint": "Feeling upset, furious, or irritated.",
+    "explanation": "mad is a synonym for angry. Both describe feeling irritated or furious!"
+  }
+]

@@ -22,6 +22,7 @@ export default function App() {
   const [isSwitchingPlayer, setIsSwitchingPlayer] = useState(false);
   const [isAddingNewPlayer, setIsAddingNewPlayer] = useState(false);
   const [summaryData, setSummaryData] = useState(null);
+  const [lastSubjectId, setLastSubjectId] = useState('english');
 
   // Sync hash routing
   useEffect(() => {
@@ -58,6 +59,7 @@ export default function App() {
   };
 
   const handleStartTopic = (subjectId, topicId, level = 1) => {
+    if (subjectId) setLastSubjectId(subjectId);
     navigate(`#/practice/${subjectId}/${topicId}?level=${level}`);
   };
 
@@ -98,7 +100,7 @@ export default function App() {
       />
     );
   } else if (primaryRoute === 'practice') {
-    const subjectId = pathSegments[1] || 'math';
+    const subjectId = pathSegments[1] || 'english';
     const topicId = pathSegments[2] || '';
     const searchParams = new URLSearchParams(queryPart || '');
     const level = parseInt(searchParams.get('level') || '1', 10);
@@ -115,9 +117,11 @@ export default function App() {
           level={level}
           settings={settings}
           onFinishSession={handleFinishSession}
-          onExit={() => {
+          onExit={(exitSubjectId) => {
             refreshPlayerData();
-            navigate('#/');
+            const target = exitSubjectId || subjectId || lastSubjectId || 'english';
+            setLastSubjectId(target);
+            navigate(`#/subject/${target}`);
           }}
         />
       );
@@ -125,7 +129,9 @@ export default function App() {
       currentViewComponent = (
         <div className="route-error-card">
           <p>Topic not found.</p>
-          <button type="button" onClick={() => navigate('#/')}>Go Home</button>
+          <button type="button" onClick={() => navigate(`#/subject/${lastSubjectId}`)}>
+            Back to Topics
+          </button>
         </div>
       );
     }
@@ -138,14 +144,26 @@ export default function App() {
         onPlayAgain={() => {
           navigate(`#/practice/${summaryData.subject.id}/${summaryData.topic.id}?level=${summaryData.level}`);
         }}
+        onBackToSubject={(subjectId) => {
+          const target = subjectId || summaryData.subject?.id || lastSubjectId || 'english';
+          setLastSubjectId(target);
+          navigate(`#/subject/${target}`);
+        }}
         onBackToHome={() => navigate('#/')}
       />
     );
   } else {
-    // Default: Home View
+    // Default or Subject View: HomeView showing the selected subject's topics
+    const activeSubjId = (primaryRoute === 'subject' ? pathSegments[1] : lastSubjectId) || 'english';
+
     currentViewComponent = (
       <HomeView
         player={currentPlayer}
+        selectedSubjectId={activeSubjId}
+        onSelectSubject={(id) => {
+          setLastSubjectId(id);
+          navigate(`#/subject/${id}`);
+        }}
         onStartTopic={handleStartTopic}
         onChangePlayer={() => setIsSwitchingPlayer(true)}
         soundEnabled={settings.soundEnabled}

@@ -1,6 +1,6 @@
 [
   {
-    "id": "eng_synonym_1",
+    "id": "eng_syn_und_1",
     "type": "WordBank",
     "prompt": "Choose the synonym for the underlined word from the word bank:",
     "promptSpeech": "The baby is happy. Which word in the word bank means happy?",
@@ -10,11 +10,11 @@
       "wordBank": ["glad", "large", "warm", "clever"]
     },
     "correctAnswer": "glad",
-    "hint": "A synonym is a word that means the same thing. Which word means feeling joyful or happy?",
-    "explanation": "glad is a synonym for happy. Both words mean feeling joyful!"
+    "hint": "A synonym means the same thing. Which word means feeling joyful?",
+    "explanation": "glad is a synonym for happy. Both words describe feeling joyful!"
   },
   {
-    "id": "eng_synonym_2",
+    "id": "eng_syn_und_2",
     "type": "WordBank",
     "prompt": "Choose the synonym for the underlined word from the word bank:",
     "promptSpeech": "The box is big. Which word in the word bank means big?",
@@ -24,11 +24,11 @@
       "wordBank": ["glad", "large", "warm", "clever"]
     },
     "correctAnswer": "large",
-    "hint": "A synonym is a word that means the same thing. Which word means of great size?",
+    "hint": "A synonym means the same thing. Which word means of great size?",
     "explanation": "large is a synonym for big. Both mean not small!"
   },
   {
-    "id": "eng_synonym_3",
+    "id": "eng_syn_und_3",
     "type": "WordBank",
     "prompt": "Choose the synonym for the underlined word from the word bank:",
     "promptSpeech": "The soup is hot. Which word in the word bank means hot?",
@@ -38,11 +38,11 @@
       "wordBank": ["glad", "large", "warm", "clever"]
     },
     "correctAnswer": "warm",
-    "hint": "A synonym is a word that means the same thing. Which word relates to heat?",
-    "explanation": "warm is a synonym for hot. Both describe temperature that is heated!"
+    "hint": "A synonym means the same thing. Which word relates to heat?",
+    "explanation": "warm is a synonym for hot. Both describe high temperature!"
   },
   {
-    "id": "eng_synonym_4",
+    "id": "eng_syn_und_4",
     "type": "WordBank",
     "prompt": "Choose the synonym for the underlined word from the word bank:",
     "promptSpeech": "The student is smart. Which word in the word bank means smart?",
@@ -52,7 +52,7 @@
       "wordBank": ["glad", "large", "warm", "clever"]
     },
     "correctAnswer": "clever",
-    "hint": "A synonym is a word that means the same thing. Which word means bright and quick to learn?",
-    "explanation": "clever is a synonym for smart. Both describe someone who learns quickly!"
+    "hint": "A synonym means the same thing. Which word means bright and quick to learn?",
+    "explanation": "clever is a synonym for smart. Both describe quick intelligence!"
   }
 ]

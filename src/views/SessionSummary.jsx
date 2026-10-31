@@ -10,6 +10,7 @@ export default function SessionSummary({
   player,
   settings,
   onPlayAgain,
+  onBackToSubject,
   onBackToHome
 }) {
   const { stars, score, total = 10, topic, level } = summaryData;
@@ -76,10 +77,24 @@ export default function SessionSummary({
 
           <button
             type="button"
+            className="summary-btn back-subject-btn"
+            onClick={() => {
+              if (onBackToSubject) {
+                onBackToSubject(summaryData.subject?.id);
+              } else if (onBackToHome) {
+                onBackToHome();
+              }
+            }}
+          >
+            {summaryData.subject?.icon || '📚'} Back to {summaryData.subject?.title || 'Subject'} Topics
+          </button>
+
+          <button
+            type="button"
             className="summary-btn back-home-btn"
             onClick={onBackToHome}
           >
-            🏠 Choose Another Topic
+            🏠 All Subjects
           </button>
         </div>
       </div>

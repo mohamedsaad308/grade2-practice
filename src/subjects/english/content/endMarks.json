@@ -1,0 +1,236 @@
+[
+  {
+    "id": "eng_em_1",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Please wash your hands before dinner.",
+    "data": {
+      "sentence": "Please wash your hands before dinner ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": ".",
+    "hint": "This sentence gives a polite command or request. A command ends with a period (.).",
+    "explanation": "\"Please wash your hands before dinner.\" is a command/request, so it ends with a period (.)."
+  },
+  {
+    "id": "eng_em_2",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Are you ready for school?",
+    "data": {
+      "sentence": "Are you ready for school ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "?",
+    "hint": "This sentence asks for an answer. A question ends with a question mark (?).",
+    "explanation": "\"Are you ready for school?\" asks a question, so it ends with a question mark (?)."
+  },
+  {
+    "id": "eng_em_3",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Can you help me carry this bag?",
+    "data": {
+      "sentence": "Can you help me carry this bag ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "?",
+    "hint": "This sentence asks someone something. A question ends with a question mark (?).",
+    "explanation": "\"Can you help me carry this bag?\" asks a question, so it ends with a question mark (?)."
+  },
+  {
+    "id": "eng_em_4",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "The rainbow looks so pretty!",
+    "data": {
+      "sentence": "The rainbow looks so pretty ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "!",
+    "hint": "This sentence shows strong feeling and wonder. An exclamation ends with an exclamation point (!).",
+    "explanation": "\"The rainbow looks so pretty!\" shows excitement and strong feeling, so it ends with an exclamation point (!)."
+  },
+  {
+    "id": "eng_em_5",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Marteice and her sister have three dolls.",
+    "data": {
+      "sentence": "Marteice and her sister have three dolls ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": ".",
+    "hint": "This sentence tells a fact or information. A statement ends with a period (.).",
+    "explanation": "\"Marteice and her sister have three dolls.\" tells information (statement), so it ends with a period (.)."
+  },
+  {
+    "id": "eng_em_6",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "The chicken flapped its wings.",
+    "data": {
+      "sentence": "The chicken flapped its wings ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": ".",
+    "hint": "A statement tells something and ends with a period (.).",
+    "explanation": "\"The chicken flapped its wings.\" is a statement, so it ends with a period (.)."
+  },
+  {
+    "id": "eng_em_7",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Where is the museum?",
+    "data": {
+      "sentence": "Where is the museum ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "?",
+    "hint": "'Where' asks for location. A question ends with a question mark (?).",
+    "explanation": "\"Where is the museum?\" asks a question, so it ends with a question mark (?)."
+  },
+  {
+    "id": "eng_em_8",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Is it my turn to play?",
+    "data": {
+      "sentence": "Is it my turn to play ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "?",
+    "hint": "This sentence asks for information. A question ends with a question mark (?).",
+    "explanation": "\"Is it my turn to play?\" asks a question, so it ends with a question mark (?)."
+  },
+  {
+    "id": "eng_em_9",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Rain poured from the sky.",
+    "data": {
+      "sentence": "Rain poured from the sky ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": ".",
+    "hint": "This tells something that happened. A statement ends with a period (.).",
+    "explanation": "\"Rain poured from the sky.\" tells a fact, so it ends with a period (.)."
+  },
+  {
+    "id": "eng_em_10",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Did you hear the news?",
+    "data": {
+      "sentence": "Did you hear the news ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "?",
+    "hint": "'Did you...' asks something. A question ends with a question mark (?).",
+    "explanation": "\"Did you hear the news?\" asks a question, so it ends with a question mark (?)."
+  },
+  {
+    "id": "eng_em_11",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "The bananas are ripe.",
+    "data": {
+      "sentence": "The bananas are ripe ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": ".",
+    "hint": "A statement tells information and ends with a period (.).",
+    "explanation": "\"The bananas are ripe.\" is a statement, so it ends with a period (.)."
+  },
+  {
+    "id": "eng_em_12",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Will you read me a story?",
+    "data": {
+      "sentence": "Will you read me a story ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "?",
+    "hint": "'Will you...' asks someone to do something. A question ends with a question mark (?).",
+    "explanation": "\"Will you read me a story?\" asks a question, so it ends with a question mark (?)."
+  },
+  {
+    "id": "eng_em_13",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Why do dogs pant?",
+    "data": {
+      "sentence": "Why do dogs pant ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "?",
+    "hint": "'Why' asks for a reason. A question ends with a question mark (?).",
+    "explanation": "\"Why do dogs pant?\" asks a question, so it ends with a question mark (?)."
+  },
+  {
+    "id": "eng_em_14",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Mr. Patel takes photos.",
+    "data": {
+      "sentence": "Mr. Patel takes photos ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": ".",
+    "hint": "This tells what Mr. Patel does. A statement ends with a period (.).",
+    "explanation": "\"Mr. Patel takes photos.\" is a statement, so it ends with a period (.)."
+  },
+  {
+    "id": "eng_em_15",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Look both ways before you cross the road.",
+    "data": {
+      "sentence": "Look both ways before you cross the road ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": ".",
+    "hint": "This gives an important safety direction. A command ends with a period (.).",
+    "explanation": "\"Look both ways before you cross the road.\" gives an order (command), so it ends with a period (.)."
+  },
+  {
+    "id": "eng_em_16",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Can we go to the movies now?",
+    "data": {
+      "sentence": "Can we go to the movies now ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "?",
+    "hint": "This asks permission or time. A question ends with a question mark (?).",
+    "explanation": "\"Can we go to the movies now?\" asks a question, so it ends with a question mark (?)."
+  },
+  {
+    "id": "eng_em_17",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "Will you help me pull weeds?",
+    "data": {
+      "sentence": "Will you help me pull weeds ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "?",
+    "hint": "This asks for assistance. A question ends with a question mark (?).",
+    "explanation": "\"Will you help me pull weeds?\" asks a question, so it ends with a question mark (?)."
+  },
+  {
+    "id": "eng_em_18",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct end mark for this sentence:",
+    "promptSpeech": "That tasted delicious!",
+    "data": {
+      "sentence": "That tasted delicious ___",
+      "options": [".", "?", "!"]
+    },
+    "correctAnswer": "!",
+    "hint": "This shows strong delight and feeling! An exclamation ends with an exclamation point (!).",
+    "explanation": "\"That tasted delicious!\" expresses strong feeling, so it ends with an exclamation point (!)."
+  }
+]

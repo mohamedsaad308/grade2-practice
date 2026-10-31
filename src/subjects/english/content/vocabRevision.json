@@ -1,0 +1,101 @@
+[
+  {
+    "id": "eng_vrev_match_1",
+    "type": "MatchPairs",
+    "prompt": "Match each vocabulary word with its meaning:",
+    "promptSpeech": "Match each vocabulary word with its meaning: easily, tasty, planet, frenzy.",
+    "data": {
+      "pairs": [
+        {
+          "word": "easily",
+          "meaning": "Doing something that is not hard"
+        },
+        {
+          "word": "tasty",
+          "meaning": "Describe your favorite food"
+        },
+        {
+          "word": "planet",
+          "meaning": "A large object in space as Earth, Jupiter, or Mars"
+        },
+        {
+          "word": "frenzy",
+          "meaning": "Time of excitement"
+        }
+      ]
+    },
+    "correctAnswer": {
+      "easily": "Doing something that is not hard",
+      "tasty": "Describe your favorite food",
+      "planet": "A large object in space as Earth, Jupiter, or Mars",
+      "frenzy": "Time of excitement"
+    },
+    "hint": "Think about what each word describes. Easily means not hard, tasty describes yummy food!",
+    "explanation": "easily = Doing something that is not hard; tasty = Describe your favorite food; planet = A large object in space as Earth, Jupiter, or Mars; frenzy = Time of excitement."
+  },
+  {
+    "id": "eng_vrev_sent_1",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct vocabulary word to complete the sentence:",
+    "promptSpeech": "She blank in surprise when she saw the beautiful firework.",
+    "data": {
+      "sentence": "She ___ in surprise when she saw the beautiful firework.",
+      "options": ["gasped", "strokes", "tumbling"]
+    },
+    "correctAnswer": "gasped",
+    "hint": "Catching breath suddenly with surprise or wonder.",
+    "explanation": "gasped means breathing in suddenly with surprise or delight."
+  },
+  {
+    "id": "eng_vrev_sent_2",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct vocabulary word to complete the sentence:",
+    "promptSpeech": "My dad added a small blank of sugar to his tea.",
+    "data": {
+      "sentence": "My dad added a small ___ of sugar to his tea.",
+      "options": ["amount", "example", "wisps"]
+    },
+    "correctAnswer": "amount",
+    "hint": "Which word refers to how much quantity of something you have?",
+    "explanation": "amount means a quantity: a small amount of sugar."
+  },
+  {
+    "id": "eng_vrev_sent_3",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct vocabulary word to complete the sentence:",
+    "promptSpeech": "The boy had a blank on his face when he lost the game.",
+    "data": {
+      "sentence": "The boy had a ___ on his face when he lost the game.",
+      "options": ["scowl", "feud", "plumes"]
+    },
+    "correctAnswer": "scowl",
+    "hint": "Which word means an angry or unhappy frown?",
+    "explanation": "scowl is an angry or displeased facial frown."
+  },
+  {
+    "id": "eng_vrev_sent_4",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct vocabulary word to complete the sentence:",
+    "promptSpeech": "Her drawing was blank and beautiful.",
+    "data": {
+      "sentence": "Her drawing was ___ and beautiful.",
+      "options": ["perfect", "disaster", "frenzy"]
+    },
+    "correctAnswer": "perfect",
+    "hint": "A positive word meaning complete and without any flaws.",
+    "explanation": "perfect means having no mistakes or flaws."
+  },
+  {
+    "id": "eng_vrev_sent_5",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct vocabulary word to complete the sentence:",
+    "promptSpeech": "I felt blank after riding the fast roller coaster.",
+    "data": {
+      "sentence": "I felt ___ after riding the fast roller coaster.",
+      "options": ["queasy", "mood", "tasty"]
+    },
+    "correctAnswer": "queasy",
+    "hint": "Which word describes feeling slightly sick or nauseous in your stomach?",
+    "explanation": "queasy means feeling sick to your stomach after a fast ride."
+  }
+]

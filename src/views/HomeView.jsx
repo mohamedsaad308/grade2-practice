@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { subjects } from '../subjects/index.js';
 import { AvatarIcon } from '../player/avatars.jsx';
 import Mascot from '../components/Mascot.jsx';
@@ -8,9 +8,11 @@ export default function HomeView({
   player,
   onStartTopic,
   onChangePlayer,
+  selectedSubjectId = 'english',
+  onSelectSubject,
   soundEnabled = true
 }) {
-  const [selectedSubjectId, setSelectedSubjectId] = useState('math');
+  const [internalSubjectId, setInternalSubjectId] = useState(selectedSubjectId);
   const [selectedLevels, setSelectedLevels] = useState({
     math_more_less: 1,
     math_compare: 1,
@@ -18,7 +20,16 @@ export default function HomeView({
     math_order_asc: 1
   });
 
-  const activeSubject = subjects.find(s => s.id === selectedSubjectId) || subjects[0];
+  useEffect(() => {
+    if (selectedSubjectId) {
+      setInternalSubjectId(selectedSubjectId);
+    }
+  }, [selectedSubjectId]);
+
+  const activeSubject =
+    subjects.find(s => s.id === internalSubjectId) ||
+    subjects.find(s => s.id === 'english') ||
+    subjects[0];
 
   const handleLevelChange = (topicId, level) => {
     playPop(soundEnabled);
@@ -75,7 +86,10 @@ export default function HomeView({
                 onClick={() => {
                   if (isAvailable) {
                     playPop(soundEnabled);
-                    setSelectedSubjectId(subj.id);
+                    setInternalSubjectId(subj.id);
+                    if (onSelectSubject) {
+                      onSelectSubject(subj.id);
+                    }
                   }
                 }}
                 disabled={!isAvailable}

@@ -1,54 +1,184 @@
 [
   {
-    "id": "eng_sent_type_1",
+    "id": "eng_st_1",
     "type": "MultipleChoice",
     "prompt": "What kind of sentence is it?",
-    "promptSpeech": "What kind of sentence is: What a beautiful day it is!",
+    "promptSpeech": "What a beautiful day it is!",
     "data": {
       "sentence": "What a beautiful day it is!",
       "options": ["command", "exclamation", "statement"]
     },
     "correctAnswer": "exclamation",
-    "hint": "An exclamation shows strong feeling and ends with !; a command tells someone to do something; a statement tells information.",
-    "explanation": "\"What a beautiful day it is!\" expresses excitement and ends with an exclamation point (!), so it is an exclamation."
+    "hint": "An exclamation shows strong feeling and excitement and ends with !.",
+    "explanation": "\"What a beautiful day it is!\" expresses excitement and ends with !, so it is an exclamation."
   },
   {
-    "id": "eng_sent_type_2",
+    "id": "eng_st_2",
     "type": "MultipleChoice",
     "prompt": "What kind of sentence is it?",
-    "promptSpeech": "What kind of sentence is: Can you help me with this problem?",
+    "promptSpeech": "Can you help me with this problem?",
     "data": {
       "sentence": "Can you help me with this problem?",
-      "options": ["exclamation", "question", "command"]
+      "options": ["command", "exclamation", "question"]
     },
     "correctAnswer": "question",
-    "hint": "A question asks something and ends with ?; an exclamation shows strong feeling.",
-    "explanation": "\"Can you help me with this problem?\" asks for information or help and ends with a question mark (?), so it is a question."
+    "hint": "A question asks for information or help and ends with ?.",
+    "explanation": "\"Can you help me with this problem?\" asks something and ends with ?, so it is a question."
   },
   {
-    "id": "eng_sent_type_3",
+    "id": "eng_st_3",
     "type": "MultipleChoice",
     "prompt": "What kind of sentence is it?",
-    "promptSpeech": "What kind of sentence is: Don't touch that hot stove.",
+    "promptSpeech": "Don’t touch that hot stove.",
     "data": {
-      "sentence": "Don't touch that hot stove.",
-      "options": ["command", "statement", "exclamation"]
+      "sentence": "Don’t touch that hot stove.",
+      "options": ["command", "exclamation", "statement"]
     },
     "correctAnswer": "command",
-    "hint": "A command tells someone to do (or not do) something; a statement tells facts or information.",
-    "explanation": "\"Don't touch that hot stove.\" gives a direct instruction or order, so it is a command."
+    "hint": "A command gives an order or tells someone what to do (or not do).",
+    "explanation": "\"Don't touch that hot stove.\" gives a direct safety order, so it is a command."
   },
   {
-    "id": "eng_sent_type_4",
+    "id": "eng_st_4",
     "type": "MultipleChoice",
     "prompt": "What kind of sentence is it?",
-    "promptSpeech": "What kind of sentence is: I can't believe we won the game!",
+    "promptSpeech": "I can’t believe we won the game!",
     "data": {
-      "sentence": "I can't believe we won the game!",
+      "sentence": "I can’t believe we won the game!",
       "options": ["command", "exclamation", "question"]
     },
     "correctAnswer": "exclamation",
-    "hint": "An exclamation shows strong feeling and excitement and ends with !.",
-    "explanation": "\"I can't believe we won the game!\" shows strong excitement and feeling, so it is an exclamation."
+    "hint": "Shows strong feeling and celebration, ending with !.",
+    "explanation": "\"I can't believe we won the game!\" shows celebration and strong feeling, so it is an exclamation."
+  },
+  {
+    "id": "eng_st_5",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "Bring me your hat.",
+    "data": {
+      "sentence": "Bring me your hat.",
+      "options": ["command", "question", "statement"]
+    },
+    "correctAnswer": "command",
+    "hint": "Gives a direction or order to bring something.",
+    "explanation": "\"Bring me your hat.\" tells someone to do an action (an order), so it is a command."
+  },
+  {
+    "id": "eng_st_6",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "You can take your sister to the store.",
+    "data": {
+      "sentence": "You can take your sister to the store.",
+      "options": ["command", "exclamation", "statement"]
+    },
+    "correctAnswer": "statement",
+    "hint": "Tells a fact or information and ends with a period.",
+    "explanation": "\"You can take your sister to the store.\" tells information, so it is a statement."
+  },
+  {
+    "id": "eng_st_7",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "Jump over this branch.",
+    "data": {
+      "sentence": "Jump over this branch.",
+      "options": ["command", "question", "statement"]
+    },
+    "correctAnswer": "command",
+    "hint": "Gives an action instruction: Jump!",
+    "explanation": "\"Jump over this branch.\" gives an order, so it is a command."
+  },
+  {
+    "id": "eng_st_8",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "The bees make honey.",
+    "data": {
+      "sentence": "The bees make honey.",
+      "options": ["command", "exclamation", "statement"]
+    },
+    "correctAnswer": "statement",
+    "hint": "Tells a true fact about bees and ends with a period.",
+    "explanation": "\"The bees make honey.\" gives information (a statement)."
+  },
+  {
+    "id": "eng_st_9",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "Find the keys.",
+    "data": {
+      "sentence": "Find the keys.",
+      "options": ["command", "question", "statement"]
+    },
+    "correctAnswer": "command",
+    "hint": "Tells someone to do an action: Find!",
+    "explanation": "\"Find the keys.\" gives an order to look for the keys, so it is a command."
+  },
+  {
+    "id": "eng_st_10",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "Keep your voice down.",
+    "data": {
+      "sentence": "Keep your voice down.",
+      "options": ["command", "exclamation", "statement"]
+    },
+    "correctAnswer": "command",
+    "hint": "Tells someone how to behave or speak quietly.",
+    "explanation": "\"Keep your voice down.\" is an order to speak quietly, so it is a command."
+  },
+  {
+    "id": "eng_st_11",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "It is windy.",
+    "data": {
+      "sentence": "It is windy.",
+      "options": ["command", "question", "statement"]
+    },
+    "correctAnswer": "statement",
+    "hint": "Tells about the weather today.",
+    "explanation": "\"It is windy.\" tells a fact about the weather, so it is a statement."
+  },
+  {
+    "id": "eng_st_12",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "The sun is going down.",
+    "data": {
+      "sentence": "The sun is going down.",
+      "options": ["command", "question", "statement"]
+    },
+    "correctAnswer": "statement",
+    "hint": "Tells something happening in nature.",
+    "explanation": "\"The sun is going down.\" states a fact, so it is a statement."
+  },
+  {
+    "id": "eng_st_13",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "Finish your homework.",
+    "data": {
+      "sentence": "Finish your homework.",
+      "options": ["command", "question", "statement"]
+    },
+    "correctAnswer": "command",
+    "hint": "Gives a direct instruction to complete your schoolwork.",
+    "explanation": "\"Finish your homework.\" gives an order, so it is a command."
+  },
+  {
+    "id": "eng_st_14",
+    "type": "MultipleChoice",
+    "prompt": "What kind of sentence is it?",
+    "promptSpeech": "Look at the moon.",
+    "data": {
+      "sentence": "Look at the moon.",
+      "options": ["command", "question", "statement"]
+    },
+    "correctAnswer": "command",
+    "hint": "Tells you where to direct your eyes.",
+    "explanation": "\"Look at the moon.\" gives a direction, so it is a command."
   }
 ]

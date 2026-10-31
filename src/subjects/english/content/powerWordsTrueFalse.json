@@ -1,0 +1,93 @@
+[
+  {
+    "id": "eng_pw_tf_1",
+    "type": "MultipleChoice",
+    "prompt": "Read the sentence carefully. Write True if it makes sense, False if it does not:",
+    "promptSpeech": "A battleground is a place where teams play a friendly game. True or False?",
+    "data": {
+      "sentence": "A battleground is a place where teams play a friendly game.",
+      "options": ["True", "False"]
+    },
+    "correctAnswer": "False",
+    "hint": "Think about what a 'battle' means. Is a battle friendly?",
+    "explanation": "False! A battleground is a place of conflict or war, not a friendly playground game."
+  },
+  {
+    "id": "eng_pw_tf_2",
+    "type": "MultipleChoice",
+    "prompt": "Read the sentence carefully. Write True if it makes sense, False if it does not:",
+    "promptSpeech": "A feud is a short and happy friendship. True or False?",
+    "data": {
+      "sentence": "A feud is a short and happy friendship.",
+      "options": ["True", "False"]
+    },
+    "correctAnswer": "False",
+    "hint": "A feud is a long, bitter argument or quarrel between people or families.",
+    "explanation": "False! A feud is an angry, ongoing dispute or quarrel, not a happy friendship."
+  },
+  {
+    "id": "eng_pw_tf_3",
+    "type": "MultipleChoice",
+    "prompt": "Read the sentence carefully. Write True if it makes sense, False if it does not:",
+    "promptSpeech": "A frenzy means people are very excited or wild. True or False?",
+    "data": {
+      "sentence": "A frenzy means people are very excited or wild.",
+      "options": ["True", "False"]
+    },
+    "correctAnswer": "True",
+    "hint": "Frenzy describes intense, wild excitement or uncontrolled activity.",
+    "explanation": "True! A frenzy is a period of wild excitement and uncontrolled behavior."
+  },
+  {
+    "id": "eng_pw_tf_4",
+    "type": "MultipleChoice",
+    "prompt": "Read the sentence carefully. Write True if it makes sense, False if it does not:",
+    "promptSpeech": "When you gasped, you took a quick breath because you were surprised. True or False?",
+    "data": {
+      "sentence": "When you gasped, you took a quick breath because you were surprised.",
+      "options": ["True", "False"]
+    },
+    "correctAnswer": "True",
+    "hint": "Think of catching your breath suddenly when surprised or shocked.",
+    "explanation": "True! Gasping is inhaling suddenly in shock, wonder, or surprise."
+  },
+  {
+    "id": "eng_pw_tf_5",
+    "type": "MultipleChoice",
+    "prompt": "Read the sentence carefully. Write True if it makes sense, False if it does not:",
+    "promptSpeech": "Plumes are short and flat pieces of wood. True or False?",
+    "data": {
+      "sentence": "Plumes are short and flat pieces of wood.",
+      "options": ["True", "False"]
+    },
+    "correctAnswer": "False",
+    "hint": "Plumes are feathery shapes, like plumes of smoke rising into the air, or decorative bird feathers.",
+    "explanation": "False! Plumes are long, feathery clouds or feathers, not pieces of wood."
+  },
+  {
+    "id": "eng_pw_tf_6",
+    "type": "MultipleChoice",
+    "prompt": "Read the sentence carefully. Write True if it makes sense, False if it does not:",
+    "promptSpeech": "Rocks tumbling down a hill are rolling and falling. True or False?",
+    "data": {
+      "sentence": "Rocks tumbling down a hill are rolling and falling.",
+      "options": ["True", "False"]
+    },
+    "correctAnswer": "True",
+    "hint": "Tumbling means rolling over and over as you fall.",
+    "explanation": "True! Tumbling means rolling and falling rapidly downward."
+  },
+  {
+    "id": "eng_pw_tf_7",
+    "type": "MultipleChoice",
+    "prompt": "Read the sentence carefully. Write True if it makes sense, False if it does not:",
+    "promptSpeech": "Wisps of smoke are small, thin lines of smoke in the air. True or False?",
+    "data": {
+      "sentence": "Wisps of smoke are small, thin lines of smoke in the air.",
+      "options": ["True", "False"]
+    },
+    "correctAnswer": "True",
+    "hint": "A wisp is a small, thin, delicate strand or puff.",
+    "explanation": "True! Wisps are light, thin, delicate strands of smoke floating in the air."
+  }
+]

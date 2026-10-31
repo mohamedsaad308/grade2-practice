@@ -1,0 +1,104 @@
+[
+  {
+    "id": "eng_pw_q_1",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct answer to the question:",
+    "promptSpeech": "What might make a person scowl?",
+    "data": {
+      "sentence": "What might make a person scowl?",
+      "options": [
+        "When they feel angry or annoyed.",
+        "When they are smiling and joyful.",
+        "When they are sound asleep."
+      ]
+    },
+    "correctAnswer": "When they feel angry or annoyed.",
+    "hint": "A scowl is an angry frown showing displeasure.",
+    "explanation": "A person makes a scowl when they feel upset, angry, or annoyed."
+  },
+  {
+    "id": "eng_pw_q_2",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct answer to the question:",
+    "promptSpeech": "What is a disaster that can happen in nature?",
+    "data": {
+      "sentence": "What is a disaster that can happen in nature?",
+      "options": [
+        "An earthquake, flood, or storm.",
+        "A gentle sunny breeze in the garden.",
+        "Reading a book under a tree."
+      ]
+    },
+    "correctAnswer": "An earthquake, flood, or storm.",
+    "hint": "A natural disaster is a powerful event in nature that causes sudden, widespread damage.",
+    "explanation": "Earthquakes, floods, and severe storms are dangerous natural disasters."
+  },
+  {
+    "id": "eng_pw_q_3",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct answer to the question:",
+    "promptSpeech": "Why might someone gasp when watching a scary movie?",
+    "data": {
+      "sentence": "Why might someone gasp when watching a scary movie?",
+      "options": [
+        "Because they are frightened or surprised.",
+        "Because they are eating sweet popcorn.",
+        "Because they are bored and falling asleep."
+      ]
+    },
+    "correctAnswer": "Because they are frightened or surprised.",
+    "hint": "Gasping happens when an unexpected or startling sight makes you suddenly catch your breath.",
+    "explanation": "People gasp when they feel sudden fright or surprise during a scary scene."
+  },
+  {
+    "id": "eng_pw_q_4",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct answer to the question:",
+    "promptSpeech": "What might cause plumes of smoke to rise into the sky?",
+    "data": {
+      "sentence": "What might cause plumes of smoke to rise into the sky?",
+      "options": [
+        "A fire might cause plumes of smoke.",
+        "A glass of cold water on the table.",
+        "A quiet green flower in the pot."
+      ]
+    },
+    "correctAnswer": "A fire might cause plumes of smoke.",
+    "hint": "What creates thick, billowing smoke when it burns?",
+    "explanation": "A fire produces large feathery plumes of smoke that rise into the sky."
+  },
+  {
+    "id": "eng_pw_q_5",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct answer to the question:",
+    "promptSpeech": "How might a person feel after eating too much food?",
+    "data": {
+      "sentence": "How might a person feel after eating too much food?",
+      "options": [
+        "A person might feel queasy or sick.",
+        "Hungry and eager to eat dinner.",
+        "Ready to run a fast race."
+      ]
+    },
+    "correctAnswer": "A person might feel queasy or sick.",
+    "hint": "Queasy describes an upset, uncomfortable stomach.",
+    "explanation": "Overeating can upset your stomach, making you feel queasy or sick."
+  },
+  {
+    "id": "eng_pw_q_6",
+    "type": "MultipleChoice",
+    "prompt": "Choose the correct answer to the question:",
+    "promptSpeech": "Which planet do we live on?",
+    "data": {
+      "sentence": "Which planet do we live on?",
+      "options": [
+        "We live on Earth.",
+        "We live on Mars.",
+        "We live on Jupiter."
+      ]
+    },
+    "correctAnswer": "We live on Earth.",
+    "hint": "Our home planet is the third planet from the Sun, full of oceans and life.",
+    "explanation": "Human beings and animals live on planet Earth!"
+  }
+]

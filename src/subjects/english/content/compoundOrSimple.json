@@ -1,0 +1,158 @@
+[
+  {
+    "id": "eng_cos_1",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "We can go to the park, or we can stay home. Simple or compound?",
+    "data": {
+      "sentence": "We can go to the park, or we can stay home.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Compound sentence",
+    "hint": "A compound sentence joins two complete thoughts with a comma and joining word (, and / , but / , or).",
+    "explanation": "It combines two complete thoughts joined by \", or\", making it a compound sentence."
+  },
+  {
+    "id": "eng_cos_2",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "The sun is bright. The sky is clear. Simple or compound?",
+    "data": {
+      "sentence": "The sun is bright. The sky is clear.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Simple sentence",
+    "hint": "These are two separate simple sentences with periods, not joined into one compound sentence.",
+    "explanation": "These are two separate simple sentences, not joined together by a comma and conjunction."
+  },
+  {
+    "id": "eng_cos_3",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "I brought a snack, and I shared it with my friend. Simple or compound?",
+    "data": {
+      "sentence": "I brought a snack, and I shared it with my friend.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Compound sentence",
+    "hint": "Look for two complete sentences joined with ', and'.",
+    "explanation": "Two complete thoughts are connected with \", and\", so it is a compound sentence."
+  },
+  {
+    "id": "eng_cos_4",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "You can take the red pencil or the blue one. Simple or compound?",
+    "data": {
+      "sentence": "You can take the red pencil or the blue one.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Simple sentence",
+    "hint": "Does 'the blue one' have its own subject and verb? No, so it is just one simple sentence.",
+    "explanation": "This has only one complete thought (one subject and verb), so it is a simple sentence."
+  },
+  {
+    "id": "eng_cos_5",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "The teacher smiled, but the class was noisy. Simple or compound?",
+    "data": {
+      "sentence": "The teacher smiled, but the class was noisy.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Compound sentence",
+    "hint": "Two complete thoughts joined by ', but'.",
+    "explanation": "Joined by \", but\" with two complete sentences, making it a compound sentence."
+  },
+  {
+    "id": "eng_cos_6",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "My brother likes apples. My sister likes oranges. Simple or compound?",
+    "data": {
+      "sentence": "My brother likes apples. My sister likes oranges.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Simple sentence",
+    "hint": "Two separate sentences ending with periods, not joined into one compound sentence.",
+    "explanation": "These are two separate simple sentences."
+  },
+  {
+    "id": "eng_cos_7",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "We packed our bags, and we left early for the trip. Simple or compound?",
+    "data": {
+      "sentence": "We packed our bags, and we left early for the trip.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Compound sentence",
+    "hint": "Look for the comma and connecting word ', and'.",
+    "explanation": "Joined by \", and\" with two complete thoughts, making it a compound sentence."
+  },
+  {
+    "id": "eng_cos_8",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "It’s raining outside, but I forgot my umbrella. Simple or compound?",
+    "data": {
+      "sentence": "It’s raining outside, but I forgot my umbrella.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Compound sentence",
+    "hint": "Two complete thoughts joined by ', but'.",
+    "explanation": "Joined by \", but\", connecting two complete thoughts into a compound sentence."
+  },
+  {
+    "id": "eng_cos_9",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "I watched a scary movie. Simple or compound?",
+    "data": {
+      "sentence": "I watched a scary movie.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Simple sentence",
+    "hint": "Has only one subject (I) and one complete predicate (watched a scary movie).",
+    "explanation": "It tells one single complete thought, so it is a simple sentence."
+  },
+  {
+    "id": "eng_cos_10",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "I wanted to travel, but I didn’t have enough money. Simple or compound?",
+    "data": {
+      "sentence": "I wanted to travel, but I didn’t have enough money.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Compound sentence",
+    "hint": "Two complete thoughts connected with ', but'.",
+    "explanation": "It combines two complete thoughts joined by \", but\", so it is a compound sentence."
+  },
+  {
+    "id": "eng_cos_11",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "Aiden picked apples, and we made a pie with them. Simple or compound?",
+    "data": {
+      "sentence": "Aiden picked apples, and we made a pie with them.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Compound sentence",
+    "hint": "Two complete thoughts joined by ', and'.",
+    "explanation": "Joined by \", and\" connecting two complete thoughts, making it a compound sentence."
+  },
+  {
+    "id": "eng_cos_12",
+    "type": "MultipleChoice",
+    "prompt": "Is this a compound sentence or a simple sentence?",
+    "promptSpeech": "The play was good, but it lasted too long. Simple or compound?",
+    "data": {
+      "sentence": "The play was good, but it lasted too long.",
+      "options": ["Compound sentence", "Simple sentence"]
+    },
+    "correctAnswer": "Compound sentence",
+    "hint": "Two complete thoughts joined by ', but'.",
+    "explanation": "Joined by \", but\" connecting two complete thoughts, so it is a compound sentence."
+  }
+]

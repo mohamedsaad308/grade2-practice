@@ -1,0 +1,170 @@
+[
+  {
+    "id": "eng_form_comp_1",
+    "type": "MultipleChoice",
+    "prompt": "Combine into a compound sentence using a comma and \"and\":",
+    "promptSpeech": "Ben washed the car. He cleaned the windows. Combine using and.",
+    "data": {
+      "sentence": "Ben washed the car. He cleaned the windows. (join with \"and\")",
+      "options": [
+        "Ben washed the car, and he cleaned the windows.",
+        "Ben washed the car and he cleaned the windows.",
+        "Ben washed the car, but he cleaned the windows."
+      ]
+    },
+    "correctAnswer": "Ben washed the car, and he cleaned the windows.",
+    "hint": "Remember: always use a comma before the connecting word (', and').",
+    "explanation": "A comma is used before the joining word: \"Ben washed the car, and he cleaned the windows.\""
+  },
+  {
+    "id": "eng_form_comp_2",
+    "type": "MultipleChoice",
+    "prompt": "Combine into a compound sentence using a comma and \"or\":",
+    "promptSpeech": "We could play soccer. We could ride our bikes. Combine using or.",
+    "data": {
+      "sentence": "We could play soccer. We could ride our bikes. (join with \"or\")",
+      "options": [
+        "We could play soccer, or we could ride our bikes.",
+        "We could play soccer and we could ride our bikes.",
+        "We could play soccer, but we could ride our bikes."
+      ]
+    },
+    "correctAnswer": "We could play soccer, or we could ride our bikes.",
+    "hint": "Use a comma before 'or' to present two choices.",
+    "explanation": "\"We could play soccer, or we could ride our bikes.\" correctly joins two choices with \", or\"."
+  },
+  {
+    "id": "eng_form_comp_3",
+    "type": "MultipleChoice",
+    "prompt": "Combine into a compound sentence using a comma and \"but\":",
+    "promptSpeech": "Some lizards live in the desert. Others live in tropical places. Combine using but.",
+    "data": {
+      "sentence": "Some lizards live in the desert. Others live in tropical places. (join with \"but\")",
+      "options": [
+        "Some lizards live in the desert, but others live in tropical places.",
+        "Some lizards live in the desert and others live in tropical places.",
+        "Some lizards live in the desert, or others live in tropical places."
+      ]
+    },
+    "correctAnswer": "Some lizards live in the desert, but others live in tropical places.",
+    "hint": "Use a comma before 'but' to show contrast.",
+    "explanation": "\"Some lizards live in the desert, but others live in tropical places.\" uses \", but\" to show contrasting habitats."
+  },
+  {
+    "id": "eng_form_comp_4",
+    "type": "MultipleChoice",
+    "prompt": "Combine into a compound sentence using a comma and \"but\":",
+    "promptSpeech": "It is hot during the day. It is cold at night. Combine using but.",
+    "data": {
+      "sentence": "It is hot during the day. It is cold at night. (join with \"but\")",
+      "options": [
+        "It is hot during the day, but it is cold at night.",
+        "It is hot during the day or it is cold at night.",
+        "It is hot during the day and it is cold at night."
+      ]
+    },
+    "correctAnswer": "It is hot during the day, but it is cold at night.",
+    "hint": "Day and night temperatures contrast. Use ', but'.",
+    "explanation": "\"It is hot during the day, but it is cold at night.\" joins the contrasting sentences with \", but\"."
+  },
+  {
+    "id": "eng_form_comp_5",
+    "type": "MultipleChoice",
+    "prompt": "Combine into a compound sentence using a comma and \"but\":",
+    "promptSpeech": "Sari wants to take Lu for a walk. Lu is too tired. Combine using but.",
+    "data": {
+      "sentence": "Sari wants to take Lu for a walk. Lu is too tired. (join with \"but\")",
+      "options": [
+        "Sari wants to take Lu for a walk, but Lu is too tired.",
+        "Sari wants to take Lu for a walk and Lu is too tired.",
+        "Sari wants to take Lu for a walk, or Lu is too tired."
+      ]
+    },
+    "correctAnswer": "Sari wants to take Lu for a walk, but Lu is too tired.",
+    "hint": "Use a comma before 'but' to connect the thoughts.",
+    "explanation": "\"Sari wants to take Lu for a walk, but Lu is too tired.\" connects the sentences with \", but\"."
+  },
+  {
+    "id": "eng_form_comp_6",
+    "type": "MultipleChoice",
+    "prompt": "Combine into a compound sentence using a comma and \"but\":",
+    "promptSpeech": "Most people had to wait in line. Molly had a special pass. Combine using but.",
+    "data": {
+      "sentence": "Most people had to wait in line. Molly had a special pass. (join with \"but\")",
+      "options": [
+        "Most people had to wait in line, but Molly had a special pass.",
+        "Most people had to wait in line and Molly had a special pass.",
+        "Most people had to wait in line or Molly had a special pass."
+      ]
+    },
+    "correctAnswer": "Most people had to wait in line, but Molly had a special pass.",
+    "hint": "Molly's pass is an exception to waiting in line. Use ', but'.",
+    "explanation": "\"Most people had to wait in line, but Molly had a special pass.\" shows the contrast."
+  },
+  {
+    "id": "eng_form_comp_7",
+    "type": "MultipleChoice",
+    "prompt": "Combine into a compound sentence using a comma and \"or\":",
+    "promptSpeech": "We can go to the café. We can make breakfast at home. Combine using or.",
+    "data": {
+      "sentence": "We can go to the café. We can make breakfast at home. (join with \"or\")",
+      "options": [
+        "We can go to the café, or we can make breakfast at home.",
+        "We can go to the café and we can make breakfast at home.",
+        "We can go to the café, but we can make breakfast at home."
+      ]
+    },
+    "correctAnswer": "We can go to the café, or we can make breakfast at home.",
+    "hint": "Choosing between eating out or eating at home. Use ', or'.",
+    "explanation": "\"We can go to the café, or we can make breakfast at home.\" joins two choices with \", or\"."
+  },
+  {
+    "id": "eng_form_comp_8",
+    "type": "MultipleChoice",
+    "prompt": "Combine into a compound sentence using a comma and \"and\":",
+    "promptSpeech": "Xun met his favorite author. She signed a book for him. Combine using and.",
+    "data": {
+      "sentence": "Xun met his favorite author. She signed a book for him. (join with \"and\")",
+      "options": [
+        "Xun met his favorite author, and she signed a book for him.",
+        "Xun met his favorite author or she signed a book for him.",
+        "Xun met his favorite author, but she signed a book for him."
+      ]
+    },
+    "correctAnswer": "Xun met his favorite author, and she signed a book for him.",
+    "hint": "Two related positive events happen in order. Use ', and'.",
+    "explanation": "\"Xun met his favorite author, and she signed a book for him.\" joins the actions with \", and\"."
+  },
+  {
+    "id": "eng_form_comp_9",
+    "type": "MultipleChoice",
+    "prompt": "Connect to Writing: Combine sentences 2 and 3:",
+    "promptSpeech": "Which sentence shows how to combine: (2) I wanted to see a movie about pirates. (3) My brother wanted to see a movie about outer space?",
+    "data": {
+      "sentence": "Which sentence shows how to combine:\n(2) I wanted to see a movie about pirates.\n(3) My brother wanted to see a movie about outer space.",
+      "options": [
+        "I wanted to see a movie about pirates, but my brother wanted to see a movie about outer space.",
+        "I wanted to see a movie about pirates, my brother wanted to see a movie about outer space."
+      ]
+    },
+    "correctAnswer": "I wanted to see a movie about pirates, but my brother wanted to see a movie about outer space.",
+    "hint": "A compound sentence requires BOTH a comma and a conjunction word like 'but'.",
+    "explanation": "You must use both a comma and a conjunction: \", but\" to connect the two sentences properly."
+  },
+  {
+    "id": "eng_form_comp_10",
+    "type": "MultipleChoice",
+    "prompt": "Connect to Writing: Combine sentences 5 and 6:",
+    "promptSpeech": "Which sentence shows how to combine: (5) She chose a funny movie. (6) We all really liked it?",
+    "data": {
+      "sentence": "Which sentence shows how to combine:\n(5) She chose a funny movie.\n(6) We all really liked it.",
+      "options": [
+        "She chose a funny movie, and we all really liked it.",
+        "She chose a funny movie but we all really liked it."
+      ]
+    },
+    "correctAnswer": "She chose a funny movie, and we all really liked it.",
+    "hint": "Remember to include the comma before the connecting word 'and'!",
+    "explanation": "A comma is needed before the connecting word: \"She chose a funny movie, and we all really liked it.\""
+  }
+]

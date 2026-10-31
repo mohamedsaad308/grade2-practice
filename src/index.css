@@ -818,18 +818,25 @@ input, button, textarea {
 
 .exit-session-btn {
   background: #FFFFFF;
-  border: 2px solid #CBD5E1;
+  border: 2px solid #E2E8F0;
   border-radius: var(--radius-full);
-  padding: 0.4rem 0.9rem;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #64748B;
+  padding: 0.5rem 1.1rem;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #475569;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
 }
 
 .exit-session-btn:hover {
-  background: #F1F5F9;
-  color: #0F172A;
+  background: #EEF2FF;
+  border-color: #6366F1;
+  color: #4338CA;
+  transform: translateX(-2px);
 }
 
 .session-topic-title-badge {
@@ -1420,6 +1427,58 @@ input, button, textarea {
 /* 4. Multiple Choice */
 .multiple-choice-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Item Card for Multiple Choice Questions (Sentences & Paragraphs) */
+.mc-item-card {
+  padding: 1.5rem 1.85rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.mc-sentence-card {
+  background: #F8FAFC;
+  border: 3px solid #6366F1;
+  border-left: 8px solid #4F46E5;
+}
+
+.mc-paragraph-card {
+  background: #FDF4FF;
+  border: 3px solid #E879F9;
+  border-left: 8px solid #A855F7;
+}
+
+.mc-item-sentence {
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: #0F172A;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.mc-item-paragraph {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #3B0764;
+  line-height: 1.85;
+}
+
+.mc-sentence-blank-pill {
+  display: inline-block;
+  background: #EEF2FF;
+  border: 3px dashed #4F46E5;
+  color: #4F46E5;
+  padding: 0.15rem 0.85rem;
+  border-radius: var(--radius-md);
+  margin: 0 0.4rem;
+  font-size: 1.75rem;
+  font-weight: 900;
+  vertical-align: middle;
 }
 
 .options-grid {
@@ -1550,6 +1609,19 @@ input, button, textarea {
 
 .play-again-btn:hover {
   background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.back-subject-btn {
+  background: #EC4899;
+  border: 2px solid #DB2777;
+  color: #FFFFFF;
+  box-shadow: 0 6px 0 #9D174D;
+  font-weight: 800;
+}
+
+.back-subject-btn:hover {
+  background: #DB2777;
   transform: translateY(-2px);
 }
 
@@ -1912,6 +1984,7 @@ input, button, textarea {
   border: 2px dashed #F472B6;
   font-family: monospace, sans-serif;
   letter-spacing: 0.05em;
+  font-weight: 900;
 }
 
 .answer-slots-rack {
