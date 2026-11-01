@@ -3715,4 +3715,261 @@ input, button, textarea, a, [role="button"] {
   }
 }
 
+/* ==========================================================================
+   Social Studies (SOC STUD) Visuals & Map Styles
+   ========================================================================== */
+
+/* Northern Africa Map Container */
+.soc-map-container {
+  background: #FFFFFF;
+  border: 2px solid #CBD5E1;
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 0.65rem;
+  width: 100%;
+}
+
+.soc-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.soc-map-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1E293B;
+}
+
+.soc-map-subtitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748B;
+}
+
+.soc-map-svg-wrapper {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1.5px solid #BAE6FD;
+}
+
+.soc-africa-svg {
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  display: block;
+}
+
+@keyframes mapPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.9;
+  }
+}
+
+.map-badge-pulse {
+  transform-origin: center;
+  animation: mapPulse 1.4s infinite ease-in-out;
+}
+
+.soc-map-legend-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.65rem;
+  justify-content: center;
+}
+
+.soc-country-pill {
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  border-radius: var(--radius-full);
+  color: #334155;
+  transition: all 0.15s ease;
+}
+
+.soc-country-pill.pill-active {
+  background: #FEF08A;
+  border-color: #EAB308;
+  color: #854D0E;
+  font-weight: 800;
+  box-shadow: 0 0 0 2px #FDE047;
+}
+
+/* Shapes 3D vs 2D vs Spherical Visual Card */
+.soc-visual-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 0.65rem;
+  width: 100%;
+}
+
+.soc-shapes-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #FDF2F8 0%, #F0FDF4 50%, #FEF2F2 100%);
+  border-color: #FBCFE8;
+}
+
+.soc-shape-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.soc-shape-tag {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #1E293B;
+  text-align: center;
+  background: #FFFFFF;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Map Colors Visual Card */
+.soc-colors-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  background: #F8FAFC;
+}
+
+.soc-color-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+}
+
+.color-swatch-badge {
+  font-weight: 800;
+  font-size: 0.88rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  min-width: 72px;
+  text-align: center;
+}
+
+.swatch-blue {
+  background: #0284C7;
+  color: #FFFFFF;
+}
+
+.swatch-yellow {
+  background: #EAB308;
+  color: #451A03;
+}
+
+.swatch-green {
+  background: #16A34A;
+  color: #FFFFFF;
+}
+
+.color-meaning-arrow {
+  color: #94A3B8;
+  font-weight: 800;
+}
+
+.color-meaning-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1E293B;
+}
+
+/* Map Key Visual Card */
+.soc-key-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.soc-key-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #4338CA;
+  margin-bottom: 0.25rem;
+}
+
+.soc-key-symbols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.key-symbol-pill {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  background: #EEF2FF;
+  border: 1.5px solid #C7D2FE;
+  border-radius: var(--radius-full);
+  color: #3730A3;
+}
+
+/* Borders Visual Card */
+.border-diagram-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.country-box {
+  padding: 0.75rem 1rem;
+  background: #FEF3C7;
+  border: 2px solid #F59E0B;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  color: #92400E;
+  text-align: center;
+  flex: 1;
+}
+
+.country-b {
+  background: #E0E7FF;
+  border-color: #6366F1;
+  color: #3730A3;
+}
+
+.border-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.border-line-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #DC2626;
+  background: #FEE2E2;
+  border: 1.5px dashed #DC2626;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+
 

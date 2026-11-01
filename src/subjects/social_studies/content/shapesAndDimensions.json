@@ -1,0 +1,120 @@
+{
+  "id": "soc_shapes",
+  "title": "2D, 3D & Spherical Shapes",
+  "icon": "🧊",
+  "instruction": "Choose the correct answer about 2D, 3D, and spherical shapes:",
+  "hint": "Remember: 2D is flat like paper. 3D is not flat. Spherical means round like a ball. Portable means easy to carry!",
+  "items": [
+    {
+      "id": "soc-shape-01",
+      "text": "Which word describes things that are not flat?",
+      "options": ["3D", "2D", "Flat"],
+      "answer": "3D",
+      "visual": "shapes_3d_2d",
+      "explanation": "3D describes solid objects that are not flat, like a box, a cube, or a ball."
+    },
+    {
+      "id": "soc-shape-02",
+      "text": "Which word describes things that are flat like paper?",
+      "options": ["2D", "3D", "Spherical"],
+      "answer": "2D",
+      "visual": "shapes_3d_2d",
+      "explanation": "2D describes shapes and drawings that are flat like paper, such as a square or a flat paper map."
+    },
+    {
+      "id": "soc-shape-03",
+      "text": "Which word describes things that are shaped like a ball (round)?",
+      "options": ["Spherical", "Flat", "2D"],
+      "answer": "Spherical",
+      "visual": "shapes_3d_2d",
+      "explanation": "Spherical means shaped like a round ball, such as a basketball or the Earth."
+    },
+    {
+      "id": "soc-shape-04",
+      "text": "Which word means easy to carry?",
+      "options": ["Portable", "Spherical", "Heavy"],
+      "answer": "Portable",
+      "explanation": "Portable means easy to carry, like a folded map or a book in your backpack."
+    },
+    {
+      "id": "soc-shape-05",
+      "text": "A flat drawing of a square on paper is ___.",
+      "options": ["2D", "3D", "spherical"],
+      "answer": "2D",
+      "visual": "shapes_3d_2d",
+      "explanation": "Drawings on a sheet of paper are flat, so they are 2D."
+    },
+    {
+      "id": "soc-shape-06",
+      "text": "A wooden block or a solid toy box is ___.",
+      "options": ["3D", "2D", "flat"],
+      "answer": "3D",
+      "visual": "shapes_3d_2d",
+      "explanation": "Blocks and boxes take up space and are not flat, so they are 3D."
+    },
+    {
+      "id": "soc-shape-07",
+      "text": "A globe and a soccer ball are both shaped like a ball, so they are ___.",
+      "options": ["spherical", "flat", "2D"],
+      "answer": "spherical",
+      "visual": "shapes_3d_2d",
+      "explanation": "Things that are round like a ball are called spherical."
+    },
+    {
+      "id": "soc-shape-08",
+      "text": "A paper map can easily be folded and taken on a trip because it is ___.",
+      "options": ["portable", "spherical", "3D"],
+      "answer": "portable",
+      "explanation": "Portable means easy to carry from place to place."
+    },
+    {
+      "id": "soc-shape-09",
+      "text": "Why is a paper map called portable?",
+      "options": ["Because it is easy to carry", "Because it is round like a ball", "Because it is heavy"],
+      "answer": "Because it is easy to carry",
+      "explanation": "Portable means easy to carry."
+    },
+    {
+      "id": "soc-shape-10",
+      "text": "Is a model globe of the Earth 2D or 3D?",
+      "options": ["3D (it is not flat)", "2D (it is flat like paper)"],
+      "answer": "3D (it is not flat)",
+      "explanation": "A globe is a round 3D object that you can hold and touch all sides of."
+    },
+    {
+      "id": "soc-shape-11",
+      "text": "Is a map printed on a flat sheet of paper 2D or 3D?",
+      "options": ["2D (flat like paper)", "3D (not flat)"],
+      "answer": "2D (flat like paper)",
+      "explanation": "A paper map is flat like a sheet of paper, so it is 2D."
+    },
+    {
+      "id": "soc-shape-12",
+      "text": "True or False: 2D describes things that are flat like paper.",
+      "options": ["True", "False"],
+      "answer": "True",
+      "explanation": "That's right! 2D means flat like paper."
+    },
+    {
+      "id": "soc-shape-13",
+      "text": "True or False: 3D describes things that are completely flat.",
+      "options": ["False", "True"],
+      "answer": "False",
+      "explanation": "False! 3D describes things that are not flat."
+    },
+    {
+      "id": "soc-shape-14",
+      "text": "True or False: A ball is spherical because it is round.",
+      "options": ["True", "False"],
+      "answer": "True",
+      "explanation": "True! Spherical means shaped like a ball (round)."
+    },
+    {
+      "id": "soc-shape-15",
+      "text": "True or False: If an object is portable, it is very hard to move.",
+      "options": ["False", "True"],
+      "answer": "False",
+      "explanation": "False! Portable means easy to carry."
+    }
+  ]
+}

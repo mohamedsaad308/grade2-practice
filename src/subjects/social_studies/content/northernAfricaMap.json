@@ -1,0 +1,132 @@
+{
+  "id": "soc_north_africa",
+  "title": "Northern Africa Countries",
+  "icon": "🧭",
+  "instruction": "Look at the map of Northern Africa (countries 1 to 6) and answer:",
+  "hint": "1=Sudan, 2=Egypt, 3=Libya, 4=Tunisia, 5=Algeria, 6=Morocco. Egypt is #2 and Sudan is south (#1)!",
+  "items": [
+    {
+      "id": "soc-map-q01",
+      "text": "On the map of Northern Africa, which country is labeled with number 2?",
+      "options": ["Egypt", "Sudan", "Libya", "Morocco"],
+      "answer": "Egypt",
+      "visual": "north_africa",
+      "highlight": 2,
+      "explanation": "Number 2 is Egypt, located in the northeast by the Red Sea and Mediterranean Sea."
+    },
+    {
+      "id": "soc-map-q02",
+      "text": "On the map of Northern Africa, which country is labeled with number 1?",
+      "options": ["Sudan", "Egypt", "Tunisia", "Algeria"],
+      "answer": "Sudan",
+      "visual": "north_africa",
+      "highlight": 1,
+      "explanation": "Number 1 is Sudan, located directly south of Egypt."
+    },
+    {
+      "id": "soc-map-q03",
+      "text": "On the map of Northern Africa, which country is labeled with number 3?",
+      "options": ["Libya", "Egypt", "Morocco", "Sudan"],
+      "answer": "Libya",
+      "visual": "north_africa",
+      "highlight": 3,
+      "explanation": "Number 3 is Libya, located directly west of Egypt."
+    },
+    {
+      "id": "soc-map-q04",
+      "text": "On the map of Northern Africa, which small country is labeled with number 4?",
+      "options": ["Tunisia", "Algeria", "Sudan", "Egypt"],
+      "answer": "Tunisia",
+      "visual": "north_africa",
+      "highlight": 4,
+      "explanation": "Number 4 is Tunisia, the small country at the northern coast."
+    },
+    {
+      "id": "soc-map-q05",
+      "text": "On the map of Northern Africa, which large country is labeled with number 5?",
+      "options": ["Algeria", "Morocco", "Libya", "Sudan"],
+      "answer": "Algeria",
+      "visual": "north_africa",
+      "highlight": 5,
+      "explanation": "Number 5 is Algeria, the large country between Morocco and Libya."
+    },
+    {
+      "id": "soc-map-q06",
+      "text": "On the map of Northern Africa, which country is labeled with number 6 on the far west?",
+      "options": ["Morocco", "Algeria", "Tunisia", "Egypt"],
+      "answer": "Morocco",
+      "visual": "north_africa",
+      "highlight": 6,
+      "explanation": "Number 6 is Morocco, on the far west along the Atlantic Ocean."
+    },
+    {
+      "id": "soc-map-q07",
+      "text": "Which number on the map shows Egypt?",
+      "options": ["Number 2", "Number 1", "Number 3", "Number 5"],
+      "answer": "Number 2",
+      "visual": "north_africa",
+      "highlight": 2,
+      "explanation": "Egypt is number 2 on the map."
+    },
+    {
+      "id": "soc-map-q08",
+      "text": "Which number on the map shows Sudan, directly south of Egypt?",
+      "options": ["Number 1", "Number 2", "Number 4", "Number 6"],
+      "answer": "Number 1",
+      "visual": "north_africa",
+      "highlight": 1,
+      "explanation": "Sudan is directly south (under) Egypt, labeled with number 1."
+    },
+    {
+      "id": "soc-map-q09",
+      "text": "Which number on the map shows Libya, directly west of Egypt?",
+      "options": ["Number 3", "Number 1", "Number 4", "Number 5"],
+      "answer": "Number 3",
+      "visual": "north_africa",
+      "highlight": 3,
+      "explanation": "Libya is number 3 on the map, bordering Egypt to the west."
+    },
+    {
+      "id": "soc-map-q10",
+      "text": "Which number on the map shows Morocco on the far west coast?",
+      "options": ["Number 6", "Number 2", "Number 3", "Number 4"],
+      "answer": "Number 6",
+      "visual": "north_africa",
+      "highlight": 6,
+      "explanation": "Morocco is number 6 on the western edge of Northern Africa."
+    },
+    {
+      "id": "soc-map-q11",
+      "text": "Which small country at the northern tip is labeled with number 4?",
+      "options": ["Tunisia", "Sudan", "Algeria", "Egypt"],
+      "answer": "Tunisia",
+      "visual": "north_africa",
+      "highlight": 4,
+      "explanation": "Tunisia is the small country at the northern tip labeled with number 4."
+    },
+    {
+      "id": "soc-map-q12",
+      "text": "Which country is directly south of Egypt (number 2) on the map?",
+      "options": ["Sudan (number 1)", "Morocco (number 6)", "Tunisia (number 4)"],
+      "answer": "Sudan (number 1)",
+      "visual": "north_africa",
+      "explanation": "Sudan (1) is located directly south of Egypt (2)."
+    },
+    {
+      "id": "soc-map-q13",
+      "text": "Which country is directly to the west of Egypt (number 2) on the map?",
+      "options": ["Libya (number 3)", "Sudan (number 1)", "Tunisia (number 4)"],
+      "answer": "Libya (number 3)",
+      "visual": "north_africa",
+      "explanation": "Libya (3) shares the western border with Egypt (2)."
+    },
+    {
+      "id": "soc-map-q14",
+      "text": "What do the lines separating Egypt (2) and Libya (3) represent?",
+      "options": ["Borders", "Rivers", "Streets"],
+      "answer": "Borders",
+      "visual": "north_africa",
+      "explanation": "The lines drawn between countries on a map are borders."
+    }
+  ]
+}

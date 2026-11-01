@@ -1,0 +1,59 @@
+{
+  "id": "soc_match",
+  "title": "Match Social Studies Words",
+  "icon": "🧩",
+  "instruction": "Tap a word on the left, then tap its meaning on the right!",
+  "hint": "Start with the pairs you know! Blue is water, 2D is flat, 3D is not flat, and 2 is Egypt!",
+  "items": [
+    {
+      "id": "soc-match-01",
+      "pairs": [
+        ["3D", "Things that are not flat"],
+        ["2D", "Things flat like paper"],
+        ["Spherical", "Shaped like a ball (round)"],
+        ["Portable", "Easy to carry"]
+      ],
+      "explanation": "3D = not flat, 2D = flat like paper, spherical = shaped like a ball, portable = easy to carry!"
+    },
+    {
+      "id": "soc-match-02",
+      "pairs": [
+        ["Borders", "Lines that separate countries"],
+        ["Map key", "Tells what colors and symbols mean"],
+        ["Road map", "Shows roads and streets"],
+        ["Portable", "Easy to carry"]
+      ],
+      "explanation": "Borders separate countries, a map key explains symbols, a road map shows streets, and portable means easy to carry."
+    },
+    {
+      "id": "soc-match-03",
+      "pairs": [
+        ["Blue on map", "Water (oceans, seas, lakes)"],
+        ["Yellow on map", "Deserts"],
+        ["Green on map", "Land"],
+        ["Borders", "Lines between countries"]
+      ],
+      "explanation": "Blue = water, yellow = deserts, green = land, and borders = lines between countries!"
+    },
+    {
+      "id": "soc-match-04",
+      "pairs": [
+        ["Country 1", "Sudan"],
+        ["Country 2", "Egypt"],
+        ["Country 3", "Libya"],
+        ["Country 4", "Tunisia"]
+      ],
+      "explanation": "On the Northern Africa map: 1 is Sudan, 2 is Egypt, 3 is Libya, and 4 is Tunisia!"
+    },
+    {
+      "id": "soc-match-05",
+      "pairs": [
+        ["Country 3", "Libya"],
+        ["Country 4", "Tunisia"],
+        ["Country 5", "Algeria"],
+        ["Country 6", "Morocco"]
+      ],
+      "explanation": "On the Northern Africa map: 3 is Libya, 4 is Tunisia, 5 is Algeria, and 6 is Morocco!"
+    }
+  ]
+}

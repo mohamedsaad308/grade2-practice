@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { playPop } from '../utils/audio.js';
+import SocialStudiesVisual from '../components/SocialStudiesVisual.jsx';
 
 function escapeRegex(string) {
   return string.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -125,6 +126,11 @@ export default function ChoiceRenderer({
       )}
 
       <div className="choice-question-pane">
+        {/* Optional Visual Illustration (e.g. Northern Africa Map, Shapes, Colors) */}
+        {question.visual && (
+          <SocialStudiesVisual type={question.visual} highlight={question.highlight} />
+        )}
+
         {/* Optional prompt shown as the instruction above text */}
         {question.prompt && (
           <div className="choice-prompt-box">

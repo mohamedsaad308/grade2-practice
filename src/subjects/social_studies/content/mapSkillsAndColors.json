@@ -1,0 +1,135 @@
+{
+  "id": "soc_map_skills",
+  "title": "Map Colors, Keys & Borders",
+  "icon": "🗺️",
+  "instruction": "Choose the correct answer about map colors, keys, and borders:",
+  "hint": "Blue is water, Green is land, Yellow is deserts. A map key explains symbols, and borders separate countries!",
+  "items": [
+    {
+      "id": "soc-color-01",
+      "text": "On a map, blue represents ___.",
+      "options": ["Water (oceans, seas, lakes)", "Deserts", "Land"],
+      "answer": "Water (oceans, seas, lakes)",
+      "visual": "map_colors",
+      "explanation": "Blue on a map always represents water, such as oceans, seas, lakes, and rivers."
+    },
+    {
+      "id": "soc-color-02",
+      "text": "On a map, yellow represents ___.",
+      "options": ["Deserts", "Water", "Forests"],
+      "answer": "Deserts",
+      "visual": "map_colors",
+      "explanation": "Yellow on a map represents dry, sandy areas called deserts."
+    },
+    {
+      "id": "soc-color-03",
+      "text": "On a map, green represents ___.",
+      "options": ["Land", "Water", "Deserts"],
+      "answer": "Land",
+      "visual": "map_colors",
+      "explanation": "Green on a map represents land, such as plains, grass, and forests."
+    },
+    {
+      "id": "soc-color-04",
+      "text": "What tells us what each color or symbol means on a map?",
+      "options": ["A map key or legend", "A compass", "A thermometer"],
+      "answer": "A map key or legend",
+      "visual": "map_key",
+      "explanation": "A map key (also called a legend) tells us what colors and symbols mean."
+    },
+    {
+      "id": "soc-color-05",
+      "text": "What is a map that shows roads and streets called?",
+      "options": ["A road map", "A globe", "A weather map"],
+      "answer": "A road map",
+      "explanation": "A road map shows roads, highways, and city streets."
+    },
+    {
+      "id": "soc-color-06",
+      "text": "What are the lines that separate one country from another called?",
+      "options": ["Borders", "Rivers", "Streets"],
+      "answer": "Borders",
+      "visual": "borders",
+      "explanation": "Borders are the lines that separate one country from another."
+    },
+    {
+      "id": "soc-color-07",
+      "text": "What do borders on a map do?",
+      "options": ["Separate one thing from another", "Show where water flows", "Tell the temperature"],
+      "answer": "Separate one thing from another",
+      "visual": "borders",
+      "explanation": "Borders are lines that separate one thing from another, like countries."
+    },
+    {
+      "id": "soc-color-08",
+      "text": "If you look at the Mediterranean Sea on a map, what color will it be?",
+      "options": ["Blue", "Yellow", "Green"],
+      "answer": "Blue",
+      "visual": "map_colors",
+      "explanation": "The Mediterranean Sea is water, so it is colored blue."
+    },
+    {
+      "id": "soc-color-09",
+      "text": "The Sahara is a huge sandy desert. What color is used for it on the map?",
+      "options": ["Yellow", "Blue", "Green"],
+      "answer": "Yellow",
+      "visual": "map_colors",
+      "explanation": "Deserts are represented by the color yellow on a map."
+    },
+    {
+      "id": "soc-color-10",
+      "text": "Grassy plains and forest lands on a map are colored ___.",
+      "options": ["Green", "Blue", "Yellow"],
+      "answer": "Green",
+      "visual": "map_colors",
+      "explanation": "Land is shown in green on maps."
+    },
+    {
+      "id": "soc-color-11",
+      "text": "What is another name for a map key?",
+      "options": ["Legend", "Border", "Globe"],
+      "answer": "Legend",
+      "visual": "map_key",
+      "explanation": "A map key is also known as a legend."
+    },
+    {
+      "id": "soc-color-12",
+      "text": "When a family drives a car and wants to find streets, they use a ___.",
+      "options": ["road map", "globe", "scale"],
+      "answer": "road map",
+      "explanation": "A road map is designed to show streets and roads for travel."
+    },
+    {
+      "id": "soc-color-13",
+      "text": "The line drawn between Egypt and Libya is an example of a ___.",
+      "options": ["border", "desert", "road map"],
+      "answer": "border",
+      "visual": "borders",
+      "explanation": "The line between Egypt and Libya is a border separating the two countries."
+    },
+    {
+      "id": "soc-color-14",
+      "text": "True or False: A map key helps us understand what symbols on a map mean.",
+      "options": ["True", "False"],
+      "answer": "True",
+      "visual": "map_key",
+      "explanation": "True! A map key or legend explains the symbols and colors."
+    },
+    {
+      "id": "soc-color-15",
+      "text": "True or False: Yellow on a map shows oceans and rivers.",
+      "options": ["False", "True"],
+      "answer": "False",
+      "visual": "map_colors",
+      "explanation": "False! Yellow shows deserts. Blue shows oceans and rivers."
+    },
+    {
+      "id": "soc-color-16",
+      "text": "True or False: Borders are lines that separate countries.",
+      "options": ["True", "False"],
+      "answer": "True",
+      "visual": "borders",
+      "explanation": "True! Borders are lines that separate one country from another."
+    }
+  ]
+}
