@@ -1,7 +1,7 @@
-import { randomInt, pickRandom } from '../../../utils/mathHelpers.js';
+import { randomInt, pickRandom, getQuestionSignature } from '../../../utils/mathHelpers.js';
 
 /**
- * Topic: More / Less Than
+ * Topic: More or Less Than
  * Examples:
  * "100 more than 482 is __"
  * "10 less than 561 is __"
@@ -24,128 +24,144 @@ export default {
     let base;
     let answer;
 
-    // Deltas based on level
+    // Deltas and operations based on level across full 0-999 range
     if (level === 1) {
-      // Basic 1, 10, 100 without crossing boundaries
+      // Level 1: Basic 1, 10, 100 across the full 10-999 range
       delta = pickRandom([1, 10, 100]);
       operation = pickRandom(['more', 'less']);
 
       if (operation === 'more') {
-        if (delta === 100) base = randomInt(1, 8) * 100 + randomInt(0, 9) * 10 + randomInt(0, 9);
-        else if (delta === 10) base = randomInt(1, 8) * 100 + randomInt(0, 7) * 10 + randomInt(0, 9);
-        else base = randomInt(1, 8) * 100 + randomInt(0, 8) * 10 + randomInt(0, 7);
+        const maxBase = 999 - delta;
+        base = randomInt(10, maxBase);
         answer = base + delta;
       } else {
-        if (delta === 100) base = randomInt(2, 9) * 100 + randomInt(0, 9) * 10 + randomInt(0, 9);
-        else if (delta === 10) base = randomInt(1, 9) * 100 + randomInt(2, 9) * 10 + randomInt(0, 9);
-        else base = randomInt(1, 9) * 100 + randomInt(0, 9) * 10 + randomInt(2, 9);
+        const minBase = delta;
+        base = randomInt(minBase, 999);
         answer = base - delta;
       }
     } else if (level === 2) {
-      // Includes 2 and 5, some crossing tens place (e.g. 630 - 2, 417 - 5, 295 + 10)
+      // Level 2: Includes 1, 2, 5, 10, 100, with varied transitions
       delta = pickRandom([1, 2, 5, 10, 100]);
       operation = pickRandom(['more', 'less']);
 
-      const scenarios = [
-        // Crossing ten down: ends in 0..1 with -2, or ends in 0..4 with -5
-        () => {
-          operation = 'less';
-          delta = pickRandom([2, 5]);
-          const tens = randomInt(1, 9);
-          base = randomInt(1, 8) * 100 + tens * 10 + (delta === 2 ? 0 : randomInt(0, 4));
+      const mode = Math.random();
+      if (mode < 0.45) {
+        // Crossing ten boundaries
+        if (operation === 'less') {
+          delta = pickRandom([2, 5, 10]);
+          const tens = randomInt(1, 99); // across 2-digit and 3-digit
+          const ones = delta === 2 ? pickRandom([0, 1]) : pickRandom([0, 1, 2, 3, 4]);
+          base = Math.max(delta, tens * 10 + ones);
+          if (base > 999) base = randomInt(100, 990);
           answer = base - delta;
-        },
-        // Crossing ten up: e.g. 295 + 10 -> 305
-        () => {
-          operation = 'more';
-          delta = 10;
-          base = randomInt(1, 8) * 100 + 90 + randomInt(0, 9);
+        } else {
+          delta = pickRandom([2, 5, 10]);
+          // Crossing ten up (e.g. 295 + 10 -> 305, 388 + 5 -> 393, 429 + 2 -> 431)
+          const h = randomInt(0, 8);
+          const t = delta === 10 ? 9 : randomInt(0, 8);
+          const ones = delta === 10 ? randomInt(0, 9) : randomInt(7, 9);
+          base = Math.min(999 - delta, h * 100 + t * 10 + ones);
           answer = base + delta;
-        },
-        // Standard 100 more or less
-        () => {
-          delta = 100;
-          operation = pickRandom(['more', 'less']);
-          base = operation === 'more' ? randomInt(100, 850) : randomInt(150, 950);
-          answer = operation === 'more' ? base + 100 : base - 100;
-        },
-        // 5 or 2 more/less standard
-        () => {
-          delta = pickRandom([2, 5]);
-          operation = pickRandom(['more', 'less']);
-          base = randomInt(100, 890);
-          answer = operation === 'more' ? base + delta : base - delta;
         }
-      ];
-
-      pickRandom(scenarios)();
+      } else {
+        // Full range 10-999
+        if (operation === 'more') {
+          base = randomInt(10, 999 - delta);
+          answer = base + delta;
+        } else {
+          base = randomInt(delta, 999);
+          answer = base - delta;
+        }
+      }
     } else {
-      // Level 3: Crossing place values (e.g. 1 more than 399 -> 400, 10 less than 405 -> 395, 2 less than 630 -> 628)
-      const trickyScenarios = [
-        // 1 more than 99 boundary (e.g. 399 + 1 -> 400)
+      // Level 3: Advanced place value boundary crossings across the full 0-999 range
+      const trickyTypes = [
+        // 1 more than 9 or 99 boundary (e.g. 199 + 1 -> 200, 39 + 1 -> 40, 789 + 1 -> 790)
         () => {
           operation = 'more';
           delta = 1;
-          const h = randomInt(1, 8);
-          base = h * 100 + 99;
+          const isDoubleNine = Math.random() < 0.5;
+          if (isDoubleNine) {
+            const h = randomInt(0, 8);
+            base = h * 100 + 99;
+          } else {
+            const tens = randomInt(1, 98);
+            base = tens * 10 + 9;
+          }
           answer = base + 1;
         },
-        // 10 more crossing hundred (e.g. 295 + 10 -> 305)
+        // 1 less than 0 or 00 boundary (e.g. 400 - 1 -> 399, 210 - 1 -> 209)
+        () => {
+          operation = 'less';
+          delta = 1;
+          const isDoubleZero = Math.random() < 0.5;
+          if (isDoubleZero) {
+            const h = randomInt(1, 9);
+            base = h * 100;
+          } else {
+            const tens = randomInt(2, 99);
+            base = tens * 10;
+          }
+          answer = base - 1;
+        },
+        // 10 more crossing hundred (e.g. 295 + 10 -> 305, 92 + 10 -> 102)
         () => {
           operation = 'more';
           delta = 10;
-          const h = randomInt(1, 8);
+          const h = randomInt(0, 8);
           base = h * 100 + 90 + randomInt(0, 9);
           answer = base + 10;
         },
-        // 2 less crossing ten (e.g. 630 - 2 -> 628)
-        () => {
-          operation = 'less';
-          delta = 2;
-          base = randomInt(1, 8) * 100 + randomInt(1, 9) * 10;
-          answer = base - 2;
-        },
-        // 10 less crossing hundred (e.g. 405 - 10 -> 395)
+        // 10 less crossing hundred (e.g. 405 - 10 -> 395, 102 - 10 -> 92)
         () => {
           operation = 'less';
           delta = 10;
-          base = randomInt(2, 9) * 100 + randomInt(0, 9);
+          const h = randomInt(1, 9);
+          base = h * 100 + randomInt(0, 9);
           answer = base - 10;
         },
-        // 100 less than numbers with tens/ones (e.g. 100 less than 850 is 750)
+        // 2 less crossing ten or hundred (e.g. 630 - 2 -> 628, 501 - 2 -> 499)
         () => {
           operation = 'less';
-          delta = 100;
-          base = randomInt(2, 9) * 100 + randomInt(0, 9) * 10 + randomInt(0, 9);
-          answer = base - 100;
+          delta = 2;
+          const tens = randomInt(1, 99);
+          base = tens * 10 + pickRandom([0, 1]);
+          answer = base - 2;
         },
-        // 5 less than tricky (e.g. 5 less than 417 is 412, or 5 less than 502 is 497)
+        // 5 less crossing ten or hundred (e.g. 502 - 5 -> 497, 413 - 5 -> 408)
         () => {
           operation = 'less';
           delta = 5;
-          base = pickRandom([
-            randomInt(1, 8) * 100 + randomInt(1, 9) * 10 + 7, // 417 -> 412
-            randomInt(2, 8) * 100 + randomInt(0, 4)           // 502 -> 497
-          ]);
+          const tens = randomInt(1, 99);
+          base = tens * 10 + randomInt(0, 4);
           answer = base - 5;
+        },
+        // 100 more across full spectrum
+        () => {
+          operation = 'more';
+          delta = 100;
+          base = randomInt(10, 899);
+          answer = base + 100;
+        },
+        // 100 less across full spectrum
+        () => {
+          operation = 'less';
+          delta = 100;
+          base = randomInt(100, 999);
+          answer = base - 100;
         }
       ];
 
-      pickRandom(trickyScenarios)();
+      pickRandom(trickyTypes)();
     }
 
-    // Safety checks: within 0 to 999
+    // Strict safety clamp: guaranteed within [0, 999]
     if (answer < 0) {
-      base = 100;
-      delta = 10;
-      operation = 'more';
-      answer = 110;
-    }
-    if (answer > 999) {
-      base = 800;
-      delta = 100;
-      operation = 'less';
-      answer = 700;
+      base = delta;
+      answer = 0;
+    } else if (answer > 999) {
+      base = 999 - delta;
+      answer = 999;
     }
 
     const promptText = `${delta} ${operation} than ${base} is`;
@@ -174,8 +190,8 @@ export default {
       ? `${base} + ${delta} = ${answer}. So ${delta} more than ${base} is ${answer}!`
       : `${base} - ${delta} = ${answer}. So ${delta} less than ${base} is ${answer}!`;
 
-    return {
-      id: `math_more_less_${Date.now()}_${randomInt(100, 999)}`,
+    const question = {
+      id: `math_more_less_${Date.now()}_${randomInt(1000, 9999)}`,
       type: 'FillInNumber',
       prompt: `${promptText} _____`,
       promptSpeech: `${delta} ${operation} than ${base} is what number?`,
@@ -188,5 +204,8 @@ export default {
       hint,
       explanation
     };
+
+    question.signature = getQuestionSignature(question);
+    return question;
   }
 };

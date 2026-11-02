@@ -74,3 +74,25 @@ export function generatePermutations3Digits(num) {
   permute(digits);
   return Array.from(permutations);
 }
+
+/**
+ * Returns a canonical signature string for a question to prevent duplicates
+ * within a session and avoid repeats from the player's last ~200 questions.
+ */
+export function getQuestionSignature(q) {
+  if (!q) return '';
+  if (q.signature) return q.signature;
+  if (q.type === 'CompareSymbols') {
+    return `math_compare_${q.data?.leftDisplay}_vs_${q.data?.rightDisplay}`;
+  }
+  if (q.type === 'FillInNumber') {
+    return `math_more_less_${q.data?.delta}_${q.data?.operation}_${q.data?.base}`;
+  }
+  if (q.type === 'DragToOrder') {
+    const sortedNums = Array.isArray(q.correctAnswer)
+      ? [...q.correctAnswer].sort((a, b) => a - b).join(',')
+      : '';
+    return `math_order_${q.data?.orderType}_${sortedNums}`;
+  }
+  return `${q.id || ''}_${q.type || ''}_${q.prompt || ''}_${JSON.stringify(q.data || {})}_${q.correctAnswer || ''}`;
+}

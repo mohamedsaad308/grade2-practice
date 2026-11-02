@@ -8,7 +8,13 @@ import ConfettiCanvas from '../components/ConfettiCanvas.jsx';
 import { getFeedback } from '../feedback/feedbackManager.js';
 import { playSuccessSound, playGentleWrongSound, playCelebrationFanfare } from '../utils/audio.js';
 import { speakText } from '../utils/speech.js';
-import { recordSessionCompletion } from '../player/playerStorage.js';
+import {
+  recordSessionCompletion,
+  getRecentQuestionSignatures,
+  addRecentQuestionSignatures,
+  recordItemOutcome
+} from '../player/playerStorage.js';
+import { getQuestionSignature } from '../utils/mathHelpers.js';
 
 export default function PracticeSession({
   player,
@@ -40,23 +46,38 @@ export default function PracticeSession({
   const spokenPraiseEnabled = settings?.spokenPraiseEnabled !== false;
 
   // Initialize questions: if topic provides fixed questions via getQuestions(), use them in order.
-  // Otherwise, if topic provides generateQuestion(), generate a session of 10 unique questions.
+  // Otherwise, if topic provides generateQuestion(), generate a session of 10 unique questions
+  // avoiding recent ~200 questions seen by the player in localStorage.
   useEffect(() => {
     let generated = [];
 
     if (typeof topic.getQuestions === 'function') {
-      generated = topic.getQuestions(level);
+      generated = topic.getQuestions(level, player?.id);
     } else if (typeof topic.generateQuestion === 'function') {
       const SESSION_LENGTH = 10;
-      const signatures = new Set();
+      const sessionSignatures = new Set();
+      const recentSignatures = new Set(getRecentQuestionSignatures(player?.id));
       let safetyCounter = 0;
 
+      // Pass 1: Try to pick questions not in session and not in the player's last ~200 questions
+      while (generated.length < SESSION_LENGTH && safetyCounter < 150) {
+        safetyCounter++;
+        const q = topic.generateQuestion(level);
+        const signature = q.signature || getQuestionSignature(q);
+        if (!sessionSignatures.has(signature) && !recentSignatures.has(signature)) {
+          sessionSignatures.add(signature);
+          generated.push(q);
+        }
+      }
+
+      // Pass 2: If pool of unvisited questions was exhausted, ensure within-session uniqueness
+      safetyCounter = 0;
       while (generated.length < SESSION_LENGTH && safetyCounter < 100) {
         safetyCounter++;
         const q = topic.generateQuestion(level);
-        const signature = `${q.prompt}_${JSON.stringify(q.data)}_${q.correctAnswer}`;
-        if (!signatures.has(signature)) {
-          signatures.add(signature);
+        const signature = q.signature || getQuestionSignature(q);
+        if (!sessionSignatures.has(signature)) {
+          sessionSignatures.add(signature);
           generated.push(q);
         }
       }
@@ -178,13 +199,19 @@ export default function PracticeSession({
         speakText(praise);
       }
 
-      // Record question result
+      // Record question result and player adaptive item outcomes
+      if (player?.id && currentQuestion?.id) {
+        recordItemOutcome(player.id, currentQuestion.id, attemptNumber === 1);
+      }
       setSessionResults(prev => [
         ...prev,
         { firstTry: attemptNumber === 1, secondTry: attemptNumber === 2 }
       ]);
     } else {
       // Not correct
+      if (player?.id && currentQuestion?.id && attemptNumber === 1) {
+        recordItemOutcome(player.id, currentQuestion.id, false);
+      }
       setStreak(0);
       setIsShake(true);
       setTimeout(() => setIsShake(false), 600);
@@ -249,6 +276,12 @@ export default function PracticeSession({
 
       if (player?.id) {
         recordSessionCompletion(player.id, topic.id, totalStars, updatedResults);
+        const signatures = questions
+          .map(q => q.signature || getQuestionSignature(q))
+          .filter(Boolean);
+        if (signatures.length > 0) {
+          addRecentQuestionSignatures(player.id, signatures);
+        }
       }
 
       onFinishSession({

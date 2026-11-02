@@ -1,4 +1,4 @@
-import { randomInt, pickRandom, toExpandedForm } from '../../../utils/mathHelpers.js';
+import { randomInt, pickRandom, toExpandedForm, getQuestionSignature } from '../../../utils/mathHelpers.js';
 
 /**
  * Topic: Compare numbers with >, <, or =
@@ -24,95 +24,113 @@ export default {
     let leftVal;
     let rightVal;
 
-    // Determine question archetype
-    // In all levels, ~30% probability of equality
-    const shouldBeEqual = Math.random() < 0.32;
+    // "=" included at a natural rate of about 1 in 6 (~16.7%)
+    const shouldBeEqual = Math.random() < (1 / 6);
 
     if (shouldBeEqual) {
-      const val = randomInt(105, 989);
+      const val = randomInt(10, 999);
       leftVal = val;
       rightVal = val;
 
-      const expandedStyle = pickRandom(['right_expanded', 'left_expanded']);
-      if (expandedStyle === 'right_expanded') {
+      const formatStyle = pickRandom(['right_expanded', 'left_expanded', 'both_plain']);
+      if (formatStyle === 'right_expanded') {
         leftDisplay = String(val);
         rightDisplay = toExpandedForm(val);
-      } else {
+      } else if (formatStyle === 'left_expanded') {
         leftDisplay = toExpandedForm(val);
         rightDisplay = String(val);
-      }
-    } else if (level === 1) {
-      // Clear difference in hundreds or simple tens
-      const style = pickRandom(['plain', 'expanded']);
-      if (style === 'plain') {
-        let h1 = randomInt(1, 8);
-        let h2 = randomInt(1, 8);
-        while (h2 === h1) h2 = randomInt(1, 8);
-        leftVal = h1 * 100 + randomInt(1, 9) * 10 + randomInt(0, 9);
-        rightVal = h2 * 100 + randomInt(1, 9) * 10 + randomInt(0, 9);
-        leftDisplay = String(leftVal);
-        rightDisplay = String(rightVal);
       } else {
-        // Plain vs expanded unequal
-        leftVal = randomInt(150, 890);
-        const diff = pickRandom([-100, 100, -10, 10]);
-        rightVal = Math.max(100, Math.min(999, leftVal + diff));
-        leftDisplay = String(leftVal);
-        rightDisplay = toExpandedForm(rightVal);
-      }
-    } else if (level === 2) {
-      // Plain vs expanded or tens difference (e.g. 650 vs 560, 502 vs 500 + 20)
-      const style = pickRandom(['tens_swap', 'expanded_subtle']);
-      if (style === 'tens_swap') {
-        // e.g. 650 vs 560
-        const d1 = randomInt(2, 9);
-        const d2 = randomInt(2, 9);
-        const d3 = randomInt(0, 9);
-        leftVal = d1 * 100 + d2 * 10 + d3;
-        rightVal = d2 * 100 + d1 * 10 + d3;
-        leftDisplay = String(leftVal);
-        rightDisplay = String(rightVal);
-      } else {
-        // Subtle expanded difference
-        const base = randomInt(1, 9) * 100 + randomInt(1, 9);
-        leftVal = base;
-        rightVal = base + (Math.random() < 0.5 ? 10 : 20);
-        leftDisplay = String(leftVal);
-        rightDisplay = toExpandedForm(rightVal);
+        leftDisplay = String(val);
+        rightDisplay = String(val);
       }
     } else {
-      // Level 3: Close numbers with swapped digits (418 vs 481, 207 vs 270, 345 vs 354)
-      const swapType = pickRandom(['swap_tens_ones', 'swap_hundreds_tens', 'zero_tens']);
-      if (swapType === 'swap_tens_ones') {
-        // 418 vs 481 or 345 vs 354
-        const h = randomInt(1, 9);
-        const t = randomInt(1, 8);
-        let o = randomInt(1, 9);
-        while (o === t) o = randomInt(1, 9);
-        leftVal = h * 100 + t * 10 + o;
-        rightVal = h * 100 + o * 10 + t;
-        leftDisplay = String(leftVal);
-        rightDisplay = String(rightVal);
-      } else if (swapType === 'zero_tens') {
-        // 207 vs 270 or 502 vs 520
-        const h = randomInt(1, 9);
-        const nonZero = randomInt(1, 9);
-        leftVal = h * 100 + nonZero; // e.g. 207
-        rightVal = h * 100 + nonZero * 10; // e.g. 270
-        if (Math.random() < 0.5) {
-          leftDisplay = String(leftVal);
-          rightDisplay = String(rightVal);
+      // Unequal: strictly 50% left is bigger (>), 50% right is bigger (<)
+      const leftIsBigger = Math.random() < 0.5;
+      let v1 = 0;
+      let v2 = 0;
+
+      if (level === 1) {
+        // Level 1: Clear difference in hundreds or simple tens across full 0-999
+        const style = pickRandom(['plain', 'expanded']);
+        if (style === 'plain') {
+          let h1 = randomInt(1, 9);
+          let h2 = randomInt(1, 9);
+          while (h2 === h1) h2 = randomInt(1, 9);
+          v1 = h1 * 100 + randomInt(0, 9) * 10 + randomInt(0, 9);
+          v2 = h2 * 100 + randomInt(0, 9) * 10 + randomInt(0, 9);
         } else {
-          leftDisplay = String(rightVal);
-          rightDisplay = toExpandedForm(leftVal);
+          v1 = randomInt(100, 950);
+          const delta = pickRandom([10, 20, 100, 200]);
+          v2 = Math.min(999, Math.max(10, v1 + (Math.random() < 0.5 ? delta : -delta)));
+          if (v1 === v2) v2 = v1 + 10;
+        }
+      } else if (level === 2) {
+        // Level 2: Tens swap or subtle expanded differences
+        const style = pickRandom(['tens_swap', 'expanded_subtle']);
+        if (style === 'tens_swap') {
+          const d1 = randomInt(1, 9);
+          let d2 = randomInt(1, 9);
+          while (d2 === d1) d2 = randomInt(1, 9);
+          const d3 = randomInt(0, 9);
+          v1 = d1 * 100 + d2 * 10 + d3;
+          v2 = d2 * 100 + d1 * 10 + d3;
+        } else {
+          // Subtle difference with expanded form
+          const base = randomInt(100, 950);
+          const diff = pickRandom([1, 2, 5, 10, 20]);
+          v1 = base;
+          v2 = Math.min(999, Math.max(10, base + diff));
         }
       } else {
-        // 418 vs 481
-        const h = randomInt(1, 8);
-        const t = randomInt(1, 8);
-        const o = randomInt(1, 8);
-        leftVal = h * 100 + t * 10 + o;
-        rightVal = h * 100 + o * 10 + t;
+        // Level 3: Tricky digit permutations across the full range
+        const swapType = pickRandom(['swap_tens_ones', 'zero_tens', 'hundreds_tens_swap']);
+        if (swapType === 'swap_tens_ones') {
+          // e.g. 418 vs 481, 345 vs 354
+          const h = randomInt(1, 9);
+          const t = randomInt(0, 9);
+          let o = randomInt(0, 9);
+          while (o === t) o = randomInt(0, 9);
+          v1 = h * 100 + t * 10 + o;
+          v2 = h * 100 + o * 10 + t;
+        } else if (swapType === 'zero_tens') {
+          // e.g. 207 vs 270, 502 vs 520
+          const h = randomInt(1, 9);
+          const digit = randomInt(1, 9);
+          v1 = h * 100 + digit;        // e.g. 207
+          v2 = h * 100 + digit * 10;   // e.g. 270
+        } else {
+          // e.g. 650 vs 560
+          const h = randomInt(1, 9);
+          let t = randomInt(1, 9);
+          while (t === h) t = randomInt(1, 9);
+          const o = randomInt(0, 9);
+          v1 = h * 100 + t * 10 + o;
+          v2 = t * 100 + h * 10 + o;
+        }
+      }
+
+      // Safety: ensure v1 and v2 are distinct and in range [0, 999]
+      if (v1 === v2) v2 = Math.min(999, v1 + 10);
+      v1 = Math.max(0, Math.min(999, v1));
+      v2 = Math.max(0, Math.min(999, v2));
+
+      const smaller = Math.min(v1, v2);
+      const bigger = Math.max(v1, v2);
+
+      leftVal = leftIsBigger ? bigger : smaller;
+      rightVal = leftIsBigger ? smaller : bigger;
+
+      // Decide presentation format (plain vs expanded)
+      const useExpanded = Math.random() < 0.4;
+      if (useExpanded) {
+        if (Math.random() < 0.5) {
+          leftDisplay = String(leftVal);
+          rightDisplay = toExpandedForm(rightVal);
+        } else {
+          leftDisplay = toExpandedForm(leftVal);
+          rightDisplay = String(rightVal);
+        }
+      } else {
         leftDisplay = String(leftVal);
         rightDisplay = String(rightVal);
       }
@@ -141,8 +159,8 @@ export default {
       explanation = `${leftVal} is less than ${rightVal}, so ${leftDisplay} < ${rightDisplay}! The alligator mouth opens to the bigger number.`;
     }
 
-    return {
-      id: `math_compare_${Date.now()}_${randomInt(100, 999)}`,
+    const question = {
+      id: `math_compare_${Date.now()}_${randomInt(1000, 9999)}`,
       type: 'CompareSymbols',
       prompt: 'Compare the numbers. Write >, <, or =',
       promptSpeech: `Compare ${leftDisplay} and ${rightDisplay}. Is it greater than, less than, or equal?`,
@@ -156,5 +174,8 @@ export default {
       hint,
       explanation
     };
+
+    question.signature = getQuestionSignature(question);
+    return question;
   }
 };

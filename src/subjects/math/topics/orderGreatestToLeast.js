@@ -1,4 +1,4 @@
-import { randomInt, pickRandom, shuffle, generatePermutations3Digits } from '../../../utils/mathHelpers.js';
+import { randomInt, pickRandom, shuffle, generatePermutations3Digits, getQuestionSignature } from '../../../utils/mathHelpers.js';
 
 /**
  * Topic: Order three numbers from greatest to least
@@ -19,52 +19,70 @@ export default {
     let numbers = [];
 
     if (level === 1) {
-      // 3 distinct hundreds digits
+      // 3 distinct hundreds digits across the full 0-999 range
       const hundreds = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 3);
-      numbers = hundreds.map(h => h * 100 + randomInt(1, 9) * 10 + randomInt(0, 9));
+      numbers = hundreds.map(h => h * 100 + randomInt(0, 9) * 10 + randomInt(0, 9));
     } else if (level === 2) {
       // 2 numbers share the same hundred digit, 1 has a different hundred
-      const sharedHundred = randomInt(1, 8);
+      const sharedHundred = randomInt(1, 9);
       let otherHundred = randomInt(1, 9);
       while (otherHundred === sharedHundred) otherHundred = randomInt(1, 9);
 
-      const t1 = randomInt(1, 8);
-      let t2 = randomInt(1, 8);
-      while (t2 === t1) t2 = randomInt(1, 8);
+      const t1 = randomInt(0, 9);
+      let t2 = randomInt(0, 9);
+      while (t2 === t1) t2 = randomInt(0, 9);
 
       const n1 = sharedHundred * 100 + t1 * 10 + randomInt(0, 9);
       const n2 = sharedHundred * 100 + t2 * 10 + randomInt(0, 9);
-      const n3 = otherHundred * 100 + randomInt(1, 9) * 10 + randomInt(0, 9);
+      const n3 = otherHundred * 100 + randomInt(0, 9) * 10 + randomInt(0, 9);
       numbers = [n1, n2, n3];
     } else {
-      // Level 3: Numbers that share digits (anagram digits, e.g. 243, 234, 324 or 309, 390, 903)
-      const templates = [
-        [2, 3, 4],
-        [1, 7, 8],
-        [4, 5, 6],
-        [3, 0, 9],
-        [1, 5, 9],
-        [2, 7, 9],
-        [3, 4, 8],
-        [6, 1, 7]
-      ];
-      const digits = pickRandom(templates);
-      const seed = digits[0] * 100 + digits[1] * 10 + digits[2];
-      const perms = generatePermutations3Digits(seed);
+      // Level 3: Dynamic anagrams and tricky digit patterns (not a short fixed list)
+      const patternMode = Math.random();
 
-      if (perms.length >= 3) {
-        numbers = shuffle(perms).slice(0, 3);
+      if (patternMode < 0.65) {
+        // Dynamic distinct 3-digit anagrams from full 0-9 pool
+        let attempts = 0;
+        let perms = [];
+        while (perms.length < 3 && attempts < 20) {
+          attempts++;
+          const d1 = randomInt(1, 9);
+          const d2 = randomInt(0, 9);
+          const d3 = randomInt(0, 9);
+          if (d1 !== d2 && d2 !== d3 && d1 !== d3) {
+            const seed = d1 * 100 + d2 * 10 + d3;
+            perms = generatePermutations3Digits(seed);
+          }
+        }
+        if (perms.length >= 3) {
+          numbers = shuffle(perms).slice(0, 3);
+        } else {
+          const base = randomInt(100, 850);
+          numbers = [base, base + 9, base + 90];
+        }
+      } else if (patternMode < 0.85) {
+        // Double digit patterns (e.g. 334, 343, 433)
+        const dA = randomInt(1, 9);
+        let dB = randomInt(1, 9);
+        while (dB === dA) dB = randomInt(1, 9);
+        numbers = shuffle([
+          dA * 100 + dA * 10 + dB,
+          dA * 100 + dB * 10 + dA,
+          dB * 100 + dA * 10 + dA
+        ]);
       } else {
-        // Fallback close numbers
-        const base = randomInt(200, 800);
-        numbers = [base, base + 9, base + 90];
+        // Subtle close numbers sharing same hundred and tens
+        const h = randomInt(1, 9);
+        const t = randomInt(0, 9);
+        const ones = shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 3);
+        numbers = ones.map(o => h * 100 + t * 10 + o);
       }
     }
 
-    // Ensure all 3 numbers are unique and > 0
-    numbers = Array.from(new Set(numbers));
+    // Ensure all 3 numbers are unique and strictly in [0, 999]
+    numbers = Array.from(new Set(numbers.map(n => Math.max(0, Math.min(999, n)))));
     while (numbers.length < 3) {
-      numbers.push(randomInt(100, 999));
+      numbers.push(randomInt(10, 999));
       numbers = Array.from(new Set(numbers));
     }
 
@@ -80,8 +98,8 @@ export default {
     const hint = 'Find the biggest number first by checking the hundreds place. Put that one on the left (Greatest)!';
     const explanation = `${sorted[0]} is greater than ${sorted[1]}, and ${sorted[1]} is greater than ${sorted[2]}. So the order from Greatest to Least is: ${sorted.join(', ')}.`;
 
-    return {
-      id: `math_order_desc_${Date.now()}_${randomInt(100, 999)}`,
+    const question = {
+      id: `math_order_desc_${Date.now()}_${randomInt(1000, 9999)}`,
       type: 'DragToOrder',
       prompt: 'Order the numbers from Greatest to Least',
       promptSpeech: `Order the numbers ${numbers.join(', ')} from greatest to least.`,
@@ -95,5 +113,8 @@ export default {
       hint,
       explanation
     };
+
+    question.signature = getQuestionSignature(question);
+    return question;
   }
 };

@@ -145,8 +145,54 @@ export function resetPlayerProgress(playerId) {
   player.stars = 0;
   player.sessionsCompleted = 0;
   player.topicStats = {};
+  player.recentQuestions = [];
+  player.itemOutcomes = {};
   saveAppState(state);
   return player;
+}
+
+export function getRecentQuestionSignatures(playerId) {
+  if (!playerId) return [];
+  const state = getAppState();
+  const player = state.players?.find(p => p.id === playerId);
+  return Array.isArray(player?.recentQuestions) ? player.recentQuestions : [];
+}
+
+export function addRecentQuestionSignatures(playerId, signatures) {
+  if (!playerId || !Array.isArray(signatures) || signatures.length === 0) return;
+  const state = getAppState();
+  const player = state.players?.find(p => p.id === playerId);
+  if (!player) return;
+  const existing = Array.isArray(player.recentQuestions) ? player.recentQuestions : [];
+  const combined = [...existing, ...signatures];
+  // Retain the last 200 question signatures
+  player.recentQuestions = combined.slice(-200);
+  saveAppState(state);
+}
+
+export function recordItemOutcome(playerId, itemId, wasFirstTry) {
+  if (!playerId || !itemId) return;
+  const state = getAppState();
+  const player = state.players?.find(p => p.id === playerId);
+  if (!player) return;
+  if (!player.itemOutcomes) player.itemOutcomes = {};
+  const current = player.itemOutcomes[itemId] || { firstTry: 0, missed: 0 };
+  if (wasFirstTry) {
+    current.firstTry = (current.firstTry || 0) + 1;
+    current.lastOutcome = 'first_try';
+  } else {
+    current.missed = (current.missed || 0) + 1;
+    current.lastOutcome = 'missed';
+  }
+  player.itemOutcomes[itemId] = current;
+  saveAppState(state);
+}
+
+export function getItemOutcomes(playerId) {
+  if (!playerId) return {};
+  const state = getAppState();
+  const player = state.players?.find(p => p.id === playerId);
+  return player?.itemOutcomes || {};
 }
 
 export function recordSessionCompletion(playerId, topicId, sessionStars, questionResults = []) {
