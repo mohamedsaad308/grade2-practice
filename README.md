@@ -60,6 +60,14 @@ As soon as you add at least one topic to `src/terms/q2/subjects/<subject>/index.
 2. Add an `index.js` exporting `{ id, title, icon, color, lightColor, description, topics: [...] }`.
 3. Import it and append it to `subjects` in `src/terms/<term>/index.js`.
 
+### 2b. Regenerate Natural Neural Audio (After Adding Week 2 or New Content)
+Whenever you add or edit lessons, cards, quizzes, or feedback messages:
+```bash
+pip install edge-tts
+python scripts/generate-audio.py
+```
+Only new or changed clips are generated (existing files in `public/audio/` are skipped automatically), and `public/audio-manifest.json` is updated. To switch voices (e.g., `"en-US-JennyNeural"`), edit `VOICE`, `RATE`, or `PITCH` at the top of [`scripts/generate-audio.py`](scripts/generate-audio.py) and re-run `python scripts/generate-audio.py`.
+
 ### 3. Add a New Topic to Q1 English or Reading
 - **Q1 English**: Edit `content-source/q1/english_content.json` and run `npm test` (the schema test validates every item and topic card).
 - **Q1 Reading**: Add JSON in `src/terms/q1/subjects/reading/content/`, add a loader in `src/terms/q1/subjects/reading/topics/`, and register it in `src/terms/q1/subjects/reading/index.js`.

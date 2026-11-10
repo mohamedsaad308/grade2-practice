@@ -6,9 +6,9 @@ import ProgressBar from '../components/ProgressBar.jsx';
 import PracticeHeader from '../components/PracticeHeader.jsx';
 import SpeechButton from '../components/SpeechButton.jsx';
 import ConfettiCanvas from '../components/ConfettiCanvas.jsx';
-import { getFeedback } from '../feedback/feedbackManager.js';
+import { getFeedback, getFeedbackAudioText } from '../feedback/feedbackManager.js';
 import { playSuccessSound, playGentleWrongSound } from '../utils/audio.js';
-import { speakText } from '../utils/speech.js';
+import { speakText, stopSpeaking, preloadSpeechTexts } from '../utils/speech.js';
 import {
   recordSessionCompletion,
   getRecentQuestionSignatures,
@@ -239,7 +239,7 @@ function PracticeQuizSession({
       setConfettiTrigger(Date.now());
 
       if (spokenPraiseEnabled) {
-        speakText(praise);
+        speakText(getFeedbackAudioText(praise, playerName));
       }
 
       // Record question result and player adaptive item outcomes (scoped per term & subject)
@@ -280,7 +280,7 @@ function PracticeQuizSession({
         setAttemptNumber(2);
 
         if (spokenPraiseEnabled) {
-          speakText(gentleMsg);
+          speakText(getFeedbackAudioText(gentleMsg, playerName));
         }
       } else {
         // Second try failed: reveal answer gently with explanation
@@ -313,6 +313,7 @@ function PracticeQuizSession({
   };
 
   const handleNextQuestion = () => {
+    stopSpeaking();
     if (currentIndex + 1 < sessionTotal) {
       setCurrentIndex(prev => prev + 1);
       setAttemptNumber(1);
@@ -346,6 +347,78 @@ function PracticeQuizSession({
       });
     }
   };
+
+  // Build structured spoken parts so shuffled options still match pre-generated neural MP3 clips
+  const buildSpeechAudioParts = (q) => {
+    if (!q) return [];
+
+    // English choice & Q2 quiz choice
+    if (q.type === 'choice') {
+      const parts = [];
+      const instruction = q.prompt || q.instruction || topic?.instruction;
+      if (instruction) parts.push({ id: 'instruction', text: instruction.replace(/[:]+$/, '') });
+      if (q.text) {
+        parts.push({ id: 'text', text: q.text });
+      }
+      if (Array.isArray(q.options) && q.options.length > 0) {
+        parts.push({ id: 'options-label', text: 'Options:' });
+        q.options.forEach((opt, i) => parts.push({ id: `opt-${i}`, text: opt }));
+      }
+      return parts;
+    }
+
+    // English two_step
+    if (q.type === 'two_step') {
+      const parts = [];
+      if (q.text) parts.push({ id: 'text', text: q.text });
+      if (Array.isArray(q.options) && q.options.length > 0) {
+        parts.push({ id: 'choices-label', text: 'Sentence choices:' });
+        q.options.forEach((opt, i) => parts.push({ id: `opt-${i}`, text: opt }));
+      }
+      if (Array.isArray(q.marks)) {
+        parts.push({ id: 'marks', text: 'Marks: period, question mark, exclamation point' });
+      }
+      return parts;
+    }
+
+    // English & Social Studies match
+    if (q.type === 'match') {
+      const parts = [];
+      const instruction = q.instruction || topic?.instruction || 'Match each word with its meaning.';
+      parts.push({ id: 'instruction', text: instruction });
+      if (Array.isArray(q.pairs) && q.pairs.length > 0) {
+        parts.push({ id: 'words-label', text: 'Words to match:' });
+        q.pairs.forEach((p, i) => parts.push({ id: `pair-${i}`, text: p[0] }));
+      }
+      return parts;
+    }
+
+    return [];
+  };
+
+  useEffect(() => {
+    return () => stopSpeaking();
+  }, []);
+
+  useEffect(() => {
+    if (!questions || questions.length === 0) return;
+    const toPreload = [];
+    [questions[currentIndex], questions[currentIndex + 1]].forEach((q) => {
+      if (!q) return;
+      const parts = buildSpeechAudioParts(q);
+      if (parts.length > 0) {
+        parts.forEach((p) => {
+          if (p?.text) toPreload.push(p.text);
+        });
+      } else {
+        const text = buildSpeechAudioText(q);
+        if (text) toPreload.push(text);
+      }
+    });
+    if (toPreload.length > 0) {
+      preloadSpeechTexts(toPreload);
+    }
+  }, [questions, currentIndex, topic?.id]);
 
   if (!currentQuestion) {
     return (
@@ -442,6 +515,7 @@ function PracticeQuizSession({
   };
 
   const fullSpeechPrompt = buildSpeechAudioText(currentQuestion);
+  const speechAudioParts = buildSpeechAudioParts(currentQuestion);
 
   const displayHeaderInstruction =
     currentQuestion.prompt ||
@@ -483,6 +557,7 @@ function PracticeQuizSession({
           </div>
           <SpeechButton
             textToRead={fullSpeechPrompt}
+            speechParts={speechAudioParts}
             label="Listen"
           />
         </div>

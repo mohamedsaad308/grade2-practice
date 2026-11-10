@@ -4,7 +4,13 @@ import Mascot from '../components/Mascot.jsx';
 import ConfettiCanvas from '../components/ConfettiCanvas.jsx';
 import MatchRenderer from '../engine/MatchRenderer.jsx';
 import { playPop, playSuccessSound, playGentleWrongSound } from '../utils/audio.js';
-import { isSpeechSupported, speakText, speakCardSequence, stopSpeaking } from '../utils/speech.js';
+import {
+  isSpeechSupported,
+  speakText,
+  speakCardSequence,
+  stopSpeaking,
+  preloadSpeechTexts
+} from '../utils/speech.js';
 import { shuffle } from '../utils/mathHelpers.js';
 import { recordSessionCompletion } from '../player/playerStorage.js';
 
@@ -132,10 +138,53 @@ export default function FlashcardLesson({
     return () => stopSpeaking();
   }, [topic?.id]);
 
-  // Hide 🔊 speech button automatically if Web Speech API is unavailable
+  // Show 🔊 speech button when HTMLAudio or Web Speech API is supported
   useEffect(() => {
     setSpeechSupported(isSpeechSupported());
   }, []);
+
+  // Preload current and next card (or mini-activity) MP3s for instant playback on mobile
+  useEffect(() => {
+    if (!speechSupported) return;
+
+    if (phase === 'cards' && Array.isArray(cards) && cards.length > 0) {
+      const toPreload = [];
+      [cards[cardIndex], cards[cardIndex + 1]].forEach((card) => {
+        if (!card) return;
+        if (card.word) toPreload.push(card.word);
+        else if (card.frontTitle) toPreload.push(card.frontTitle);
+        if (card.backTitle) toPreload.push(card.backTitle);
+        if (card.explanation) toPreload.push(card.explanation);
+        if (card.example) toPreload.push(card.example);
+        if (Array.isArray(card.examples) && card.examples.length > 0) {
+          toPreload.push(card.examples.join('. '));
+        }
+        if (card.kind === 'wordList') {
+          const allWords = [...(card.words || []), ...(card.extraWords || [])];
+          if (allWords.length > 0) toPreload.push(allWords.join(', '));
+        }
+      });
+      if (toPreload.length > 0) {
+        preloadSpeechTexts(toPreload);
+      }
+    } else if (phase === 'activity' && activity) {
+      if (activity.type === 'sort_buckets') {
+        preloadSpeechTexts((activity.items || []).map((i) => i.word).filter(Boolean));
+      } else if (activity.type === 'tap_plural') {
+        const list = (activity.items || []).flatMap((it) => [
+          it.singular ? `What is the plural of ${it.singular}?` : '',
+          it.answer || ''
+        ]);
+        preloadSpeechTexts(list.filter(Boolean));
+      } else if (activity.type === 'fix_sentence') {
+        const list = (activity.items || []).flatMap((it) => [
+          it.wrongSentence ? `Fix the sentence: ${it.wrongSentence}` : '',
+          it.answer || ''
+        ]);
+        preloadSpeechTexts(list.filter(Boolean));
+      }
+    }
+  }, [phase, cardIndex, cards, activity, speechSupported]);
 
   const currentCard = cards[cardIndex] || cards[0];
   const totalCards = cards.length;
@@ -979,10 +1028,47 @@ function TapQuizMiniActivity({
   const [feedback, setFeedback] = useState(null);
   const [results, setResults] = useState([]);
   const [hadMissOnCurrent, setHadMissOnCurrent] = useState(false);
+  const [isMiniPlaying, setIsMiniPlaying] = useState(false);
+  const mountedRef = useRef(true);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      stopSpeaking();
+    };
+  }, []);
+
+  useEffect(() => {
+    setIsMiniPlaying(false);
+  }, [idx]);
 
   const current = items[idx];
   if (!current) return null;
   const isSolved = Boolean(feedback?.ok);
+
+  const buildMiniPromptSpeech = (item) => {
+    if (!item) return '';
+    return activity.type === 'tap_plural'
+      ? `What is the plural of ${item.singular}?`
+      : `Fix the sentence: ${item.wrongSentence}`;
+  };
+
+  const handleMiniListen = () => {
+    const text = buildMiniPromptSpeech(current);
+    if (!text) return;
+    setIsMiniPlaying(true);
+    speakText(text, {
+      lang: 'en-US',
+      rate: 0.85,
+      onStart: () => {
+        if (mountedRef.current) setIsMiniPlaying(true);
+      },
+      onEnd: () => {
+        if (mountedRef.current) setIsMiniPlaying(false);
+      }
+    });
+  };
 
   const handleOptionTap = (opt) => {
     if (isSolved) return;
@@ -1018,6 +1104,7 @@ function TapQuizMiniActivity({
   };
 
   const handleNext = () => {
+    stopSpeaking();
     if (idx + 1 < items.length) {
       playPop(soundEnabled);
       setIdx((i) => i + 1);
@@ -1041,9 +1128,10 @@ function TapQuizMiniActivity({
           {speechSupported && (
             <button
               type="button"
-              className="mini-listen-pill"
-              onClick={() => speakText(`What is the plural of ${current.singular}?`, { lang: 'en-US', rate: 0.85 })}
+              className={`mini-listen-pill ${isMiniPlaying ? 'speech-playing' : ''}`}
+              onClick={handleMiniListen}
               aria-label="Listen"
+              aria-pressed={isMiniPlaying}
             >
               🔊
             </button>
@@ -1061,9 +1149,10 @@ function TapQuizMiniActivity({
           {speechSupported && (
             <button
               type="button"
-              className="mini-listen-pill"
-              onClick={() => speakText(`Fix the sentence: ${current.wrongSentence}`, { lang: 'en-US', rate: 0.85 })}
+              className={`mini-listen-pill ${isMiniPlaying ? 'speech-playing' : ''}`}
+              onClick={handleMiniListen}
               aria-label="Listen"
+              aria-pressed={isMiniPlaying}
             >
               🔊
             </button>

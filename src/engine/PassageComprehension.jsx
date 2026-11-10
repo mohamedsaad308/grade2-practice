@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { playPop } from '../utils/audio.js';
-import { speakText, stopSpeaking } from '../utils/speech.js';
+import { speakText, stopSpeaking, preloadSpeechTexts } from '../utils/speech.js';
 
 export default function PassageComprehension({
   question,
@@ -16,12 +16,34 @@ export default function PassageComprehension({
 
   const [activeSentence, setActiveSentence] = useState(null);
   const [isPlayingAll, setIsPlayingAll] = useState(false);
+  const mountedRef = useRef(true);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      stopSpeaking();
+    };
+  }, []);
+
+  const splitIntoSentences = (text) => {
+    const matches = String(text || '').match(/[^.!?]+[.!?]+(\s+|$)|[^.!?]+$/g);
+    return matches ? matches.map(s => s.trim()).filter(Boolean) : [text];
+  };
 
   useEffect(() => {
     setActiveSentence(null);
     setIsPlayingAll(false);
     stopSpeaking();
-  }, [question?.id]);
+
+    if (passage) {
+      const sentenceList = passage
+        .split('\n\n')
+        .filter(Boolean)
+        .flatMap((para) => splitIntoSentences(para));
+      preloadSpeechTexts([passage, ...sentenceList]);
+    }
+  }, [question?.id, passage]);
 
   const handleSelectOption = (choice) => {
     if (disabled) return;
@@ -31,11 +53,18 @@ export default function PassageComprehension({
   };
 
   const handleSentenceClick = (sentence) => {
-    if (!sentence) return;
+    const trimmed = String(sentence || '').trim();
+    if (!trimmed) return;
     playPop(soundEnabled);
     setIsPlayingAll(false);
-    setActiveSentence(sentence.trim());
-    speakText(sentence.trim());
+    setActiveSentence(trimmed);
+    speakText(trimmed, {
+      onEnd: () => {
+        if (mountedRef.current) {
+          setActiveSentence((cur) => (cur === trimmed ? null : cur));
+        }
+      }
+    });
   };
 
   const handleReadWholePassage = () => {
@@ -43,7 +72,11 @@ export default function PassageComprehension({
     playPop(soundEnabled);
     setActiveSentence(null);
     setIsPlayingAll(true);
-    speakText(passage);
+    speakText(passage, {
+      onEnd: () => {
+        if (mountedRef.current) setIsPlayingAll(false);
+      }
+    });
   };
 
   const handleStopSpeech = () => {
@@ -54,11 +87,6 @@ export default function PassageComprehension({
 
   // Split passage into paragraphs and sentences
   const paragraphs = passage.split('\n\n').filter(Boolean);
-
-  const splitIntoSentences = (text) => {
-    const matches = text.match(/[^.!?]+[.!?]+(\s+|$)|[^.!?]+$/g);
-    return matches ? matches.map(s => s.trim()).filter(Boolean) : [text];
-  };
 
   return (
     <div className="passage-comprehension-container">

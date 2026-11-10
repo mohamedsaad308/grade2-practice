@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Mascot from '../components/Mascot.jsx';
 import ConfettiCanvas from '../components/ConfettiCanvas.jsx';
-import { getFeedback } from '../feedback/feedbackManager.js';
+import { getFeedback, getFeedbackAudioText } from '../feedback/feedbackManager.js';
 import { playCelebrationFanfare } from '../utils/audio.js';
-import { speakText } from '../utils/speech.js';
+import { speakText, stopSpeaking } from '../utils/speech.js';
 
 export default function SessionSummary({
   summaryData,
@@ -37,8 +37,10 @@ export default function SessionSummary({
     setMessage(summaryMsg);
 
     if (spokenPraiseEnabled) {
-      speakText(summaryMsg);
+      speakText(getFeedbackAudioText(summaryMsg, playerName));
     }
+
+    return () => stopSpeaking();
   }, []);
 
   return (

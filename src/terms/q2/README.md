@@ -28,3 +28,11 @@ While a subject's `topics` array in `index.js` is empty (`topics: []`), its card
 ## Adding Other Q2 Subjects (Math, Science, Social, German)
 1. Place your JSON content in `content-source/q2/<subject>.json` or `src/terms/q2/subjects/<subject>/content/<topic>.json` (or dynamic generators in `src/terms/q2/subjects/math/topics/<topic>.js`).
 2. Register topic objects in `src/terms/q2/subjects/<subject>/index.js`.
+
+## Generate Voice Audio After Adding Week 2 (or Editing Content)
+After adding `week2.json` or editing cards/quizzes, generate the natural MP3 clips with [`edge-tts`](https://github.com/rany2/edge-tts):
+```bash
+pip install edge-tts
+python scripts/generate-audio.py
+```
+Existing MP3s in `public/audio/` are skipped automatically, and `public/audio-manifest.json` updates in place. To try a different voice, change `VOICE` / `RATE` / `PITCH` at the top of `scripts/generate-audio.py` and re-run the script.

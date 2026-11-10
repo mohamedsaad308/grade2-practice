@@ -46,3 +46,26 @@ export function getFeedback(type, playerName, extra = {}) {
 
   return message;
 }
+
+/**
+ * Strips the player's dynamic name from a formatted feedback message so
+ * static pre-generated MP3 audio clips match feedback templates cleanly.
+ */
+export function getFeedbackAudioText(message, playerName) {
+  let out = String(message || '').trim();
+  const name = (playerName && playerName.trim()) ? playerName.trim() : 'Friend';
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  out = out
+    .replace(new RegExp(`^${escaped},\\s*`, 'i'), '')
+    .replace(new RegExp(`\\s+for\\s+${escaped}(?=[!.?]|$)`, 'gi'), '')
+    .replace(new RegExp(`,\\s*${escaped}(?=[!.?,]|$)`, 'gi'), '')
+    .replace(new RegExp(`\\s+${escaped}(?=[!.?,]|$)`, 'gi'), '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (out) {
+    out = out.charAt(0).toUpperCase() + out.slice(1);
+  }
+  return out;
+}

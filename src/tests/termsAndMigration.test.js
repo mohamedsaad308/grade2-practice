@@ -1,6 +1,20 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect, beforeEach } from 'vitest';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import {
+  cleanTextForSpeech,
+  resolveAudioAssetUrl,
+  setAudioManifestForTests,
+  getManifestAudioPath,
+  playSpeech,
+  playSpeechSequence,
+  stopSpeaking
+} from '../utils/speech.js';
+import { feedbackMessages } from '../feedback/messages.js';
+import { getFeedbackAudioText } from '../feedback/feedbackManager.js';
+import q1EnglishContent from '../../content-source/q1/english_content.json';
 import {
   DEFAULT_TERM_ID,
   terms,
@@ -490,5 +504,161 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     // Verify specific clip sentence updated per user prompt
     const clipCard = week1Data.lessons[0].cards.find((c) => c.id === 'blend-l-clip');
     expect(clipCard.example).toBe('I use a clip to hold my paper.');
+  });
+
+  it('11. speech audio helper resolves GitHub Pages subpaths cleanly, sequences clips on one Audio element, and falls back to Web Speech for dynamic texts', () => {
+    const origWindow = global.window;
+    const fakeOrigin = 'https://example.github.io';
+
+    try {
+      // Subpath resolution (/grade2-practice/, without trailing slash, index.html, and root)
+      global.window = { location: { origin: fakeOrigin, pathname: '/grade2-practice/' } };
+      expect(resolveAudioAssetUrl('audio/sample.mp3')).toBe('https://example.github.io/grade2-practice/audio/sample.mp3');
+
+      global.window = { location: { origin: fakeOrigin, pathname: '/grade2-practice' } };
+      expect(resolveAudioAssetUrl('audio/sample.mp3')).toBe('https://example.github.io/grade2-practice/audio/sample.mp3');
+
+      global.window = { location: { origin: fakeOrigin, pathname: '/grade2-practice/index.html' } };
+      expect(resolveAudioAssetUrl('audio/sample.mp3')).toBe('https://example.github.io/grade2-practice/audio/sample.mp3');
+
+      global.window = { location: { origin: 'http://localhost:4173', pathname: '/' } };
+      expect(resolveAudioAssetUrl('/audio-manifest.json')).toBe('http://localhost:4173/audio-manifest.json');
+
+      // Sequential playback & fallback verification
+      const playedSrcs = [];
+      const spokenFallback = [];
+      let audioInstanceCount = 0;
+
+      class MockAudio {
+        constructor() {
+          audioInstanceCount += 1;
+          this._src = '';
+          this.duration = 1.2;
+          this.currentTime = 0;
+        }
+        set src(val) {
+          this._src = val;
+        }
+        get src() {
+          return this._src;
+        }
+        pause() {}
+        removeAttribute() {}
+        play() {
+          playedSrcs.push(this._src);
+          this.onplaying?.();
+          this.onended?.();
+          return Promise.resolve();
+        }
+      }
+
+      global.window = {
+        location: { origin: fakeOrigin, pathname: '/grade2-practice/' },
+        Audio: MockAudio,
+        SpeechSynthesisUtterance: function MockUtterance(text) {
+          this.text = text;
+        },
+        speechSynthesis: {
+          cancel: () => {},
+          speak: (u) => {
+            spokenFallback.push(u.text);
+            u.onstart?.();
+            u.onend?.();
+          }
+        }
+      };
+
+      setAudioManifestForTests({
+        clip: 'audio/word_clip.mp3',
+        'I use a clip to hold my paper.': 'audio/sent_clip.mp3'
+      });
+
+      let ended = false;
+      const startedParts = [];
+      playSpeechSequence(
+        [
+          { id: 'word', text: 'clip' },
+          { id: 'example', text: 'I use a clip to hold my paper.' }
+        ],
+        {
+          pauseMs: 0,
+          onPartStart: (partId) => startedParts.push(partId),
+          onEnd: () => {
+            ended = true;
+          }
+        }
+      );
+
+      expect(ended).toBe(true);
+      expect(startedParts).toEqual(['word', 'example']);
+      expect(audioInstanceCount).toBe(1);
+      expect(playedSrcs).toEqual([
+        'https://example.github.io/grade2-practice/audio/word_clip.mp3',
+        'https://example.github.io/grade2-practice/audio/sent_clip.mp3'
+      ]);
+
+      // Dynamic math question (not in manifest) falls back cleanly to speechSynthesis
+      playSpeech('What number is 10 more than 482?');
+      expect(spokenFallback).toEqual(['What number is 10 more than 482?']);
+      stopSpeaking();
+    } finally {
+      setAudioManifestForTests(null);
+      global.window = origWindow;
+    }
+  });
+
+  it('12. audio-manifest.json covers Week 1 lessons/quiz, Q1 English texts, and feedback templates with existing non-empty MP3 files', () => {
+    const publicDir = path.resolve(process.cwd(), 'public');
+    const manifestPath = path.join(publicDir, 'audio-manifest.json');
+    expect(fs.existsSync(manifestPath)).toBe(true);
+
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+    expect(Object.keys(manifest).length).toBeGreaterThan(900);
+
+    try {
+      setAudioManifestForTests(manifest);
+
+      const assertAudioClipExists = (rawText) => {
+        const cleaned = cleanTextForSpeech(rawText);
+        if (!cleaned) return;
+        const rel = getManifestAudioPath(cleaned);
+        expect(rel, `Missing audio-manifest entry for: ${cleaned}`).toBeTruthy();
+        const mp3Path = path.join(publicDir, rel);
+        expect(fs.existsSync(mp3Path), `Missing MP3 file on disk: ${rel}`).toBe(true);
+        expect(fs.statSync(mp3Path).size).toBeGreaterThan(100);
+      };
+
+      // Every Q2 Week 1 card word, explanation, example & quiz question/options
+      week1Data.lessons.forEach((lesson) => {
+        lesson.cards.forEach((card) => {
+          assertAudioClipExists(card.word || card.frontTitle);
+          assertAudioClipExists(card.explanation);
+          assertAudioClipExists(card.example);
+        });
+      });
+      week1Data.quiz.questions.forEach((q) => {
+        assertAudioClipExists(q.text);
+        q.options.forEach((opt) => assertAudioClipExists(opt));
+      });
+
+      // Every Q1 English topic instruction and item text
+      q1EnglishContent.topics.forEach((topic) => {
+        assertAudioClipExists(topic.instruction.replace(/[:]+$/, ''));
+        topic.items.forEach((item) => {
+          assertAudioClipExists(item.text);
+        });
+      });
+
+      // Every praise/wrong/summary feedback template after stripping dynamic player name
+      Object.values(feedbackMessages).forEach((templates) => {
+        templates.forEach((tpl) => {
+          const sampleRendered = tpl.replace(/{name}/g, 'Maya').replace(/{n}/g, '7');
+          const audioKey = getFeedbackAudioText(sampleRendered, 'Maya');
+          assertAudioClipExists(audioKey);
+        });
+      });
+    } finally {
+      setAudioManifestForTests(null);
+    }
   });
 });

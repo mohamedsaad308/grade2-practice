@@ -1196,11 +1196,31 @@ input, button, textarea, a, [role="button"] {
   color: #475569;
   cursor: pointer;
   flex-shrink: 0;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
 .speech-read-btn:hover {
   background: #E2E8F0;
   color: #0F172A;
+}
+
+@keyframes speechBtnPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 7px rgba(245, 158, 11, 0);
+  }
+}
+
+.speech-read-btn.speech-playing,
+.mini-listen-pill.speech-playing {
+  background: #FEF08A;
+  border-color: #D97706;
+  color: #92400E;
+  animation: speechBtnPulse 1.15s ease-in-out infinite;
 }
 
 /* Sticky Action Bars */
@@ -4766,6 +4786,7 @@ input, button, textarea, a, [role="button"] {
   background: #FEF08A;
   border-color: #D97706;
   box-shadow: 0 3px 0 #D97706, 0 0 0 4px rgba(245, 158, 11, 0.28);
+  animation: speechBtnPulse 1.15s ease-in-out infinite;
 }
 
 .flashcard-speech-btn:active {
