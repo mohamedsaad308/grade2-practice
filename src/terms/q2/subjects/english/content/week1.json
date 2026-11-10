@@ -15,11 +15,11 @@
           "kind": "intro",
           "frontTitle": "Blends with L, R, S",
           "emoji": "🚂",
-          "frontHint": "Tap card to learn!",
+          "frontHint": "Two or three consonants that work together",
           "backTitle": "What is a Blend?",
           "explanation": "A blend is two or three letters that sit together. You say each sound quickly, like a train: s-p-ace → space!",
-          "example": "sp + ace → space 🚀",
-          "speechText": "Blends with L, R, S. A blend is two or three letters that sit together. You say each sound quickly, like a train: s-p-ace, space!"
+          "example": "Two letters blend together in train and space.",
+          "highlightWords": ["train", "space"]
         },
         {
           "id": "blend-l-globe",
@@ -31,8 +31,7 @@
           "suffix": "obe",
           "word": "globe",
           "explanation": "The second letter is L (g + l → gl).",
-          "example": "We found Egypt on the classroom globe.",
-          "speechText": "Globe. G-L, globe. We found Egypt on the classroom globe."
+          "example": "We found Egypt on the classroom globe."
         },
         {
           "id": "blend-l-place",
@@ -44,8 +43,7 @@
           "suffix": "ace",
           "word": "place",
           "explanation": "The second letter is L (p + l → pl).",
-          "example": "This park is a fun place to play.",
-          "speechText": "Place. P-L, place. This park is a fun place to play."
+          "example": "This park is a fun place to play."
         },
         {
           "id": "blend-l-glide",
@@ -57,8 +55,7 @@
           "suffix": "ide",
           "word": "glide",
           "explanation": "The second letter is L (g + l → gl).",
-          "example": "Birds glide smoothly through the sky.",
-          "speechText": "Glide. G-L, glide. Birds glide smoothly through the sky."
+          "example": "Birds glide smoothly through the sky."
         },
         {
           "id": "blend-l-clip",
@@ -70,8 +67,7 @@
           "suffix": "ip",
           "word": "clip",
           "explanation": "The second letter is L (c + l → cl).",
-          "example": "Use a clip to hold your papers together.",
-          "speechText": "Clip. C-L, clip. Use a clip to hold your papers together."
+          "example": "I use a clip to hold my paper."
         },
         {
           "id": "blend-l-plug",
@@ -83,8 +79,7 @@
           "suffix": "ug",
           "word": "plug",
           "explanation": "The second letter is L (p + l → pl).",
-          "example": "Plug the lamp cord into the wall.",
-          "speechText": "Plug. P-L, plug. Plug the lamp cord into the wall."
+          "example": "Plug the lamp cord into the wall."
         },
         {
           "id": "blend-l-flag",
@@ -96,8 +91,7 @@
           "suffix": "ag",
           "word": "flag",
           "explanation": "The second letter is L (f + l → fl).",
-          "example": "Our flag waves high in the breeze.",
-          "speechText": "Flag. F-L, flag. Our flag waves high in the breeze."
+          "example": "Our flag waves high in the breeze."
         },
         {
           "id": "blend-l-flame",
@@ -109,8 +103,7 @@
           "suffix": "ame",
           "word": "flame",
           "explanation": "The second letter is L (f + l → fl).",
-          "example": "The birthday candle has a warm flame.",
-          "speechText": "Flame. F-L, flame. The birthday candle has a warm flame."
+          "example": "The birthday candle has a warm flame."
         },
         {
           "id": "blend-l-slice",
@@ -122,8 +115,7 @@
           "suffix": "ice",
           "word": "slice",
           "explanation": "The second letter is L (s + l → sl).",
-          "example": "I ate a cheesy slice of pizza.",
-          "speechText": "Slice. S-L, slice. I ate a cheesy slice of pizza."
+          "example": "I ate a cheesy slice of pizza."
         },
         {
           "id": "blend-r-grade",
@@ -135,8 +127,7 @@
           "suffix": "ade",
           "word": "grade",
           "explanation": "A school mark. The second letter is R (g + r → gr).",
-          "example": "I got a great grade on my spelling work!",
-          "speechText": "Grade. A school mark. G-R, grade. I got a great grade on my spelling work!"
+          "example": "I got a great grade on my spelling work!"
         },
         {
           "id": "blend-r-drag",
@@ -148,8 +139,7 @@
           "suffix": "ag",
           "word": "drag",
           "explanation": "Pull something along. The second letter is R (d + r → dr).",
-          "example": "Do not drag your backpack on the floor.",
-          "speechText": "Drag. Pull something along. D-R, drag. Do not drag your backpack on the floor."
+          "example": "Do not drag your backpack on the floor."
         },
         {
           "id": "blend-r-grass",
@@ -161,8 +151,7 @@
           "suffix": "ass",
           "word": "grass",
           "explanation": "The second letter is R (g + r → gr).",
-          "example": "Soft green grass grows in the yard.",
-          "speechText": "Grass. G-R, grass. Soft green grass grows in the yard."
+          "example": "Soft green grass grows in the yard."
         },
         {
           "id": "blend-r-throne",
@@ -174,8 +163,7 @@
           "suffix": "one",
           "word": "throne",
           "explanation": "thr = 3 letters in a blend! t + h + r sit together.",
-          "example": "The king sat on a shiny gold throne.",
-          "speechText": "Throne. T-H-R is a 3 letter blend! The king sat on a shiny gold throne."
+          "example": "The king sat on a shiny gold throne."
         },
         {
           "id": "blend-s-space",
@@ -187,8 +175,7 @@
           "suffix": "ace",
           "word": "space",
           "explanation": "Starts with S + p (sp).",
-          "example": "Astronauts travel far into space.",
-          "speechText": "Space. S-P, space. Astronauts travel far into space."
+          "example": "Astronauts travel far into space."
         },
         {
           "id": "blend-s-swim",
@@ -200,8 +187,7 @@
           "suffix": "im",
           "word": "swim",
           "explanation": "Starts with S + w (sw).",
-          "example": "I can swim in the pool.",
-          "speechText": "Swim. S-W, swim. I can swim in the pool."
+          "example": "I can swim in the pool."
         },
         {
           "id": "blend-s-skin",
@@ -213,8 +199,7 @@
           "suffix": "in",
           "word": "skin",
           "explanation": "Starts with S + k (sk).",
-          "example": "Sunscreen keeps your skin safe outside.",
-          "speechText": "Skin. S-K, skin. Sunscreen keeps your skin safe outside."
+          "example": "Sunscreen keeps your skin safe outside."
         },
         {
           "id": "blend-s-snake",
@@ -226,8 +211,7 @@
           "suffix": "ake",
           "word": "snake",
           "explanation": "Starts with S + n (sn).",
-          "example": "A long green snake slid through the grass.",
-          "speechText": "Snake. S-N, snake. A long green snake slid through the grass."
+          "example": "A long green snake slid through the grass."
         },
         {
           "id": "blend-s-stove",
@@ -239,8 +223,7 @@
           "suffix": "ove",
           "word": "stove",
           "explanation": "Starts with S + t (st).",
-          "example": "Mom cooks warm soup on the stove.",
-          "speechText": "Stove. S-T, stove. Mom cooks warm soup on the stove."
+          "example": "Mom cooks warm soup on the stove."
         },
         {
           "id": "blend-s-test",
@@ -252,8 +235,7 @@
           "suffix": "",
           "word": "test",
           "explanation": "Ends with the -st blend (s + t).",
-          "example": "I studied hard for my spelling test.",
-          "speechText": "Test. Ends with S-T. I studied hard for my spelling test."
+          "example": "I studied hard for my spelling test."
         },
         {
           "id": "blend-s-last",
@@ -265,8 +247,7 @@
           "suffix": "",
           "word": "last",
           "explanation": "Ends with the -st blend (s + t).",
-          "example": "This is the last lap of the race!",
-          "speechText": "Last. Ends with S-T. This is the last lap of the race!"
+          "example": "This is the last lap of the race!"
         },
         {
           "id": "blend-s-just",
@@ -278,8 +259,7 @@
           "suffix": "",
           "word": "just",
           "explanation": "Ends with the -st blend (s + t).",
-          "example": "We just finished our homework!",
-          "speechText": "Just. Ends with S-T. We just finished our homework!"
+          "example": "We just finished our homework!"
         },
         {
           "id": "blend-spelling-list",
@@ -289,13 +269,14 @@
           "frontHint": "12 Spelling Words + 4 Extra Review Words",
           "backTitle": "Week 1 Spelling Words",
           "explanation": "Read each word out loud and spot the L, R, or S blend!",
+          "example": "Read each spelling word out loud and spot the blend!",
+          "highlightWords": ["blend"],
           "words": [
             "space", "globe", "grade", "swim",
             "place", "last", "test", "skin",
             "drag", "glide", "just", "stove"
           ],
-          "extraWords": ["slid", "close", "grape", "plate"],
-          "speechText": "Spelling words: space, globe, grade, swim, place, last, test, skin, drag, glide, just, stove. Extra review words: slid, close, grape, plate."
+          "extraWords": ["slid", "close", "grape", "plate"]
         }
       ],
       "activity": {
@@ -336,8 +317,7 @@
           "emoji": "🏆",
           "explanation": "excellent, very good, or an expert.",
           "example": "She is an ace at tennis.",
-          "tip": "Think of a top player or an A+ star!",
-          "speechText": "Ace. Excellent, very good, or an expert. She is an ace at tennis."
+          "tip": "Think of a top player or an A+ star!"
         },
         {
           "id": "pw-eagerly",
@@ -346,8 +326,7 @@
           "emoji": "🤩",
           "explanation": "with lots of excitement.",
           "example": "He waited eagerly for the game.",
-          "tip": "When you can't wait for fun, you wait eagerly!",
-          "speechText": "Eagerly. With lots of excitement. He waited eagerly for the game."
+          "tip": "When you can't wait for fun, you wait eagerly!"
         },
         {
           "id": "pw-agency",
@@ -356,8 +335,7 @@
           "emoji": "🏢",
           "explanation": "a group or company that gives a service to people.",
           "example": "We asked a travel agency to plan our trip.",
-          "tip": "Helpers in an office who help plan things.",
-          "speechText": "Agency. A group or company that gives a service to people. We asked a travel agency to plan our trip."
+          "tip": "Helpers in an office who help plan things."
         },
         {
           "id": "pw-business",
@@ -366,8 +344,7 @@
           "emoji": "💼",
           "explanation": "work of making, buying or selling things.",
           "example": "Her family has a business.",
-          "tip": "Remember: \"busy\" + \"ness\" → business!",
-          "speechText": "Business. Work of making, buying or selling things. Her family has a business."
+          "tip": "Remember: \"busy\" + \"ness\" → business!"
         },
         {
           "id": "pw-confidently",
@@ -376,8 +353,7 @@
           "emoji": "💪",
           "explanation": "feeling sure of yourself.",
           "example": "He answered confidently.",
-          "tip": "Stand tall because you know you are ready!",
-          "speechText": "Confidently. Feeling sure of yourself. He answered confidently."
+          "tip": "Stand tall because you know you are ready!"
         },
         {
           "id": "pw-located",
@@ -386,8 +362,7 @@
           "emoji": "📍",
           "explanation": "placed in a certain spot.",
           "example": "The school is located near the park.",
-          "tip": "Located tells you WHERE something is.",
-          "speechText": "Located. Placed in a certain spot. The school is located near the park."
+          "tip": "Located tells you WHERE something is."
         },
         {
           "id": "pw-mystery",
@@ -396,8 +371,7 @@
           "emoji": "🕵️",
           "explanation": "something hard to understand or explain.",
           "example": "The story was a mystery.",
-          "tip": "A puzzle that needs clues to solve!",
-          "speechText": "Mystery. Something hard to understand or explain. The story was a mystery."
+          "tip": "A puzzle that needs clues to solve!"
         },
         {
           "id": "pw-seeps",
@@ -406,8 +380,7 @@
           "emoji": "💧",
           "explanation": "flows slowly through tiny holes.",
           "example": "Water seeps from the wall.",
-          "tip": "Not a big splash—just slow drops coming through.",
-          "speechText": "Seeps. Flows slowly through tiny holes. Water seeps from the wall."
+          "tip": "Not a big splash—just slow drops coming through."
         }
       ],
       "activity": {
@@ -439,11 +412,11 @@
           "kind": "intro",
           "frontTitle": "What is a Noun?",
           "emoji": "🏷️",
-          "frontHint": "Person • Place • Animal • Thing",
+          "frontHint": "teacher 👩‍🏫 • park 🏞️ • cat 🐱 • book 📘",
           "backTitle": "A Noun Names...",
           "explanation": "A noun names a person, place, animal or thing.",
-          "example": "teacher 👩‍🏫 • park 🏞️ • cat 🐱 • book 📘",
-          "speechText": "What is a noun? A noun names a person, place, animal or thing. Like teacher, park, cat, or book."
+          "example": "Our teacher read a book about a cat at the park.",
+          "highlightWords": ["teacher", "book", "cat", "park"]
         },
         {
           "id": "noun-singular-plural",
@@ -453,42 +426,44 @@
           "frontHint": "ONE vs MORE THAN ONE",
           "backTitle": "One or More Than One!",
           "explanation": "Singular = ONE (cat 🐱). Plural = MORE THAN ONE (cats 🐱🐱).",
-          "example": "1 cat 🐱  →  3 cats 🐱🐱🐱",
-          "speechText": "Singular means one, like one cat. Plural means more than one, like three cats."
+          "example": "One cat sleeps, and three cats play.",
+          "highlightWords": ["cat", "cats"]
         },
         {
           "id": "noun-rule-s",
           "kind": "rule",
           "frontTitle": "Rule 1: Most nouns → add -s",
           "emoji": "🐶 → 🐶🐶",
-          "frontHint": "Tap to see 5 examples!",
+          "frontHint": "Just add -s at the end",
           "backTitle": "Most nouns add -s",
           "explanation": "Just put -s at the end to make most nouns plural!",
+          "example": "Two dogs sit under the tall trees.",
+          "highlightWords": ["dogs", "trees"],
           "examples": [
             "cat 🐱 → cats 🐱🐱🐱",
             "book 📘 → books 📚",
             "dog 🐶 → dogs 🐶🐶",
             "chair 🪑 → chairs 🪑🪑",
             "tree 🌳 → trees 🌳🌳🌳"
-          ],
-          "speechText": "Rule 1: For most nouns, add s. Cat, cats. Book, books. Dog, dogs. Chair, chairs. Tree, trees."
+          ]
         },
         {
           "id": "noun-rule-es",
           "kind": "rule",
           "frontTitle": "Rule 2: Ends in s, x, ch, sh → add -es",
           "emoji": "🚌 → 🚌🚌",
-          "frontHint": "Tap to see 5 examples!",
+          "frontHint": "Add -es so words are easy to say",
           "backTitle": "Nouns ending in s, x, ch, sh",
           "explanation": "Nouns ending in s, x, ch, sh → add -es so they are easy to say!",
+          "example": "Two buses stop by the big boxes.",
+          "highlightWords": ["buses", "boxes"],
           "examples": [
             "bus 🚌 → buses 🚌🚌",
             "box 📦 → boxes 📦📦",
             "watch ⌚ → watches ⌚⌚",
             "brush 🪥 → brushes 🪥🪥",
             "glass 🥛 → glasses 🥛🥛"
-          ],
-          "speechText": "Rule 2: Nouns ending in s, x, c-h, or s-h, add e-s. Bus, buses. Box, boxes. Watch, watches. Brush, brushes. Glass, glasses."
+          ]
         }
       ],
       "activity": {
@@ -551,11 +526,11 @@
           "kind": "intro",
           "frontTitle": "Make the Verb Match!",
           "emoji": "⚖️",
-          "frontHint": "Like a balanced see-saw",
+          "frontHint": "ONE subject = + -s  |  MANY subjects = NO -s",
           "backTitle": "The NOW Tense See-Saw",
           "explanation": "Think of a see-saw! The subject and the verb must match in the NOW tense (present).",
-          "example": "ONE subject 👧 → verb + -s   |   MANY subjects 👧👦 → NO -s",
-          "speechText": "Make the verb match! Think of a see-saw. The subject and the verb must match in the now tense."
+          "example": "One girl plays, and two kids run.",
+          "highlightWords": ["plays", "run"]
         },
         {
           "id": "sv-singular",
@@ -565,12 +540,13 @@
           "frontHint": "Singular Subject = + -s",
           "backTitle": "Singular Subjects",
           "explanation": "One person or thing (singular) → verb ends in -s.",
+          "example": "Greta looks for her backpack.",
+          "highlightWords": ["looks"],
           "examples": [
             "The student sits. 🪑",
             "Greta looks for her backpack. 🎒",
             "Dwayne jumps. 🦘"
-          ],
-          "speechText": "One person or thing, verb ends in s. The student sits. Greta looks for her backpack. Dwayne jumps."
+          ]
         },
         {
           "id": "sv-plural",
@@ -580,12 +556,13 @@
           "frontHint": "Plural Subject = No -s",
           "backTitle": "Plural Subjects",
           "explanation": "More than one (plural) → no -s on the verb!",
+          "example": "Stars light up the sky.",
+          "highlightWords": ["light"],
           "examples": [
             "The students sit. 🪑",
             "My friends run. 🏃",
             "Stars light up the sky. ✨"
-          ],
-          "speechText": "More than one, no s on the verb. The students sit. My friends run. Stars light up the sky."
+          ]
         },
         {
           "id": "sv-es-endings",
@@ -595,12 +572,13 @@
           "frontHint": "For ONE person or thing",
           "backTitle": "Add -es for ONE",
           "explanation": "Verbs ending in s, sh, ch, tch, z, x → add -es for ONE:",
+          "example": "She washes the cup and fixes the toy.",
+          "highlightWords": ["washes", "fixes"],
           "examples": [
             "pass → passes  •  miss → misses",
             "watch → watches  •  teach → teaches  •  reach → reaches",
             "wash → washes  •  mix → mixes  •  fix → fixes"
-          ],
-          "speechText": "Verbs ending in s, s-h, c-h, t-c-h, z, or x add e-s for one. Pass, passes. Watch, watches. Mix, mixes. Fix, fixes. Wash, washes. Teach, teaches. Miss, misses. Reach, reaches."
+          ]
         },
         {
           "id": "sv-he-she-it",
@@ -610,12 +588,13 @@
           "frontHint": "One person or thing",
           "backTitle": "He, She, It",
           "explanation": "He, She, or It is ONE → always add -s or -es!",
+          "example": "He catches the ball.",
+          "highlightWords": ["catches"],
           "examples": [
             "He catches the ball. ⚾",
             "She picks a movie. 🎬",
             "It seems late. ⏰"
-          ],
-          "speechText": "He, She, or It, add s or e-s. He catches the ball. She picks a movie. It seems late."
+          ]
         },
         {
           "id": "sv-i-you-we-they",
@@ -625,23 +604,24 @@
           "frontHint": "Keep the base verb!",
           "backTitle": "I, You, We, They",
           "explanation": "I, You, We, They → NO -s on the verb!",
+          "example": "You tell the truth and we cheer.",
+          "highlightWords": ["tell", "cheer"],
           "examples": [
             "I reach. 🙋",
             "You tell the truth. 💬",
             "We cheer. 🎉  •  They walk. 🚶"
-          ],
-          "speechText": "I, You, We, They, no s. I reach. You tell the truth. We cheer. They walk."
+          ]
         },
         {
           "id": "sv-memory-trick",
           "kind": "intro",
           "frontTitle": "Memory Trick!",
           "emoji": "🎵",
-          "frontHint": "A rhyme to help you remember!",
+          "frontHint": "Say this rhyme out loud!",
           "backTitle": "Say the Rhyme!",
           "explanation": "He, She, It — the -s must fit!",
-          "example": "I, You, We, They — no -s, hooray!",
-          "speechText": "Memory trick! He, She, It, the s must fit! I, You, We, They, no s, hooray!"
+          "example": "He, She, It — the -s must fit! I, You, We, They — no -s, hooray!",
+          "highlightWords": ["He", "She", "It", "I", "You", "We", "They"]
         }
       ],
       "activity": {

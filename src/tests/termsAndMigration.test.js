@@ -39,7 +39,7 @@ import {
 import QuestionDispatcher from '../engine/QuestionDispatcher.jsx';
 import HomeView from '../views/HomeView.jsx';
 import SubjectTopicsView from '../views/SubjectTopicsView.jsx';
-import FlashcardLesson from '../views/FlashcardLesson.jsx';
+import FlashcardLesson, { tokenizeExampleSentence } from '../views/FlashcardLesson.jsx';
 import SessionSummary from '../views/SessionSummary.jsx';
 import ParentDashboard from '../views/ParentDashboard.jsx';
 import week1Data from '../terms/q2/subjects/english/content/week1.json';
@@ -440,5 +440,55 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     ));
     expect(summaryHtml).toContain('Play Again');
     expect(summaryHtml).toContain('Practice the ones I missed (2)');
+  });
+
+  it('10. every card in all 4 Week 1 lessons has a visible example sentence with highlighted target word(s) on the front card', () => {
+    const clean = (html) => html.replace(/<!-- -->/g, '');
+    const q2English = getSubjectByTermAndId('q2', 'english');
+
+    week1Data.lessons.forEach((lesson) => {
+      expect(lesson.cards.length).toBeGreaterThan(0);
+
+      lesson.cards.forEach((card) => {
+        expect(typeof card.example).toBe('string');
+        expect(card.example.trim().length).toBeGreaterThan(8);
+
+        const targets = card.highlightWords?.length
+          ? card.highlightWords
+          : card.word
+            ? [card.word]
+            : [];
+
+        if (targets.length > 0) {
+          const { tokens } = tokenizeExampleSentence(card.example, targets);
+          const highlighted = tokens.filter((t) => t.type === 'word' && t.isTarget);
+          expect(highlighted.length).toBeGreaterThan(0);
+        }
+
+        // Render card as first card in FlashcardLesson to ensure front shows example text
+        const html = clean(renderToString(
+          React.createElement(FlashcardLesson, {
+            player: { name: 'Maya', avatar: 'fox', stars: 0 },
+            termId: 'q2',
+            subject: q2English,
+            topic: {
+              id: `${lesson.id}_${card.id}`,
+              title: lesson.title,
+              icon: lesson.icon,
+              lessonData: { ...lesson, cards: [card] }
+            },
+            settings: { soundEnabled: true, spokenPraiseEnabled: true }
+          })
+        ));
+        expect(html).toContain('flashcard-front-example-text');
+        if (targets.length > 0) {
+          expect(html).toContain('sentence-target-word');
+        }
+      });
+    });
+
+    // Verify specific clip sentence updated per user prompt
+    const clipCard = week1Data.lessons[0].cards.find((c) => c.id === 'blend-l-clip');
+    expect(clipCard.example).toBe('I use a clip to hold my paper.');
   });
 });
