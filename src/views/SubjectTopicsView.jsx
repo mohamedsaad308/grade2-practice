@@ -98,14 +98,44 @@ export default function SubjectTopicsView({
   };
 
   const getQuestionCountLabel = (topic) => {
+    if (typeof topic.cardCount === 'number') {
+      return `${topic.cardCount} Cards`;
+    }
+    if (typeof topic.questionCount === 'number') {
+      return `${topic.questionCount} Qs`;
+    }
     if (Array.isArray(topic.items)) {
-      return Math.min(10, topic.items.length);
+      return `${Math.min(10, topic.items.length)} Qs`;
     }
     if (typeof topic.getQuestions === 'function') {
-      return topic.getQuestions().length;
+      return `${topic.getQuestions().length} Qs`;
     }
-    return 10;
+    return '10 Qs';
   };
+
+  // Group topics by optional weekId/weekTitle (used by Q2 Week 1, Week 2, etc.)
+  const hasWeeks = subject.topics.some((t) => Boolean(t.weekTitle));
+  const topicGroups = [];
+  if (hasWeeks) {
+    subject.topics.forEach((t) => {
+      const key = t.weekId || t.weekTitle || 'default';
+      let group = topicGroups.find((g) => g.key === key);
+      if (!group) {
+        group = {
+          key,
+          title: t.weekTitle || '',
+          subtitle: t.weekSubtitle || '',
+          topics: []
+        };
+        topicGroups.push(group);
+      }
+      group.topics.push(t);
+    });
+  } else {
+    topicGroups.push({ key: 'all', title: '', subtitle: '', topics: subject.topics });
+  }
+
+  let runningIndex = 0;
 
   return (
     <div className="subject-topics-view-container">
@@ -139,63 +169,83 @@ export default function SubjectTopicsView({
         </div>
       </section>
 
-      {/* Topics Grid */}
+      {/* Topics Grid (grouped by week if defined) */}
       <section className="topics-section" aria-label={`${subject.title} Practice Topics`}>
-        <div className="topics-grid">
-          {subject.topics.map((topic, index) => {
-            const currentLevel = selectedLevels[topic.id] || 1;
-            const topicStat = termStats?.topicStats?.[topic.id];
-            const wins = (topicStat?.firstTryWins || 0) + (topicStat?.secondTryWins || 0);
-            const qCount = getQuestionCountLabel(topic);
+        {topicGroups.map((group) => (
+          <div key={group.key} className={group.title ? 'week-group-section' : ''}>
+            {group.title && (
+              <div className="week-group-header">
+                <span className="week-group-badge">📅 {group.title}</span>
+                {group.subtitle && <p className="week-group-subtitle">{group.subtitle}</p>}
+              </div>
+            )}
 
-            return (
-              <div key={topic.id} className="topic-card">
-                <div className="topic-card-header">
-                  <div className="topic-card-icon-box">{topic.icon || '📝'}</div>
-                  <div className="topic-card-title-group">
-                    <span className="topic-number-label">Topic {index + 1}</span>
-                    <h3 className="topic-card-title">{topic.title}</h3>
-                  </div>
-                </div>
+            <div className="topics-grid">
+              {group.topics.map((topic) => {
+                const displayIdx = runningIndex++;
+                const currentLevel = selectedLevels[topic.id] || 1;
+                const topicStat = termStats?.topicStats?.[topic.id];
+                const wins = (topicStat?.firstTryWins || 0) + (topicStat?.secondTryWins || 0);
+                const countLabel = getQuestionCountLabel(topic);
+                const isLesson = topic.mode === 'lesson';
+                const isQuiz = topic.mode === 'quiz';
 
-                <p className="topic-card-desc">{topic.description}</p>
+                return (
+                  <div
+                    key={topic.id}
+                    className={`topic-card ${isQuiz ? 'topic-card-quiz' : ''}`}
+                    data-topic-card={topic.id}
+                  >
+                    <div className="topic-card-header">
+                      <div className="topic-card-icon-box">{topic.icon || '📝'}</div>
+                      <div className="topic-card-title-group">
+                        <span className="topic-number-label">
+                          {isQuiz ? 'Final Quiz' : isLesson ? `Lesson • Cards + Game` : `Topic ${displayIdx + 1}`}
+                        </span>
+                        <h3 className="topic-card-title">{topic.title}</h3>
+                      </div>
+                    </div>
 
-                {/* Level Selector */}
-                {topic.levels && topic.levels.length > 1 && (
-                  <div className="level-selector-wrapper">
-                    <span className="level-select-label">Choose Level:</span>
-                    <div className="level-pill-group">
-                      {topic.levels.map((lvl) => (
-                        <button
-                          key={lvl}
-                          type="button"
-                          className={`level-pill-btn ${currentLevel === lvl ? 'active-level-pill' : ''}`}
-                          onClick={() => handleLevelChange(topic.id, lvl)}
-                        >
-                          {lvl === 1 ? '1 • Easy' : lvl === 2 ? '2 • Super' : '3 • Star'}
-                        </button>
-                      ))}
+                    <p className="topic-card-desc">{topic.description}</p>
+
+                    {/* Level Selector */}
+                    {topic.levels && topic.levels.length > 1 && (
+                      <div className="level-selector-wrapper">
+                        <span className="level-select-label">Choose Level:</span>
+                        <div className="level-pill-group">
+                          {topic.levels.map((lvl) => (
+                            <button
+                              key={lvl}
+                              type="button"
+                              className={`level-pill-btn ${currentLevel === lvl ? 'active-level-pill' : ''}`}
+                              onClick={() => handleLevelChange(topic.id, lvl)}
+                            >
+                              {lvl === 1 ? '1 • Easy' : lvl === 2 ? '2 • Super' : '3 • Star'}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Topic Footer */}
+                    <div className="topic-card-footer">
+                      <span className="topic-attempts-count">
+                        {wins > 0 ? `✨ ${wins} solved` : 'Ready to start!'}
+                      </span>
+                      <button
+                        type="button"
+                        className="topic-start-btn"
+                        onClick={() => handleStart(topic)}
+                      >
+                        {isLesson ? `Start (${countLabel}) ▶` : isQuiz ? `Quiz (${countLabel}) ▶` : `Play (${countLabel}) ▶`}
+                      </button>
                     </div>
                   </div>
-                )}
-
-                {/* Topic Footer */}
-                <div className="topic-card-footer">
-                  <span className="topic-attempts-count">
-                    {wins > 0 ? `✨ ${wins} solved` : 'Ready to start!'}
-                  </span>
-                  <button
-                    type="button"
-                    className="topic-start-btn"
-                    onClick={() => handleStart(topic)}
-                  >
-                    Play ({qCount} Qs) ▶
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </section>
     </div>
   );

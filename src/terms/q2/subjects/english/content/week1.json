@@ -1,0 +1,940 @@
+{
+  "weekId": "week1",
+  "weekTitle": "Week 1",
+  "weekSubtitle": "Blends, Power Words, Nouns & Subject-Verb Match",
+  "lessons": [
+    {
+      "id": "w1_lesson1_blends",
+      "title": "Lesson 1: Blends with L, R, S",
+      "icon": "🚂",
+      "description": "Learn L, R, and S consonant blends, practice spelling words, and play Sort it!",
+      "hint": "Say each blend sound quickly together like a train: s-p-ace → space!",
+      "cards": [
+        {
+          "id": "blend-intro",
+          "kind": "intro",
+          "frontTitle": "Blends with L, R, S",
+          "emoji": "🚂",
+          "frontHint": "Tap card to learn!",
+          "backTitle": "What is a Blend?",
+          "explanation": "A blend is two or three letters that sit together. You say each sound quickly, like a train: s-p-ace → space!",
+          "example": "sp + ace → space 🚀",
+          "speechText": "Blends with L, R, S. A blend is two or three letters that sit together. You say each sound quickly, like a train: s-p-ace, space!"
+        },
+        {
+          "id": "blend-l-globe",
+          "kind": "blend",
+          "groupLabel": "L Blend (gl)",
+          "emoji": "🌍",
+          "prefix": "",
+          "blend": "gl",
+          "suffix": "obe",
+          "word": "globe",
+          "explanation": "The second letter is L (g + l → gl).",
+          "example": "We found Egypt on the classroom globe.",
+          "speechText": "Globe. G-L, globe. We found Egypt on the classroom globe."
+        },
+        {
+          "id": "blend-l-place",
+          "kind": "blend",
+          "groupLabel": "L Blend (pl)",
+          "emoji": "📍",
+          "prefix": "",
+          "blend": "pl",
+          "suffix": "ace",
+          "word": "place",
+          "explanation": "The second letter is L (p + l → pl).",
+          "example": "This park is a fun place to play.",
+          "speechText": "Place. P-L, place. This park is a fun place to play."
+        },
+        {
+          "id": "blend-l-glide",
+          "kind": "blend",
+          "groupLabel": "L Blend (gl)",
+          "emoji": "🪂",
+          "prefix": "",
+          "blend": "gl",
+          "suffix": "ide",
+          "word": "glide",
+          "explanation": "The second letter is L (g + l → gl).",
+          "example": "Birds glide smoothly through the sky.",
+          "speechText": "Glide. G-L, glide. Birds glide smoothly through the sky."
+        },
+        {
+          "id": "blend-l-clip",
+          "kind": "blend",
+          "groupLabel": "L Blend (cl)",
+          "emoji": "📎",
+          "prefix": "",
+          "blend": "cl",
+          "suffix": "ip",
+          "word": "clip",
+          "explanation": "The second letter is L (c + l → cl).",
+          "example": "Use a clip to hold your papers together.",
+          "speechText": "Clip. C-L, clip. Use a clip to hold your papers together."
+        },
+        {
+          "id": "blend-l-plug",
+          "kind": "blend",
+          "groupLabel": "L Blend (pl)",
+          "emoji": "🔌",
+          "prefix": "",
+          "blend": "pl",
+          "suffix": "ug",
+          "word": "plug",
+          "explanation": "The second letter is L (p + l → pl).",
+          "example": "Plug the lamp cord into the wall.",
+          "speechText": "Plug. P-L, plug. Plug the lamp cord into the wall."
+        },
+        {
+          "id": "blend-l-flag",
+          "kind": "blend",
+          "groupLabel": "L Blend (fl)",
+          "emoji": "🇪🇬",
+          "prefix": "",
+          "blend": "fl",
+          "suffix": "ag",
+          "word": "flag",
+          "explanation": "The second letter is L (f + l → fl).",
+          "example": "Our flag waves high in the breeze.",
+          "speechText": "Flag. F-L, flag. Our flag waves high in the breeze."
+        },
+        {
+          "id": "blend-l-flame",
+          "kind": "blend",
+          "groupLabel": "L Blend (fl)",
+          "emoji": "🔥",
+          "prefix": "",
+          "blend": "fl",
+          "suffix": "ame",
+          "word": "flame",
+          "explanation": "The second letter is L (f + l → fl).",
+          "example": "The birthday candle has a warm flame.",
+          "speechText": "Flame. F-L, flame. The birthday candle has a warm flame."
+        },
+        {
+          "id": "blend-l-slice",
+          "kind": "blend",
+          "groupLabel": "L Blend (sl)",
+          "emoji": "🍕",
+          "prefix": "",
+          "blend": "sl",
+          "suffix": "ice",
+          "word": "slice",
+          "explanation": "The second letter is L (s + l → sl).",
+          "example": "I ate a cheesy slice of pizza.",
+          "speechText": "Slice. S-L, slice. I ate a cheesy slice of pizza."
+        },
+        {
+          "id": "blend-r-grade",
+          "kind": "blend",
+          "groupLabel": "R Blend (gr)",
+          "emoji": "🅰️",
+          "prefix": "",
+          "blend": "gr",
+          "suffix": "ade",
+          "word": "grade",
+          "explanation": "A school mark. The second letter is R (g + r → gr).",
+          "example": "I got a great grade on my spelling work!",
+          "speechText": "Grade. A school mark. G-R, grade. I got a great grade on my spelling work!"
+        },
+        {
+          "id": "blend-r-drag",
+          "kind": "blend",
+          "groupLabel": "R Blend (dr)",
+          "emoji": "🧲",
+          "prefix": "",
+          "blend": "dr",
+          "suffix": "ag",
+          "word": "drag",
+          "explanation": "Pull something along. The second letter is R (d + r → dr).",
+          "example": "Do not drag your backpack on the floor.",
+          "speechText": "Drag. Pull something along. D-R, drag. Do not drag your backpack on the floor."
+        },
+        {
+          "id": "blend-r-grass",
+          "kind": "blend",
+          "groupLabel": "R Blend (gr)",
+          "emoji": "🌱",
+          "prefix": "",
+          "blend": "gr",
+          "suffix": "ass",
+          "word": "grass",
+          "explanation": "The second letter is R (g + r → gr).",
+          "example": "Soft green grass grows in the yard.",
+          "speechText": "Grass. G-R, grass. Soft green grass grows in the yard."
+        },
+        {
+          "id": "blend-r-throne",
+          "kind": "blend",
+          "groupLabel": "3-Letter R Blend (thr)",
+          "emoji": "👑",
+          "prefix": "",
+          "blend": "thr",
+          "suffix": "one",
+          "word": "throne",
+          "explanation": "thr = 3 letters in a blend! t + h + r sit together.",
+          "example": "The king sat on a shiny gold throne.",
+          "speechText": "Throne. T-H-R is a 3 letter blend! The king sat on a shiny gold throne."
+        },
+        {
+          "id": "blend-s-space",
+          "kind": "blend",
+          "groupLabel": "S Blend (sp)",
+          "emoji": "🚀",
+          "prefix": "",
+          "blend": "sp",
+          "suffix": "ace",
+          "word": "space",
+          "explanation": "Starts with S + p (sp).",
+          "example": "Astronauts travel far into space.",
+          "speechText": "Space. S-P, space. Astronauts travel far into space."
+        },
+        {
+          "id": "blend-s-swim",
+          "kind": "blend",
+          "groupLabel": "S Blend (sw)",
+          "emoji": "🏊",
+          "prefix": "",
+          "blend": "sw",
+          "suffix": "im",
+          "word": "swim",
+          "explanation": "Starts with S + w (sw).",
+          "example": "I can swim in the pool.",
+          "speechText": "Swim. S-W, swim. I can swim in the pool."
+        },
+        {
+          "id": "blend-s-skin",
+          "kind": "blend",
+          "groupLabel": "S Blend (sk)",
+          "emoji": "🧴",
+          "prefix": "",
+          "blend": "sk",
+          "suffix": "in",
+          "word": "skin",
+          "explanation": "Starts with S + k (sk).",
+          "example": "Sunscreen keeps your skin safe outside.",
+          "speechText": "Skin. S-K, skin. Sunscreen keeps your skin safe outside."
+        },
+        {
+          "id": "blend-s-snake",
+          "kind": "blend",
+          "groupLabel": "S Blend (sn)",
+          "emoji": "🐍",
+          "prefix": "",
+          "blend": "sn",
+          "suffix": "ake",
+          "word": "snake",
+          "explanation": "Starts with S + n (sn).",
+          "example": "A long green snake slid through the grass.",
+          "speechText": "Snake. S-N, snake. A long green snake slid through the grass."
+        },
+        {
+          "id": "blend-s-stove",
+          "kind": "blend",
+          "groupLabel": "S Blend (st)",
+          "emoji": "🍳",
+          "prefix": "",
+          "blend": "st",
+          "suffix": "ove",
+          "word": "stove",
+          "explanation": "Starts with S + t (st).",
+          "example": "Mom cooks warm soup on the stove.",
+          "speechText": "Stove. S-T, stove. Mom cooks warm soup on the stove."
+        },
+        {
+          "id": "blend-s-test",
+          "kind": "blend",
+          "groupLabel": "Ending -st Blend",
+          "emoji": "📝",
+          "prefix": "te",
+          "blend": "st",
+          "suffix": "",
+          "word": "test",
+          "explanation": "Ends with the -st blend (s + t).",
+          "example": "I studied hard for my spelling test.",
+          "speechText": "Test. Ends with S-T. I studied hard for my spelling test."
+        },
+        {
+          "id": "blend-s-last",
+          "kind": "blend",
+          "groupLabel": "Ending -st Blend",
+          "emoji": "🏁",
+          "prefix": "la",
+          "blend": "st",
+          "suffix": "",
+          "word": "last",
+          "explanation": "Ends with the -st blend (s + t).",
+          "example": "This is the last lap of the race!",
+          "speechText": "Last. Ends with S-T. This is the last lap of the race!"
+        },
+        {
+          "id": "blend-s-just",
+          "kind": "blend",
+          "groupLabel": "Ending -st Blend",
+          "emoji": "✅",
+          "prefix": "ju",
+          "blend": "st",
+          "suffix": "",
+          "word": "just",
+          "explanation": "Ends with the -st blend (s + t).",
+          "example": "We just finished our homework!",
+          "speechText": "Just. Ends with S-T. We just finished our homework!"
+        },
+        {
+          "id": "blend-spelling-list",
+          "kind": "wordList",
+          "frontTitle": "Spelling Words List",
+          "emoji": "📝",
+          "frontHint": "12 Spelling Words + 4 Extra Review Words",
+          "backTitle": "Week 1 Spelling Words",
+          "explanation": "Read each word out loud and spot the L, R, or S blend!",
+          "words": [
+            "space", "globe", "grade", "swim",
+            "place", "last", "test", "skin",
+            "drag", "glide", "just", "stove"
+          ],
+          "extraWords": ["slid", "close", "grape", "plate"],
+          "speechText": "Spelling words: space, globe, grade, swim, place, last, test, skin, drag, glide, just, stove. Extra review words: slid, close, grape, plate."
+        }
+      ],
+      "activity": {
+        "type": "sort_buckets",
+        "title": "Sort it!",
+        "instruction": "Tap or drag each word into the right blend box!",
+        "buckets": [
+          { "id": "L", "label": "L blends", "emoji": "🔵", "hint": "2nd letter is L" },
+          { "id": "R", "label": "R blends", "emoji": "🟢", "hint": "2nd letter is R" },
+          { "id": "S", "label": "S blends", "emoji": "🟣", "hint": "Starts with S" }
+        ],
+        "items": [
+          { "word": "globe", "bucket": "L", "emoji": "🌍" },
+          { "word": "glide", "bucket": "L", "emoji": "🪂" },
+          { "word": "clip", "bucket": "L", "emoji": "📎" },
+          { "word": "flag", "bucket": "L", "emoji": "🇪🇬" },
+          { "word": "grade", "bucket": "R", "emoji": "🅰️" },
+          { "word": "drag", "bucket": "R", "emoji": "🧲" },
+          { "word": "grass", "bucket": "R", "emoji": "🌱" },
+          { "word": "space", "bucket": "S", "emoji": "🚀" },
+          { "word": "swim", "bucket": "S", "emoji": "🏊" },
+          { "word": "skin", "bucket": "S", "emoji": "🧴" },
+          { "word": "snake", "bucket": "S", "emoji": "🐍" }
+        ]
+      }
+    },
+    {
+      "id": "w1_lesson2_power_words",
+      "title": "Lesson 2: Power Words",
+      "icon": "💡",
+      "description": "Learn all 8 Power Words with meanings, examples, tips, and play Match it!",
+      "hint": "Read the meaning and the example sentence to picture the word!",
+      "cards": [
+        {
+          "id": "pw-ace",
+          "kind": "vocab",
+          "word": "ace",
+          "emoji": "🏆",
+          "explanation": "excellent, very good, or an expert.",
+          "example": "She is an ace at tennis.",
+          "tip": "Think of a top player or an A+ star!",
+          "speechText": "Ace. Excellent, very good, or an expert. She is an ace at tennis."
+        },
+        {
+          "id": "pw-eagerly",
+          "kind": "vocab",
+          "word": "eagerly",
+          "emoji": "🤩",
+          "explanation": "with lots of excitement.",
+          "example": "He waited eagerly for the game.",
+          "tip": "When you can't wait for fun, you wait eagerly!",
+          "speechText": "Eagerly. With lots of excitement. He waited eagerly for the game."
+        },
+        {
+          "id": "pw-agency",
+          "kind": "vocab",
+          "word": "agency",
+          "emoji": "🏢",
+          "explanation": "a group or company that gives a service to people.",
+          "example": "We asked a travel agency to plan our trip.",
+          "tip": "Helpers in an office who help plan things.",
+          "speechText": "Agency. A group or company that gives a service to people. We asked a travel agency to plan our trip."
+        },
+        {
+          "id": "pw-business",
+          "kind": "vocab",
+          "word": "business",
+          "emoji": "💼",
+          "explanation": "work of making, buying or selling things.",
+          "example": "Her family has a business.",
+          "tip": "Remember: \"busy\" + \"ness\" → business!",
+          "speechText": "Business. Work of making, buying or selling things. Her family has a business."
+        },
+        {
+          "id": "pw-confidently",
+          "kind": "vocab",
+          "word": "confidently",
+          "emoji": "💪",
+          "explanation": "feeling sure of yourself.",
+          "example": "He answered confidently.",
+          "tip": "Stand tall because you know you are ready!",
+          "speechText": "Confidently. Feeling sure of yourself. He answered confidently."
+        },
+        {
+          "id": "pw-located",
+          "kind": "vocab",
+          "word": "located",
+          "emoji": "📍",
+          "explanation": "placed in a certain spot.",
+          "example": "The school is located near the park.",
+          "tip": "Located tells you WHERE something is.",
+          "speechText": "Located. Placed in a certain spot. The school is located near the park."
+        },
+        {
+          "id": "pw-mystery",
+          "kind": "vocab",
+          "word": "mystery",
+          "emoji": "🕵️",
+          "explanation": "something hard to understand or explain.",
+          "example": "The story was a mystery.",
+          "tip": "A puzzle that needs clues to solve!",
+          "speechText": "Mystery. Something hard to understand or explain. The story was a mystery."
+        },
+        {
+          "id": "pw-seeps",
+          "kind": "vocab",
+          "word": "seeps",
+          "emoji": "💧",
+          "explanation": "flows slowly through tiny holes.",
+          "example": "Water seeps from the wall.",
+          "tip": "Not a big splash—just slow drops coming through.",
+          "speechText": "Seeps. Flows slowly through tiny holes. Water seeps from the wall."
+        }
+      ],
+      "activity": {
+        "type": "match_pairs",
+        "title": "Match it!",
+        "instruction": "Match 4 Power Words to their meanings!",
+        "allPairs": [
+          ["ace 🏆", "excellent, very good, or an expert"],
+          ["eagerly 🤩", "with lots of excitement"],
+          ["agency 🏢", "a company that gives a service"],
+          ["business 💼", "work of making, buying or selling things"],
+          ["confidently 💪", "feeling sure of yourself"],
+          ["located 📍", "placed in a certain spot"],
+          ["mystery 🕵️", "something hard to explain"],
+          ["seeps 💧", "flows slowly through tiny holes"]
+        ],
+        "pairCount": 4
+      }
+    },
+    {
+      "id": "w1_lesson3_nouns",
+      "title": "Lesson 3: Singular & Plural Nouns",
+      "icon": "🐱",
+      "description": "Learn ONE vs MORE THAN ONE nouns, when to add -s or -es, and play Add -s or -es?",
+      "hint": "Look at the end of the word: s, x, ch, sh → add -es!",
+      "cards": [
+        {
+          "id": "noun-what-is",
+          "kind": "intro",
+          "frontTitle": "What is a Noun?",
+          "emoji": "🏷️",
+          "frontHint": "Person • Place • Animal • Thing",
+          "backTitle": "A Noun Names...",
+          "explanation": "A noun names a person, place, animal or thing.",
+          "example": "teacher 👩‍🏫 • park 🏞️ • cat 🐱 • book 📘",
+          "speechText": "What is a noun? A noun names a person, place, animal or thing. Like teacher, park, cat, or book."
+        },
+        {
+          "id": "noun-singular-plural",
+          "kind": "intro",
+          "frontTitle": "Singular vs Plural",
+          "emoji": "🐱 → 🐱🐱🐱",
+          "frontHint": "ONE vs MORE THAN ONE",
+          "backTitle": "One or More Than One!",
+          "explanation": "Singular = ONE (cat 🐱). Plural = MORE THAN ONE (cats 🐱🐱).",
+          "example": "1 cat 🐱  →  3 cats 🐱🐱🐱",
+          "speechText": "Singular means one, like one cat. Plural means more than one, like three cats."
+        },
+        {
+          "id": "noun-rule-s",
+          "kind": "rule",
+          "frontTitle": "Rule 1: Most nouns → add -s",
+          "emoji": "🐶 → 🐶🐶",
+          "frontHint": "Tap to see 5 examples!",
+          "backTitle": "Most nouns add -s",
+          "explanation": "Just put -s at the end to make most nouns plural!",
+          "examples": [
+            "cat 🐱 → cats 🐱🐱🐱",
+            "book 📘 → books 📚",
+            "dog 🐶 → dogs 🐶🐶",
+            "chair 🪑 → chairs 🪑🪑",
+            "tree 🌳 → trees 🌳🌳🌳"
+          ],
+          "speechText": "Rule 1: For most nouns, add s. Cat, cats. Book, books. Dog, dogs. Chair, chairs. Tree, trees."
+        },
+        {
+          "id": "noun-rule-es",
+          "kind": "rule",
+          "frontTitle": "Rule 2: Ends in s, x, ch, sh → add -es",
+          "emoji": "🚌 → 🚌🚌",
+          "frontHint": "Tap to see 5 examples!",
+          "backTitle": "Nouns ending in s, x, ch, sh",
+          "explanation": "Nouns ending in s, x, ch, sh → add -es so they are easy to say!",
+          "examples": [
+            "bus 🚌 → buses 🚌🚌",
+            "box 📦 → boxes 📦📦",
+            "watch ⌚ → watches ⌚⌚",
+            "brush 🪥 → brushes 🪥🪥",
+            "glass 🥛 → glasses 🥛🥛"
+          ],
+          "speechText": "Rule 2: Nouns ending in s, x, c-h, or s-h, add e-s. Bus, buses. Box, boxes. Watch, watches. Brush, brushes. Glass, glasses."
+        }
+      ],
+      "activity": {
+        "type": "tap_plural",
+        "title": "Add -s or -es?",
+        "instruction": "Tap the correct plural for each noun!",
+        "items": [
+          {
+            "id": "tp-dog",
+            "singular": "dog",
+            "picture": "🐶 → 🐶🐶🐶",
+            "options": ["dogs", "doges", "dog"],
+            "answer": "dogs",
+            "explanation": "Most nouns add -s: dog → dogs!"
+          },
+          {
+            "id": "tp-bus",
+            "singular": "bus",
+            "picture": "🚌 → 🚌🚌",
+            "options": ["buses", "buss", "busses"],
+            "answer": "buses",
+            "explanation": "Bus ends in s → add -es: buses!"
+          },
+          {
+            "id": "tp-box",
+            "singular": "box",
+            "picture": "📦 → 📦📦📦",
+            "options": ["boxes", "boxs", "box"],
+            "answer": "boxes",
+            "explanation": "Box ends in x → add -es: boxes!"
+          },
+          {
+            "id": "tp-watch",
+            "singular": "watch",
+            "picture": "⌚ → ⌚⌚",
+            "options": ["watches", "watchs", "watchies"],
+            "answer": "watches",
+            "explanation": "Watch ends in ch → add -es: watches!"
+          },
+          {
+            "id": "tp-tree",
+            "singular": "tree",
+            "picture": "🌳 → 🌳🌳🌳",
+            "options": ["trees", "treees", "tree"],
+            "answer": "trees",
+            "explanation": "Most nouns add -s: tree → trees!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "w1_lesson4_agreement",
+      "title": "Lesson 4: Subject-Verb Agreement",
+      "icon": "⚖️",
+      "description": "Make the subject and verb match on the see-saw and play Fix the sentence!",
+      "hint": "He, She, It — the -s must fit! I, You, We, They — no -s, hooray!",
+      "cards": [
+        {
+          "id": "sv-seesaw",
+          "kind": "intro",
+          "frontTitle": "Make the Verb Match!",
+          "emoji": "⚖️",
+          "frontHint": "Like a balanced see-saw",
+          "backTitle": "The NOW Tense See-Saw",
+          "explanation": "Think of a see-saw! The subject and the verb must match in the NOW tense (present).",
+          "example": "ONE subject 👧 → verb + -s   |   MANY subjects 👧👦 → NO -s",
+          "speechText": "Make the verb match! Think of a see-saw. The subject and the verb must match in the now tense."
+        },
+        {
+          "id": "sv-singular",
+          "kind": "rule",
+          "frontTitle": "One person/thing → verb ends in -s",
+          "emoji": "👧",
+          "frontHint": "Singular Subject = + -s",
+          "backTitle": "Singular Subjects",
+          "explanation": "One person or thing (singular) → verb ends in -s.",
+          "examples": [
+            "The student sits. 🪑",
+            "Greta looks for her backpack. 🎒",
+            "Dwayne jumps. 🦘"
+          ],
+          "speechText": "One person or thing, verb ends in s. The student sits. Greta looks for her backpack. Dwayne jumps."
+        },
+        {
+          "id": "sv-plural",
+          "kind": "rule",
+          "frontTitle": "More than one → NO -s",
+          "emoji": "👧👦",
+          "frontHint": "Plural Subject = No -s",
+          "backTitle": "Plural Subjects",
+          "explanation": "More than one (plural) → no -s on the verb!",
+          "examples": [
+            "The students sit. 🪑",
+            "My friends run. 🏃",
+            "Stars light up the sky. ✨"
+          ],
+          "speechText": "More than one, no s on the verb. The students sit. My friends run. Stars light up the sky."
+        },
+        {
+          "id": "sv-es-endings",
+          "kind": "rule",
+          "frontTitle": "Ends in s, sh, ch, tch, z, x → add -es",
+          "emoji": "✨",
+          "frontHint": "For ONE person or thing",
+          "backTitle": "Add -es for ONE",
+          "explanation": "Verbs ending in s, sh, ch, tch, z, x → add -es for ONE:",
+          "examples": [
+            "pass → passes  •  miss → misses",
+            "watch → watches  •  teach → teaches  •  reach → reaches",
+            "wash → washes  •  mix → mixes  •  fix → fixes"
+          ],
+          "speechText": "Verbs ending in s, s-h, c-h, t-c-h, z, or x add e-s for one. Pass, passes. Watch, watches. Mix, mixes. Fix, fixes. Wash, washes. Teach, teaches. Miss, misses. Reach, reaches."
+        },
+        {
+          "id": "sv-he-she-it",
+          "kind": "rule",
+          "frontTitle": "He / She / It → add -s or -es",
+          "emoji": "👉",
+          "frontHint": "One person or thing",
+          "backTitle": "He, She, It",
+          "explanation": "He, She, or It is ONE → always add -s or -es!",
+          "examples": [
+            "He catches the ball. ⚾",
+            "She picks a movie. 🎬",
+            "It seems late. ⏰"
+          ],
+          "speechText": "He, She, or It, add s or e-s. He catches the ball. She picks a movie. It seems late."
+        },
+        {
+          "id": "sv-i-you-we-they",
+          "kind": "rule",
+          "frontTitle": "I / You / We / They → NO -s",
+          "emoji": "🙌",
+          "frontHint": "Keep the base verb!",
+          "backTitle": "I, You, We, They",
+          "explanation": "I, You, We, They → NO -s on the verb!",
+          "examples": [
+            "I reach. 🙋",
+            "You tell the truth. 💬",
+            "We cheer. 🎉  •  They walk. 🚶"
+          ],
+          "speechText": "I, You, We, They, no s. I reach. You tell the truth. We cheer. They walk."
+        },
+        {
+          "id": "sv-memory-trick",
+          "kind": "intro",
+          "frontTitle": "Memory Trick!",
+          "emoji": "🎵",
+          "frontHint": "A rhyme to help you remember!",
+          "backTitle": "Say the Rhyme!",
+          "explanation": "He, She, It — the -s must fit!",
+          "example": "I, You, We, They — no -s, hooray!",
+          "speechText": "Memory trick! He, She, It, the s must fit! I, You, We, They, no s, hooray!"
+        }
+      ],
+      "activity": {
+        "type": "fix_sentence",
+        "title": "Fix the sentence!",
+        "instruction": "Read the wrong sentence, then tap the fixed one!",
+        "items": [
+          {
+            "id": "fix-harlan",
+            "wrongSentence": "Harlan fix my bicycle.",
+            "options": [
+              "Harlan fixes my bicycle.",
+              "Harlan fixs my bicycle.",
+              "Harlan fixing my bicycle."
+            ],
+            "answer": "Harlan fixes my bicycle.",
+            "explanation": "Harlan is ONE person and fix ends in x → add -es: fixes!"
+          },
+          {
+            "id": "fix-fly",
+            "wrongSentence": "A fly buzz by my ear.",
+            "options": [
+              "A fly buzzes by my ear.",
+              "A fly buzzs by my ear.",
+              "A fly buzz by my ear."
+            ],
+            "answer": "A fly buzzes by my ear.",
+            "explanation": "A fly is ONE thing and buzz ends in z → add -es: buzzes!"
+          },
+          {
+            "id": "fix-we",
+            "wrongSentence": "We laughs at the joke.",
+            "options": [
+              "We laugh at the joke.",
+              "We laughs at the joke.",
+              "We laughing at the joke."
+            ],
+            "answer": "We laugh at the joke.",
+            "explanation": "I, You, We, They — no -s, hooray! We laugh at the joke."
+          }
+        ]
+      }
+    }
+  ],
+  "quiz": {
+    "id": "w1_final_quiz",
+    "title": "Week 1 Final Quiz",
+    "icon": "🏆",
+    "description": "Answer 10 mixed questions across Blends, Power Words, Nouns, and Subject-Verb Agreement!",
+    "hint": "Remember your Week 1 lessons: blends, Power Words, -s/-es nouns, and the verb see-saw!",
+    "questions": [
+      {
+        "id": "q2-w1-q01",
+        "category": "phonics",
+        "text": "Which word starts with an S-blend?",
+        "options": ["swim", "globe", "drag"],
+        "answer": "swim",
+        "hint": "Look for a word starting with s + another consonant.",
+        "explanation": "\"sw\" is an S blend."
+      },
+      {
+        "id": "q2-w1-q02",
+        "category": "phonics",
+        "text": "Which letters finish the word? __ag 🇪🇬",
+        "options": ["fl", "gr", "sw"],
+        "answer": "fl",
+        "hint": "Say the picture word slowly: f-l-a-g.",
+        "explanation": "flag"
+      },
+      {
+        "id": "q2-w1-q03",
+        "category": "phonics",
+        "text": "Which word has an R blend?",
+        "options": ["drag", "clip", "skin"],
+        "answer": "drag",
+        "hint": "An R blend has R as the second letter.",
+        "explanation": "\"dr\" is an R blend."
+      },
+      {
+        "id": "q2-w1-q04",
+        "category": "phonics",
+        "text": "Fill in the blend: __ove 🍳",
+        "options": ["st", "sp", "sn"],
+        "answer": "st",
+        "hint": "Say the kitchen word: s-t-ove.",
+        "explanation": "stove"
+      },
+      {
+        "id": "q2-w1-q05",
+        "category": "phonics",
+        "text": "Fill in the blend: g__ass 🌱",
+        "options": ["gl", "gr", "sw"],
+        "answer": "gr",
+        "hint": "Say the green plant word: g-r-ass.",
+        "explanation": "grass"
+      },
+      {
+        "id": "q2-w1-q06",
+        "category": "phonics",
+        "text": "Which word is spelled correctly? 🌍",
+        "options": ["globe", "gloub", "glob"],
+        "answer": "globe",
+        "hint": "This round map word ends with a silent e.",
+        "explanation": "globe"
+      },
+      {
+        "id": "q2-w1-q07",
+        "category": "phonics",
+        "text": "Which word has an L blend?",
+        "options": ["clip", "test", "grade"],
+        "answer": "clip",
+        "hint": "An L blend has L as the second letter.",
+        "explanation": "\"cl\" is an L blend."
+      },
+      {
+        "id": "q2-w1-q08",
+        "category": "phonics",
+        "text": "Which word names the picture? 🔥",
+        "options": ["frame", "flame", "fame"],
+        "answer": "flame",
+        "hint": "Fire has a bright fl- word.",
+        "explanation": "flame starts with fl."
+      },
+      {
+        "id": "q2-w1-q09",
+        "category": "vocabulary",
+        "text": "Which word means \"excellent, very good\"?",
+        "options": ["ace", "mystery", "seeps"],
+        "answer": "ace",
+        "hint": "Think of someone who is an expert at a sport.",
+        "explanation": "\"ace\" means excellent, very good, or an expert."
+      },
+      {
+        "id": "q2-w1-q10",
+        "category": "vocabulary",
+        "text": "The school is ___ near the park.",
+        "options": ["located", "eagerly", "ace"],
+        "answer": "located",
+        "hint": "Which Power Word tells where something is placed?",
+        "explanation": "\"located\" means placed in a spot."
+      },
+      {
+        "id": "q2-w1-q11",
+        "category": "vocabulary",
+        "text": "Which word means \"hard to understand\"?",
+        "options": ["business", "mystery", "agency"],
+        "answer": "mystery",
+        "hint": "Think of a puzzle or a secret story.",
+        "explanation": "\"mystery\" means something hard to understand or explain."
+      },
+      {
+        "id": "q2-w1-q12",
+        "category": "vocabulary",
+        "text": "She waited ___ for her birthday party.",
+        "options": ["confidently", "eagerly", "seeps"],
+        "answer": "eagerly",
+        "hint": "Which word means waiting with lots of excitement?",
+        "explanation": "\"eagerly\" means with excitement."
+      },
+      {
+        "id": "q2-w1-q13",
+        "category": "vocabulary",
+        "text": "The water ___ from the cracked pipe.",
+        "options": ["seeps", "ace", "located"],
+        "answer": "seeps",
+        "hint": "Water moves slowly through tiny holes.",
+        "explanation": "It flows out slowly."
+      },
+      {
+        "id": "q2-w1-q14",
+        "category": "vocabulary",
+        "text": "He answered ___ because he was sure.",
+        "options": ["confidently", "eagerly", "mystery"],
+        "answer": "confidently",
+        "hint": "Which word means feeling sure of yourself?",
+        "explanation": "\"confidently\" means feeling sure of yourself."
+      },
+      {
+        "id": "q2-w1-q15",
+        "category": "nouns",
+        "text": "What is the plural of \"dog\"?",
+        "options": ["dogs", "doges", "dog"],
+        "answer": "dogs",
+        "hint": "Most nouns just add -s.",
+        "explanation": "Add -s."
+      },
+      {
+        "id": "q2-w1-q16",
+        "category": "nouns",
+        "text": "What is the plural of \"bus\"?",
+        "options": ["buss", "buses", "bus"],
+        "answer": "buses",
+        "hint": "Look at the end of bus: it ends in s!",
+        "explanation": "Ends in s → add -es."
+      },
+      {
+        "id": "q2-w1-q17",
+        "category": "nouns",
+        "text": "What is the plural of \"watch\"?",
+        "options": ["watchs", "watchies", "watches"],
+        "answer": "watches",
+        "hint": "Watch ends in ch!",
+        "explanation": "Ends in ch → add -es."
+      },
+      {
+        "id": "q2-w1-q18",
+        "category": "nouns",
+        "text": "What is the plural of \"glass\"?",
+        "options": ["glasses", "glass's", "glasss"],
+        "answer": "glasses",
+        "hint": "Glass ends in s!",
+        "explanation": "Ends in s → add -es."
+      },
+      {
+        "id": "q2-w1-q19",
+        "category": "agreement",
+        "text": "Plants and trees ___ in the forest.",
+        "options": ["grow", "grows", "growing"],
+        "answer": "grow",
+        "hint": "Plants and trees = more than one subject!",
+        "explanation": "More than one → no -s."
+      },
+      {
+        "id": "q2-w1-q20",
+        "category": "agreement",
+        "text": "Greta ___ for her backpack.",
+        "options": ["look", "looks", "looking"],
+        "answer": "looks",
+        "hint": "Greta is ONE person.",
+        "explanation": "One person → add -s."
+      },
+      {
+        "id": "q2-w1-q21",
+        "category": "agreement",
+        "text": "The dart ___ the target.",
+        "options": ["miss", "misses", "missing"],
+        "answer": "misses",
+        "hint": "The dart is ONE thing, and miss ends in ss.",
+        "explanation": "Ends in ss → add -es."
+      },
+      {
+        "id": "q2-w1-q22",
+        "category": "agreement",
+        "text": "Which sentence is correct?",
+        "options": [
+          "We laughs at the joke.",
+          "We laugh at the joke.",
+          "We laughing at the joke."
+        ],
+        "answer": "We laugh at the joke.",
+        "hint": "Remember the rhyme: I, You, We, They — no -s, hooray!",
+        "explanation": "We = no -s."
+      },
+      {
+        "id": "q2-w1-q23",
+        "category": "agreement",
+        "text": "He ___ orange juice every day.",
+        "options": ["drink", "drinks", "drinking"],
+        "answer": "drinks",
+        "hint": "Remember: He, She, It — the -s must fit!",
+        "explanation": "He → add -s."
+      },
+      {
+        "id": "q2-w1-q24",
+        "category": "agreement",
+        "text": "The worker ___ cement.",
+        "options": ["mix", "mixes", "mixs"],
+        "answer": "mixes",
+        "hint": "The worker is ONE person, and mix ends in x.",
+        "explanation": "Ends in x → add -es."
+      },
+      {
+        "id": "q2-w1-q25",
+        "category": "agreement",
+        "text": "Mom ___ my muddy shoes.",
+        "options": ["wash", "washes", "washing"],
+        "answer": "washes",
+        "hint": "Mom is ONE person, and wash ends in sh.",
+        "explanation": "Ends in sh → add -es."
+      },
+      {
+        "id": "q2-w1-q26",
+        "category": "agreement",
+        "text": "Which sentence is correct?",
+        "options": [
+          "I knows the best shortcut.",
+          "I know the best shortcut.",
+          "I knowes the best shortcut."
+        ],
+        "answer": "I know the best shortcut.",
+        "hint": "Remember the rhyme: I, You, We, They — no -s, hooray!",
+        "explanation": "I = no -s."
+      }
+    ]
+  }
+}

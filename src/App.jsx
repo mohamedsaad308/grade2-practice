@@ -34,6 +34,8 @@ export default function App() {
   const [isSwitchingPlayer, setIsSwitchingPlayer] = useState(false);
   const [isAddingNewPlayer, setIsAddingNewPlayer] = useState(false);
   const [summaryData, setSummaryData] = useState(null);
+  const [missedPracticeQuestions, setMissedPracticeQuestions] = useState(null);
+  const [sessionKey, setSessionKey] = useState(0);
 
   // Sync hash routing
   useEffect(() => {
@@ -109,14 +111,19 @@ export default function App() {
   };
 
   const handleStartTopic = (termId, subjectId, topicId, level = 1) => {
+    setMissedPracticeQuestions(null);
+    setSessionKey((k) => k + 1);
     navigate(buildTopicRoute(termId, subjectId, topicId, level));
   };
 
   const handleStartReview = (termId, reviewTopicId) => {
+    setMissedPracticeQuestions(null);
+    setSessionKey((k) => k + 1);
     navigate(buildTopicRoute(termId, 'review', reviewTopicId, 1));
   };
 
   const handleFinishSession = (results) => {
+    setMissedPracticeQuestions(null);
     setSummaryData(results);
     refreshPlayerData();
     navigate('#/summary');
@@ -140,11 +147,14 @@ export default function App() {
     if (term && subject && topic) {
       currentViewComponent = (
         <PracticeSession
+          key={`${term.id}-${subject.id}-${topic.id}-${sessionKey}`}
           player={currentPlayer}
           termId={term.id}
           subject={subject}
           topic={topic}
           level={route.level || 1}
+          customQuestions={missedPracticeQuestions}
+          sessionKey={sessionKey}
           settings={settings}
           onToggleSound={handleToggleSound}
           onToggleSpokenPraise={handleToggleSpokenPraise}
@@ -152,6 +162,7 @@ export default function App() {
           onNavigateParent={() => navigate('#/parent')}
           onFinishSession={handleFinishSession}
           onExit={(exitTermId, exitSubjectId) => {
+            setMissedPracticeQuestions(null);
             refreshPlayerData();
             navigate(getExitRoute(exitTermId || term.id, exitSubjectId || subject.id));
           }}
@@ -191,9 +202,23 @@ export default function App() {
         player={currentPlayer}
         settings={settings}
         onPlayAgain={() => {
+          setMissedPracticeQuestions(null);
+          setSessionKey((k) => k + 1);
           navigate(
             buildTopicRoute(
               summaryData.termId || 'q1',
+              summaryData.subject.id,
+              summaryData.topic.id,
+              summaryData.level
+            )
+          );
+        }}
+        onPracticeMissed={(missed) => {
+          setMissedPracticeQuestions(missed);
+          setSessionKey((k) => k + 1);
+          navigate(
+            buildTopicRoute(
+              summaryData.termId || 'q2',
               summaryData.subject.id,
               summaryData.topic.id,
               summaryData.level

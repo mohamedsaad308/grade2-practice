@@ -10,10 +10,11 @@ export default function SessionSummary({
   player,
   settings,
   onPlayAgain,
+  onPracticeMissed,
   onBackToSubject,
   onBackToHome
 }) {
-  const { stars, score, total = 10, topic, level } = summaryData;
+  const { stars, score, total = 10, missedQuestions = [] } = summaryData;
   const playerName = player?.name || 'Friend';
   const soundEnabled = settings?.soundEnabled !== false;
   const spokenPraiseEnabled = settings?.spokenPraiseEnabled !== false;
@@ -22,6 +23,8 @@ export default function SessionSummary({
   const [confettiTrigger, setConfettiTrigger] = useState(0);
 
   const isPerfect = score === total;
+  const pct = total > 0 ? score / total : 1;
+  const starTier = pct >= 0.8 ? '⭐⭐⭐' : pct >= 0.5 ? '⭐⭐' : '⭐';
 
   useEffect(() => {
     playCelebrationFanfare(soundEnabled);
@@ -56,6 +59,9 @@ export default function SessionSummary({
 
         {/* Stars Earned Showcase */}
         <div className="summary-score-display">
+          <div className="summary-star-tier" aria-label={`Star rating: ${starTier}`}>
+            {starTier}
+          </div>
           <div className="score-badge-circle">
             <span className="score-number">{score}</span>
             <span className="score-total">/{total}</span>
@@ -72,8 +78,18 @@ export default function SessionSummary({
             className="summary-btn play-again-btn"
             onClick={onPlayAgain}
           >
-            🔄 Practice Again
+            🔄 Play Again
           </button>
+
+          {Array.isArray(missedQuestions) && missedQuestions.length > 0 && onPracticeMissed && (
+            <button
+              type="button"
+              className="summary-btn practice-missed-btn"
+              onClick={() => onPracticeMissed(missedQuestions)}
+            >
+              🎯 Practice the ones I missed ({missedQuestions.length})
+            </button>
+          )}
 
           {!summaryData.subject?.isReview && (
             <button

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import QuestionDispatcher from '../engine/QuestionDispatcher.jsx';
+import FlashcardLesson from './FlashcardLesson.jsx';
 import Mascot from '../components/Mascot.jsx';
 import ProgressBar from '../components/ProgressBar.jsx';
 import PracticeHeader from '../components/PracticeHeader.jsx';
 import SpeechButton from '../components/SpeechButton.jsx';
 import ConfettiCanvas from '../components/ConfettiCanvas.jsx';
 import { getFeedback } from '../feedback/feedbackManager.js';
-import { playSuccessSound, playGentleWrongSound, playCelebrationFanfare } from '../utils/audio.js';
+import { playSuccessSound, playGentleWrongSound } from '../utils/audio.js';
 import { speakText } from '../utils/speech.js';
 import {
   recordSessionCompletion,
@@ -14,14 +15,39 @@ import {
   addRecentQuestionSignatures,
   recordItemOutcome
 } from '../player/playerStorage.js';
-import { getQuestionSignature } from '../utils/mathHelpers.js';
+import { getQuestionSignature, shuffle } from '../utils/mathHelpers.js';
 
-export default function PracticeSession({
+export default function PracticeSession(props) {
+  // Delegate interactive flashcard lessons + mini-activities to FlashcardLesson
+  if (props.topic?.mode === 'lesson') {
+    return (
+      <FlashcardLesson
+        player={props.player}
+        termId={props.termId || 'q1'}
+        subject={props.subject}
+        topic={props.topic}
+        settings={props.settings}
+        onToggleSound={props.onToggleSound}
+        onToggleSpokenPraise={props.onToggleSpokenPraise}
+        onChangePlayer={props.onChangePlayer}
+        onNavigateParent={props.onNavigateParent}
+        onFinishSession={props.onFinishSession}
+        onExit={props.onExit}
+      />
+    );
+  }
+
+  return <PracticeQuizSession {...props} />;
+}
+
+function PracticeQuizSession({
   player,
   termId = 'q1',
   subject,
   topic,
   level = 1,
+  customQuestions = null,
+  sessionKey = 0,
   settings,
   onToggleSound,
   onToggleSpokenPraise,
@@ -30,12 +56,14 @@ export default function PracticeSession({
   onFinishSession,
   onExit
 }) {
+
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [attemptNumber, setAttemptNumber] = useState(1); // 1 or 2
   const [mascotMood, setMascotMood] = useState('idle');
   const [feedback, setFeedback] = useState(null); // { type, text, isCorrect, showExplanation, hint }
   const [sessionResults, setSessionResults] = useState([]); // array of { firstTry, secondTry }
+  const [missedQuestions, setMissedQuestions] = useState([]); // unique questions missed in this session
   const [streak, setStreak] = useState(0);
   const [maxStreak, setMaxStreak] = useState(0);
   const [confettiTrigger, setConfettiTrigger] = useState(0);
@@ -47,13 +75,19 @@ export default function PracticeSession({
   const soundEnabled = settings?.soundEnabled !== false;
   const spokenPraiseEnabled = settings?.spokenPraiseEnabled !== false;
 
-  // Initialize questions: if topic provides fixed questions via getQuestions(), use them in order.
-  // Otherwise, if topic provides generateQuestion(), generate a session of 10 unique questions
-  // avoiding recent ~200 questions seen by the player inside this (term, subject).
+  // Initialize questions: support custom missed-only practice, fixed getQuestions(), or procedural generators.
   useEffect(() => {
     let generated = [];
 
-    if (typeof topic.getQuestions === 'function') {
+    if (Array.isArray(customQuestions) && customQuestions.length > 0) {
+      generated = shuffle(
+        customQuestions.map((q) => ({
+          ...q,
+          options: q.options ? shuffle([...q.options]) : q.options,
+          marks: q.marks ? shuffle([...q.marks]) : q.marks
+        }))
+      );
+    } else if (typeof topic.getQuestions === 'function') {
       generated = topic.getQuestions(level, player?.id, termId);
     } else if (typeof topic.generateQuestion === 'function') {
       const SESSION_LENGTH = 10;
@@ -97,10 +131,11 @@ export default function PracticeSession({
     setMascotMood('idle');
     setFeedback(null);
     setSessionResults([]);
+    setMissedQuestions([]);
     setStreak(0);
     setMaxStreak(0);
     setSessionStars(0);
-  }, [termId, subjectId, topic?.id, level]);
+  }, [termId, subjectId, topic?.id, level, sessionKey, customQuestions]);
 
   const sessionTotal = questions.length || 10;
   const currentQuestion = questions[currentIndex];
@@ -192,7 +227,11 @@ export default function PracticeSession({
         type: msgType,
         text: praise,
         isCorrect: true,
-        showExplanation: false
+        showExplanation: false,
+        explanationOnCorrect:
+          currentQuestion.showExplanationOnCorrect && currentQuestion.explanation
+            ? currentQuestion.explanation
+            : null
       });
 
       setMascotMood('celebrating');
@@ -213,8 +252,14 @@ export default function PracticeSession({
       ]);
     } else {
       // Not correct
-      if (player?.id && currentQuestion?.id && attemptNumber === 1) {
-        recordItemOutcome(player.id, currentQuestion.id, false, termId, subjectId);
+      if (attemptNumber === 1) {
+        if (player?.id && currentQuestion?.id) {
+          recordItemOutcome(player.id, currentQuestion.id, false, termId, subjectId);
+        }
+        setMissedQuestions((prev) => {
+          if (prev.some((q) => q.id === currentQuestion.id)) return prev;
+          return [...prev, currentQuestion];
+        });
       }
       setStreak(0);
       setIsShake(true);
@@ -296,7 +341,8 @@ export default function PracticeSession({
         termId,
         subject,
         topic,
-        level
+        level,
+        missedQuestions
       });
     }
   };
@@ -456,6 +502,12 @@ export default function PracticeSession({
           <div className={`feedback-banner-box ${feedback.isCorrect ? 'banner-correct' : 'banner-retry'}`}>
             <div className="feedback-banner-content">
               <div className="feedback-text-message">{feedback.text}</div>
+
+              {feedback.isCorrect && feedback.explanationOnCorrect && (
+                <div className="correct-explanation-note">
+                  💡 {feedback.explanationOnCorrect}
+                </div>
+              )}
 
               {/* Teaching Hint (Attempt 1 retry) */}
               {!feedback.isCorrect && !feedback.showExplanation && feedback.hint && (

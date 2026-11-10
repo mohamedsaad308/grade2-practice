@@ -39,7 +39,11 @@ import {
 import QuestionDispatcher from '../engine/QuestionDispatcher.jsx';
 import HomeView from '../views/HomeView.jsx';
 import SubjectTopicsView from '../views/SubjectTopicsView.jsx';
+import FlashcardLesson from '../views/FlashcardLesson.jsx';
+import SessionSummary from '../views/SessionSummary.jsx';
 import ParentDashboard from '../views/ParentDashboard.jsx';
+import week1Data from '../terms/q2/subjects/english/content/week1.json';
+import { selectWeekQuizQuestions } from '../terms/q2/subjects/english/index.js';
 
 describe('School Term Registry, Routes, Migration & UI Isolation', () => {
   beforeEach(() => {
@@ -57,7 +61,7 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(DEFAULT_TERM_ID).toBe('q2');
   });
 
-  it('2. Q2 has 5 empty subjects in exact order (English, Math, Science, Social, German) and stays inactive until a topic is added', () => {
+  it('2. Q2 has 5 subjects in exact order (English, Math, Science, Social, German): ONLY English is active with Week 1; Math, Science, Social, German stay Coming soon', () => {
     const q2Subjects = getSubjectsForTerm('q2');
     expect(q2Subjects.map((s) => s.title)).toEqual([
       'English',
@@ -68,17 +72,15 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     ]);
     expect(q2Subjects.map((s) => s.icon)).toEqual(['📚', '🔢', '🔬', '🌍', '🇩🇪']);
 
-    q2Subjects.forEach((subj) => {
+    // Only English is unlocked with Week 1 topics
+    expect(isSubjectActive(q2Subjects[0])).toBe(true);
+    expect(q2Subjects[0].topics.length).toBe(5);
+
+    // Math, Science, Social, German stay inactive Coming soon
+    q2Subjects.slice(1).forEach((subj) => {
       expect(subj.topics).toEqual([]);
       expect(isSubjectActive(subj)).toBe(false);
     });
-
-    // Adding a single topic automatically marks the subject active with zero code changes
-    const withFirstTopic = {
-      ...q2Subjects[0],
-      topics: [{ id: 'q2_eng_sample', title: 'Sample Q2 Topic' }]
-    };
-    expect(isSubjectActive(withFirstTopic)).toBe(true);
   });
 
   it('3. every Q1 topic (and Q1 Review) is reachable via its canonical /#/q1/<subject>/<topic> route', () => {
@@ -357,5 +359,86 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(parentHtml).toContain('Reset Q2');
     expect(parentHtml).toContain('Reset Everything');
     expect(parentHtml).toContain('8');
+  });
+
+  it('9. Q2 English Week 1 validates all 4 flashcard lessons, mini-activities, and 26 quiz questions (sampling 10 with >=2 per category)', () => {
+    const q2English = getSubjectByTermAndId('q2', 'english');
+    expect(isSubjectActive(q2English)).toBe(true);
+    expect(week1Data.lessons.length).toBe(4);
+    expect(week1Data.quiz.questions.length).toBe(26);
+
+    // Validate all 26 quiz questions have 3 options and exact answer inside options
+    week1Data.quiz.questions.forEach((q) => {
+      expect(q.options.length).toBe(3);
+      expect(q.options).toContain(q.answer);
+    });
+
+    // Validate stratified 10-question sampling guarantees >= 2 from each of 4 categories
+    const sampled = selectWeekQuizQuestions(week1Data.quiz, null, 'q2');
+    expect(sampled.length).toBe(10);
+    ['phonics', 'vocabulary', 'nouns', 'agreement'].forEach((cat) => {
+      expect(sampled.filter((q) => q.category === cat).length).toBeGreaterThanOrEqual(2);
+    });
+    sampled.forEach((q) => {
+      const html = renderToString(
+        React.createElement(QuestionDispatcher, {
+          question: q,
+          onSubmit: () => {},
+          disabled: false,
+          soundEnabled: false
+        })
+      );
+      expect(html.length).toBeGreaterThan(40);
+    });
+
+    // Render Q2 English Topic list (Week 1) + FlashcardLesson + SessionSummary with "Practice the ones I missed"
+    const clean = (html) => html.replace(/<!-- -->/g, '');
+    const q2Term = getTermById('q2');
+    const topicsHtml = clean(renderToString(
+      React.createElement(SubjectTopicsView, {
+        player: { name: 'Maya', avatar: 'fox', stars: 0 },
+        term: q2Term,
+        subject: q2English
+      })
+    ));
+    expect(topicsHtml).toContain('Week 1');
+    expect(topicsHtml).toContain('Lesson 1: Blends with L, R, S');
+    expect(topicsHtml).toContain('Week 1 Final Quiz');
+
+    const lessonTopic = getTopicByTermSubjectAndId('q2', 'english', 'w1_lesson1_blends');
+    expect(lessonTopic).toBeTruthy();
+    const flashcardHtml = clean(renderToString(
+      React.createElement(FlashcardLesson, {
+        player: { name: 'Maya', avatar: 'fox', stars: 0 },
+        termId: 'q2',
+        subject: q2English,
+        topic: lessonTopic,
+        settings: { soundEnabled: true, spokenPraiseEnabled: true }
+      })
+    ));
+    expect(flashcardHtml).toContain('Card 1 of 22');
+    expect(flashcardHtml).toContain('Sort it!');
+
+    const summaryHtml = clean(renderToString(
+      React.createElement(SessionSummary, {
+        summaryData: {
+          stars: 8,
+          score: 8,
+          total: 10,
+          termId: 'q2',
+          subject: q2English,
+          topic: q2English.topics[4],
+          missedQuestions: sampled.slice(0, 2)
+        },
+        player: { name: 'Maya', avatar: 'fox', stars: 8 },
+        settings: { soundEnabled: false, spokenPraiseEnabled: false },
+        onPlayAgain: () => {},
+        onPracticeMissed: () => {},
+        onBackToSubject: () => {},
+        onBackToHome: () => {}
+      })
+    ));
+    expect(summaryHtml).toContain('Play Again');
+    expect(summaryHtml).toContain('Practice the ones I missed (2)');
   });
 });

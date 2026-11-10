@@ -1,22 +1,30 @@
 # How to Add Q2 Content
 
 Q2 subjects live in `src/terms/q2/subjects/` in this order:
-1. `english/` (📚 English)
-2. `math/` (🔢 Math)
-3. `science/` (🔬 Science)
-4. `social/` (🌍 Social)
-5. `german/` (🇩🇪 German)
+1. `english/` (📚 English — **Active! Week 1 unlocked**)
+2. `math/` (🔢 Math — Coming soon)
+3. `science/` (🔬 Science — Coming soon)
+4. `social/` (🌍 Social — Coming soon)
+5. `german/` (🇩🇪 German — Coming soon)
 
 ## How a Subject Becomes Active
 While a subject's `topics` array in `index.js` is empty (`topics: []`), its card appears greyed out with **"Coming soon"** on the Q2 Home screen.
 
 **As soon as you add at least one topic to `topics: [...]`, that subject automatically becomes active** with no other code changes needed!
 
-## Adding Fixed JSON Content (English, Science, Social, German)
-1. Place your JSON file inside `content-source/q2/<subject>.json` (or inside `src/terms/q2/subjects/<subject>/content/<topic>.json`).
-2. Create a topic object in `src/terms/q2/subjects/<subject>/index.js` with `id`, `title`, `icon`, `description`, `hint`, `levels: [1]`, and `getQuestions(level, playerId)`.
-3. Shuffle questions and options per session, and pass `(playerId, itemId, wasFirstTry, 'q2', '<subject>')` via the shared engine so "missed questions first" and no-repeat memory work isolated inside Q2!
+## How to Add Week 2 to Q2 English
+1. Copy `src/terms/q2/subjects/english/content/week1.json` to `src/terms/q2/subjects/english/content/week2.json`.
+2. Update `"weekId": "week2"`, `"weekTitle": "Week 2"`, your 4 `"lessons"` (flashcards + mini-activities), and `"quiz"` questions (`"category": "phonics" | "vocabulary" | "nouns" | "agreement"` or any 4 categories).
+3. In `src/terms/q2/subjects/english/index.js`:
+   ```js
+   import week2Data from './content/week2.json';
+   // inside topics:
+   topics: [
+     ...createWeekTopics(week1Data),
+     ...createWeekTopics(week2Data)
+   ]
+   ```
 
-## Adding a Dynamic Generator (Math)
-1. Create a topic generator in `src/terms/q2/subjects/math/topics/<topicName>.js` exporting `{ id, title, icon, description, levels: [1, 2, 3], generateQuestion(level) }`.
-2. Import and push it into `topics` inside `src/terms/q2/subjects/math/index.js`.
+## Adding Other Q2 Subjects (Math, Science, Social, German)
+1. Place your JSON content in `content-source/q2/<subject>.json` or `src/terms/q2/subjects/<subject>/content/<topic>.json` (or dynamic generators in `src/terms/q2/subjects/math/topics/<topic>.js`).
+2. Register topic objects in `src/terms/q2/subjects/<subject>/index.js`.

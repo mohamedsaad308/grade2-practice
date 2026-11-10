@@ -1,11 +1,19 @@
-import React from 'react';
-import { speakText } from '../utils/speech.js';
+import React, { useState, useEffect } from 'react';
+import { isSpeechSupported, speakText } from '../utils/speech.js';
 
 export default function SpeechButton({ textToRead, label = 'Read Aloud', className = '' }) {
+  const [supported, setSupported] = useState(true);
+
+  useEffect(() => {
+    setSupported(isSpeechSupported());
+  }, []);
+
+  if (!supported) return null;
+
   const handleClick = (e) => {
     e.preventDefault();
     if (!textToRead) return;
-    speakText(textToRead);
+    speakText(textToRead, { lang: 'en-US', rate: 0.88 });
   };
 
   return (
