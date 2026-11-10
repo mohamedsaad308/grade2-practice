@@ -9,7 +9,7 @@ import {
   recordSessionCompletion
 } from '../player/playerStorage.js';
 import { getFeedback, resetFeedbackHistory } from '../feedback/feedbackManager.js';
-import { subjects, getSubjectById, getTopicById } from '../subjects/index.js';
+import { getSubjectByTermAndId, isSubjectActive } from '../terms/index.js';
 
 describe('End-to-End User Flow & Player Lifecycle', () => {
   beforeEach(() => {
@@ -98,23 +98,24 @@ describe('End-to-End User Flow & Player Lifecycle', () => {
     expect(leoEnd).toContain('10');
   });
 
-  it('5. Subjects registry has Math, English, and Reading active, and placeholder for Science', () => {
-    const mathSubj = getSubjectById('math');
+  it('5. Term registry has Q1 subjects active and Q2 empty placeholders inactive until topics added', () => {
+    const mathSubj = getSubjectByTermAndId('q1', 'math');
     expect(mathSubj).toBeDefined();
+    expect(isSubjectActive(mathSubj)).toBe(true);
     expect(mathSubj.topics.length).toBe(4);
 
-    const englishSubj = getSubjectById('english');
+    const englishSubj = getSubjectByTermAndId('q1', 'english');
     expect(englishSubj).toBeDefined();
-    expect(englishSubj.isAvailable).toBe(true);
+    expect(isSubjectActive(englishSubj)).toBe(true);
     expect(englishSubj.topics.length).toBe(18);
 
-    const readingSubj = getSubjectById('reading');
+    const readingSubj = getSubjectByTermAndId('q1', 'reading');
     expect(readingSubj).toBeDefined();
-    expect(readingSubj.isAvailable).toBe(true);
+    expect(isSubjectActive(readingSubj)).toBe(true);
     expect(readingSubj.topics.length).toBe(2);
 
-    const scienceSubj = getSubjectById('science');
-    expect(scienceSubj).toBeDefined();
-    expect(scienceSubj.isAvailable).toBe(false);
+    const q2Science = getSubjectByTermAndId('q2', 'science');
+    expect(q2Science).toBeDefined();
+    expect(isSubjectActive(q2Science)).toBe(false);
   });
 });

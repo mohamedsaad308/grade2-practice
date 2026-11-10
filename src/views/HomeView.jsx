@@ -1,169 +1,179 @@
-import React, { useState, useEffect } from 'react';
-import { subjects } from '../subjects/index.js';
-import { AvatarIcon } from '../player/avatars.jsx';
+import React from 'react';
+import {
+  termTabs,
+  getTermById,
+  isSubjectActive,
+  DEFAULT_TERM_ID
+} from '../terms/index.js';
+import { getPlayerTotalStars, getPlayerTermStats } from '../player/playerStorage.js';
 import Mascot from '../components/Mascot.jsx';
 import { playPop } from '../utils/audio.js';
 
 export default function HomeView({
   player,
-  onStartTopic,
-  onChangePlayer,
-  selectedSubjectId = 'english',
+  activeTermId = DEFAULT_TERM_ID,
+  onSelectTerm,
   onSelectSubject,
+  onStartReview,
   soundEnabled = true
 }) {
-  const [internalSubjectId, setInternalSubjectId] = useState(selectedSubjectId);
-  const [selectedLevels, setSelectedLevels] = useState({
-    math_more_less: 1,
-    math_compare: 1,
-    math_order_desc: 1,
-    math_order_asc: 1
-  });
+  const activeTerm = getTermById(activeTermId) || getTermById(DEFAULT_TERM_ID);
+  const subjects = activeTerm?.subjects || [];
+  const totalStars = getPlayerTotalStars(player);
+  const termStats = getPlayerTermStats(player, activeTerm.id);
 
-  useEffect(() => {
-    if (selectedSubjectId) {
-      setInternalSubjectId(selectedSubjectId);
-    }
-  }, [selectedSubjectId]);
-
-  const activeSubject =
-    subjects.find(s => s.id === internalSubjectId) ||
-    subjects.find(s => s.id === 'english') ||
-    subjects[0];
-
-  const handleLevelChange = (topicId, level) => {
+  const handleTermClick = (termId) => {
     playPop(soundEnabled);
-    setSelectedLevels(prev => ({ ...prev, [topicId]: level }));
+    if (onSelectTerm) {
+      onSelectTerm(termId);
+    }
   };
 
-  const handleStart = (topic) => {
+  const handleSubjectCardClick = (subj) => {
     playPop(soundEnabled);
-    const level = selectedLevels[topic.id] || 1;
-    onStartTopic(activeSubject.id, topic.id, level);
+    if (onSelectSubject) {
+      onSelectSubject(activeTerm.id, subj.id);
+    }
   };
 
   return (
     <div className="home-view-container">
-      {/* Hero Welcome Banner */}
+      {/* Compact Hero Welcome Banner */}
       <section className="hero-welcome-card">
         <div className="hero-text-content">
           <div className="hero-greeting-line">
             <span className="hero-wave">👋</span>
-            <h1>Hi {player?.name}!</h1>
+            <h1>Hi {player?.name || 'Friend'}!</h1>
           </div>
           <p className="hero-subtitle">
-            What fun challenge do you want to master today?
+            Pick a quarter and choose a subject to start practicing!
           </p>
           <div className="hero-stats-row">
-            <div className="stat-chip star-chip">
+            <div className="stat-chip star-chip" title="Total stars across all terms">
               <span className="stat-chip-icon">⭐</span>
-              <span className="stat-chip-value">{player?.stars || 0}</span>
-              <span className="stat-chip-label">Stars Earned</span>
+              <span className="stat-chip-value">{totalStars}</span>
+              <span className="stat-chip-label">Total Stars</span>
             </div>
-            <div className="stat-chip session-chip">
+            <div className="stat-chip session-chip" title={`Sessions done in ${activeTerm.shortName}`}>
               <span className="stat-chip-icon">🎯</span>
-              <span className="stat-chip-value">{player?.sessionsCompleted || 0}</span>
-              <span className="stat-chip-label">Sessions Done</span>
+              <span className="stat-chip-value">{termStats.sessionsCompleted || 0}</span>
+              <span className="stat-chip-label">{activeTerm.shortName} Sessions</span>
             </div>
           </div>
         </div>
         <div className="hero-mascot-wrapper">
-          <Mascot mood="idle" size={130} />
+          <Mascot mood="idle" size={115} />
         </div>
       </section>
 
-      {/* Subject Tabs */}
-      <section className="subjects-nav-section" aria-label="Subjects">
-        <div className="subjects-tab-list">
-          {subjects.map(subj => {
-            const isActive = subj.id === activeSubject.id;
-            const isAvailable = subj.isAvailable !== false;
+      {/* Term Picker: Q2 | Q1 */}
+      <section className="term-picker-section" aria-label="School Term">
+        <div className="term-pill-tabs" role="tablist" aria-label="Select Quarter">
+          {termTabs.map((t) => {
+            const isSelected = t.id === activeTerm.id;
             return (
               <button
-                key={subj.id}
+                key={t.id}
                 type="button"
-                className={`subject-tab-btn ${isActive ? 'tab-active' : ''} ${!isAvailable ? 'tab-disabled' : ''}`}
-                onClick={() => {
-                  if (isAvailable) {
-                    playPop(soundEnabled);
-                    setInternalSubjectId(subj.id);
-                    if (onSelectSubject) {
-                      onSelectSubject(subj.id);
-                    }
-                  }
-                }}
-                disabled={!isAvailable}
+                role="tab"
+                aria-selected={isSelected}
+                data-term-tab={t.id}
+                className={`term-pill-btn ${isSelected ? 'term-pill-active' : ''}`}
+                onClick={() => handleTermClick(t.id)}
               >
-                <span className="subject-tab-icon">{subj.icon}</span>
-                <span className="subject-tab-title">{subj.title}</span>
-                {!isAvailable && <span className="coming-soon-badge">Soon</span>}
+                <span className="term-pill-short">{t.shortName}</span>
+                <span className="term-pill-title">{t.title}</span>
               </button>
             );
           })}
         </div>
       </section>
 
-      {/* Topics Grid for Selected Subject */}
-      <section className="topics-section" aria-label="Practice Topics">
-        <div className="topics-header">
-          <h2>{activeSubject.title} Topics</h2>
-          <p className="topics-lead">{activeSubject.description}</p>
+      {/* Subjects Card Grid for Selected Term */}
+      <section className="subjects-cards-section" aria-label={`${activeTerm.title} Subjects`}>
+        <div className="subjects-section-header">
+          <h2>{activeTerm.shortName} Subjects</h2>
+          <p className="subjects-section-lead">{activeTerm.description}</p>
         </div>
 
-        <div className="topics-grid">
-          {activeSubject.topics.map((topic, index) => {
-            const currentLevel = selectedLevels[topic.id] || 1;
-            const topicStats = player?.topicStats?.[topic.id];
-            const wins = (topicStats?.firstTryWins || 0) + (topicStats?.secondTryWins || 0);
+        <div className="subject-cards-grid">
+          {subjects.map((subj) => {
+            const active = isSubjectActive(subj);
+            const topicCount = subj.topics?.length || 0;
 
             return (
-              <div key={topic.id} className="topic-card">
-                <div className="topic-card-header">
-                  <div className="topic-card-icon-box">{topic.icon || '📝'}</div>
-                  <div className="topic-card-title-group">
-                    <span className="topic-number-label">Topic {index + 1}</span>
-                    <h3 className="topic-card-title">{topic.title}</h3>
-                  </div>
+              <button
+                key={subj.id}
+                type="button"
+                data-subject-card={subj.id}
+                data-subject-active={active ? 'true' : 'false'}
+                className={`subject-hub-card ${active ? 'subject-card-active' : 'subject-card-coming-soon'}`}
+                style={
+                  active
+                    ? {
+                        '--subject-accent': subj.color || '#4F46E5',
+                        '--subject-tint': subj.lightColor || '#EEF2FF'
+                      }
+                    : undefined
+                }
+                onClick={() => handleSubjectCardClick(subj)}
+              >
+                <div className="subject-hub-top">
+                  <div className="subject-hub-icon">{subj.icon}</div>
+                  {active ? (
+                    <span className="subject-topic-badge">{topicCount} Topics</span>
+                  ) : (
+                    <span className="coming-soon-pill">Coming soon</span>
+                  )}
                 </div>
 
-                <p className="topic-card-desc">{topic.description}</p>
-
-                {/* Level Selector (if topic has multiple difficulty levels) */}
-                {topic.levels && topic.levels.length > 1 && (
-                  <div className="level-selector-wrapper">
-                    <span className="level-select-label">Choose Level:</span>
-                    <div className="level-pill-group">
-                      {topic.levels.map(lvl => (
-                        <button
-                          key={lvl}
-                          type="button"
-                          className={`level-pill-btn ${currentLevel === lvl ? 'active-level-pill' : ''}`}
-                          onClick={() => handleLevelChange(topic.id, lvl)}
-                        >
-                          {lvl === 1 ? '1 • Easy' : lvl === 2 ? '2 • Super' : '3 • Star'}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Topic Progress Footer */}
-                <div className="topic-card-footer">
-                  <span className="topic-attempts-count">
-                    {wins > 0 ? `✨ ${wins} solved` : 'Ready to start!'}
-                  </span>
-                  <button
-                    type="button"
-                    className="topic-start-btn"
-                    onClick={() => handleStart(topic)}
-                  >
-                    Play ({typeof topic.getQuestions === 'function' ? topic.getQuestions().length : 10} Qs) ▶
-                  </button>
+                <div className="subject-hub-body">
+                  <h3 className="subject-hub-title">{subj.title}</h3>
+                  <p className="subject-hub-desc">
+                    {active
+                      ? subj.description
+                      : 'New Grade 2 adventures on the way!'}
+                  </p>
                 </div>
-              </div>
+
+                <div className="subject-hub-footer">
+                  {active ? (
+                    <span className="subject-open-cta">Open Topics ▶</span>
+                  ) : (
+                    <span className="subject-soon-cta">Preview 🔒</span>
+                  )}
+                </div>
+              </button>
             );
           })}
         </div>
+
+        {/* Mixed Term Review Card (when defined on the term, e.g. Q1 Review) */}
+        {activeTerm.reviewTopic && (
+          <div className="term-review-banner-wrapper">
+            <button
+              type="button"
+              data-term-review={activeTerm.id}
+              className="term-review-card-btn"
+              onClick={() => {
+                playPop(soundEnabled);
+                if (onStartReview) {
+                  onStartReview(activeTerm.id, activeTerm.reviewTopic.id);
+                }
+              }}
+            >
+              <div className="term-review-left">
+                <span className="term-review-icon">{activeTerm.reviewTopic.icon || '⭐'}</span>
+                <div className="term-review-text">
+                  <span className="term-review-tag">{activeTerm.shortName} Challenge</span>
+                  <h3 className="term-review-title">{activeTerm.reviewTopic.title}</h3>
+                  <p className="term-review-desc">{activeTerm.reviewTopic.description}</p>
+                </div>
+              </div>
+              <span className="term-review-play-pill">Play 10 Qs ▶</span>
+            </button>
+          </div>
+        )}
       </section>
     </div>
   );

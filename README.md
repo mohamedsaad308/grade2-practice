@@ -1,223 +1,104 @@
 # Grade 2 Stars! Kid-Friendly Practice Website
 
-A kid-friendly practice website built specifically for a Grade 2 child.
-Features complete **Math** and **English** subjects, and is architected so you can effortlessly add more content, or add **Reading** and **Science** without changing any core engine code.
+A kid-friendly practice website built specifically for Grade 2 learners, organized by school term (**Q1: First Quarter** and **Q2: Second Quarter**).
+Features isolated term progress, per-player profiles, mobile-first touch engines, and a modular structure so new subjects or terms (like Q3 and Q4) can be added effortlessly.
 
 ---
 
 ## 🌟 Key Features
 
-- **100% Offline & Private**: Zero backend, no login, no analytics, no external network requests. Works offline once built.
-- **Vite + React (Plain JavaScript)**: Simple, clean, extensible code with zero TypeScript overhead.
-- **Deploy Anywhere**: Produces standard static files (`dist/`) ready for GitHub Pages, Netlify, or running from local storage.
-- **Player Profiles & Multi-Child Support**:
-  - Welcomes the child by first name on first load.
-  - 8 hand-crafted SVG cartoon animal avatars (Fox, Panda, Lion, Koala, Bunny, Bear, Cat, Dog).
-  - Multiple learners on one device with isolated stars, completed sessions, and topic mastery in `localStorage`.
-  - Easy player switching and "Add new player" option from the home screen.
-- **Personalized Praise Engine (`src/feedback/`)**:
-  - Uplifting celebratory praise addressing the child by name (e.g. *"Excellent, Maya!"*, *"You got it, Maya!"*).
-  - Guarantees the same praise template is **never repeated twice consecutively**.
-  - Positive streak milestones (3 in a row, 5 in a row, 10/10 perfect score).
-  - Gentle, encouraging feedback on first mistakes (*"Almost, Maya! Here's a hint."*) — never uses "wrong" or "bad".
-  - Dual sound controls: Sound Effects (synthesized Web Audio) and Spoken Voice Praise (browser SpeechSynthesis).
-  - Read-aloud button on every question with speech synthesis.
-- **Reusable Question Engines (`src/engine/`)**:
-  - `LetterTiles`: Large touch tiles for spelling and unscrambling with placed slots, undo, and clear.
-  - `WordBank`: Word cards row; child taps a card to fill the blank in a sentence.
-  - `MatchPairs`: Tactile two-column matching for vocabulary words and definitions.
-  - `TapToSelect`: Tap to select one or multiple sentences (supports multi-select compound sentences).
-  - `PassageComprehension`: Scrollable story card with sentence-level read-aloud and passage audio controls.
-  - `TwoStep`: Multi-phase card: pick the target sentence, then select the punctuation mark (`.`, `?`, `!`).
-  - `FillInNumber`: Large on-screen number pad (0-9, Backspace, Clear) + hardware keyboard support.
-  - `CompareSymbols`: Big interactive cards for `>`, `<`, `=`.
-  - `DragToOrder`: Tactile cards with both drag-and-drop and tap-to-swap ordering.
-  - `MultipleChoice`: Touch-ready option buttons.
+- **100% Offline & Private**: Zero backend, no login, no analytics, no external network requests. All progress is stored locally per player AND per term inside `localStorage` (`grade2_learning_app_v2`).
+- **Term-Based Architecture (`src/terms/`)**:
+  - Top **Term Picker (`Q2 | Q1`)** opens on Q2 by default (remembers last chosen term per player).
+  - Automatic one-time migration (`v1` -> `v2`) preserves all existing players' stars, sessions, and accuracy inside Q1.
+  - Parent Dashboard supports filtering by **All / Q1 / Q2**, per-term star counts, total stars across all terms, and per-term or full reset with confirmation.
+- **Anti-Memorization & Adaptive Practice**:
+  - Math uses full 0–999 dynamic generators, balanced comparison symbols (`>` / `<` / `=` at ~1 in 6), and remembers the last ~200 signatures per player inside each `(term, subject)`.
+  - English fixed content shuffles questions and options every time and prioritizes missed or unseen items first inside that `(term, subject)`.
+- **Personalized Praise Engine (`src/feedback/`)** & **Reusable Engines (`src/engine/`)**:
+  - Choice (`choice`), Two-Step punctuation (`two_step`), Match pairs (`match`), FillInNumber, CompareSymbols, DragToOrder, PassageComprehension, and visual helpers.
 
 ---
 
-## 📚 Included Subjects & Topics
+## 📚 Terms & Subjects Included
 
-### 🔢 Math (Numbers 0–999, Algorithmic & Never Negative)
-1. **More/Less Than**: $\pm 1, 2, 5, 10, 100$ with place-value crossings ($630 - 2 = 628$, $295 + 10 = 305$, $399 + 1 = 400$).
-2. **Compare Numbers**: Plain vs. plain, expanded notation ($325$ vs $300 + 20 + 5$, $502$ vs $500 + 2$), and swapped digits ($418$ vs $481$).
-3. **Order Greatest to Least**: 3 numbers descending with anagram permutations ($243, 234, 324$).
-4. **Order Least to Greatest**: 3 numbers ascending.
+### 🗓️ Q1 (`First Quarter` — `src/terms/q1/`)
+1. **🔢 Math** (`src/terms/q1/subjects/math/`): More/Less Than, Compare Numbers (`> < =`), Order Greatest to Least, Order Least to Greatest.
+2. **📚 English** (`src/terms/q1/subjects/english/`, content in `content-source/q1/english_content.json`): 17 grammar/vocabulary/paragraph cards + Mixed English Review.
+3. **📖 Reading** (`src/terms/q1/subjects/reading/`): Character Traits & Butterfly Passage comprehension with sentence-by-sentence speech synthesis.
+4. **🌍 Social Studies (SOC STUD)** (`src/terms/q1/subjects/social_studies/`): 2D/3D/Spheres, Map Colors & Keys, Northern Africa Map (1–6), Match, and Mixed Review.
+5. **⭐ Q1 Review**: 10-question mixed review across all Q1 subjects.
 
-### 📖 English (13 Fixed Curriculum Topics in `src/subjects/english/content/*.json`)
-1. **Spelling with Pictures** (`LetterTiles`): Look at picture and spell word (cape, gate, cake, race).
-2. **Unscramble Letters** (`LetterTiles`): Sentence clue to unscramble rule, rose, nose, ride.
-3. **Complete Sentence with Word Bank** (`WordBank`): kit, kite, fin, fine.
-4. **Synonyms of Underlined Words** (`WordBank`): glad, large, warm, clever.
-5. **Vocabulary Match Pairs** (`MatchPairs`): easily, tasty, planet, frenzy.
-6. **Vocabulary Sentence Completion** (`MultipleChoice`): gasped, amount, scowl, perfect, queasy.
-7. **Punctuation: Exclamations** (`TwoStep`): Find exclamation and punctuate with `!`.
-8. **Punctuation: Statements** (`TwoStep`): Find statement and punctuate with `.`.
-9. **What Kind of Sentence Is It?** (`MultipleChoice`): command, exclamation, statement, question.
-10. **Find Compound Sentences** (`TapToSelect`): Select the two compound sentences.
-11. **Simple or Compound Sentence?** (`MultipleChoice`).
-12. **Compound Subject or Predicate?** (`MultipleChoice`).
-13. **Identify C.S or C.P** (`MultipleChoice`).
-
-### 📚 Reading (2 Comprehension Topics in `src/subjects/reading/content/*.json`)
-1. **Character Traits** (`MultipleChoice`): Read the short paragraph and choose the word that describes Mariam, Sara, Markos, Omar, or Lina.
-2. **Story: All About Butterflies** (`PassageComprehension`): Read the informational passage with sentence-by-sentence read-aloud and answer questions about genre, egg laying, and hatching.
+### 🗓️ Q2 (`Second Quarter` — `src/terms/q2/`)
+Shows **English** 📚, **Math** 🔢, **Science** 🔬, **Social** 🌍, and **German** 🇩🇪 (currently `"Coming soon"` until topics are added).
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Install Dependencies
 ```bash
 npm install
-```
-
-### 2. Start Development Server
-```bash
-npm run dev
-```
-Open `http://localhost:5173/` in your browser.
-
-### 3. Run Unit Tests
-```bash
-npm test
-```
-
-### 4. Build for Production (GitHub Pages / Netlify)
-```bash
-npm run build
+npm run dev      # Local dev server
+npm test         # Run automated Vitest suite
+npm run build    # Build static bundle (dist/) for GitHub Pages / Netlify
 ```
 
 ---
 
-## 📘 How to Add English Content
+## 🛠️ How to Add a New Term, Subject, or Topic
 
-All English questions are **data-driven** and stored in JSON files under `src/subjects/english/content/`. You can add new questions or edit existing ones **without changing any code**.
+### 1. Add Topics to an Existing Subject (e.g. Activate a Q2 Subject)
+Empty subjects automatically show **"Coming soon"** while `topics: []`.
+As soon as you add at least one topic to `src/terms/q2/subjects/<subject>/index.js`, that subject **automatically becomes active** on the Q2 Home screen with no other code changes needed!
 
-### 1. Add a Question to an Existing Topic
+1. Put fixed content in `content-source/q2/<subject>.json` (or `src/terms/q2/subjects/<subject>/content/<topic>.json`), or create dynamic math generators in `src/terms/q2/subjects/math/topics/<topic>.js`.
+2. Export topic objects in `src/terms/q2/subjects/<subject>/index.js` inside `topics: [...]` implementing `{ id, title, icon, description, levels, getQuestions(level, playerId, termId) }` (or `generateQuestion(level)`).
+3. See [`src/terms/q2/README.md`](src/terms/q2/README.md) for quick Q2 examples.
 
-Open the relevant JSON file in `src/subjects/english/content/` (e.g., `spelling.json`, `wordBank.json`, `vocabSentences.json`). Add a new JSON object to the array:
+### 2. Add a New Subject to a Term
+1. Create a folder `src/terms/<term>/subjects/<new_subject>/`.
+2. Add an `index.js` exporting `{ id, title, icon, color, lightColor, description, topics: [...] }`.
+3. Import it and append it to `subjects` in `src/terms/<term>/index.js`.
 
-#### Example A: Adding a Spelling Question (`LetterTiles`)
-```json
-{
-  "id": "eng_spell_5",
-  "type": "LetterTiles",
-  "prompt": "Look at the picture and spell the word:",
-  "promptSpeech": "Look at the picture and spell the word: lake.",
-  "data": {
-    "word": "lake",
-    "scrambled": ["k", "a", "e", "l"],
-    "pictureLabel": "a blue lake"
-  },
-  "correctAnswer": "lake",
-  "hint": "Silent e makes the vowel say its name! Think of water: l-a-k-e.",
-  "explanation": "l-a-k-e spells lake! The silent e makes the 'a' say its name."
-}
-```
-
-#### Example B: Adding a Sentence Completion Question (`MultipleChoice`)
-```json
-{
-  "id": "eng_vocab_6",
-  "type": "MultipleChoice",
-  "prompt": "Choose the correct word to complete the sentence:",
-  "promptSpeech": "The bird flew over the lake.",
-  "data": {
-    "sentence": "The bird ___ high over the lake.",
-    "options": ["soared", "crawled", "slept"]
-  },
-  "correctAnswer": "soared",
-  "hint": "Which word means flying high in the air?",
-  "explanation": "soared means flew high up in the sky."
-}
-```
-
-#### Example C: Adding a Word Bank Question (`WordBank`)
-```json
-{
-  "id": "eng_wordbank_4",
-  "type": "WordBank",
-  "prompt": "Choose a word from the word bank to complete the sentence:",
-  "promptSpeech": "The rabbit likes to hop.",
-  "data": {
-    "sentence": "The rabbit likes to ___ in the grass.",
-    "wordBank": ["hop", "hope", "cub", "cube"]
-  },
-  "correctAnswer": "hop",
-  "hint": "A short vowel sound: rabbits like to hop!",
-  "explanation": "hop has a short o sound: The rabbit likes to hop in the grass."
-}
-```
-
-### 2. Creating a Brand New English Topic
-
-1. Create a new JSON content file in `src/subjects/english/content/<yourTopicName>.json`.
-2. Create a topic loader in `src/subjects/english/topics/<yourTopicName>.js`:
-```javascript
-import myData from '../content/myTopic.json';
-import { shuffle } from '../../../utils/mathHelpers.js';
-
-export default {
-  id: 'english_my_topic',
-  title: 'My Topic Title',
-  icon: '⭐',
-  description: 'Topic description for learners.',
-  getQuestions() {
-    return myData.map(q => ({
-      ...q,
-      data: {
-        ...q.data,
-        options: q.data.options ? shuffle([...q.data.options]) : undefined
-      }
-    }));
-  }
-};
-```
-3. Import and add it to the `topics` array in `src/subjects/english/index.js`.
-4. It will immediately appear in the English subject grid!
+### 3. Add a New Topic to Q1 English or Reading
+- **Q1 English**: Edit `content-source/q1/english_content.json` and run `npm test` (the schema test validates every item and topic card).
+- **Q1 Reading**: Add JSON in `src/terms/q1/subjects/reading/content/`, add a loader in `src/terms/q1/subjects/reading/topics/`, and register it in `src/terms/q1/subjects/reading/index.js`.
 
 ---
 
-## 📖 How to Add Reading Content
+## ➕ How to Add Q3 / Q4 Later
 
-Reading questions are also completely data-driven and stored in `src/subjects/reading/content/`:
-- `characterTraits.json`: Short story paragraphs asking the child to choose the trait that best describes the character.
-- `butterflyPassage.json`: Longer passages with sentence-by-sentence text-to-speech comprehension questions.
+Q3 and Q4 are intentionally omitted from the UI today, but the codebase is designed so adding them takes ~2 minutes:
 
-### Adding a New Reading Story Passage (`PassageComprehension`)
-To add a new story with questions:
-1. In `src/subjects/reading/content/<storyName>.json`:
-```json
-[
-  {
-    "id": "read_story_1",
-    "type": "PassageComprehension",
-    "prompt": "What did Leo find in the garden?",
-    "promptSpeech": "What did Leo find in the garden?",
-    "data": {
-      "passageTitle": "Leo's Garden Discovery",
-      "passage": "Leo walked into the sunny garden. Behind a tall sunflower, he saw a tiny blue egg resting softly in a nest.",
-      "options": ["A shiny red ball.", "A tiny blue egg.", "A lost kitten."]
-    },
-    "correctAnswer": "A tiny blue egg.",
-    "hint": "Look back at the second sentence of the story!",
-    "explanation": "The story tells us that Leo saw a tiny blue egg in a nest."
-  }
-]
-```
-2. Create a topic file in `src/subjects/reading/topics/<storyName>.js` and add it to `src/subjects/reading/index.js`.
+1. **Create the Term Folder**: Create `src/terms/q3/` with `index.js` and `subjects/<subject>/index.js` (you can copy `src/terms/q2/` as a clean starting template).
+   ```javascript
+   // src/terms/q3/index.js
+   import english from './subjects/english/index.js';
+   import math from './subjects/math/index.js';
+
+   export default {
+     id: 'q3',
+     shortName: 'Q3',
+     title: 'Third Quarter',
+     description: 'Term 3 subjects for Grade 2 superstars!',
+     subjects: [english, math]
+   };
+   ```
+2. **Register in Term Registry**: Import `q3` in `src/terms/index.js` and add it to `terms` and `termTabs`.
+3. **Update Default / Valid Term Helpers**:
+   - In `src/player/playerStorage.js`: add `'q3'` to `recomputePlayerAggregates`, `setPlayerLastTerm`, and `createEmptyTermProgress` initialization if desired (existing `ensureTermAndSubjectBucket` already creates buckets dynamically for any `termId`!).
+   - In `src/views/ParentDashboard.jsx`: `terms.map(...)` and `getPlayerTermStats(p, t.id)` will pick up the new term automatically once `terms` in `src/terms/index.js` includes it!
+4. **Update Routes**: `#/q3/<subject>/<topic>` works automatically via `getTermById('q3')` in `src/utils/routes.js`.
 
 ---
 
 ## 🧪 Testing
 
-Run the automated test suite at any time:
+Run the full test suite:
 ```bash
 npm test
 ```
-The test suite validates:
-- **Math generation**: range 0–999, non-negativity, expanded notation, and descending/ascending sorting.
-- **English content files**: verifies every question has non-empty prompts, hints, explanations, scrambled anagram integrity, valid options, and correct answers.
-- **Player storage**: multi-player isolation, name sanitization (max 20 characters, trimmed), delete and switch logic.
-- **Feedback personalization**: dynamic name replacement, streak handling, and strict non-consecutive praise alternation.
+Tests validate:
+- **Term Registry & Routing**: Q1/Q2 registries, automatic subject activation when a topic is added, `#/<term>/<subject>/<topic>` routes, and legacy `#/subject/*` / `#/practice/*` redirects.
+- **Storage Migration**: One-time `v1` -> `v2` migration preserving all stars, sessions, and topic accuracy inside Q1.
+- **Q1 Subject Integrity**: 500-session math anti-memorization simulations, English content schema & renderer checks, Reading passages, and Social Studies map/visual checks.

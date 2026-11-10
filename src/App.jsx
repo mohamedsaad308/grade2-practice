@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar.jsx';
 import HomeView from './views/HomeView.jsx';
+import SubjectTopicsView from './views/SubjectTopicsView.jsx';
 import PracticeSession from './views/PracticeSession.jsx';
 import SessionSummary from './views/SessionSummary.jsx';
 import ParentDashboard from './views/ParentDashboard.jsx';
@@ -8,12 +9,23 @@ import WelcomeScreen from './player/WelcomeScreen.jsx';
 import PlayerSwitcherModal from './player/PlayerSwitcherModal.jsx';
 import {
   getCurrentPlayer,
-  getPlayers,
   getSettings,
   updateSettings,
-  switchPlayer
+  setPlayerLastTerm
 } from './player/playerStorage.js';
-import { getSubjectById, getTopicById } from './subjects/index.js';
+import {
+  DEFAULT_TERM_ID,
+  getTermById,
+  getSubjectByTermAndId,
+  getTopicByTermSubjectAndId
+} from './terms/index.js';
+import {
+  resolveRoute,
+  buildHomeRoute,
+  buildSubjectRoute,
+  buildTopicRoute,
+  getExitRoute
+} from './utils/routes.js';
 
 export default function App() {
   const [currentPlayer, setCurrentPlayer] = useState(getCurrentPlayer());
@@ -22,7 +34,6 @@ export default function App() {
   const [isSwitchingPlayer, setIsSwitchingPlayer] = useState(false);
   const [isAddingNewPlayer, setIsAddingNewPlayer] = useState(false);
   const [summaryData, setSummaryData] = useState(null);
-  const [lastSubjectId, setLastSubjectId] = useState('english');
 
   // Sync hash routing
   useEffect(() => {
@@ -55,19 +66,20 @@ export default function App() {
   const handlePlayerCreated = (newPlayer) => {
     setCurrentPlayer(newPlayer);
     setIsAddingNewPlayer(false);
-    navigate('#/');
+    // New players always open on Q2 by default
+    navigate(buildHomeRoute(newPlayer?.lastTerm || DEFAULT_TERM_ID));
   };
 
-  const handleStartTopic = (subjectId, topicId, level = 1) => {
-    if (subjectId) setLastSubjectId(subjectId);
-    navigate(`#/practice/${subjectId}/${topicId}?level=${level}`);
-  };
+  const fallbackTermId = currentPlayer?.lastTerm || DEFAULT_TERM_ID;
+  const route = resolveRoute(hash, fallbackTermId);
 
-  const handleFinishSession = (results) => {
-    setSummaryData(results);
-    refreshPlayerData();
-    navigate('#/summary');
-  };
+  // Redirect legacy bookmarked URLs (e.g. #/subject/english -> #/q1/english)
+  useEffect(() => {
+    if (route.redirectTo && window.location.hash !== route.redirectTo) {
+      window.location.replace(route.redirectTo);
+      setHash(route.redirectTo);
+    }
+  }, [route.redirectTo]);
 
   // If no players exist at all, or user chose "Add New Player", show WelcomeScreen
   if (!currentPlayer || isAddingNewPlayer) {
@@ -82,50 +94,66 @@ export default function App() {
     );
   }
 
-  // Parse current route from hash
-  // e.g. #/parent or #/practice/math/math_more_less?level=2
-  const cleanHash = hash.replace(/^#\/?/, '');
-  const [pathPart, queryPart] = cleanHash.split('?');
-  const pathSegments = pathPart ? pathPart.split('/') : [];
-  const primaryRoute = pathSegments[0] || '';
+  const handleSelectTerm = (termId) => {
+    setPlayerLastTerm(currentPlayer.id, termId);
+    refreshPlayerData();
+    navigate(buildHomeRoute(termId));
+  };
 
-  // Render view
+  const handleSelectSubject = (termId, subjectId) => {
+    if (currentPlayer.lastTerm !== termId) {
+      setPlayerLastTerm(currentPlayer.id, termId);
+      refreshPlayerData();
+    }
+    navigate(buildSubjectRoute(termId, subjectId));
+  };
+
+  const handleStartTopic = (termId, subjectId, topicId, level = 1) => {
+    navigate(buildTopicRoute(termId, subjectId, topicId, level));
+  };
+
+  const handleStartReview = (termId, reviewTopicId) => {
+    navigate(buildTopicRoute(termId, 'review', reviewTopicId, 1));
+  };
+
+  const handleFinishSession = (results) => {
+    setSummaryData(results);
+    refreshPlayerData();
+    navigate('#/summary');
+  };
+
+  const isInPractice = route.view === 'practice';
   let currentViewComponent = null;
 
-  if (primaryRoute === 'parent') {
+  if (route.view === 'parent') {
     currentViewComponent = (
       <ParentDashboard
-        onBackToPractice={() => navigate('#/')}
+        onBackToPractice={() => navigate(buildHomeRoute(currentPlayer?.lastTerm || DEFAULT_TERM_ID))}
         onPlayerStateChanged={refreshPlayerData}
       />
     );
-  } else if (primaryRoute === 'practice') {
-    const subjectId = pathSegments[1] || 'english';
-    const topicId = pathSegments[2] || '';
-    const searchParams = new URLSearchParams(queryPart || '');
-    const level = parseInt(searchParams.get('level') || '1', 10);
+  } else if (route.view === 'practice') {
+    const term = getTermById(route.termId);
+    const subject = getSubjectByTermAndId(route.termId, route.subjectId);
+    const topic = getTopicByTermSubjectAndId(route.termId, route.subjectId, route.topicId);
 
-    const subject = getSubjectById(subjectId);
-    const topic = getTopicById(subjectId, topicId);
-
-    if (subject && topic) {
+    if (term && subject && topic) {
       currentViewComponent = (
         <PracticeSession
           player={currentPlayer}
+          termId={term.id}
           subject={subject}
           topic={topic}
-          level={level}
+          level={route.level || 1}
           settings={settings}
           onToggleSound={handleToggleSound}
           onToggleSpokenPraise={handleToggleSpokenPraise}
           onChangePlayer={() => setIsSwitchingPlayer(true)}
           onNavigateParent={() => navigate('#/parent')}
           onFinishSession={handleFinishSession}
-          onExit={(exitSubjectId) => {
+          onExit={(exitTermId, exitSubjectId) => {
             refreshPlayerData();
-            const target = exitSubjectId || subjectId || lastSubjectId || 'english';
-            setLastSubjectId(target);
-            navigate(`#/subject/${target}`);
+            navigate(getExitRoute(exitTermId || term.id, exitSubjectId || subject.id));
           }}
         />
       );
@@ -133,64 +161,83 @@ export default function App() {
       currentViewComponent = (
         <div className="route-error-card">
           <p>Topic not found.</p>
-          <button type="button" onClick={() => navigate(`#/subject/${lastSubjectId}`)}>
-            Back to Topics
+          <button
+            type="button"
+            onClick={() => navigate(buildHomeRoute(currentPlayer?.lastTerm || DEFAULT_TERM_ID))}
+          >
+            Back to Subjects
           </button>
         </div>
       );
     }
-  } else if (primaryRoute === 'summary' && summaryData) {
+  } else if (route.view === 'subject') {
+    const term = getTermById(route.termId);
+    const subject = getSubjectByTermAndId(route.termId, route.subjectId);
+
+    currentViewComponent = (
+      <SubjectTopicsView
+        player={currentPlayer}
+        term={term}
+        subject={subject}
+        onBackToTerm={(targetTermId) => navigate(buildHomeRoute(targetTermId))}
+        onStartTopic={handleStartTopic}
+        soundEnabled={settings.soundEnabled}
+      />
+    );
+  } else if (route.view === 'summary' && summaryData) {
     currentViewComponent = (
       <SessionSummary
         summaryData={summaryData}
         player={currentPlayer}
         settings={settings}
         onPlayAgain={() => {
-          navigate(`#/practice/${summaryData.subject.id}/${summaryData.topic.id}?level=${summaryData.level}`);
+          navigate(
+            buildTopicRoute(
+              summaryData.termId || 'q1',
+              summaryData.subject.id,
+              summaryData.topic.id,
+              summaryData.level
+            )
+          );
         }}
-        onBackToSubject={(subjectId) => {
-          const target = subjectId || summaryData.subject?.id || lastSubjectId || 'english';
-          setLastSubjectId(target);
-          navigate(`#/subject/${target}`);
+        onBackToSubject={(sumTermId, sumSubjectId) => {
+          navigate(getExitRoute(sumTermId || summaryData.termId || 'q1', sumSubjectId || summaryData.subject?.id));
         }}
-        onBackToHome={() => navigate('#/')}
+        onBackToHome={(sumTermId) => {
+          navigate(buildHomeRoute(sumTermId || summaryData.termId || currentPlayer?.lastTerm || DEFAULT_TERM_ID));
+        }}
       />
     );
   } else {
-    // Default or Subject View: HomeView showing the selected subject's topics
-    const activeSubjId = (primaryRoute === 'subject' ? pathSegments[1] : lastSubjectId) || 'english';
-
+    // Default Home Screen: Term picker (Q2 | Q1) + Subject Cards
     currentViewComponent = (
       <HomeView
         player={currentPlayer}
-        selectedSubjectId={activeSubjId}
-        onSelectSubject={(id) => {
-          setLastSubjectId(id);
-          navigate(`#/subject/${id}`);
-        }}
-        onStartTopic={handleStartTopic}
-        onChangePlayer={() => setIsSwitchingPlayer(true)}
+        activeTermId={route.termId || fallbackTermId}
+        onSelectTerm={handleSelectTerm}
+        onSelectSubject={handleSelectSubject}
+        onStartReview={handleStartReview}
         soundEnabled={settings.soundEnabled}
       />
     );
   }
 
   return (
-    <div className={`app-root-shell ${primaryRoute === 'practice' ? 'in-practice-mode' : ''}`}>
-      {primaryRoute !== 'practice' && (
+    <div className={`app-root-shell ${isInPractice ? 'in-practice-mode' : ''}`}>
+      {!isInPractice && (
         <Navbar
           player={currentPlayer}
           settings={settings}
           onToggleSound={handleToggleSound}
           onToggleSpokenPraise={handleToggleSpokenPraise}
           onChangePlayer={() => setIsSwitchingPlayer(true)}
-          onNavigateHome={() => navigate('#/')}
+          onNavigateHome={() => navigate(buildHomeRoute(currentPlayer?.lastTerm || DEFAULT_TERM_ID))}
           onNavigateParent={() => navigate('#/parent')}
-          currentRoute={primaryRoute}
+          currentRoute={route.view}
         />
       )}
 
-      <main className={`app-main-viewport ${primaryRoute === 'practice' ? 'viewport-practice' : ''}`}>
+      <main className={`app-main-viewport ${isInPractice ? 'viewport-practice' : ''}`}>
         {currentViewComponent}
       </main>
 
@@ -201,6 +248,8 @@ export default function App() {
           onPlayerSelected={(selected) => {
             setCurrentPlayer(selected);
             setIsSwitchingPlayer(false);
+            // Switch to that player's remembered term (or Q2)
+            navigate(buildHomeRoute(selected?.lastTerm || DEFAULT_TERM_ID));
           }}
           onAddNewPlayer={() => {
             setIsSwitchingPlayer(false);

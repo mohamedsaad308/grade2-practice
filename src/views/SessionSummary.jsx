@@ -75,26 +75,28 @@ export default function SessionSummary({
             🔄 Practice Again
           </button>
 
-          <button
-            type="button"
-            className="summary-btn back-subject-btn"
-            onClick={() => {
-              if (onBackToSubject) {
-                onBackToSubject(summaryData.subject?.id);
-              } else if (onBackToHome) {
-                onBackToHome();
-              }
-            }}
-          >
-            {summaryData.subject?.icon || '📚'} Back to {summaryData.subject?.title || 'Subject'} Topics
-          </button>
+          {!summaryData.subject?.isReview && (
+            <button
+              type="button"
+              className="summary-btn back-subject-btn"
+              onClick={() => {
+                if (onBackToSubject) {
+                  onBackToSubject(summaryData.termId, summaryData.subject?.id);
+                } else if (onBackToHome) {
+                  onBackToHome(summaryData.termId);
+                }
+              }}
+            >
+              {summaryData.subject?.icon || '📚'} Back to {summaryData.subject?.title || 'Subject'} Topics
+            </button>
+          )}
 
           <button
             type="button"
             className="summary-btn back-home-btn"
-            onClick={onBackToHome}
+            onClick={() => onBackToHome(summaryData.termId)}
           >
-            🏠 All Subjects
+            🏠 All {String(summaryData.termId || 'Q1').toUpperCase()} Subjects
           </button>
         </div>
       </div>

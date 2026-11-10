@@ -18,6 +18,7 @@ import { getQuestionSignature } from '../utils/mathHelpers.js';
 
 export default function PracticeSession({
   player,
+  termId = 'q1',
   subject,
   topic,
   level = 1,
@@ -42,24 +43,27 @@ export default function PracticeSession({
   const [sessionStars, setSessionStars] = useState(0);
 
   const playerName = player?.name || 'Friend';
+  const subjectId = subject?.id || 'default';
   const soundEnabled = settings?.soundEnabled !== false;
   const spokenPraiseEnabled = settings?.spokenPraiseEnabled !== false;
 
   // Initialize questions: if topic provides fixed questions via getQuestions(), use them in order.
   // Otherwise, if topic provides generateQuestion(), generate a session of 10 unique questions
-  // avoiding recent ~200 questions seen by the player in localStorage.
+  // avoiding recent ~200 questions seen by the player inside this (term, subject).
   useEffect(() => {
     let generated = [];
 
     if (typeof topic.getQuestions === 'function') {
-      generated = topic.getQuestions(level, player?.id);
+      generated = topic.getQuestions(level, player?.id, termId);
     } else if (typeof topic.generateQuestion === 'function') {
       const SESSION_LENGTH = 10;
       const sessionSignatures = new Set();
-      const recentSignatures = new Set(getRecentQuestionSignatures(player?.id));
+      const recentSignatures = new Set(
+        getRecentQuestionSignatures(player?.id, termId, subjectId)
+      );
       let safetyCounter = 0;
 
-      // Pass 1: Try to pick questions not in session and not in the player's last ~200 questions
+      // Pass 1: Try to pick questions not in session and not in the player's last ~200 questions for this term+subject
       while (generated.length < SESSION_LENGTH && safetyCounter < 150) {
         safetyCounter++;
         const q = topic.generateQuestion(level);
@@ -96,7 +100,7 @@ export default function PracticeSession({
     setStreak(0);
     setMaxStreak(0);
     setSessionStars(0);
-  }, [topic?.id, level]);
+  }, [termId, subjectId, topic?.id, level]);
 
   const sessionTotal = questions.length || 10;
   const currentQuestion = questions[currentIndex];
@@ -199,9 +203,9 @@ export default function PracticeSession({
         speakText(praise);
       }
 
-      // Record question result and player adaptive item outcomes
+      // Record question result and player adaptive item outcomes (scoped per term & subject)
       if (player?.id && currentQuestion?.id) {
-        recordItemOutcome(player.id, currentQuestion.id, attemptNumber === 1);
+        recordItemOutcome(player.id, currentQuestion.id, attemptNumber === 1, termId, subjectId);
       }
       setSessionResults(prev => [
         ...prev,
@@ -210,7 +214,7 @@ export default function PracticeSession({
     } else {
       // Not correct
       if (player?.id && currentQuestion?.id && attemptNumber === 1) {
-        recordItemOutcome(player.id, currentQuestion.id, false);
+        recordItemOutcome(player.id, currentQuestion.id, false, termId, subjectId);
       }
       setStreak(0);
       setIsShake(true);
@@ -275,12 +279,12 @@ export default function PracticeSession({
       const updatedResults = [...sessionResults];
 
       if (player?.id) {
-        recordSessionCompletion(player.id, topic.id, totalStars, updatedResults);
+        recordSessionCompletion(player.id, topic.id, totalStars, updatedResults, termId);
         const signatures = questions
           .map(q => q.signature || getQuestionSignature(q))
           .filter(Boolean);
         if (signatures.length > 0) {
-          addRecentQuestionSignatures(player.id, signatures);
+          addRecentQuestionSignatures(player.id, signatures, termId, subjectId);
         }
       }
 
@@ -289,6 +293,7 @@ export default function PracticeSession({
         score: totalStars,
         maxStreak,
         total: sessionTotal,
+        termId,
         subject,
         topic,
         level
@@ -412,7 +417,7 @@ export default function PracticeSession({
         onToggleSpokenPraise={onToggleSpokenPraise}
         onChangePlayer={onChangePlayer}
         onNavigateParent={onNavigateParent}
-        onExit={() => onExit(subject?.id)}
+        onExit={() => onExit(termId, subject?.id)}
         subjectTitle={subject?.title}
       />
 
