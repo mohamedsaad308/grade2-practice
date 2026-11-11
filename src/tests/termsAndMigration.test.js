@@ -63,6 +63,11 @@ import {
   selectWeekQuizQuestions as selectGermanWeekQuizQuestions,
   selectPracticeCategoryQuestions as selectGermanPracticeCategoryQuestions
 } from '../terms/q2/subjects/german/index.js';
+import readingWeek1Data from '../terms/q2/subjects/reading/content/week1.json';
+import {
+  selectWeekQuizQuestions as selectReadingWeekQuizQuestions,
+  selectPracticeCategoryQuestions as selectReadingPracticeCategoryQuestions
+} from '../terms/q2/subjects/reading/index.js';
 
 describe('School Term Registry, Routes, Migration & UI Isolation', () => {
   beforeEach(() => {
@@ -80,16 +85,17 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(DEFAULT_TERM_ID).toBe('q2');
   });
 
-  it('2. Q2 has 5 subjects in exact order (English, Math, Science, Social, German): English and German are active with Week 1; Math, Science, Social stay Coming soon', () => {
+  it('2. Q2 has 6 subjects in exact order (English, Math, Science, Social, German, Reading): English, German, and Reading are active with Week 1; Math, Science, Social stay Coming soon', () => {
     const q2Subjects = getSubjectsForTerm('q2');
     expect(q2Subjects.map((s) => s.title)).toEqual([
       'English',
       'Math',
       'Science',
       'Social',
-      'German'
+      'German',
+      'Reading'
     ]);
-    expect(q2Subjects.map((s) => s.icon)).toEqual(['📚', '🔢', '🔬', '🌍', '🇩🇪']);
+    expect(q2Subjects.map((s) => s.icon)).toEqual(['📚', '🔢', '🔬', '🌍', '🇩🇪', '📖']);
 
     // English is active with Week 1 topics (4 lessons + 4 worksheet practices + 1 final quiz)
     expect(isSubjectActive(q2Subjects[0])).toBe(true);
@@ -104,6 +110,10 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     // German is unlocked with Week 1 topics (3 lessons + 3 practices + 1 final quiz)
     expect(isSubjectActive(q2Subjects[4])).toBe(true);
     expect(q2Subjects[4].topics.length).toBe(7);
+
+    // Reading is unlocked with Week 1 Elements of Drama (3 lessons + 3 practices + 1 final quiz)
+    expect(isSubjectActive(q2Subjects[5])).toBe(true);
+    expect(q2Subjects[5].topics.length).toBe(7);
   });
 
   it('3. every Q1 topic (and Q1 Review) is reachable via its canonical /#/q1/<subject>/<topic> route', () => {
@@ -748,6 +758,37 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
         if (q.explanation) assertAudioClipExists(q.explanation, 'en-US');
       });
 
+      // Every Q2 Reading Week 1 (Elements of Drama) card, mini-activity, passage, and quiz item
+      readingWeek1Data.lessons.forEach((lesson) => {
+        lesson.cards.forEach((card) => {
+          assertAudioClipExists(card.word || card.frontTitle, 'en-US');
+          assertAudioClipExists(card.explanation, 'en-US');
+          assertAudioClipExists(card.example, 'en-US');
+        });
+        const act = lesson.activity;
+        if (act?.type === 'match_pairs') {
+          act.allPairs.forEach(([left, right]) => {
+            assertAudioClipExists(left, 'en-US');
+            assertAudioClipExists(right, 'en-US');
+          });
+        } else if (act?.type === 'tap_choice') {
+          act.items.forEach((it) => {
+            assertAudioClipExists(it.prompt, 'en-US');
+            if (it.targetText) assertAudioClipExists(it.targetText, 'en-US');
+            it.options.forEach((opt) => assertAudioClipExists(opt, 'en-US'));
+            assertAudioClipExists(it.explanation, 'en-US');
+          });
+        }
+      });
+      readingWeek1Data.quiz.questions.forEach((q) => {
+        if (q.instruction) assertAudioClipExists(q.instruction.replace(/[:]+$/, ''), 'en-US');
+        if (q.passage?.title) assertAudioClipExists(q.passage.title, 'en-US');
+        (q.passage?.sentences || []).forEach((s) => assertAudioClipExists(s, 'en-US'));
+        assertAudioClipExists(q.text, 'en-US');
+        q.options.forEach((opt) => assertAudioClipExists(opt, 'en-US'));
+        if (q.explanation) assertAudioClipExists(q.explanation, 'en-US');
+      });
+
       // Disambiguate shared words across English & German ('orange' -> separate MP3 clips!)
       const enOrange = getManifestAudioPath('orange', 'en-US');
       const deOrange = getManifestAudioPath('orange', 'de-DE');
@@ -871,5 +912,128 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(colorLessonHtml).toContain('color-palette-board');
     expect(colorLessonHtml).toContain('Say it:');
     expect(colorLessonHtml).toContain('Color Splash Pop!');
+  });
+
+  it('14. Q2 Reading Week 1 (Elements of Drama) validates all 3 flashcard lessons (20 cards with target highlights), 3 practices, 45-question bank, and mini script passages', () => {
+    const q2Reading = getSubjectByTermAndId('q2', 'reading');
+    expect(isSubjectActive(q2Reading)).toBe(true);
+    expect(q2Reading.icon).toBe('📖');
+    expect(q2Reading.topics.length).toBe(7);
+    expect(readingWeek1Data.lessons.length).toBe(3);
+    expect(readingWeek1Data.practices.length).toBe(3);
+    expect(readingWeek1Data.quiz.questions.length).toBe(45);
+
+    const clean = (html) => html.replace(/<!-- -->/g, '');
+    let totalCards = 0;
+
+    readingWeek1Data.lessons.forEach((lesson) => {
+      lesson.cards.forEach((card) => {
+        totalCards += 1;
+        expect(typeof card.example).toBe('string');
+        expect(card.example.trim().length).toBeGreaterThan(8);
+        expect(typeof card.explanation).toBe('string');
+        expect(card.explanation.trim().length).toBeGreaterThan(8);
+
+        const targets = card.highlightWords?.length
+          ? card.highlightWords
+          : card.word
+            ? [card.word]
+            : [];
+        expect(targets.length).toBeGreaterThan(0);
+
+        const { tokens } = tokenizeExampleSentence(card.example, targets);
+        const highlighted = tokens.filter((t) => t.type === 'word' && t.isTarget);
+        expect(highlighted.length).toBeGreaterThan(0);
+
+        const html = clean(renderToString(
+          React.createElement(FlashcardLesson, {
+            player: { name: 'Maya', avatar: 'fox', stars: 0 },
+            termId: 'q2',
+            subject: q2Reading,
+            topic: {
+              id: `${lesson.id}_${card.id}`,
+              title: lesson.title,
+              icon: lesson.icon,
+              lessonData: { ...lesson, cards: [card] }
+            },
+            settings: { soundEnabled: true, spokenPraiseEnabled: true }
+          })
+        ));
+        expect(html).toContain('flashcard-front-example-text');
+        expect(html).toContain('sentence-target-word');
+      });
+    });
+    expect(totalCards).toBe(20);
+
+    // Validate all 45 quiz questions
+    const seenIds = new Set();
+    readingWeek1Data.quiz.questions.forEach((q) => {
+      expect(seenIds.has(q.id)).toBe(false);
+      seenIds.add(q.id);
+      expect(q.options.length).toBeGreaterThanOrEqual(3);
+      expect(q.options.length).toBeLessThanOrEqual(4);
+      expect(new Set(q.options).size).toBe(q.options.length);
+      expect(q.options).toContain(q.answer);
+    });
+
+    // Validate Topic Practice sampling per category & adaptive isolation under ('q2', 'reading')
+    readingWeek1Data.practices.forEach((practice) => {
+      const picked = selectReadingPracticeCategoryQuestions(readingWeek1Data.quiz, practice, null, 'q2');
+      expect(picked.length).toBe(10);
+      picked.forEach((q) => {
+        expect(q.category).toBe(practice.category);
+        const html = renderToString(
+          React.createElement(QuestionDispatcher, {
+            question: q,
+            onSubmit: () => {},
+            disabled: false,
+            soundEnabled: false
+          })
+        );
+        expect(html.length).toBeGreaterThan(40);
+      });
+    });
+
+    // Stratified 10-question final quiz guarantees >= 3 from each of 3 categories (basics, elements, scenes)
+    const sampledQuiz = selectReadingWeekQuizQuestions(readingWeek1Data.quiz, null, 'q2');
+    expect(sampledQuiz.length).toBe(10);
+    ['basics', 'elements', 'scenes'].forEach((cat) => {
+      expect(sampledQuiz.filter((q) => q.category === cat).length).toBeGreaterThanOrEqual(3);
+    });
+
+    // Render Q2 Reading Topics screen, Home card, and Mini Script passage question
+    const q2Term = getTermById('q2');
+    const q2HomeHtml = clean(renderToString(
+      React.createElement(HomeView, {
+        player: { name: 'Maya', avatar: 'fox', stars: 0 },
+        activeTermId: 'q2'
+      })
+    ));
+    expect(q2HomeHtml).toContain('Reading');
+
+    const topicsHtml = clean(renderToString(
+      React.createElement(SubjectTopicsView, {
+        player: { name: 'Maya', avatar: 'fox', stars: 0 },
+        term: q2Term,
+        subject: q2Reading
+      })
+    ));
+    expect(topicsHtml).toContain('Lesson 1: What is Drama? (Story vs. Play)');
+    expect(topicsHtml).toContain('Lesson 2: The 8 Elements of Drama');
+    expect(topicsHtml).toContain('Lesson 3: Scenes &amp; Reading a Mini Script');
+    expect(topicsHtml).toContain('Week 1 Final Quiz: Elements of Drama');
+
+    const scriptQ = readingWeek1Data.quiz.questions.find((q) => q.id === 'q2-rd-w1-scn-05');
+    expect(scriptQ?.passage?.sentences?.length).toBe(4);
+    const scriptHtml = renderToString(
+      React.createElement(QuestionDispatcher, {
+        question: { ...scriptQ, type: 'choice' },
+        onSubmit: () => {},
+        disabled: false,
+        soundEnabled: false
+      })
+    );
+    expect(scriptHtml).toContain('The Lost Crown');
+    expect(scriptHtml).toContain('Inside a sunny castle throne room');
   });
 });

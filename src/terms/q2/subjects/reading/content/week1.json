@@ -1,0 +1,1169 @@
+{
+  "weekId": "week1",
+  "weekTitle": "Week 1",
+  "weekSubtitle": "The Elements of Drama (Plays, Story vs. Drama, 8 Elements & Scenes)",
+  "lessons": [
+    {
+      "id": "w1_rd_lesson1_intro",
+      "title": "Lesson 1: What is Drama? (Story vs. Play)",
+      "icon": "🎭",
+      "description": "Learn what a drama and theater are, and compare a story book to a play: playwright, actors, and acts & scenes!",
+      "hint": "A drama is a story acted out on stage for an audience!",
+      "cards": [
+        {
+          "id": "rd-drama-intro",
+          "kind": "intro",
+          "groupLabel": "Reading Guide • Elements of Drama",
+          "frontTitle": "The Elements of Drama",
+          "emoji": "🎭✨",
+          "frontHint": "Stories made to be acted out on stage!",
+          "backTitle": "Welcome to Drama!",
+          "explanation": "A drama is a play! Instead of only reading it silently in a book, actors perform a drama for an audience on a stage.",
+          "example": "Our class watched a drama about a brave knight on stage.",
+          "highlightWords": ["drama", "stage"],
+          "tip": "Think of the happy and sad theater masks 🎭 — drama means acting out a story!"
+        },
+        {
+          "id": "rd-drama-play",
+          "kind": "vocab",
+          "groupLabel": "Big Idea 1 • What is Drama?",
+          "word": "Drama (a Play)",
+          "emoji": "🎭👏",
+          "explanation": "The drama (a play) is a story which can be performed for an audience on a stage or theater.",
+          "example": "A drama is a story performed for an audience on a stage.",
+          "highlightWords": ["drama"],
+          "tip": "An audience is the group of people sitting and watching the play!"
+        },
+        {
+          "id": "rd-drama-theater",
+          "kind": "vocab",
+          "groupLabel": "Big Idea 2 • What's a Theater?",
+          "word": "Theater",
+          "emoji": "🎪🏛️",
+          "explanation": "A theater is the stage where the play is performed.",
+          "example": "The theater has big red curtains around the stage.",
+          "highlightWords": ["theater", "stage"],
+          "tip": "When the red curtains open at the theater, you see the stage!"
+        },
+        {
+          "id": "rd-compare-playwright",
+          "kind": "vocab",
+          "groupLabel": "Story vs. Drama • Author / Writer",
+          "word": "Playwright",
+          "emoji": "✍️🎭",
+          "explanation": "In a story, the person who writes it is an author or writer. In a drama, the writer is called a playwright!",
+          "example": "A playwright wrote the castle play instead of a book author.",
+          "highlightWords": ["playwright"],
+          "tip": "A 'wright' is someone who makes or builds something — a playwright builds a play!"
+        },
+        {
+          "id": "rd-compare-actors",
+          "kind": "vocab",
+          "groupLabel": "Story vs. Drama • Characters",
+          "word": "Actors",
+          "emoji": "🧑‍🎭🌟",
+          "explanation": "In a story, we read about characters. In a drama, actors dress up and perform as the characters on stage!",
+          "example": "The actors wore crowns to play the castle characters.",
+          "highlightWords": ["actors", "characters"],
+          "tip": "Characters in a story → Actors in a drama!"
+        },
+        {
+          "id": "rd-compare-acts-scenes",
+          "kind": "vocab",
+          "groupLabel": "Story vs. Drama • Chapters",
+          "word": "Acts & Scenes",
+          "emoji": "📑🎬",
+          "explanation": "In a story book, the story is split into chapters. In a drama, the play is split into acts and scenes!",
+          "example": "Instead of chapters, our play has two acts and four scenes.",
+          "highlightWords": ["acts", "scenes"],
+          "tip": "Chapters in a story → Acts & scenes in a drama!"
+        }
+      ],
+      "activity": {
+        "type": "match_pairs",
+        "title": "Story vs. Drama Match!",
+        "instruction": "Tap a Story or Clue card on the left, then tap its matching Drama word on the right!",
+        "leftTitle": "Story / Clue",
+        "rightTitle": "Drama Word",
+        "successNoun": "drama words",
+        "moreButtonLabel": "🔄 Match More Words",
+        "pairCount": 4,
+        "allPairs": [
+          ["Story performed on stage", "Drama (a play)"],
+          ["Stage where play is performed", "Theater"],
+          ["Author or writer in a story", "Playwright"],
+          ["Characters in a story", "Actors"],
+          ["Chapters in a story", "Acts & scenes"]
+        ]
+      }
+    },
+    {
+      "id": "w1_rd_lesson2_elements",
+      "title": "Lesson 2: The 8 Elements of Drama",
+      "icon": "📜",
+      "description": "Master all 8 parts from the Elements of Drama chart: Script, Cast, Narrator, Setting, Act, Scene, Dialogue, and Stage Directions!",
+      "hint": "Look closely at what each part does: tells words, tells time/place, or tells actors what to do!",
+      "cards": [
+        {
+          "id": "rd-8-guide",
+          "kind": "intro",
+          "groupLabel": "Elements of Drama Chart",
+          "frontTitle": "8 Elements of Drama",
+          "emoji": "📜🌟",
+          "frontHint": "Every play is built from 8 special pieces!",
+          "backTitle": "Meet the 8 Elements!",
+          "explanation": "The 8 elements of drama are: Script, Cast of Characters, Narrator, Setting, Act, Scene, Dialogue, and Stage Directions.",
+          "example": "Every drama uses a script, setting, dialogue, and actors.",
+          "highlightWords": ["drama", "script", "setting", "dialogue"],
+          "tip": "Tap Next to meet all 8 elements one by one!"
+        },
+        {
+          "id": "rd-elem-script",
+          "kind": "vocab",
+          "groupLabel": "Element 1 of 8",
+          "word": "Script",
+          "emoji": "📜",
+          "explanation": "Script: the text (all the written words) of the play.",
+          "example": "Each actor holds a script to read the words of the play.",
+          "highlightWords": ["script"],
+          "tip": "Without the script, nobody would know what to say or do!"
+        },
+        {
+          "id": "rd-elem-cast",
+          "kind": "vocab",
+          "groupLabel": "Element 2 of 8",
+          "word": "Cast of Characters",
+          "emoji": "🧑‍🤝‍🧑🎭",
+          "explanation": "Cast of Characters: all of the characters in the play, usually portrayed (acted out) by actors.",
+          "example": "The cast of characters lists all the roles played by actors.",
+          "highlightWords": ["cast", "characters"],
+          "tip": "Check the top of a script to see the full Cast of Characters!"
+        },
+        {
+          "id": "rd-elem-narrator",
+          "kind": "vocab",
+          "groupLabel": "Element 3 of 8",
+          "word": "Narrator",
+          "emoji": "🗣️📖",
+          "explanation": "Narrator: the person who tells what happens during the play.",
+          "example": "The narrator tells the audience what happens in the castle.",
+          "highlightWords": ["narrator"],
+          "tip": "Think of the narrator as the friendly storyteller helping the audience!"
+        },
+        {
+          "id": "rd-elem-setting",
+          "kind": "vocab",
+          "groupLabel": "Element 4 of 8",
+          "word": "Setting",
+          "emoji": "🏰⏰",
+          "explanation": "Setting: the time and place in the play.",
+          "example": "The setting of our play is a sunny treehouse in the afternoon.",
+          "highlightWords": ["setting"],
+          "tip": "Ask two questions for Setting: WHERE is it? WHEN is it?"
+        },
+        {
+          "id": "rd-elem-act",
+          "kind": "vocab",
+          "groupLabel": "Element 5 of 8",
+          "word": "Act",
+          "emoji": "📑",
+          "explanation": "Act: a chapter in a play that contains more than one scene.",
+          "example": "Act 1 is a big part of the play that holds three short scenes.",
+          "highlightWords": ["Act"],
+          "tip": "Remember: an Act is BIGGER than a scene (one Act can hold 2, 3, or more scenes)!"
+        },
+        {
+          "id": "rd-elem-scene",
+          "kind": "vocab",
+          "groupLabel": "Element 6 of 8",
+          "word": "Scene",
+          "emoji": "🎬",
+          "explanation": "Scene: the action that takes place in a single setting.",
+          "example": "This scene takes place inside one cozy treehouse.",
+          "highlightWords": ["scene"],
+          "tip": "One scene stays in one single setting (one place and time)!"
+        },
+        {
+          "id": "rd-elem-dialogue",
+          "kind": "vocab",
+          "groupLabel": "Element 7 of 8",
+          "word": "Dialogue",
+          "emoji": "💬",
+          "explanation": "Dialogue: the words said by the characters.",
+          "example": "Actors speak the dialogue out loud to tell the story.",
+          "highlightWords": ["dialogue"],
+          "tip": "Dialogue = talking! Notice 'di-' and think of characters talking together."
+        },
+        {
+          "id": "rd-elem-stage-directions",
+          "kind": "vocab",
+          "groupLabel": "Element 8 of 8",
+          "word": "Stage Directions",
+          "emoji": "👉📝",
+          "explanation": "Stage Directions: written instructions telling the actors what to do (like where to walk, or how to smile or whisper).",
+          "example": "Stage directions tell an actor to wave and walk to the door.",
+          "highlightWords": ["Stage", "directions"],
+          "tip": "Stage directions tell actors WHAT TO DO — actors act them out instead of reading them aloud!"
+        }
+      ],
+      "activity": {
+        "type": "match_pairs",
+        "title": "Match all 8 Elements!",
+        "instruction": "Match each Element of Drama on the left with its meaning on the right!",
+        "leftTitle": "Element of Drama",
+        "rightTitle": "Meaning",
+        "successNoun": "elements of drama",
+        "moreButtonLabel": "🔄 Match 4 More Elements",
+        "pairCount": 4,
+        "allPairs": [
+          ["Script", "The text of the play"],
+          ["Cast of Characters", "All of the characters, portrayed by actors"],
+          ["Narrator", "Person who tells what happens during the play"],
+          ["Setting", "The time and place in the play"],
+          ["Act", "A chapter in a play with more than one scene"],
+          ["Scene", "Action that takes place in a single setting"],
+          ["Dialogue", "The words said by the characters"],
+          ["Stage Directions", "Written instructions telling actors what to do"]
+        ]
+      }
+    },
+    {
+      "id": "w1_rd_lesson3_scenes",
+      "title": "Lesson 3: Scenes & Reading a Mini Script",
+      "icon": "🎬",
+      "description": "Discover when a new scene starts (when time or place changes!) and spot clues inside a real mini script!",
+      "hint": "Watch the setting! Does the time or place change?",
+      "cards": [
+        {
+          "id": "rd-scene-unit",
+          "kind": "rule",
+          "groupLabel": "Scene Rule 1",
+          "frontTitle": "What is a Scene?",
+          "emoji": "🌳🎬",
+          "frontHint": "One piece of the play in one place & time",
+          "backTitle": "A Scene is a Unit of the Play",
+          "explanation": "The scene is a unit (part) of the play that happens at a specific place or time.",
+          "example": "Scene 1 happens at a specific place and time in the treehouse.",
+          "highlightWords": ["Scene", "place", "time"],
+          "tip": "Think of each scene like a snapshot at one place and one time!"
+        },
+        {
+          "id": "rd-new-scene-rule",
+          "kind": "rule",
+          "groupLabel": "Scene Rule 2 • Big Rule!",
+          "frontTitle": "When is it a New Scene?",
+          "emoji": "🔄📍🕰️",
+          "frontHint": "Watch for a change in TIME or PLACE!",
+          "backTitle": "Spotting a New Scene",
+          "explanation": "You will know it's a new scene when the time or place changes!",
+          "example": "You know a new scene starts when the time or place changes.",
+          "highlightWords": ["new", "scene", "time", "place"],
+          "tip": "If EITHER the time OR the place changes, get ready for a new scene!"
+        },
+        {
+          "id": "rd-scene-place-change",
+          "kind": "rule",
+          "groupLabel": "Example • Place Changes",
+          "frontTitle": "New Place = New Scene!",
+          "emoji": "🏰➡️🌲",
+          "frontHint": "Castle in Scene 1 → Forest in Scene 2",
+          "backTitle": "When the Place Changes",
+          "explanation": "If the actors are inside a castle in Scene 1, and then the story moves out to a forest in Scene 2, the place changed — so it's a new scene!",
+          "example": "Moving from the castle to the forest starts a new scene.",
+          "highlightWords": ["castle", "forest", "new", "scene"],
+          "tip": "Stage helpers often swap the backdrop when the place changes!"
+        },
+        {
+          "id": "rd-scene-time-change",
+          "kind": "rule",
+          "groupLabel": "Example • Time Changes",
+          "frontTitle": "New Time = New Scene!",
+          "emoji": "☀️➡️🌙",
+          "frontHint": "Morning in Scene 1 → Night in Scene 2",
+          "backTitle": "When the Time Changes",
+          "explanation": "Even in the same treehouse, if Scene 1 is sunny morning and Scene 2 jumps to starry night (or the next day), the time changed — so it's a new scene!",
+          "example": "Jumping from morning to night in the treehouse starts a new scene.",
+          "highlightWords": ["morning", "night", "new", "scene"],
+          "tip": "Check the sky or clock! Morning to night means a new scene!"
+        },
+        {
+          "id": "rd-script-detective",
+          "kind": "rule",
+          "groupLabel": "Script Clues",
+          "frontTitle": "Inside a Script",
+          "emoji": "📜🔎",
+          "frontHint": "Names show Dialogue • (Parentheses) show Stage Directions",
+          "backTitle": "How to Read a Script",
+          "explanation": "In a script, 'Maya: Hello!' is dialogue (spoken out loud). Words in parentheses like (waves happily) are stage directions telling the actor what to do!",
+          "example": "Stage directions tell Maya to wave before speaking her dialogue.",
+          "highlightWords": ["Stage", "directions", "dialogue"],
+          "tip": "Do NOT read stage directions in (parentheses) out loud — act them out!"
+        }
+      ],
+      "activity": {
+        "type": "tap_choice",
+        "title": "New Scene & Script Detective!",
+        "instruction": "Read the play clue carefully, then tap the best answer!",
+        "items": [
+          {
+            "id": "scn-act-1",
+            "picture": "🏰➡️🌳",
+            "prompt": "In Scene 1, the kids are in a castle. Next, they are in a treehouse. What starts now?",
+            "targetText": "The place changed!",
+            "options": [
+              "A new scene starts",
+              "A new playwright starts",
+              "The theater disappears"
+            ],
+            "answer": "A new scene starts",
+            "explanation": "Right! You know it's a new scene when the place or time changes."
+          },
+          {
+            "id": "scn-act-2",
+            "picture": "☀️➡️🌙",
+            "prompt": "Scene 1 happens in the treehouse at noon. Scene 2 happens in the treehouse at midnight. Why is it a new scene?",
+            "targetText": "Same treehouse, different hour!",
+            "options": [
+              "Because the time changed",
+              "Because the actors sat down",
+              "Because the script ended"
+            ],
+            "answer": "Because the time changed",
+            "explanation": "Yes! Even at the same place, a new scene starts when the time changes (noon → midnight)."
+          },
+          {
+            "id": "scn-act-3",
+            "picture": "💬",
+            "prompt": "Look at this line from a script: Which part is the DIALOGUE?",
+            "targetText": "Leo: \"I found the treasure map!\"",
+            "options": [
+              "I found the treasure map!",
+              "The castle setting",
+              "The playwright's name"
+            ],
+            "answer": "I found the treasure map!",
+            "explanation": "Dialogue is the words said out loud by the characters!"
+          },
+          {
+            "id": "scn-act-4",
+            "picture": "👉📝",
+            "prompt": "Look at this script line. What is '(jumps up and claps)'?",
+            "targetText": "Maya (jumps up and claps): \"We won!\"",
+            "options": [
+              "Stage directions",
+              "Cast of characters",
+              "A chapter"
+            ],
+            "answer": "Stage directions",
+            "explanation": "Stage directions are written instructions telling the actors what to do!"
+          },
+          {
+            "id": "scn-act-5",
+            "picture": "🗣️📖",
+            "prompt": "Who tells the audience what happens during the play?",
+            "targetText": "Storyteller in a play",
+            "options": [
+              "The narrator",
+              "The curtain",
+              "The stage directions"
+            ],
+            "answer": "The narrator",
+            "explanation": "The narrator is the person who tells what happens during the play!"
+          },
+          {
+            "id": "scn-act-6",
+            "picture": "📑",
+            "prompt": "Which part of a play is like a chapter that contains more than one scene?",
+            "targetText": "Big part of a play",
+            "options": [
+              "An act",
+              "Dialogue",
+              "A theater"
+            ],
+            "answer": "An act",
+            "explanation": "An act is a chapter in a play that contains more than one scene!"
+          }
+        ]
+      }
+    }
+  ],
+  "practices": [
+    {
+      "id": "w1_rd_practice_basics",
+      "category": "basics",
+      "practiceLabel": "Drama Practice",
+      "title": "Practice 1: Drama & Story vs. Play",
+      "icon": "🎭",
+      "description": "Practice What is Drama, What is a Theater, and how Stories compare to Plays (Playwright, Actors, Acts & Scenes).",
+      "hint": "Story: author / characters / chapters. Drama: playwright / actors / acts & scenes!",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_rd_practice_elements",
+      "category": "elements",
+      "practiceLabel": "Elements Practice",
+      "title": "Practice 2: The 8 Elements of Drama",
+      "icon": "📜",
+      "description": "Practice matching Script, Cast of Characters, Narrator, Setting, Act, Scene, Dialogue, and Stage Directions!",
+      "hint": "Remember each clue: text = script, talking = dialogue, what to do = stage directions, time & place = setting.",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_rd_practice_scenes",
+      "category": "scenes",
+      "practiceLabel": "Scene Detective",
+      "title": "Practice 3: Scenes & Mini Script Detective",
+      "icon": "🎬",
+      "description": "Practice spotting scene changes (time or place!) and reading short mini play scripts!",
+      "hint": "A new scene begins whenever the time or place changes! Words in (parentheses) tell actors what to do.",
+      "questionCount": 10
+    }
+  ],
+  "quiz": {
+    "id": "w1_rd_final_quiz",
+    "title": "Week 1 Final Quiz: Elements of Drama",
+    "icon": "🏆",
+    "description": "A fun 10-question mix covering Drama, Theater, Story vs. Play, all 8 Elements, and Scene Changes!",
+    "hint": "Read carefully, tap 🔊 if you want to listen, and think about how plays work on stage!",
+    "instruction": "Read the question and tap the best answer!",
+    "questions": [
+      {
+        "id": "q2-rd-w1-bas-01",
+        "category": "basics",
+        "instruction": "Choose the best definition of drama.",
+        "text": "What is a drama (a play)?",
+        "options": [
+          "A story performed for an audience on a stage or theater",
+          "A list of math problems to solve silently",
+          "A dictionary full of spelling words",
+          "A song played only on the radio"
+        ],
+        "answer": "A story performed for an audience on a stage or theater",
+        "hint": "Think about actors acting out a story in front of people watching!",
+        "explanation": "A drama (a play) is a story which can be performed for an audience on a stage or theater."
+      },
+      {
+        "id": "q2-rd-w1-bas-02",
+        "category": "basics",
+        "instruction": "Remember what we call the place where actors perform.",
+        "text": "What is a theater?",
+        "options": [
+          "The stage where the play is performed",
+          "The front cover of a storybook",
+          "A paintbrush used in art class",
+          "The last sentence in a paragraph"
+        ],
+        "answer": "The stage where the play is performed",
+        "hint": "Where do the red curtains open so actors can perform a play?",
+        "explanation": "A theater is the stage where the play is performed."
+      },
+      {
+        "id": "q2-rd-w1-bas-03",
+        "category": "basics",
+        "instruction": "Compare a story book to a drama.",
+        "text": "In a story, the writer is an author. Who writes a drama (a play)?",
+        "options": [
+          "Playwright",
+          "Audience",
+          "Theater",
+          "Narrator"
+        ],
+        "answer": "Playwright",
+        "hint": "This special word starts with 'play' and means someone who builds a play!",
+        "explanation": "An author writes a story, and a playwright writes a drama (a play)!"
+      },
+      {
+        "id": "q2-rd-w1-bas-04",
+        "category": "basics",
+        "instruction": "Compare a story book to a drama.",
+        "text": "In a story, we read about characters. Who plays the characters in a drama?",
+        "options": [
+          "Actors",
+          "Chapters",
+          "Curtains",
+          "Seats"
+        ],
+        "answer": "Actors",
+        "hint": "Real people put on costumes and perform on stage!",
+        "explanation": "Characters in a story are portrayed by actors in a drama!"
+      },
+      {
+        "id": "q2-rd-w1-bas-05",
+        "category": "basics",
+        "instruction": "Compare a story book to a drama.",
+        "text": "A story book is divided into chapters. A drama is divided into ___.",
+        "options": [
+          "acts and scenes",
+          "tables and chairs",
+          "lines and numbers",
+          "brushes and paints"
+        ],
+        "answer": "acts and scenes",
+        "hint": "Think of the big parts and smaller setting units in a play!",
+        "explanation": "Chapters in a story are like acts and scenes in a drama!"
+      },
+      {
+        "id": "q2-rd-w1-bas-06",
+        "category": "basics",
+        "instruction": "Think about who watches the play.",
+        "text": "A drama is a story performed on a stage for an ___.",
+        "options": [
+          "audience",
+          "umbrella",
+          "envelope",
+          "eraser"
+        ],
+        "answer": "audience",
+        "hint": "Who sits in the seats, watches the play, and claps at the end?",
+        "explanation": "Actors perform a drama for an audience on a stage or theater!"
+      },
+      {
+        "id": "q2-rd-w1-bas-07",
+        "category": "basics",
+        "instruction": "Match Story vs. Drama.",
+        "text": "Which pair is a match for Story → Drama?",
+        "options": [
+          "author or writer → playwright",
+          "characters → chapters",
+          "chapters → actors",
+          "playwright → stage curtain"
+        ],
+        "answer": "author or writer → playwright",
+        "hint": "Who writes a story, and who writes a play?",
+        "explanation": "Author or writer in a story matches playwright in a drama!"
+      },
+      {
+        "id": "q2-rd-w1-bas-08",
+        "category": "basics",
+        "instruction": "Match Story vs. Drama.",
+        "text": "Which pair correctly matches Chapters in a story?",
+        "options": [
+          "Chapters in a story → acts and scenes",
+          "Chapters in a story → actors",
+          "Chapters in a story → playwright",
+          "Chapters in a story → theater"
+        ],
+        "answer": "Chapters in a story → acts and scenes",
+        "hint": "Both divide the story into parts from beginning to end!",
+        "explanation": "Chapters in a story compare to acts and scenes in a drama!"
+      },
+      {
+        "id": "q2-rd-w1-bas-09",
+        "category": "basics",
+        "instruction": "Think about what actors do on stage.",
+        "text": "A class puts on costumes and acts out 'The Castle Dragon' in front of parents. What are they performing?",
+        "options": [
+          "A drama (a play)",
+          "A spelling test",
+          "A silent reading chapter",
+          "A math worksheet"
+        ],
+        "answer": "A drama (a play)",
+        "hint": "A story acted out for an audience on stage is called a...",
+        "explanation": "A story performed in front of an audience on a stage is a drama (a play)!"
+      },
+      {
+        "id": "q2-rd-w1-bas-10",
+        "category": "basics",
+        "instruction": "Use the word 'playwright' correctly.",
+        "text": "Nadia loves writing plays with dialogue and stage directions for her school stage. Nadia is a ___.",
+        "options": [
+          "playwright",
+          "chapter",
+          "theater",
+          "setting"
+        ],
+        "answer": "playwright",
+        "hint": "What do we call the writer of a drama?",
+        "explanation": "Someone who writes a play is called a playwright!"
+      },
+      {
+        "id": "q2-rd-w1-bas-11",
+        "category": "basics",
+        "instruction": "Remember what a theater is.",
+        "text": "Sam steps behind the red curtains onto the stage where the play will be performed. Sam is in the ___.",
+        "options": [
+          "theater",
+          "script",
+          "dialogue",
+          "narrator"
+        ],
+        "answer": "theater",
+        "hint": "Our slides say: A ___ is the stage where the play is performed.",
+        "explanation": "A theater is the stage where the play is performed!"
+      },
+      {
+        "id": "q2-rd-w1-bas-12",
+        "category": "basics",
+        "instruction": "Compare Story vs. Drama.",
+        "text": "How is a drama DIFFERENT from a regular story book?",
+        "options": [
+          "A drama is written to be performed by actors on a stage for an audience",
+          "A drama has no characters and no setting",
+          "A drama can only be three words long",
+          "A drama never has any talking"
+        ],
+        "answer": "A drama is written to be performed by actors on a stage for an audience",
+        "hint": "Think about what happens in a theater!",
+        "explanation": "A drama (a play) is a story written to be performed for an audience on a stage or theater!"
+      },
+      {
+        "id": "q2-rd-w1-bas-13",
+        "category": "basics",
+        "instruction": "Spot the Drama word.",
+        "text": "In a play about Robin Hood and Snow White on stage, the real people dressed up as Robin Hood and Snow White are the ___.",
+        "options": [
+          "actors",
+          "chapters",
+          "scripts",
+          "settings"
+        ],
+        "answer": "actors",
+        "hint": "Who plays the characters on stage in a drama?",
+        "explanation": "The characters in a drama are portrayed by actors on stage!"
+      },
+      {
+        "id": "q2-rd-w1-bas-14",
+        "category": "basics",
+        "instruction": "Fill in the Story vs. Drama blank.",
+        "text": "Author is to Story as ___ is to Drama.",
+        "options": [
+          "Playwright",
+          "Stage",
+          "Audience",
+          "Chapter"
+        ],
+        "answer": "Playwright",
+        "hint": "An author writes a story. Who writes a play?",
+        "explanation": "An author writes a story, and a playwright writes a drama!"
+      },
+      {
+        "id": "q2-rd-w1-elm-01",
+        "category": "elements",
+        "instruction": "Identify the element of drama.",
+        "text": "What is the script of a play?",
+        "options": [
+          "The text of the play",
+          "The curtains on the stage",
+          "The clothes the actors wear",
+          "The chairs for the audience"
+        ],
+        "answer": "The text of the play",
+        "hint": "All the written words that make up the play!",
+        "explanation": "Script = the text of the play!"
+      },
+      {
+        "id": "q2-rd-w1-elm-02",
+        "category": "elements",
+        "instruction": "Identify the element of drama.",
+        "text": "What is the Cast of Characters?",
+        "options": [
+          "All of the characters, usually portrayed by actors",
+          "The time and place of the play",
+          "The instructions telling the actors when to sit down",
+          "The first chapter in a book"
+        ],
+        "answer": "All of the characters, usually portrayed by actors",
+        "hint": "Look at the word 'characters' right inside 'Cast of Characters'!",
+        "explanation": "Cast of Characters = all of the characters, usually portrayed by actors."
+      },
+      {
+        "id": "q2-rd-w1-elm-03",
+        "category": "elements",
+        "instruction": "Identify the element of drama.",
+        "text": "Who is the narrator in a play?",
+        "options": [
+          "The person who tells what happens during the play",
+          "The person who sews the costumes",
+          "The building where the play happens",
+          "The stage lights"
+        ],
+        "answer": "The person who tells what happens during the play",
+        "hint": "This person narrates (tells) what is happening to help the audience!",
+        "explanation": "Narrator = the person who tells what happens during the play!"
+      },
+      {
+        "id": "q2-rd-w1-elm-04",
+        "category": "elements",
+        "instruction": "Identify the element of drama.",
+        "text": "What is the setting of a play?",
+        "options": [
+          "The time and place in the play",
+          "All the words spoken out loud",
+          "The writer of the play",
+          "A list of actors' names"
+        ],
+        "answer": "The time and place in the play",
+        "hint": "Setting answers WHERE and WHEN!",
+        "explanation": "Setting = the time and place in the play!"
+      },
+      {
+        "id": "q2-rd-w1-elm-05",
+        "category": "elements",
+        "instruction": "Identify the element of drama.",
+        "text": "What is an act in a play?",
+        "options": [
+          "A chapter in a play that contains more than one scene",
+          "One single word spoken by an actor",
+          "Written instructions telling actors to smile",
+          "The place where the audience sits"
+        ],
+        "answer": "A chapter in a play that contains more than one scene",
+        "hint": "It is a BIG section of a play made up of several smaller scenes!",
+        "explanation": "Act = a chapter in a play that contains more than one scene."
+      },
+      {
+        "id": "q2-rd-w1-elm-06",
+        "category": "elements",
+        "instruction": "Identify the element of drama.",
+        "text": "What is a scene in a play?",
+        "options": [
+          "The action that takes place in a single setting",
+          "The entire book of every play ever written",
+          "The person who tells what happens",
+          "The author who writes novels"
+        ],
+        "answer": "The action that takes place in a single setting",
+        "hint": "One scene stays in one single setting (one place and time)!",
+        "explanation": "Scene = the action that takes place in a single setting!"
+      },
+      {
+        "id": "q2-rd-w1-elm-07",
+        "category": "elements",
+        "instruction": "Identify the element of drama.",
+        "text": "What is dialogue?",
+        "options": [
+          "The words said by the characters",
+          "The painted castle behind the stage",
+          "The written directions that are NOT read aloud",
+          "The list of scenes at the start"
+        ],
+        "answer": "The words said by the characters",
+        "hint": "Characters speak this out loud when talking in a play!",
+        "explanation": "Dialogue = the words said by the characters!"
+      },
+      {
+        "id": "q2-rd-w1-elm-08",
+        "category": "elements",
+        "instruction": "Identify the element of drama.",
+        "text": "What are stage directions?",
+        "options": [
+          "Written instructions telling the actors what to do",
+          "The street address of the theater",
+          "A song sung by the audience",
+          "The cover art of the script"
+        ],
+        "answer": "Written instructions telling the actors what to do",
+        "hint": "They direct the actors on stage — telling them what to do!",
+        "explanation": "Stage Directions = written instructions telling the actors what to do!"
+      },
+      {
+        "id": "q2-rd-w1-elm-09",
+        "category": "elements",
+        "instruction": "Choose the matching Element of Drama.",
+        "text": "Which element gives written instructions telling the actors to 'tiptoe quietly across the bridge'?",
+        "options": [
+          "Stage directions",
+          "Dialogue",
+          "Narrator",
+          "Theater"
+        ],
+        "answer": "Stage directions",
+        "hint": "It tells the actors WHAT TO DO on stage!",
+        "explanation": "Telling an actor to tiptoe quietly is a stage direction!"
+      },
+      {
+        "id": "q2-rd-w1-elm-10",
+        "category": "elements",
+        "instruction": "Choose the matching Element of Drama.",
+        "text": "Which element of drama is shown here? 'King: Welcome to my castle! Queen: Thank you for the party!'",
+        "options": [
+          "Dialogue",
+          "Stage directions",
+          "Setting",
+          "Act"
+        ],
+        "answer": "Dialogue",
+        "hint": "These are the words spoken out loud by the King and Queen!",
+        "explanation": "The words said by the characters are called dialogue!"
+      },
+      {
+        "id": "q2-rd-w1-elm-11",
+        "category": "elements",
+        "instruction": "Choose the matching Element of Drama.",
+        "text": "'Time: A rainy Tuesday afternoon. Place: Inside Grandma's kitchen.' Which element is this?",
+        "options": [
+          "Setting",
+          "Dialogue",
+          "Cast of Characters",
+          "Playwright"
+        ],
+        "answer": "Setting",
+        "hint": "It tells BOTH the time and place of the play!",
+        "explanation": "The time and place in a play is the setting!"
+      },
+      {
+        "id": "q2-rd-w1-elm-12",
+        "category": "elements",
+        "instruction": "Choose the matching Element of Drama.",
+        "text": "'Characters: Mia (a detective), Leo (her little brother), Whiskers (a talking cat).' What is this list called?",
+        "options": [
+          "Cast of Characters",
+          "Stage Directions",
+          "Setting",
+          "Act"
+        ],
+        "answer": "Cast of Characters",
+        "hint": "It lists all of the characters in the play!",
+        "explanation": "All of the characters in a play make up the Cast of Characters!"
+      },
+      {
+        "id": "q2-rd-w1-elm-13",
+        "category": "elements",
+        "instruction": "Choose the matching Element of Drama.",
+        "text": "The teacher hands out stapled pages containing all the character names, dialogue, and stage directions for the class play. She is handing out the ___.",
+        "options": [
+          "script",
+          "setting",
+          "narrator",
+          "audience"
+        ],
+        "answer": "script",
+        "hint": "What do we call the text (written pages) of the whole play?",
+        "explanation": "The script is the text of the play!"
+      },
+      {
+        "id": "q2-rd-w1-elm-14",
+        "category": "elements",
+        "instruction": "Choose the matching Element of Drama.",
+        "text": "During the play, one voice explains to the audience: 'Long ago, two friends sailed across the ocean looking for a hidden island.' Who is speaking?",
+        "options": [
+          "The narrator",
+          "The playwright",
+          "The stage directions",
+          "The act"
+        ],
+        "answer": "The narrator",
+        "hint": "Who tells what happens during the play?",
+        "explanation": "The narrator is the person who tells what happens during the play!"
+      },
+      {
+        "id": "q2-rd-w1-elm-15",
+        "category": "elements",
+        "instruction": "Compare Act and Scene.",
+        "text": "Which statement about an Act and a Scene is TRUE?",
+        "options": [
+          "An act is like a chapter and contains more than one scene",
+          "A scene contains ten acts inside it",
+          "Acts are only for story books, never for plays",
+          "An act is smaller than one single word"
+        ],
+        "answer": "An act is like a chapter and contains more than one scene",
+        "hint": "Think: Act = big chapter; Scene = smaller unit inside it!",
+        "explanation": "An act is a chapter in a play that contains more than one scene!"
+      },
+      {
+        "id": "q2-rd-w1-elm-16",
+        "category": "elements",
+        "instruction": "Remember the role of Stage Directions.",
+        "text": "In a play, should an actor read the stage directions in (parentheses) out loud to the audience?",
+        "options": [
+          "No — stage directions are instructions showing the actor what to do",
+          "Yes — actors shout them louder than their dialogue",
+          "Yes — only the narrator must read every direction",
+          "No — actors skip them and do nothing"
+        ],
+        "answer": "No — stage directions are instructions showing the actor what to do",
+        "hint": "If a script says (waves hand), does the actor say the word 'waves hand' or actually wave?",
+        "explanation": "Actors perform the stage directions instead of reading them out loud!"
+      },
+      {
+        "id": "q2-rd-w1-scn-01",
+        "category": "scenes",
+        "instruction": "Remember how a scene works.",
+        "text": "A scene is a unit of the play that happens at a specific ___.",
+        "options": [
+          "place or time",
+          "desk or chair",
+          "song or dance",
+          "snack or drink"
+        ],
+        "answer": "place or time",
+        "hint": "Slide 6 says: The scene happens at a specific ___ or ___.",
+        "explanation": "The scene is a unit of the play that happens at a specific place or time!"
+      },
+      {
+        "id": "q2-rd-w1-scn-02",
+        "category": "scenes",
+        "instruction": "Remember the New Scene rule!",
+        "text": "How will you know it is a new scene in a play?",
+        "options": [
+          "When the time or place changes",
+          "When an actor wears a green hat",
+          "When a character asks a question",
+          "When the playwright writes two commas"
+        ],
+        "answer": "When the time or place changes",
+        "hint": "Slide 7 says: You will know it's a new scene when the ___ or ___ changes!",
+        "explanation": "You know it's a new scene when the time or place changes!"
+      },
+      {
+        "id": "q2-rd-w1-scn-03",
+        "category": "scenes",
+        "instruction": "Spot what causes a new scene.",
+        "text": "Scene 1 happens inside a treehouse. Next, the characters climb down and run into the park. Why does a new scene start?",
+        "options": [
+          "Because the place changed",
+          "Because the actors stopped talking",
+          "Because the theater roof opened",
+          "Because the narrator forgot a line"
+        ],
+        "answer": "Because the place changed",
+        "hint": "They moved from the treehouse to the park — did time or place change?",
+        "explanation": "Moving from the treehouse to the park changes the place, starting a new scene!"
+      },
+      {
+        "id": "q2-rd-w1-scn-04",
+        "category": "scenes",
+        "instruction": "Spot what causes a new scene.",
+        "text": "Scene 1 takes place in the classroom on Monday morning. Scene 2 happens in the same classroom on Friday afternoon. Why is it a new scene?",
+        "options": [
+          "Because the time changed",
+          "Because the place moved to a castle",
+          "Because the script ran out of paper",
+          "Because there is no narrator"
+        ],
+        "answer": "Because the time changed",
+        "hint": "The classroom stayed the same, so what changed from Monday morning to Friday afternoon?",
+        "explanation": "Even in the same place, changing from Monday morning to Friday afternoon changes the time — starting a new scene!"
+      },
+      {
+        "id": "q2-rd-w1-scn-05",
+        "category": "scenes",
+        "instruction": "Read the mini script and answer the question.",
+        "passage": {
+          "title": "The Lost Crown — Act 1, Scene 1",
+          "sentences": [
+            "Setting: Inside a sunny castle throne room in the morning.",
+            "Narrator: King Omar looked everywhere for his shiny crown.",
+            "King Omar (scratching his head): Did anyone see my crown?",
+            "Princess Dina (pointing near the window): Look! A bluebird took it to the tree!"
+          ]
+        },
+        "text": "What is the SETTING of Act 1, Scene 1?",
+        "options": [
+          "Inside a sunny castle throne room in the morning",
+          "A dark cave at midnight",
+          "A school bus on Friday",
+          "Princess Dina's treehouse"
+        ],
+        "answer": "Inside a sunny castle throne room in the morning",
+        "hint": "Read sentence (1) of the script for the place and time!",
+        "explanation": "Sentence (1) tells us the setting (time & place): inside a sunny castle throne room in the morning!"
+      },
+      {
+        "id": "q2-rd-w1-scn-06",
+        "category": "scenes",
+        "instruction": "Read the mini script and answer the question.",
+        "passage": {
+          "title": "The Lost Crown — Act 1, Scene 1",
+          "sentences": [
+            "Setting: Inside a sunny castle throne room in the morning.",
+            "Narrator: King Omar looked everywhere for his shiny crown.",
+            "King Omar (scratching his head): Did anyone see my crown?",
+            "Princess Dina (pointing near the window): Look! A bluebird took it to the tree!"
+          ]
+        },
+        "text": "In sentence (3), what is '(scratching his head)'?",
+        "options": [
+          "Stage directions",
+          "The setting",
+          "The cast of characters",
+          "A new act"
+        ],
+        "answer": "Stage directions",
+        "hint": "Words in (parentheses) tell the actor playing King Omar what to do!",
+        "explanation": "(scratching his head) is stage directions telling the actor what to do!"
+      },
+      {
+        "id": "q2-rd-w1-scn-07",
+        "category": "scenes",
+        "instruction": "Read the mini script and answer the question.",
+        "passage": {
+          "title": "The Lost Crown — Act 1, Scene 1",
+          "sentences": [
+            "Setting: Inside a sunny castle throne room in the morning.",
+            "Narrator: King Omar looked everywhere for his shiny crown.",
+            "King Omar (scratching his head): Did anyone see my crown?",
+            "Princess Dina (pointing near the window): Look! A bluebird took it to the tree!"
+          ]
+        },
+        "text": "In sentence (2), who is telling the audience what happened?",
+        "options": [
+          "The narrator",
+          "The stage directions",
+          "The audience",
+          "The chapter"
+        ],
+        "answer": "The narrator",
+        "hint": "Look at the label at the start of sentence (2)!",
+        "explanation": "The narrator tells what happens during the play!"
+      },
+      {
+        "id": "q2-rd-w1-scn-08",
+        "category": "scenes",
+        "instruction": "Read the mini script and answer the question.",
+        "passage": {
+          "title": "The Lost Crown — Scene 1 & Scene 2",
+          "sentences": [
+            "Scene 1 Setting: Inside the castle throne room in the morning.",
+            "Princess Dina: Let's climb up to the tall treehouse outside!",
+            "Scene 2 Setting: Outside in the garden treehouse at noon.",
+            "King Omar (smiling): Hurray! My crown is safe in the bird nest!"
+          ]
+        },
+        "text": "How do you know Scene 2 is a NEW scene?",
+        "options": [
+          "Both the place (treehouse) and time (noon) changed",
+          "King Omar stopped smiling",
+          "The script became a chapter book",
+          "The same setting stayed identical"
+        ],
+        "answer": "Both the place (treehouse) and time (noon) changed",
+        "hint": "Compare Scene 1 Setting in (1) with Scene 2 Setting in (3)!",
+        "explanation": "A new scene begins when the time or place changes — here it moved from the castle morning to the garden treehouse at noon!"
+      },
+      {
+        "id": "q2-rd-w1-scn-09",
+        "category": "scenes",
+        "instruction": "Read the mini script and answer the question.",
+        "passage": {
+          "title": "Treehouse Club — Act 1, Scene 1",
+          "sentences": [
+            "Characters: Sami, Nour, and Grandpa.",
+            "Setting: A wooden treehouse on Saturday afternoon.",
+            "Sami (holding a flashlight): Let's tell a funny story!",
+            "Nour (laughing): Okay, you go first!"
+          ]
+        },
+        "text": "Which words in sentence (4) are Nour's DIALOGUE?",
+        "options": [
+          "Okay, you go first!",
+          "(laughing)",
+          "Characters: Sami, Nour, and Grandpa.",
+          "A wooden treehouse on Saturday afternoon."
+        ],
+        "answer": "Okay, you go first!",
+        "hint": "Remember: dialogue is the words said out loud by a character (not the stage directions in parentheses)!",
+        "explanation": "'Okay, you go first!' is Nour's dialogue (words spoken out loud), while '(laughing)' is stage directions!"
+      },
+      {
+        "id": "q2-rd-w1-scn-10",
+        "category": "scenes",
+        "instruction": "Read the mini script and answer the question.",
+        "passage": {
+          "title": "Treehouse Club — Act 1, Scene 1",
+          "sentences": [
+            "Characters: Sami, Nour, and Grandpa.",
+            "Setting: A wooden treehouse on Saturday afternoon.",
+            "Sami (holding a flashlight): Let's tell a funny story!",
+            "Nour (laughing): Okay, you go first!"
+          ]
+        },
+        "text": "What does sentence (1) show?",
+        "options": [
+          "The cast of characters",
+          "Stage directions",
+          "A scene change",
+          "The playwright's address"
+        ],
+        "answer": "The cast of characters",
+        "hint": "Sentence (1) lists everyone appearing in the play!",
+        "explanation": "Sentence (1) lists all of the characters in the play — the Cast of Characters!"
+      },
+      {
+        "id": "q2-rd-w1-scn-11",
+        "category": "scenes",
+        "instruction": "Read the mini script and decide if a new scene starts.",
+        "passage": {
+          "title": "Bake Sale Surprise",
+          "sentences": [
+            "Setting: School gym at 9 o'clock in the morning.",
+            "Ben (putting cookies on a tray): Our table looks great!",
+            "Zara (waving to students): Here come our first customers!"
+          ]
+        },
+        "text": "Next in the play, Maya walks up to the same table in the school gym at 9:05 in the morning. Should this stay in the SAME scene or start a NEW scene?",
+        "options": [
+          "Stay in the same scene, because the place and time did not change",
+          "Start a new scene, because Maya walked in",
+          "End the whole play immediately",
+          "Turn the play into a story book chapter"
+        ],
+        "answer": "Stay in the same scene, because the place and time did not change",
+        "hint": "Ask: Did the setting (school gym, morning) change?",
+        "explanation": "A scene continues while the action stays in a single setting (same place and time)!"
+      },
+      {
+        "id": "q2-rd-w1-scn-12",
+        "category": "scenes",
+        "instruction": "Think about what happens at a scene change.",
+        "text": "The curtain closes for a moment while helpers move away the bedroom bed and roll out forest trees on stage. Why are they changing the stage?",
+        "options": [
+          "Because the place is changing for a new scene",
+          "Because the actors forgot their dialogue",
+          "Because the narrator went home",
+          "Because the playwright erased the script"
+        ],
+        "answer": "Because the place is changing for a new scene",
+        "hint": "Bedroom → Forest means a new place!",
+        "explanation": "Changing the stage from a bedroom to a forest shows a new place, which means a new scene!"
+      },
+      {
+        "id": "q2-rd-w1-scn-13",
+        "category": "scenes",
+        "instruction": "Spot the missing Element of Drama.",
+        "text": "Read this line: 'Dragon ___: Watch out, here comes my sneeze!' Which part belongs in the blank to tell the actor what to do?",
+        "options": [
+          "(wiggling his nose)",
+          "in a sunny forest",
+          "written by a playwright",
+          "Act 2"
+        ],
+        "answer": "(wiggling his nose)",
+        "hint": "Which choice is a stage direction telling the actor what to do?",
+        "explanation": "(wiggling his nose) is a stage direction giving an action instruction to the actor!"
+      },
+      {
+        "id": "q2-rd-w1-scn-14",
+        "category": "scenes",
+        "instruction": "Spot ALL clues in a scene heading.",
+        "text": "Look at this heading in a script: 'ACT 1, SCENE 2 — Backyard Tent at Night.' Which part tells the SETTING?",
+        "options": [
+          "Backyard Tent at Night",
+          "ACT 1",
+          "SCENE 2",
+          "The title page"
+        ],
+        "answer": "Backyard Tent at Night",
+        "hint": "Setting = the time AND place in the play!",
+        "explanation": "'Backyard Tent' is the place and 'at Night' is the time — together they are the Setting!"
+      },
+      {
+        "id": "q2-rd-w1-scn-15",
+        "category": "scenes",
+        "instruction": "Check your Drama mastery!",
+        "text": "Which two changes can start a new scene in a play?",
+        "options": [
+          "A change in time OR a change in place",
+          "A change in shirt OR a change in shoes",
+          "A loud clap OR a quiet whisper",
+          "A new narrator OR a longer script"
+        ],
+        "answer": "A change in time OR a change in place",
+        "hint": "Remember our final slide: You will know it's a new scene when the ___ or ___ changes!",
+        "explanation": "You know it's a new scene whenever the time or place changes!"
+      }
+    ]
+  }
+}

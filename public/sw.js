@@ -1,5 +1,5 @@
 // Service Worker for Grade 2 Stars PWA
-const CACHE_VERSION = 'grade2-stars-v2.3.0';
+const CACHE_VERSION = 'grade2-stars-v2.4.0';
 const STATIC_CACHE = `static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `dynamic-${CACHE_VERSION}`;
 

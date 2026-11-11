@@ -3,6 +3,7 @@ import math from './subjects/math/index.js';
 import science from './subjects/science/index.js';
 import social from './subjects/social/index.js';
 import german from './subjects/german/index.js';
+import reading from './subjects/reading/index.js';
 
 export default {
   id: 'q2',
@@ -14,6 +15,7 @@ export default {
     math,
     science,
     social,
-    german
+    german,
+    reading
   ]
 };
