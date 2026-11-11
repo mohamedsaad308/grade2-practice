@@ -5,7 +5,7 @@ Q2 subjects live in `src/terms/q2/subjects/` in this order:
 2. `math/` (🔢 Math — Coming soon)
 3. `science/` (🔬 Science — Coming soon)
 4. `social/` (🌍 Social — Coming soon)
-5. `german/` (🇩🇪 German — Coming soon)
+5. `german/` (🇩🇪 German — **Active! Week 1 unlocked**)
 
 ## How a Subject Becomes Active
 While a subject's `topics` array in `index.js` is empty (`topics: []`), its card appears greyed out with **"Coming soon"** on the Q2 Home screen.

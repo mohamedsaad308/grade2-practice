@@ -95,10 +95,20 @@ function indexManifest(rawManifest) {
   if (rawManifest && typeof rawManifest === 'object') {
     for (const [key, val] of Object.entries(rawManifest)) {
       if (typeof val === 'string' && val.trim()) {
-        const cleaned = cleanTextForSpeech(key);
-        if (cleaned) {
-          exact[cleaned] = val;
-          lower[cleaned.toLowerCase()] = val;
+        const prefixMatch = key.match(/^(de|en):([\s\S]*)$/);
+        if (prefixMatch) {
+          const langPrefix = prefixMatch[1];
+          const cleaned = cleanTextForSpeech(prefixMatch[2]);
+          if (cleaned) {
+            exact[`${langPrefix}:${cleaned}`] = val;
+            lower[`${langPrefix}:${cleaned.toLowerCase()}`] = val;
+          }
+        } else {
+          const cleaned = cleanTextForSpeech(key);
+          if (cleaned) {
+            exact[cleaned] = val;
+            lower[cleaned.toLowerCase()] = val;
+          }
         }
       }
     }
@@ -144,10 +154,20 @@ if (typeof window !== 'undefined' && typeof fetch === 'function') {
   loadAudioManifest();
 }
 
-export function getManifestAudioPath(text) {
+export function getManifestAudioPath(text, lang = 'en-US') {
   if (!manifestCache || !text) return null;
   const cleaned = cleanTextForSpeech(text);
   if (!cleaned) return null;
+
+  const langPrefix = String(lang || '').toLowerCase().startsWith('de') ? 'de' : null;
+  if (langPrefix) {
+    const prefixed = `${langPrefix}:${cleaned}`;
+    if (manifestCache[prefixed]) return manifestCache[prefixed];
+    const prefixedLower = `${langPrefix}:${cleaned.toLowerCase()}`;
+    if (lowerManifestCache && lowerManifestCache[prefixedLower]) {
+      return lowerManifestCache[prefixedLower];
+    }
+  }
 
   if (manifestCache[cleaned]) return manifestCache[cleaned];
   const lowerKey = cleaned.toLowerCase();
@@ -157,6 +177,13 @@ export function getManifestAudioPath(text) {
 
   const withoutColon = cleaned.replace(/[:]+$/, '').trim();
   if (withoutColon !== cleaned) {
+    if (langPrefix) {
+      const pNoColon = `${langPrefix}:${withoutColon}`;
+      if (manifestCache[pNoColon]) return manifestCache[pNoColon];
+      if (lowerManifestCache && lowerManifestCache[`${langPrefix}:${withoutColon.toLowerCase()}`]) {
+        return lowerManifestCache[`${langPrefix}:${withoutColon.toLowerCase()}`];
+      }
+    }
     if (manifestCache[withoutColon]) return manifestCache[withoutColon];
     if (lowerManifestCache && lowerManifestCache[withoutColon.toLowerCase()]) {
       return lowerManifestCache[withoutColon.toLowerCase()];
@@ -184,15 +211,18 @@ export function isSpeechSupported() {
  * Preload MP3 files for upcoming texts (e.g. current and next flashcard)
  * so taps respond without delay on slow mobile connections.
  */
-export async function preloadSpeechTexts(texts = []) {
+export async function preloadSpeechTexts(texts = [], defaultLang = 'en-US') {
   if (typeof window === 'undefined' || typeof window.Audio === 'undefined') return;
   const list = Array.isArray(texts) ? texts.filter(Boolean) : [];
   if (list.length === 0) return;
 
   await loadAudioManifest();
 
-  for (const raw of list) {
-    const relPath = getManifestAudioPath(raw);
+  for (const item of list) {
+    const raw = typeof item === 'object' && item !== null ? item.text : item;
+    const itemLang = (typeof item === 'object' && item !== null ? item.lang : null) || defaultLang;
+    if (!raw) continue;
+    const relPath = getManifestAudioPath(raw, itemLang);
     if (!relPath) continue;
     const url = resolveAudioAssetUrl(relPath);
     if (!url || preloadedAudioMap.has(url)) continue;
@@ -229,7 +259,7 @@ function speakPartWithBrowserSynthesis(part, mySeq, options, callbacks) {
 
     const rate = options.rate || 0.86;
     const pitch = options.pitch || 1.06;
-    const lang = options.lang || 'en-US';
+    const lang = part.lang || options.lang || 'en-US';
     const textWithPause =
       !part.trackWords && !/[.!?]$/.test(spokenText) ? `${spokenText}.` : spokenText;
 
@@ -327,9 +357,10 @@ function speakPartWithBrowserSynthesis(part, mySeq, options, callbacks) {
 function playSinglePart(part, mySeq, options, callbacks) {
   if (mySeq !== activeSequenceId) return;
 
+  const partLang = part.lang || options.lang || 'en-US';
   const manifestPath =
-    getManifestAudioPath(part.text) ||
-    (part.fallbackKey ? getManifestAudioPath(part.fallbackKey) : null);
+    getManifestAudioPath(part.text, partLang) ||
+    (part.fallbackKey ? getManifestAudioPath(part.fallbackKey, partLang) : null);
 
   const audio = getSharedAudioElement();
 

@@ -58,6 +58,11 @@ import SessionSummary from '../views/SessionSummary.jsx';
 import ParentDashboard from '../views/ParentDashboard.jsx';
 import week1Data from '../terms/q2/subjects/english/content/week1.json';
 import { selectWeekQuizQuestions, selectPracticeCategoryQuestions } from '../terms/q2/subjects/english/index.js';
+import germanWeek1Data from '../terms/q2/subjects/german/content/week1.json';
+import {
+  selectWeekQuizQuestions as selectGermanWeekQuizQuestions,
+  selectPracticeCategoryQuestions as selectGermanPracticeCategoryQuestions
+} from '../terms/q2/subjects/german/index.js';
 
 describe('School Term Registry, Routes, Migration & UI Isolation', () => {
   beforeEach(() => {
@@ -75,7 +80,7 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(DEFAULT_TERM_ID).toBe('q2');
   });
 
-  it('2. Q2 has 5 subjects in exact order (English, Math, Science, Social, German): ONLY English is active with Week 1; Math, Science, Social, German stay Coming soon', () => {
+  it('2. Q2 has 5 subjects in exact order (English, Math, Science, Social, German): English and German are active with Week 1; Math, Science, Social stay Coming soon', () => {
     const q2Subjects = getSubjectsForTerm('q2');
     expect(q2Subjects.map((s) => s.title)).toEqual([
       'English',
@@ -86,15 +91,19 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     ]);
     expect(q2Subjects.map((s) => s.icon)).toEqual(['📚', '🔢', '🔬', '🌍', '🇩🇪']);
 
-    // Only English is unlocked with Week 1 topics (4 lessons + 4 worksheet practices + 1 final quiz)
+    // English is active with Week 1 topics (4 lessons + 4 worksheet practices + 1 final quiz)
     expect(isSubjectActive(q2Subjects[0])).toBe(true);
     expect(q2Subjects[0].topics.length).toBe(9);
 
-    // Math, Science, Social, German stay inactive Coming soon
-    q2Subjects.slice(1).forEach((subj) => {
+    // Math, Science, Social stay inactive Coming soon
+    q2Subjects.slice(1, 4).forEach((subj) => {
       expect(subj.topics).toEqual([]);
       expect(isSubjectActive(subj)).toBe(false);
     });
+
+    // German is unlocked with Week 1 topics (3 lessons + 3 practices + 1 final quiz)
+    expect(isSubjectActive(q2Subjects[4])).toBe(true);
+    expect(q2Subjects[4].topics.length).toBe(7);
   });
 
   it('3. every Q1 topic (and Q1 Review) is reachable via its canonical /#/q1/<subject>/<topic> route', () => {
@@ -648,17 +657,17 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     try {
       setAudioManifestForTests(manifest);
 
-      const assertAudioClipExists = (rawText) => {
+      const assertAudioClipExists = (rawText, lang = 'en-US') => {
         const cleaned = cleanTextForSpeech(rawText);
         if (!cleaned) return;
-        const rel = getManifestAudioPath(cleaned);
-        expect(rel, `Missing audio-manifest entry for: ${cleaned}`).toBeTruthy();
+        const rel = getManifestAudioPath(cleaned, lang);
+        expect(rel, `Missing audio-manifest entry for [${lang}]: ${cleaned}`).toBeTruthy();
         const mp3Path = path.join(publicDir, rel);
         expect(fs.existsSync(mp3Path), `Missing MP3 file on disk: ${rel}`).toBe(true);
         expect(fs.statSync(mp3Path).size).toBeGreaterThan(100);
       };
 
-      // Every Q2 Week 1 card, mini-activity & worksheet/quiz question/passage/options
+      // Every Q2 English Week 1 card, mini-activity & worksheet/quiz question/passage/options
       week1Data.lessons.forEach((lesson) => {
         lesson.cards.forEach((card) => {
           assertAudioClipExists(card.word || card.frontTitle);
@@ -695,6 +704,57 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
         if (q.explanation) assertAudioClipExists(q.explanation);
       });
 
+      // Every Q2 German Week 1 card, mini-activity, and quiz item (native de-DE + en-US clips)
+      germanWeek1Data.lessons.forEach((lesson) => {
+        const lessonLang = lesson.lang || 'de-DE';
+        lesson.cards.forEach((card) => {
+          const cardLang = card.lang || lessonLang;
+          if (card.word) assertAudioClipExists(card.word, card.wordLang || cardLang);
+          else if (card.frontTitle) assertAudioClipExists(card.frontTitle, card.frontTitleLang || cardLang);
+          if (card.backTitle) assertAudioClipExists(card.backTitle, card.backTitleLang || cardLang);
+          assertAudioClipExists(card.explanation, 'en-US');
+          assertAudioClipExists(card.example, card.exampleLang || cardLang);
+          if (card.exampleTranslation) assertAudioClipExists(card.exampleTranslation, 'en-US');
+          if (Array.isArray(card.songLines) && card.songLines.length > 0) {
+            const deVerse = card.songLines.map((l) => l.german).filter(Boolean).join(' ');
+            const enVerse = card.songLines.map((l) => l.english).filter(Boolean).join(' ');
+            if (deVerse) assertAudioClipExists(deVerse, 'de-DE');
+            if (enVerse) assertAudioClipExists(enVerse, 'en-US');
+          }
+        });
+        const act = lesson.activity;
+        if (act?.type === 'tap_choice') {
+          act.items.forEach((it) => {
+            assertAudioClipExists(it.prompt, 'en-US');
+            if (it.targetText) assertAudioClipExists(it.targetText, it.itemLang || act.itemLang || lessonLang);
+            it.options.forEach((opt) => assertAudioClipExists(opt, it.optionsLang || act.optionsLang || 'en-US'));
+            assertAudioClipExists(it.explanation, 'en-US');
+          });
+        } else if (act?.type === 'match_pairs') {
+          act.allPairs.forEach(([left, right]) => {
+            assertAudioClipExists(left, act.leftLang || lessonLang);
+            assertAudioClipExists(right, act.rightLang || 'en-US');
+          });
+        }
+      });
+      germanWeek1Data.quiz.questions.forEach((q) => {
+        if (Array.isArray(q.speechParts) && q.speechParts.length > 0) {
+          q.speechParts.forEach((sp) => assertAudioClipExists(sp.text, sp.lang || 'en-US'));
+        } else {
+          if (q.instruction) assertAudioClipExists(q.instruction.replace(/[:]+$/, ''), q.instructionLang || 'en-US');
+          assertAudioClipExists(q.speechText || q.text, q.textLang || 'en-US');
+        }
+        q.options.forEach((opt) => assertAudioClipExists(opt, q.optionsLang || 'en-US'));
+        if (q.explanation) assertAudioClipExists(q.explanation, 'en-US');
+      });
+
+      // Disambiguate shared words across English & German ('orange' -> separate MP3 clips!)
+      const enOrange = getManifestAudioPath('orange', 'en-US');
+      const deOrange = getManifestAudioPath('orange', 'de-DE');
+      expect(enOrange).toBeTruthy();
+      expect(deOrange).toBeTruthy();
+      expect(deOrange).not.toBe(enOrange);
+
       // Every Q1 English topic instruction and item text
       q1EnglishContent.topics.forEach((topic) => {
         assertAudioClipExists(topic.instruction.replace(/[:]+$/, ''));
@@ -714,5 +774,102 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     } finally {
       setAudioManifestForTests(null);
     }
+  });
+
+  it('13. Q2 German Week 1 validates all 3 flashcard lessons (29 cards with English translations & transcriptions), 3 practices, and 60-question bank', () => {
+    const q2German = getSubjectByTermAndId('q2', 'german');
+    expect(isSubjectActive(q2German)).toBe(true);
+    expect(q2German.topics.length).toBe(7);
+    expect(germanWeek1Data.lessons.length).toBe(3);
+    expect(germanWeek1Data.practices.length).toBe(3);
+    expect(germanWeek1Data.quiz.questions.length).toBe(60);
+
+    // Every card has transcription ("Say it"), translation, example + exampleTranslation, and umlauts highlight cleanly
+    let totalCards = 0;
+    germanWeek1Data.lessons.forEach((lesson) => {
+      lesson.cards.forEach((card) => {
+        totalCards += 1;
+        expect(typeof card.transcription).toBe('string');
+        expect(card.transcription.trim().length).toBeGreaterThan(1);
+        expect(typeof card.translation).toBe('string');
+        expect(card.translation.trim().length).toBeGreaterThan(1);
+        expect(typeof card.example).toBe('string');
+        expect(typeof card.exampleTranslation).toBe('string');
+      });
+    });
+    expect(totalCards).toBe(29);
+
+    // Unicode umlaut & ß highlighting check inside tokenizeExampleSentence
+    const { tokens: gruenTokens } = tokenizeExampleSentence('Das ist grün. Ich mag grün.', ['grün']);
+    expect(gruenTokens.filter((t) => t.type === 'word' && t.isTarget).length).toBe(2);
+    const { tokens: jaegerTokens } = tokenizeExampleSentence('Weil mein Schatz ein Jäger ist.', ['Jäger']);
+    expect(jaegerTokens.filter((t) => t.type === 'word' && t.isTarget).map((t) => t.text)).toEqual(['Jäger']);
+
+    // Validate all 60 quiz questions (unique IDs, 3-4 unique options, exact answer in options)
+    const seenIds = new Set();
+    germanWeek1Data.quiz.questions.forEach((q) => {
+      expect(seenIds.has(q.id)).toBe(false);
+      seenIds.add(q.id);
+      expect(q.options.length).toBeGreaterThanOrEqual(3);
+      expect(q.options.length).toBeLessThanOrEqual(4);
+      expect(new Set(q.options).size).toBe(q.options.length);
+      expect(q.options).toContain(q.answer);
+    });
+
+    // Validate Topic Practice sampling per category & adaptive isolation under ('q2', 'german')
+    germanWeek1Data.practices.forEach((practice) => {
+      const picked = selectGermanPracticeCategoryQuestions(germanWeek1Data.quiz, practice, null, 'q2');
+      expect(picked.length).toBe(10);
+      picked.forEach((q) => {
+        expect(q.category).toBe(practice.category);
+        const html = renderToString(
+          React.createElement(QuestionDispatcher, {
+            question: q,
+            onSubmit: () => {},
+            disabled: false,
+            soundEnabled: false
+          })
+        );
+        expect(html.length).toBeGreaterThan(40);
+      });
+    });
+
+    // Stratified 10-question final quiz guarantees >= 3 from each of 3 categories (colors, sentences, song)
+    const sampledQuiz = selectGermanWeekQuizQuestions(germanWeek1Data.quiz, null, 'q2');
+    expect(sampledQuiz.length).toBe(10);
+    ['colors', 'sentences', 'song'].forEach((cat) => {
+      expect(sampledQuiz.filter((q) => q.category === cat).length).toBeGreaterThanOrEqual(3);
+    });
+
+    // Render Q2 German Topics screen + Lesson 1 SVG paint splashes + Lesson 3 song card
+    const clean = (html) => html.replace(/<!-- -->/g, '');
+    const q2Term = getTermById('q2');
+    const topicsHtml = clean(renderToString(
+      React.createElement(SubjectTopicsView, {
+        player: { name: 'Maya', avatar: 'fox', stars: 0 },
+        term: q2Term,
+        subject: q2German
+      })
+    ));
+    expect(topicsHtml).toContain('Lesson 1: Die Farben (12 Colors)');
+    expect(topicsHtml).toContain('Lesson 3: Song — Grün, grün, grün');
+    expect(topicsHtml).toContain('Practice 1: Die Farben (Colors)');
+    expect(topicsHtml).toContain('Week 1 Final Quiz: Die Farben');
+
+    const colorLesson = getTopicByTermSubjectAndId('q2', 'german', 'w1_de_lesson1_colors');
+    const colorLessonHtml = clean(renderToString(
+      React.createElement(FlashcardLesson, {
+        player: { name: 'Maya', avatar: 'fox', stars: 0 },
+        termId: 'q2',
+        subject: q2German,
+        topic: colorLesson,
+        settings: { soundEnabled: true, spokenPraiseEnabled: true }
+      })
+    ));
+    expect(colorLessonHtml).toContain('Card 1 of 14');
+    expect(colorLessonHtml).toContain('Die Farben!');
+    expect(colorLessonHtml).toContain('color-palette-board');
+    expect(colorLessonHtml).toContain('Say it:');
+    expect(colorLessonHtml).toContain('Color Splash Pop!');
   });
 });

@@ -206,7 +206,7 @@ export default function SubjectTopicsView({
                             : isLesson
                               ? 'Lesson • Cards + Game'
                               : isPractice
-                                ? 'Worksheet Practice'
+                                ? topic.practiceLabel || 'Worksheet Practice'
                                 : `Topic ${displayIdx + 1}`}
                         </span>
                         <h3 className="topic-card-title">{topic.title}</h3>

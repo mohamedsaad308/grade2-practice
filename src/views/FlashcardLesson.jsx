@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PracticeHeader from '../components/PracticeHeader.jsx';
 import Mascot from '../components/Mascot.jsx';
 import ConfettiCanvas from '../components/ConfettiCanvas.jsx';
+import ColorSplashVisual from '../components/ColorSplashVisual.jsx';
 import MatchRenderer from '../engine/MatchRenderer.jsx';
 import { playPop, playSuccessSound, playGentleWrongSound } from '../utils/audio.js';
 import {
@@ -17,7 +18,7 @@ import { recordSessionCompletion } from '../player/playerStorage.js';
 /**
  * Tokenize a sentence into alternating word and separator spans,
  * tracking character offsets (for TTS onboundary sync) and flagging
- * target words to highlight in red.
+ * target words to highlight in red (supports Latin + German ä, ö, ü, ß).
  */
 export function tokenizeExampleSentence(sentence, highlightTargets = []) {
   const text = String(sentence || '');
@@ -29,7 +30,7 @@ export function tokenizeExampleSentence(sentence, highlightTargets = []) {
 
   const tokens = [];
   const wordStarts = [];
-  const wordRegex = /[A-Za-z0-9']+/g;
+  const wordRegex = /[\p{L}\p{N}']+/gu;
   let lastIdx = 0;
   let match;
 
@@ -147,21 +148,33 @@ export default function FlashcardLesson({
   useEffect(() => {
     if (!speechSupported) return;
 
+    const lessonLang = lesson.lang || 'en-US';
+
     if (phase === 'cards' && Array.isArray(cards) && cards.length > 0) {
       const toPreload = [];
       [cards[cardIndex], cards[cardIndex + 1]].forEach((card) => {
         if (!card) return;
-        if (card.word) toPreload.push(card.word);
-        else if (card.frontTitle) toPreload.push(card.frontTitle);
-        if (card.backTitle) toPreload.push(card.backTitle);
-        if (card.explanation) toPreload.push(card.explanation);
-        if (card.example) toPreload.push(card.example);
+        const cardLang = card.lang || lessonLang;
+        const wordLang = card.wordLang || cardLang;
+        if (card.word) toPreload.push({ text: card.word, lang: wordLang });
+        else if (card.frontTitle) toPreload.push({ text: card.frontTitle, lang: card.frontTitleLang || cardLang });
+        if (card.backTitle) toPreload.push({ text: card.backTitle, lang: card.backTitleLang || cardLang });
+        if (card.translation) toPreload.push({ text: card.translation, lang: 'en-US' });
+        if (card.explanation) toPreload.push({ text: card.explanation, lang: 'en-US' });
+        if (card.example) toPreload.push({ text: card.example, lang: card.exampleLang || cardLang });
+        if (card.exampleTranslation) toPreload.push({ text: card.exampleTranslation, lang: 'en-US' });
         if (Array.isArray(card.examples) && card.examples.length > 0) {
-          toPreload.push(card.examples.join('. '));
+          toPreload.push({ text: card.examples.join('. '), lang: card.examplesLang || cardLang });
+        }
+        if (Array.isArray(card.songLines) && card.songLines.length > 0) {
+          const allGermanVerse = card.songLines.map((l) => l.german).filter(Boolean).join(' ');
+          const allEnglishVerse = card.songLines.map((l) => l.english).filter(Boolean).join(' ');
+          if (allGermanVerse) toPreload.push({ text: allGermanVerse, lang: 'de-DE' });
+          if (allEnglishVerse) toPreload.push({ text: allEnglishVerse, lang: 'en-US' });
         }
         if (card.kind === 'wordList') {
           const allWords = [...(card.words || []), ...(card.extraWords || [])];
-          if (allWords.length > 0) toPreload.push(allWords.join(', '));
+          if (allWords.length > 0) toPreload.push({ text: allWords.join(', '), lang: cardLang });
         }
       });
       if (toPreload.length > 0) {
@@ -169,7 +182,13 @@ export default function FlashcardLesson({
       }
     } else if (phase === 'activity' && activity) {
       if (activity.type === 'sort_buckets') {
-        preloadSpeechTexts((activity.items || []).map((i) => i.word).filter(Boolean));
+        preloadSpeechTexts((activity.items || []).map((i) => ({ text: i.word, lang: lessonLang })).filter((x) => x.text));
+      } else if (activity.type === 'match_pairs') {
+        const list = (activity.allPairs || []).flatMap(([left, right]) => [
+          { text: left, lang: activity.leftLang || lessonLang },
+          { text: right, lang: activity.rightLang || 'en-US' }
+        ]);
+        preloadSpeechTexts(list.filter((x) => x.text));
       } else if (activity.type === 'tap_plural') {
         const list = (activity.items || []).flatMap((it) => [
           it.singular ? `What is the plural of ${it.singular}?` : '',
@@ -182,9 +201,19 @@ export default function FlashcardLesson({
           it.answer || ''
         ]);
         preloadSpeechTexts(list.filter(Boolean));
+      } else if (activity.type === 'tap_choice') {
+        const list = (activity.items || []).flatMap((it) => [
+          it.prompt ? { text: it.prompt, lang: 'en-US' } : null,
+          it.targetText ? { text: it.targetText, lang: it.itemLang || activity.itemLang || lessonLang } : null,
+          ...(it.options || []).map((opt) => ({
+            text: opt,
+            lang: it.optionsLang || activity.optionsLang || 'en-US'
+          }))
+        ]);
+        preloadSpeechTexts(list.filter((x) => x && x.text));
       }
     }
-  }, [phase, cardIndex, cards, activity, speechSupported]);
+  }, [phase, cardIndex, cards, activity, speechSupported, lesson.lang]);
 
   const currentCard = cards[cardIndex] || cards[0];
   const totalCards = cards.length;
@@ -252,20 +281,29 @@ export default function FlashcardLesson({
     e.stopPropagation();
     if (!currentCard || !speechSupported) return;
 
+    const cardLang = currentCard.lang || lesson.lang || 'en-US';
+    const isForeign = cardLang !== 'en-US';
+
     const parts = [];
     const wordOrTitle = isFlipped
       ? currentCard.word || currentCard.backTitle || currentCard.frontTitle
       : currentCard.word || currentCard.frontTitle;
 
     if (wordOrTitle) {
-      parts.push({ id: 'word', text: wordOrTitle });
+      const titleLang = currentCard.word
+        ? (currentCard.wordLang || cardLang)
+        : isFlipped
+          ? (currentCard.backTitle ? (currentCard.backTitleLang || cardLang) : (currentCard.frontTitleLang || cardLang))
+          : (currentCard.frontTitleLang || cardLang);
+      parts.push({ id: 'word', text: wordOrTitle, lang: titleLang });
     }
 
     if (isFlipped && currentCard.explanation) {
-      parts.push({ id: 'explanation', text: currentCard.explanation });
+      parts.push({ id: 'explanation', text: currentCard.explanation, lang: 'en-US' });
     }
 
     if (currentCard.example) {
+      const exampleLang = currentCard.exampleLang || cardLang;
       const { wordStarts } = tokenizeExampleSentence(
         currentCard.example,
         getCardHighlightTargets(currentCard)
@@ -273,13 +311,31 @@ export default function FlashcardLesson({
       parts.push({
         id: 'example',
         text: currentCard.example,
+        lang: exampleLang,
         trackWords: true,
         wordStarts
       });
     }
 
+    if (isForeign && currentCard.exampleTranslation) {
+      parts.push({ id: 'translation', text: currentCard.exampleTranslation, lang: 'en-US' });
+    } else if (isForeign && !isFlipped && currentCard.translation) {
+      parts.push({ id: 'translation', text: currentCard.translation, lang: 'en-US' });
+    }
+
+    if (Array.isArray(currentCard.songLines) && currentCard.songLines.length > 0 && (!isForeign || !currentCard.example || isFlipped)) {
+      const germanVerse = currentCard.songLines.map((l) => l.german).filter(Boolean).join(' ');
+      const englishVerse = currentCard.songLines.map((l) => l.english).filter(Boolean).join(' ');
+      if (germanVerse) parts.push({ id: 'song-de', text: germanVerse, lang: 'de-DE' });
+      if (englishVerse) parts.push({ id: 'song-en', text: englishVerse, lang: 'en-US' });
+    }
+
     if (isFlipped && Array.isArray(currentCard.examples) && currentCard.examples.length > 0) {
-      parts.push({ id: 'examples', text: currentCard.examples.join('. ') });
+      parts.push({
+        id: 'examples',
+        text: currentCard.examples.join('. '),
+        lang: currentCard.examplesLang || cardLang
+      });
     }
 
     if (currentCard.kind === 'wordList') {
@@ -293,6 +349,7 @@ export default function FlashcardLesson({
         parts.push({
           id: 'wordList',
           text: joined,
+          lang: cardLang,
           trackWords: true,
           wordStarts
         });
@@ -300,7 +357,7 @@ export default function FlashcardLesson({
     }
 
     speakCardSequence(parts, {
-      lang: 'en-US',
+      lang: cardLang,
       rate: 0.85,
       onPartStart: (partId) => {
         setSpeakingPart(partId);
@@ -354,6 +411,34 @@ export default function FlashcardLesson({
     const targets = getCardHighlightTargets(card);
     const isWordSpeaking = !isFlipped && speakingPart === 'word';
     const isExampleSpeaking = !isFlipped && speakingPart === 'example';
+    const isTranslationSpeaking = !isFlipped && speakingPart === 'translation';
+
+    const renderLanguageMeta = () => {
+      if (!card.transcription && !card.translation) return null;
+      return (
+        <div className={`flashcard-lang-badges ${isTranslationSpeaking ? 'flashcard-sentence-speaking' : ''}`}>
+          {card.transcription && (
+            <span className="flashcard-transcription-pill">
+              🗣️ Say it: <strong>{card.transcription}</strong>
+            </span>
+          )}
+          {card.translation && (
+            <span className="flashcard-translation-pill">
+              🇬🇧 {card.translation}
+            </span>
+          )}
+        </div>
+      );
+    };
+
+    const renderCardVisual = () => {
+      if (card.colorVisual) {
+        return <ColorSplashVisual visual={card.colorVisual} size={102} />;
+      }
+      return (
+        <div className="flashcard-big-emoji" aria-hidden="true">{card.emoji}</div>
+      );
+    };
 
     const renderFrontExample = () =>
       card.example ? (
@@ -368,6 +453,25 @@ export default function FlashcardLesson({
               activeWordIndex={spokenWordIndex}
             />
           </p>
+          {card.exampleTranscription && (
+            <p className="flashcard-example-trans">🗣️ {card.exampleTranscription}</p>
+          )}
+          {card.exampleTranslation && (
+            <p className="flashcard-example-en">🇬🇧 {card.exampleTranslation}</p>
+          )}
+        </div>
+      ) : null;
+
+    const renderSongLines = () =>
+      Array.isArray(card.songLines) && card.songLines.length > 0 ? (
+        <div className={`flashcard-song-box ${speakingPart === 'song-de' || speakingPart === 'song-en' ? 'flashcard-sentence-speaking' : ''}`}>
+          {card.songLines.map((line, i) => (
+            <div key={i} className="flashcard-song-line-row">
+              <div className="song-line-de">{line.german}</div>
+              {line.transcription && <div className="song-line-say">🗣️ {line.transcription}</div>}
+              {line.english && <div className="song-line-en">🇬🇧 {line.english}</div>}
+            </div>
+          ))}
         </div>
       ) : null;
 
@@ -390,12 +494,14 @@ export default function FlashcardLesson({
     if (card.kind === 'vocab') {
       return (
         <div className="flashcard-face-inner">
-          <span className="flashcard-category-pill pill-vocab">Power Word</span>
-          <div className="flashcard-big-emoji" aria-hidden="true">{card.emoji}</div>
+          <span className="flashcard-category-pill pill-vocab">{card.groupLabel || 'Power Word'}</span>
+          {renderCardVisual()}
           <div className={`flashcard-vocab-word ${isWordSpeaking ? 'flashcard-word-speaking' : ''}`}>
             {card.word}
           </div>
+          {renderLanguageMeta()}
           {renderFrontExample()}
+          {renderSongLines()}
           <span className="flashcard-tap-hint">Tap card to see meaning ↺</span>
         </div>
       );
@@ -445,15 +551,21 @@ export default function FlashcardLesson({
     return (
       <div className="flashcard-face-inner">
         <span className="flashcard-category-pill pill-rule">
-          {card.kind === 'intro' ? 'Lesson Guide' : 'Grammar Rule'}
+          {card.groupLabel || (card.kind === 'intro' ? 'Lesson Guide' : 'Grammar Rule')}
         </span>
-        <div className="flashcard-big-emoji flashcard-emoji-wide" aria-hidden="true">
-          {card.emoji}
-        </div>
+        {card.colorVisual ? (
+          <ColorSplashVisual visual={card.colorVisual} size={96} />
+        ) : (
+          <div className="flashcard-big-emoji flashcard-emoji-wide" aria-hidden="true">
+            {card.emoji}
+          </div>
+        )}
         <h2 className={`flashcard-front-title ${isWordSpeaking ? 'flashcard-word-speaking' : ''}`}>
           {card.frontTitle}
         </h2>
+        {renderLanguageMeta()}
         {renderFrontExample()}
+        {renderSongLines()}
         {card.frontHint && <p className="flashcard-front-sub">{card.frontHint}</p>}
         <span className="flashcard-tap-hint">Tap card to flip ↺</span>
       </div>
@@ -473,7 +585,11 @@ export default function FlashcardLesson({
     return (
       <div className="flashcard-face-inner flashcard-back-inner">
         <div className={`flashcard-back-top ${isWordSpeaking ? 'flashcard-word-speaking' : ''}`}>
-          <span className="flashcard-back-emoji" aria-hidden="true">{card.emoji}</span>
+          {card.colorVisual ? (
+            <ColorSplashVisual visual={card.colorVisual} size={46} compact />
+          ) : (
+            <span className="flashcard-back-emoji" aria-hidden="true">{card.emoji}</span>
+          )}
           <h3 className="flashcard-back-title">
             {card.kind === 'blend' ? (
               <>
@@ -486,6 +602,21 @@ export default function FlashcardLesson({
             )}
           </h3>
         </div>
+
+        {(card.transcription || card.translation) && (
+          <div className="flashcard-lang-badges">
+            {card.transcription && (
+              <span className="flashcard-transcription-pill">
+                🗣️ Say it: <strong>{card.transcription}</strong>
+              </span>
+            )}
+            {card.translation && (
+              <span className="flashcard-translation-pill">
+                🇬🇧 {card.translation}
+              </span>
+            )}
+          </div>
+        )}
 
         <div className={`flashcard-meaning-box ${isMeaningSpeaking ? 'flashcard-sentence-speaking' : ''}`}>
           <p className="flashcard-meaning-text">{card.explanation}</p>
@@ -502,6 +633,24 @@ export default function FlashcardLesson({
                 activeWordIndex={spokenWordIndex}
               />
             </p>
+            {card.exampleTranscription && (
+              <p className="flashcard-example-trans">🗣️ {card.exampleTranscription}</p>
+            )}
+            {card.exampleTranslation && (
+              <p className="flashcard-example-en">🇬🇧 {card.exampleTranslation}</p>
+            )}
+          </div>
+        )}
+
+        {Array.isArray(card.songLines) && card.songLines.length > 0 && (
+          <div className={`flashcard-song-box ${speakingPart === 'song-de' || speakingPart === 'song-en' ? 'flashcard-sentence-speaking' : ''}`}>
+            {card.songLines.map((line, i) => (
+              <div key={i} className="flashcard-song-line-row">
+                <div className="song-line-de">{line.german}</div>
+                {line.transcription && <div className="song-line-say">🗣️ {line.transcription}</div>}
+                {line.english && <div className="song-line-en">🇬🇧 {line.english}</div>}
+              </div>
+            ))}
           </div>
         )}
 
@@ -738,7 +887,7 @@ function MiniActivityRunner({
         />
       )}
 
-      {(activity.type === 'tap_plural' || activity.type === 'fix_sentence') && (
+      {(activity.type === 'tap_plural' || activity.type === 'fix_sentence' || activity.type === 'tap_choice') && (
         <TapQuizMiniActivity
           activity={activity}
           playerName={playerName}
@@ -949,7 +1098,7 @@ function MatchPairsActivity({
       setIsMatchedDone(true);
       setFeedback({
         ok: true,
-        text: `✅ Fantastic, ${playerName}! You matched all 4 Power Words!`
+        text: `✅ Fantastic, ${playerName}! You matched all ${pairs.length} ${activity.successNoun || 'Power Words'}!`
       });
     } else {
       playGentleWrongSound(soundEnabled);
@@ -972,7 +1121,13 @@ function MatchPairsActivity({
   return (
     <div className="match-mini-activity">
       <MatchRenderer
-        question={{ id: `pw-match-${roundNum}`, type: 'match', pairs }}
+        question={{
+          id: `pw-match-${roundNum}`,
+          type: 'match',
+          pairs,
+          leftTitle: activity.leftTitle,
+          rightTitle: activity.rightTitle
+        }}
         onSubmit={handleMatchSubmit}
         disabled={isMatchedDone}
         soundEnabled={soundEnabled}
@@ -987,7 +1142,7 @@ function MatchPairsActivity({
       {isMatchedDone && (
         <div className="mini-complete-actions">
           <button type="button" className="flashcard-nav-btn btn-card-back" onClick={handleNewFourWords}>
-            🔄 Match 4 More Words
+            {activity.moreButtonLabel || '🔄 Match 4 More Words'}
           </button>
           <button
             type="button"
@@ -1047,21 +1202,31 @@ function TapQuizMiniActivity({
   if (!current) return null;
   const isSolved = Boolean(feedback?.ok);
 
-  const buildMiniPromptSpeech = (item) => {
-    if (!item) return '';
-    return activity.type === 'tap_plural'
-      ? `What is the plural of ${item.singular}?`
-      : `Fix the sentence: ${item.wrongSentence}`;
+  const buildMiniSpeechParts = (item) => {
+    if (!item) return [];
+    if (activity.type === 'tap_plural') {
+      return [{ id: 'prompt', text: `What is the plural of ${item.singular}?`, lang: 'en-US' }];
+    }
+    if (activity.type === 'tap_choice') {
+      const parts = [];
+      if (item.prompt) parts.push({ id: 'prompt', text: item.prompt, lang: 'en-US' });
+      if (item.targetText) {
+        parts.push({ id: 'target', text: item.targetText, lang: item.itemLang || activity.itemLang || 'en-US' });
+      }
+      return parts;
+    }
+    return [{ id: 'prompt', text: `Fix the sentence: ${item.wrongSentence}`, lang: 'en-US' }];
   };
 
   const handleMiniListen = () => {
-    const text = buildMiniPromptSpeech(current);
-    if (!text) return;
+    const parts = buildMiniSpeechParts(current);
+    if (parts.length === 0) return;
     setIsMiniPlaying(true);
-    speakText(text, {
-      lang: 'en-US',
+    speakCardSequence(parts, {
+      lang: current.itemLang || activity.itemLang || 'en-US',
       rate: 0.85,
-      onStart: () => {
+      pauseMs: 220,
+      onPartStart: () => {
         if (mountedRef.current) setIsMiniPlaying(true);
       },
       onEnd: () => {
@@ -1086,7 +1251,7 @@ function TapQuizMiniActivity({
         text: `✅ Way to go, ${playerName}! ${current.explanation}`
       });
       if (spokenPraiseEnabled && speechSupported) {
-        speakText(opt, { lang: 'en-US', rate: 0.85 });
+        speakText(opt, { lang: current.optionsLang || activity.optionsLang || 'en-US', rate: 0.85 });
       }
       setResults((prev) => [
         ...prev,
@@ -1098,7 +1263,9 @@ function TapQuizMiniActivity({
       setHadMissOnCurrent(true);
       setFeedback({
         ok: false,
-        text: '❌ Try again! Say the sentence/rule out loud carefully.'
+        text: activity.type === 'tap_choice'
+          ? '❌ Not quite yet! Look closely and try one more time.'
+          : '❌ Try again! Say the sentence/rule out loud carefully.'
       });
     }
   };
@@ -1143,6 +1310,37 @@ function TapQuizMiniActivity({
           <div className="mini-plural-word">
             One: <strong>{current.singular}</strong> → Many: <strong>___</strong>
           </div>
+        </div>
+      ) : activity.type === 'tap_choice' ? (
+        <div className="mini-prompt-card">
+          {speechSupported && (
+            <button
+              type="button"
+              className={`mini-listen-pill ${isMiniPlaying ? 'speech-playing' : ''}`}
+              onClick={handleMiniListen}
+              aria-label="Listen"
+              aria-pressed={isMiniPlaying}
+            >
+              🔊
+            </button>
+          )}
+          {current.colorVisual && (
+            <ColorSplashVisual visual={current.colorVisual} size={96} />
+          )}
+          {current.picture && (
+            <div className="mini-plural-picture">{current.picture}</div>
+          )}
+          {current.prompt && (
+            <div className="mini-plural-question">{current.prompt}</div>
+          )}
+          {current.targetText && (
+            <div className="mini-plural-word">{current.targetText}</div>
+          )}
+          {current.transcription && (
+            <div className="lang-pill lang-pill-say">
+              <span className="lang-pill-tag">🗣️ Say it:</span> {current.transcription}
+            </div>
+          )}
         </div>
       ) : (
         <div className="mini-prompt-card">

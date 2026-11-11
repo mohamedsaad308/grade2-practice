@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { playPop } from '../utils/audio.js';
 import SocialStudiesVisual from '../components/SocialStudiesVisual.jsx';
+import ColorSplashVisual from '../components/ColorSplashVisual.jsx';
 
 function escapeRegex(string) {
   return string.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -131,6 +132,13 @@ export default function ChoiceRenderer({
           <SocialStudiesVisual type={question.visual} highlight={question.highlight} />
         )}
 
+        {/* Optional Paint Splash / Multi-Color Palette Visual (German Die Farben) */}
+        {question.colorVisual && (
+          <div className="choice-color-visual-wrap">
+            <ColorSplashVisual visual={question.colorVisual} size={108} />
+          </div>
+        )}
+
         {/* Optional prompt shown as the instruction above text */}
         {question.prompt && (
           <div className="choice-prompt-box">
@@ -138,9 +146,23 @@ export default function ChoiceRenderer({
           </div>
         )}
 
-        {/* Actual item text in large type */}
+        {/* Actual item text in large type (+ optional phonetic transcription & translation) */}
         <div className={`choice-item-card ${question.text.includes('___') ? 'choice-item-card-blank' : ''}`}>
           {renderFormattedText()}
+          {(question.transcription || question.translation) && (
+            <div className="choice-lang-meta">
+              {question.transcription && (
+                <div className="lang-pill lang-pill-say">
+                  <span className="lang-pill-tag">🗣️ Say it:</span> {question.transcription}
+                </div>
+              )}
+              {question.translation && (
+                <div className="lang-pill lang-pill-en">
+                  <span className="lang-pill-tag">🇬🇧 English:</span> {question.translation}
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Answer options as big buttons (2-col grid for short options, 1-col for long) */}

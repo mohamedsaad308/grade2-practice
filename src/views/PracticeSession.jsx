@@ -352,21 +352,61 @@ function PracticeQuizSession({
   const buildSpeechAudioParts = (q) => {
     if (!q) return [];
 
-    // English choice & Q2 quiz choice
+    // Explicit multi-language speech parts override when provided (e.g. mixed German/English items)
+    if (Array.isArray(q.speechParts) && q.speechParts.length > 0) {
+      const baseParts = q.speechParts.map((p, idx) =>
+        typeof p === 'string' ? { id: `part-${idx}`, text: p } : { id: p.id || `part-${idx}`, ...p }
+      );
+      if (q.includeOptionsInSpeech !== false && Array.isArray(q.options) && q.options.length > 0) {
+        const hasOptLabel = baseParts.some((p) => p.id === 'opt-lbl' || p.id === 'options-label');
+        if (!hasOptLabel) {
+          baseParts.push({ id: 'options-label', text: 'Options:', lang: 'en-US' });
+        }
+        q.options.forEach((opt, i) =>
+          baseParts.push({ id: `opt-${i}`, text: opt, lang: q.optionsLang || 'en-US' })
+        );
+      }
+      return baseParts;
+    }
+
+    // English & Q2 quiz choice
     if (q.type === 'choice') {
       const parts = [];
       const instruction = q.prompt || q.instruction || topic?.instruction;
-      if (instruction) parts.push({ id: 'instruction', text: instruction.replace(/[:]+$/, '') });
-      if (q.passage?.sentences?.length) {
-        if (q.passage.title) parts.push({ id: 'passage-title', text: q.passage.title });
-        q.passage.sentences.forEach((s, i) => parts.push({ id: `passage-${i}`, text: s }));
+      if (instruction) {
+        parts.push({
+          id: 'instruction',
+          text: instruction.replace(/[:]+$/, ''),
+          lang: q.instructionLang || 'en-US'
+        });
       }
-      if (q.text) {
-        parts.push({ id: 'text', text: q.text });
+      if (q.passage?.sentences?.length) {
+        const passageLang = q.passage.lang || q.textLang || 'en-US';
+        if (q.passage.title) parts.push({ id: 'passage-title', text: q.passage.title, lang: passageLang });
+        q.passage.sentences.forEach((s, i) =>
+          parts.push({ id: `passage-${i}`, text: s, lang: passageLang })
+        );
+      }
+      const spokenQuestionText = q.speechText || q.text;
+      if (spokenQuestionText) {
+        parts.push({
+          id: 'text',
+          text: spokenQuestionText,
+          lang: q.textLang || 'en-US'
+        });
+      }
+      if (q.translationSpeech) {
+        parts.push({
+          id: 'translation-speech',
+          text: q.translationSpeech,
+          lang: 'en-US'
+        });
       }
       if (Array.isArray(q.options) && q.options.length > 0) {
-        parts.push({ id: 'options-label', text: 'Options:' });
-        q.options.forEach((opt, i) => parts.push({ id: `opt-${i}`, text: opt }));
+        parts.push({ id: 'options-label', text: 'Options:', lang: 'en-US' });
+        q.options.forEach((opt, i) =>
+          parts.push({ id: `opt-${i}`, text: opt, lang: q.optionsLang || 'en-US' })
+        );
       }
       return parts;
     }
@@ -385,14 +425,16 @@ function PracticeQuizSession({
       return parts;
     }
 
-    // English & Social Studies match
+    // English, Social Studies & German match
     if (q.type === 'match') {
       const parts = [];
       const instruction = q.instruction || topic?.instruction || 'Match each word with its meaning.';
-      parts.push({ id: 'instruction', text: instruction });
+      parts.push({ id: 'instruction', text: instruction, lang: 'en-US' });
       if (Array.isArray(q.pairs) && q.pairs.length > 0) {
-        parts.push({ id: 'words-label', text: 'Words to match:' });
-        q.pairs.forEach((p, i) => parts.push({ id: `pair-${i}`, text: p[0] }));
+        parts.push({ id: 'words-label', text: 'Words to match:', lang: 'en-US' });
+        q.pairs.forEach((p, i) =>
+          parts.push({ id: `pair-${i}`, text: p[0], lang: q.leftLang || q.textLang || 'en-US' })
+        );
       }
       return parts;
     }
@@ -412,11 +454,11 @@ function PracticeQuizSession({
       const parts = buildSpeechAudioParts(q);
       if (parts.length > 0) {
         parts.forEach((p) => {
-          if (p?.text) toPreload.push(p.text);
+          if (p?.text) toPreload.push({ text: p.text, lang: p.lang || 'en-US' });
         });
       } else {
         const text = buildSpeechAudioText(q);
-        if (text) toPreload.push(text);
+        if (text) toPreload.push({ text, lang: q.textLang || 'en-US' });
       }
     });
     if (toPreload.length > 0) {
@@ -438,6 +480,13 @@ function PracticeQuizSession({
   // Build audio text for the read aloud button: reads instruction, then text (say "blank" for ___), then options
   const buildSpeechAudioText = (q) => {
     if (!q) return '';
+
+    if (Array.isArray(q.speechParts) && q.speechParts.length > 0) {
+      return buildSpeechAudioParts(q)
+        .map((p) => p?.text)
+        .filter(Boolean)
+        .join('. ');
+    }
 
     // English choice
     if (q.type === 'choice') {

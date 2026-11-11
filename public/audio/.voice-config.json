@@ -1,5 +1,8 @@
 {
   "voice": "en-US-AnaNeural",
   "rate": "-10%",
-  "pitch": "+0Hz"
+  "pitch": "+0Hz",
+  "de_voice": "de-DE-AmalaNeural",
+  "de_rate": "-15%",
+  "de_pitch": "+0Hz"
 }

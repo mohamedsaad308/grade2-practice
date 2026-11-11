@@ -118,8 +118,8 @@ export default function MatchRenderer({
 
       <div className="match-columns-grid">
         {/* Words Column */}
-        <div className="match-column words-column" role="group" aria-label="Vocabulary words">
-          <h4 className="match-column-header">Vocabulary Word</h4>
+        <div className="match-column words-column" role="group" aria-label={question.leftTitle || 'Vocabulary words'}>
+          <h4 className="match-column-header">{question.leftTitle || 'Vocabulary Word'}</h4>
           <div className="match-cards-stack">
             {words.map((word) => {
               const isSelected = selectedWord === word;
@@ -165,8 +165,8 @@ export default function MatchRenderer({
         </div>
 
         {/* Meanings Column */}
-        <div className="match-column meanings-column" role="group" aria-label="Word meanings">
-          <h4 className="match-column-header">Meaning</h4>
+        <div className="match-column meanings-column" role="group" aria-label={question.rightTitle || 'Word meanings'}>
+          <h4 className="match-column-header">{question.rightTitle || 'Meaning'}</h4>
           <div className="match-cards-stack">
             {meanings.map((meaning, idx) => {
               const isSelected = selectedMeaning === meaning;

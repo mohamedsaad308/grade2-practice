@@ -5464,3 +5464,272 @@ input, button, textarea, a, [role="button"] {
   border-radius: 999px;
 }
 
+/* ==========================================================================
+   Q2 German: Paint Splash Visuals, Pronunciation Pills & Song Verses
+   ========================================================================== */
+
+.choice-color-visual-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem 0 0.15rem;
+}
+
+.color-splash-stage {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  filter: drop-shadow(0 5px 10px rgba(15, 23, 42, 0.14));
+}
+
+.color-splash-svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.color-splash-emoji-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -6px;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 2.5px solid #F59E0B;
+  box-shadow: 0 3px 6px rgba(15, 23, 42, 0.16);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.splash-compact .color-splash-emoji-badge {
+  min-width: 24px;
+  height: 24px;
+  bottom: -3px;
+  right: -4px;
+  font-size: 0.85rem;
+  border-width: 2px;
+}
+
+.color-palette-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  max-width: 250px;
+  padding: 0.65rem 0.85rem;
+  border-radius: 20px;
+  background: #FFFBEB;
+  border: 2.5px solid #FCD34D;
+  box-shadow: 0 4px 0 #F59E0B;
+}
+
+.color-palette-board.palette-compact {
+  max-width: 148px;
+  gap: 4px;
+  padding: 0.35rem 0.45rem;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.palette-dot-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.palette-dot-swatch {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50% 44% 52% 46% / 48% 54% 46% 52%;
+  border: 2.5px solid #334155;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.15);
+}
+
+.palette-compact .palette-dot-swatch {
+  width: 13px;
+  height: 13px;
+  border-width: 1.5px;
+}
+
+/* Language pills on Flashcards (🗣️ Say it + 🇬🇧 English) */
+.flashcard-lang-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 14px;
+  padding: 0.15rem 0.25rem;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flashcard-transcription-pill,
+.flashcard-translation-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: clamp(0.95rem, 3.6vw, 1.08rem);
+  font-weight: 800;
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-wrap: break-word;
+}
+
+.flashcard-transcription-pill {
+  background: #FEF3C7;
+  border: 2px solid #F59E0B;
+  color: #78350F;
+}
+
+.flashcard-translation-pill {
+  background: #E0F2FE;
+  border: 2px solid #38BDF8;
+  color: #0C4A6E;
+}
+
+.flashcard-example-trans {
+  font-size: clamp(0.95rem, 3.6vw, 1.08rem);
+  font-weight: 800;
+  color: #92400E;
+  background: #FFFBEB;
+  border: 1.5px solid #FDE68A;
+  border-radius: 10px;
+  padding: 0.28rem 0.65rem;
+  margin: 0.45rem auto 0;
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.flashcard-example-en {
+  font-size: clamp(0.95rem, 3.6vw, 1.08rem);
+  font-weight: 800;
+  color: #0369A1;
+  margin: 0.35rem 0 0;
+  overflow-wrap: break-word;
+}
+
+/* Song verse block inside Flashcards */
+.flashcard-song-box {
+  width: 100%;
+  background: #FDF2F8;
+  border: 2px solid #F9A8D4;
+  border-radius: 16px;
+  padding: 0.65rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  text-align: left;
+  box-sizing: border-box;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flashcard-song-line-row {
+  background: #FFFFFF;
+  border: 1.5px solid #FBCFE8;
+  border-radius: 12px;
+  padding: 0.5rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.song-line-de {
+  font-size: clamp(1rem, 3.9vw, 1.15rem);
+  font-weight: 900;
+  color: #831843;
+  line-height: 1.38;
+  overflow-wrap: break-word;
+}
+
+.song-line-say {
+  font-size: clamp(0.88rem, 3.4vw, 0.98rem);
+  font-weight: 800;
+  color: #92400E;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+
+.song-line-en {
+  font-size: clamp(0.88rem, 3.4vw, 0.98rem);
+  font-weight: 700;
+  color: #0C4A6E;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+
+/* Language pills inside Quiz ChoiceRenderer & TapQuizMiniActivity */
+.choice-lang-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.65rem;
+  padding-top: 0.55rem;
+  border-top: 1.5px dashed #E2E8F0;
+}
+
+.lang-pill {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  font-size: clamp(0.92rem, 3.6vw, 1.05rem);
+  font-weight: 800;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  align-self: flex-start;
+}
+
+.mini-prompt-card .lang-pill {
+  align-self: center;
+  justify-content: center;
+}
+
+.lang-pill-say {
+  background: #FEF3C7;
+  border: 1.5px solid #F59E0B;
+  color: #78350F;
+}
+
+.lang-pill-en {
+  background: #E0F2FE;
+  border: 1.5px solid #38BDF8;
+  color: #0C4A6E;
+}
+
+.lang-pill-tag {
+  font-weight: 900;
+}
+
+@media (max-width: 420px) {
+  .flashcard-lang-badges {
+    gap: 0.35rem;
+  }
+
+  .flashcard-transcription-pill,
+  .flashcard-translation-pill {
+    padding: 0.3rem 0.65rem;
+  }
+
+  .flashcard-song-box {
+    padding: 0.5rem 0.6rem;
+  }
+}
+
+

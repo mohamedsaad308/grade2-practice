@@ -1,0 +1,1713 @@
+{
+  "weekId": "week1",
+  "weekTitle": "Week 1",
+  "weekSubtitle": "Die Farben (Colors), What You Like & Song Story",
+  "lessons": [
+    {
+      "id": "w1_de_lesson1_colors",
+      "lang": "de-DE",
+      "title": "Lesson 1: Die Farben (12 Colors)",
+      "icon": "🎨",
+      "description": "Meet Hallo! and learn all 12 German colors with paint splashes, Say-It guides, and English meanings.",
+      "hint": "Look at the paint splash, say the German color out loud, and check the 'Say it' bubble!",
+      "cards": [
+        {
+          "id": "de-colors-intro",
+          "kind": "intro",
+          "groupLabel": "German Guide • Hallo!",
+          "frontTitle": "Die Farben!",
+          "frontTitleLang": "de-DE",
+          "emoji": "🎨👋",
+          "colorVisual": {
+            "isMultiPalette": true,
+            "ariaLabel": "Eleven bright German paint splashes"
+          },
+          "transcription": "dee FAHR-ben • HAH-loh!",
+          "translation": "The Colors • Hello!",
+          "frontHint": "German for 'Hello!' is Hallo! Ready to paint in German?",
+          "backTitle": "Welcome to German Colors!",
+          "backTitleLang": "en-US",
+          "explanation": "Hallo! (Hello!) In this lesson, we learn 12 German color words: rot, gelb, grün, blau, weiß, orange, lila, grau, schwarz, rosa, braun, and bunt!",
+          "example": "Das ist bunt. Ich mag alle Farben!",
+          "exampleLang": "de-DE",
+          "exampleTranscription": "dahs ist boont. ikh mahk AH-luh FAHR-ben!",
+          "exampleTranslation": "That is colorful. I like all colors!",
+          "highlightWords": ["bunt", "Farben"],
+          "tip": "Tap the 🔊 speaker on any card to hear real German pronunciation first, then English!"
+        },
+        {
+          "id": "de-color-rot",
+          "kind": "vocab",
+          "groupLabel": "Color 1 of 12 • Die Farben",
+          "word": "rot",
+          "emoji": "🔴",
+          "colorVisual": {
+            "colorHex": "#EF4444",
+            "strokeHex": "#991B1B",
+            "ariaLabel": "Red paint splash"
+          },
+          "transcription": "roht",
+          "translation": "Red",
+          "explanation": "Rot means red — the color of strawberries, ladybugs, and firetrucks!",
+          "example": "Das ist rot. Ich mag rot.",
+          "exampleTranscription": "dahs ist roht. ikh mahk roht.",
+          "exampleTranslation": "That is red. I like red.",
+          "tip": "Think of a red boat — rot rhymes with 'boat'!"
+        },
+        {
+          "id": "de-color-gelb",
+          "kind": "vocab",
+          "groupLabel": "Color 2 of 12 • Die Farben",
+          "word": "gelb",
+          "emoji": "🟡",
+          "colorVisual": {
+            "colorHex": "#EAB308",
+            "strokeHex": "#854D0E",
+            "ariaLabel": "Yellow paint splash"
+          },
+          "transcription": "gelp",
+          "translation": "Yellow",
+          "explanation": "Gelb means yellow — bright like sunshine, lemons, and bananas!",
+          "example": "Das ist gelb. Ich mag gelb.",
+          "exampleTranscription": "dahs ist gelp. ikh mahk gelp.",
+          "exampleTranslation": "That is yellow. I like yellow.",
+          "tip": "Use a hard 'g' like in 'go' (never 'j'). At the end, b sounds like a gentle 'p': gelp!"
+        },
+        {
+          "id": "de-color-gruen",
+          "kind": "vocab",
+          "groupLabel": "Color 3 of 12 • Die Farben",
+          "word": "grün",
+          "emoji": "🟢",
+          "colorVisual": {
+            "colorHex": "#22C55E",
+            "strokeHex": "#166534",
+            "ariaLabel": "Green paint splash"
+          },
+          "transcription": "gruen",
+          "translation": "Green",
+          "explanation": "Grün means green — the color of frogs, leaves, and crunchy green apples!",
+          "example": "Das ist grün. Ich mag grün.",
+          "exampleTranscription": "dahs ist gruen. ikh mahk gruen.",
+          "exampleTranslation": "That is green. I like green.",
+          "tip": "See the two dots on ü? Make your lips round like saying 'oo', then try to say 'ee' inside!"
+        },
+        {
+          "id": "de-color-blau",
+          "kind": "vocab",
+          "groupLabel": "Color 4 of 12 • Die Farben",
+          "word": "blau",
+          "emoji": "🔵",
+          "colorVisual": {
+            "colorHex": "#3B82F6",
+            "strokeHex": "#1E40AF",
+            "ariaLabel": "Blue paint splash"
+          },
+          "transcription": "blou",
+          "translation": "Blue",
+          "explanation": "Blau means blue — the color of a sunny sky and the deep ocean!",
+          "example": "Das ist blau. Ich mag blau.",
+          "exampleTranscription": "dahs ist blou. ikh mahk blou.",
+          "exampleTranslation": "That is blue. I like blue.",
+          "tip": "In German, 'au' always sounds like 'ow' in 'cow' — so blau sounds like 'blou'!"
+        },
+        {
+          "id": "de-color-weiss",
+          "kind": "vocab",
+          "groupLabel": "Color 5 of 12 • Die Farben",
+          "word": "weiß",
+          "emoji": "⚪",
+          "colorVisual": {
+            "colorHex": "#FFFFFF",
+            "strokeHex": "#334155",
+            "ariaLabel": "White paint splash"
+          },
+          "transcription": "vice",
+          "translation": "White",
+          "explanation": "Weiß means white — the color of puffy clouds, snow, and warm milk!",
+          "example": "Das ist weiß. Ich mag weiß.",
+          "exampleTranscription": "dahs ist vice. ikh mahk vice.",
+          "exampleTranslation": "That is white. I like white.",
+          "tip": "Remember: w = 'v', ei = 'eye', and ß = sharp 's'. Put them together to say 'vice'!"
+        },
+        {
+          "id": "de-color-orange",
+          "kind": "vocab",
+          "groupLabel": "Color 6 of 12 • Die Farben",
+          "word": "orange",
+          "emoji": "🟠",
+          "colorVisual": {
+            "colorHex": "#F97316",
+            "strokeHex": "#9A3412",
+            "ariaLabel": "Orange paint splash"
+          },
+          "transcription": "oh-RAHN-zhuh",
+          "translation": "Orange",
+          "explanation": "Orange means orange — spelled just like English, like pumpkins and carrots!",
+          "example": "Das ist orange. Ich mag orange.",
+          "exampleTranscription": "dahs ist oh-RAHN-zhuh. ikh mahk oh-RAHN-zhuh.",
+          "exampleTranslation": "That is orange. I like orange.",
+          "tip": "Say the ending soft like 'zhuh' (just like the 's' in 'treasure')!"
+        },
+        {
+          "id": "de-color-lila",
+          "kind": "vocab",
+          "groupLabel": "Color 7 of 12 • Die Farben",
+          "word": "lila",
+          "emoji": "🟣",
+          "colorVisual": {
+            "colorHex": "#A855F7",
+            "strokeHex": "#6B21A8",
+            "ariaLabel": "Purple paint splash"
+          },
+          "transcription": "LEE-lah",
+          "translation": "Purple",
+          "explanation": "Lila means purple — the color of juicy grapes and lilac flowers!",
+          "example": "Das ist lila. Ich mag lila.",
+          "exampleTranscription": "dahs ist LEE-lah. ikh mahk LEE-lah.",
+          "exampleTranslation": "That is purple. I like purple.",
+          "tip": "Easy to say! Just think of a lilac flower and say 'LEE-lah'!"
+        },
+        {
+          "id": "de-color-grau",
+          "kind": "vocab",
+          "groupLabel": "Color 8 of 12 • Die Farben",
+          "word": "grau",
+          "emoji": "🩶",
+          "colorVisual": {
+            "colorHex": "#6B7280",
+            "strokeHex": "#374151",
+            "ariaLabel": "Grey paint splash"
+          },
+          "transcription": "grou",
+          "translation": "Grey",
+          "explanation": "Grau means grey — the color of rain clouds, koalas, and elephants!",
+          "example": "Das ist grau. Ich mag grau.",
+          "exampleTranscription": "dahs ist grou. ikh mahk grou.",
+          "exampleTranslation": "That is grey. I like grey.",
+          "tip": "Just like blau ('blou'), 'au' sounds like 'ow' in 'cow' — so grau = 'grou'!"
+        },
+        {
+          "id": "de-color-schwarz",
+          "kind": "vocab",
+          "groupLabel": "Color 9 of 12 • Die Farben",
+          "word": "schwarz",
+          "emoji": "⚫",
+          "colorVisual": {
+            "colorHex": "#111827",
+            "strokeHex": "#000000",
+            "ariaLabel": "Black paint splash"
+          },
+          "transcription": "shvahrts",
+          "translation": "Black",
+          "explanation": "Schwarz means black — the color of night skies and panthers!",
+          "example": "Das ist schwarz. Ich mag schwarz.",
+          "exampleTranscription": "dahs ist shvahrts. ikh mahk shvahrts.",
+          "exampleTranslation": "That is black. I like black.",
+          "tip": "3 German sound secrets: 'sch' = sh, 'w' = v, and 'z' = ts → shvahrts!"
+        },
+        {
+          "id": "de-color-rosa",
+          "kind": "vocab",
+          "groupLabel": "Color 10 of 12 • Die Farben",
+          "word": "rosa",
+          "emoji": "🩷",
+          "colorVisual": {
+            "colorHex": "#F472B6",
+            "strokeHex": "#9D174D",
+            "ariaLabel": "Pink paint splash"
+          },
+          "transcription": "ROH-zah",
+          "translation": "Pink",
+          "explanation": "Rosa means pink — the color of flamingos, cotton candy, and pink roses!",
+          "example": "Das ist rosa. Ich mag rosa.",
+          "exampleTranscription": "dahs ist ROH-zah. ikh mahk ROH-zah.",
+          "exampleTranslation": "That is pink. I like pink.",
+          "tip": "The 's' in the middle buzzes gently like a 'z': ROH-zah!"
+        },
+        {
+          "id": "de-color-braun",
+          "kind": "vocab",
+          "groupLabel": "Color 11 of 12 • Die Farben",
+          "word": "braun",
+          "emoji": "🟤",
+          "colorVisual": {
+            "colorHex": "#92400E",
+            "strokeHex": "#451A03",
+            "ariaLabel": "Brown paint splash"
+          },
+          "transcription": "broun",
+          "translation": "Brown",
+          "explanation": "Braun means brown — the color of teddy bears, chocolate, and tree trunks!",
+          "example": "Das ist braun. Ich mag braun.",
+          "exampleTranscription": "dahs ist broun. ikh mahk broun.",
+          "exampleTranslation": "That is brown. I like brown.",
+          "tip": "Sounds just like the English word 'brown', only spelled b-r-a-u-n!"
+        },
+        {
+          "id": "de-color-bunt",
+          "kind": "vocab",
+          "groupLabel": "Color 12 of 12 • Song Color!",
+          "word": "bunt",
+          "emoji": "🌈",
+          "colorVisual": {
+            "isRainbow": true,
+            "ariaLabel": "Rainbow colorful paint splash"
+          },
+          "transcription": "boont",
+          "translation": "Colorful (many colors)",
+          "explanation": "Bunt means colorful or multicolored — lots of bright colors all mixed together like a rainbow or painter's palette!",
+          "example": "Das ist bunt. Ich mag bunt.",
+          "exampleTranscription": "dahs ist boont. ikh mahk boont.",
+          "exampleTranslation": "That is colorful. I like colorful things.",
+          "tip": "Say 'boont' (like 'moon' + 't')! You'll hear 'bunt' in the painter verse of our German song!"
+        },
+        {
+          "id": "de-colors-recap",
+          "kind": "rule",
+          "groupLabel": "All Colors • Alle Farben",
+          "frontTitle": "Alle 12 Farben!",
+          "frontTitleLang": "de-DE",
+          "emoji": "🌈",
+          "colorVisual": {
+            "isMultiPalette": true,
+            "ariaLabel": "All German paint splashes together"
+          },
+          "transcription": "AH-luh TSVELF FAHR-ben",
+          "translation": "All 12 Colors",
+          "explanation": "Awesome! You learned rot (red), gelb (yellow), grün (green), blau (blue), weiß (white), orange, lila (purple), grau (grey), schwarz (black), rosa (pink), braun (brown), and bunt (colorful)!",
+          "example": "rot, gelb, grün, blau, weiß, orange, lila, grau, schwarz, rosa, braun, bunt!",
+          "exampleLang": "de-DE",
+          "exampleTranscription": "roht, gelp, gruen, blou, vice, oh-RAHN-zhuh, LEE-lah, grou, shvahrts, ROH-zah, broun, boont!",
+          "exampleTranslation": "red, yellow, green, blue, white, orange, purple, grey, black, pink, brown, colorful!",
+          "highlightWords": ["rot", "gelb", "grün", "blau", "weiß", "orange", "lila", "grau", "schwarz", "rosa", "braun", "bunt"],
+          "tip": "Next, tap 'Color Splash Pop!' to match every paint splash to its German word!"
+        }
+      ],
+      "activity": {
+        "type": "tap_choice",
+        "title": "Color Splash Pop!",
+        "instruction": "Look at each paint splash and tap its German color word!",
+        "itemLang": "de-DE",
+        "optionsLang": "de-DE",
+        "items": [
+          {
+            "colorVisual": { "colorHex": "#EF4444", "strokeHex": "#991B1B" },
+            "prompt": "Which German color matches this red paint splash?",
+            "options": ["rot", "blau", "gelb"],
+            "answer": "rot",
+            "explanation": "rot (Say it: 'roht') = red!"
+          },
+          {
+            "colorVisual": { "colorHex": "#EAB308", "strokeHex": "#854D0E" },
+            "prompt": "Which German color matches this yellow paint splash?",
+            "options": ["gelb", "grün", "braun"],
+            "answer": "gelb",
+            "explanation": "gelb (Say it: 'gelp') = yellow!"
+          },
+          {
+            "colorVisual": { "colorHex": "#22C55E", "strokeHex": "#166534" },
+            "prompt": "Which German color matches this green paint splash?",
+            "options": ["grün", "grau", "gelb"],
+            "answer": "grün",
+            "explanation": "grün (Say it: 'gruen') = green!"
+          },
+          {
+            "colorVisual": { "colorHex": "#3B82F6", "strokeHex": "#1E40AF" },
+            "prompt": "Which German color matches this blue paint splash?",
+            "options": ["blau", "braun", "bunt"],
+            "answer": "blau",
+            "explanation": "blau (Say it: 'blou') = blue!"
+          },
+          {
+            "colorVisual": { "colorHex": "#FFFFFF", "strokeHex": "#334155" },
+            "prompt": "Which German color matches this white paint splash?",
+            "options": ["weiß", "schwarz", "rosa"],
+            "answer": "weiß",
+            "explanation": "weiß (Say it: 'vice') = white!"
+          },
+          {
+            "colorVisual": { "colorHex": "#F97316", "strokeHex": "#9A3412" },
+            "prompt": "Which German color matches this orange paint splash?",
+            "options": ["orange", "rosa", "rot"],
+            "answer": "orange",
+            "explanation": "orange (Say it: 'oh-RAHN-zhuh') = orange!"
+          },
+          {
+            "colorVisual": { "colorHex": "#A855F7", "strokeHex": "#6B21A8" },
+            "prompt": "Which German color matches this purple paint splash?",
+            "options": ["lila", "blau", "grau"],
+            "answer": "lila",
+            "explanation": "lila (Say it: 'LEE-lah') = purple!"
+          },
+          {
+            "colorVisual": { "colorHex": "#6B7280", "strokeHex": "#374151" },
+            "prompt": "Which German color matches this grey paint splash?",
+            "options": ["grau", "grün", "braun"],
+            "answer": "grau",
+            "explanation": "grau (Say it: 'grou') = grey!"
+          },
+          {
+            "colorVisual": { "colorHex": "#111827", "strokeHex": "#000000" },
+            "prompt": "Which German color matches this black paint splash?",
+            "options": ["schwarz", "weiß", "grau"],
+            "answer": "schwarz",
+            "explanation": "schwarz (Say it: 'shvahrts') = black!"
+          },
+          {
+            "colorVisual": { "colorHex": "#F472B6", "strokeHex": "#9D174D" },
+            "prompt": "Which German color matches this pink paint splash?",
+            "options": ["rosa", "lila", "rot"],
+            "answer": "rosa",
+            "explanation": "rosa (Say it: 'ROH-zah') = pink!"
+          },
+          {
+            "colorVisual": { "colorHex": "#92400E", "strokeHex": "#451A03" },
+            "prompt": "Which German color matches this brown paint splash?",
+            "options": ["braun", "blau", "schwarz"],
+            "answer": "braun",
+            "explanation": "braun (Say it: 'broun') = brown!"
+          },
+          {
+            "colorVisual": { "isRainbow": true },
+            "prompt": "Which German word means colorful (all colors together)?",
+            "options": ["bunt", "weiß", "grau"],
+            "answer": "bunt",
+            "explanation": "bunt (Say it: 'boont') = colorful!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "w1_de_lesson2_likes",
+      "lang": "de-DE",
+      "title": "Lesson 2: Talking About Colors",
+      "icon": "💬",
+      "description": "Say 'That is...', 'I like...', ask 'Magst du...?', and answer with 'Ja!' or 'Nein.'",
+      "hint": "Ich mag = I like. Magst du...? = Do you like...? Ja = Yes, Nein = No!",
+      "cards": [
+        {
+          "id": "de-talk-hallo",
+          "kind": "vocab",
+          "groupLabel": "Greeting • Begrüßung",
+          "word": "Hallo!",
+          "emoji": "👋😊",
+          "transcription": "HAH-loh!",
+          "translation": "Hello!",
+          "explanation": "We start with a friendly wave! Hallo means Hello in German.",
+          "example": "Hallo! Das ist rot.",
+          "exampleTranscription": "HAH-loh! dahs ist roht.",
+          "exampleTranslation": "Hello! That is red.",
+          "tip": "It sounds almost just like English 'Hello', with 'Hah' at the start!"
+        },
+        {
+          "id": "de-talk-das-ist",
+          "kind": "vocab",
+          "groupLabel": "Sentence Builder • Pattern 1",
+          "word": "Das ist ...",
+          "emoji": "👉🎨",
+          "transcription": "dahs ist",
+          "translation": "That is ... / This is ...",
+          "explanation": "Point to any color and say 'Das ist ___!' — That is ___!",
+          "example": "Das ist blau. Das ist grün.",
+          "exampleTranscription": "dahs ist blou. dahs ist gruen.",
+          "exampleTranslation": "That is blue. That is green.",
+          "highlightWords": ["Das", "ist", "blau", "grün"],
+          "tip": "Swap the last word for ANY color: Das ist lila! Das ist rosa!"
+        },
+        {
+          "id": "de-talk-ich-mag",
+          "kind": "vocab",
+          "groupLabel": "Sentence Builder • Pattern 2",
+          "word": "Ich mag ...",
+          "emoji": "❤️👍",
+          "transcription": "ikh mahk",
+          "translation": "I like ...",
+          "explanation": "Say what you like in German using 'Ich mag ___.' ('I like ___').",
+          "example": "Ich mag orange. Ich mag lila.",
+          "exampleTranscription": "ikh mahk oh-RAHN-zhuh. ikh mahk LEE-lah.",
+          "exampleTranslation": "I like orange. I like purple.",
+          "highlightWords": ["Ich", "mag", "orange", "lila"],
+          "tip": "In 'ich', make a soft whispering cat breath (not a hard 'k'). In 'mag', the 'g' sounds like 'k': mahk!"
+        },
+        {
+          "id": "de-talk-magst-du",
+          "kind": "vocab",
+          "groupLabel": "Asking a Friend • Question",
+          "word": "Magst du ...?",
+          "emoji": "❓🤔",
+          "transcription": "mahkst doo",
+          "translation": "Do you like ...?",
+          "explanation": "Flip 'Ich mag' to 'Magst du ___?' when you want to ask a friend if they like a color!",
+          "example": "Magst du gelb?",
+          "exampleTranscription": "mahkst doo gelp?",
+          "exampleTranslation": "Do you like yellow?",
+          "highlightWords": ["Magst", "du", "gelb"],
+          "tip": "Look how 'ich mag' (I like) changes to 'magst du' (do you like) when asking 'you'!"
+        },
+        {
+          "id": "de-talk-ja",
+          "kind": "vocab",
+          "groupLabel": "Slide 15 • Happy Answer",
+          "word": "Ja!",
+          "emoji": "😊✅",
+          "colorVisual": {
+            "colorHex": "#EAB308",
+            "strokeHex": "#854D0E",
+            "badgeEmoji": "😊",
+            "ariaLabel": "Happy yellow splash with smiley face"
+          },
+          "transcription": "yah!",
+          "translation": "Yes!",
+          "explanation": "From your slide: 'Magst du gelb?' 😊 'Ja!' — Yes, I like yellow!",
+          "example": "Magst du gelb? Ja!",
+          "exampleTranscription": "mahkst doo gelp? yah!",
+          "exampleTranslation": "Do you like yellow? Yes!",
+          "highlightWords": ["gelb", "Ja"],
+          "tip": "German 'J' always sounds like English 'Y' — so Ja sounds like 'yah'!"
+        },
+        {
+          "id": "de-talk-nein",
+          "kind": "vocab",
+          "groupLabel": "Slide 16 • Polite No",
+          "word": "Nein.",
+          "emoji": "😔❌",
+          "colorVisual": {
+            "colorHex": "#6B7280",
+            "strokeHex": "#374151",
+            "badgeEmoji": "😔",
+            "ariaLabel": "Grey splash with sad face"
+          },
+          "transcription": "nine",
+          "translation": "No.",
+          "explanation": "From your slide: 'Magst du grau?' 😔 'Nein.' — No, I do not like grey.",
+          "example": "Magst du grau? Nein.",
+          "exampleTranscription": "mahkst doo grou? nine.",
+          "exampleTranslation": "Do you like grey? No.",
+          "highlightWords": ["grau", "Nein"],
+          "tip": "Nein sounds just like the English number '9' (nine)! Never confuse it with English!"
+        },
+        {
+          "id": "de-talk-dialogue-recap",
+          "kind": "rule",
+          "groupLabel": "Mini Conversation • Gespräch",
+          "frontTitle": "Point, Like & Ask!",
+          "frontTitleLang": "en-US",
+          "emoji": "🗣️✨",
+          "transcription": "dahs ist ... / ikh mahk ... / mahkst doo ...?",
+          "translation": "Full Color Chat",
+          "explanation": "Put all 3 patterns together: 1) Point: 'Das ist rot.' (That is red.) 2) Share: 'Ich mag rot.' (I like red.) 3) Ask: 'Magst du blau?' — 'Ja!' or 'Nein.'",
+          "example": "Das ist rosa. Ich mag rosa. Magst du braun? Nein.",
+          "exampleLang": "de-DE",
+          "exampleTranscription": "dahs ist ROH-zah. ikh mahk ROH-zah. mahkst doo broun? nine.",
+          "exampleTranslation": "That is pink. I like pink. Do you like brown? No.",
+          "highlightWords": ["rosa", "braun", "Nein"],
+          "tip": "Practice asking your mom, dad, or sibling: 'Magst du grün?'"
+        }
+      ],
+      "activity": {
+        "type": "match_pairs",
+        "title": "Match German Phrases!",
+        "instruction": "Tap a German phrase on the left, then tap its natural English meaning on the right!",
+        "leftTitle": "German Phrase",
+        "rightTitle": "English Meaning",
+        "leftLang": "de-DE",
+        "rightLang": "en-US",
+        "successNoun": "German phrases",
+        "moreButtonLabel": "🔄 Match 4 More Phrases",
+        "pairCount": 4,
+        "allPairs": [
+          ["Hallo!", "Hello!"],
+          ["Das ist rot.", "That is red."],
+          ["Ich mag blau.", "I like blue."],
+          ["Magst du gelb?", "Do you like yellow?"],
+          ["Ja!", "Yes!"],
+          ["Nein.", "No."],
+          ["Ich mag grün.", "I like green."],
+          ["Das ist weiß.", "That is white."]
+        ]
+      }
+    },
+    {
+      "id": "w1_de_lesson3_song",
+      "lang": "de-DE",
+      "title": "Lesson 3: Song — Grün, grün, grün",
+      "icon": "🎵",
+      "description": "Sing 'Grün, grün, grün sind alle meine Kleider' and match all 6 colors & jobs from your slides!",
+      "hint": "Each verse pairs a color with a job: grün→Jäger, rot→Reiter, blau→Matrose, schwarz→Schornsteinfeger, weiß→Müller, bunt→Maler!",
+      "cards": [
+        {
+          "id": "de-song-intro",
+          "kind": "intro",
+          "groupLabel": "German Children's Song 🎵",
+          "frontTitle": "Grün, grün, grün sind alle meine Kleider",
+          "frontTitleLang": "de-DE",
+          "emoji": "🎶👕",
+          "transcription": "gruen, gruen, gruen zint AH-luh MY-nuh KLY-der",
+          "translation": "Green, green, green are all my clothes",
+          "frontHint": "A famous German sing-along! Every color matches a special job!",
+          "backTitle": "How the Song Works!",
+          "backTitleLang": "en-US",
+          "explanation": "Every verse repeats the same cheerful tune with a new color and job! 'Kleider' (KLY-der) means clothes, 'alles, was ich hab' means everything I have, 'Darum lieb ich...' means That's why I love..., and 'mein Schatz' literally means 'my treasure' (someone special to me!).",
+          "example": "Darum lieb ich alles, was so bunt ist!",
+          "exampleLang": "de-DE",
+          "exampleTranscription": "dah-ROOM leep ikh AH-les, vahs zoh boont ist!",
+          "exampleTranslation": "That is why I love everything that is so colorful!",
+          "highlightWords": ["lieb", "alles", "bunt"],
+          "tip": "Flip through all 6 song verses next — try tapping 🔊 to hear the German lines!"
+        },
+        {
+          "id": "de-song-jaeger",
+          "kind": "vocab",
+          "groupLabel": "Verse 1 of 6 • grün → Jäger",
+          "word": "grün • Jäger",
+          "emoji": "🌲🏹",
+          "colorVisual": {
+            "colorHex": "#22C55E",
+            "strokeHex": "#166534",
+            "badgeEmoji": "🏹",
+            "ariaLabel": "Green paint splash for the hunter (Jäger)"
+          },
+          "transcription": "gruen • YAY-ger",
+          "translation": "green • hunter (forest ranger)",
+          "explanation": "Verse 1 pairs green clothes (grün) with a hunter / forest ranger (Jäger — 'YAY-ger') who blends into the green forest!",
+          "example": "Weil mein Schatz ein Jäger ist.",
+          "exampleTranscription": "vyle mine shahts ine YAY-ger ist.",
+          "exampleTranslation": "Because someone special to me is a hunter.",
+          "highlightWords": ["Jäger"],
+          "songLines": [
+            {
+              "german": "Grün, grün, grün sind alle meine Kleider, grün, grün, grün ist alles, was ich hab.",
+              "transcription": "gruen, gruen, gruen zint AH-luh MY-nuh KLY-der, gruen ist AH-les vahs ikh hahp.",
+              "english": "Green, green, green are all my clothes, green is everything I have."
+            },
+            {
+              "german": "Darum lieb ich alles, was so grün ist, weil mein Schatz ein Jäger ist.",
+              "transcription": "dah-ROOM leep ikh AH-les vahs zoh gruen ist, vyle mine shahts ine YAY-ger ist.",
+              "english": "That is why I love everything so green, because someone special to me is a hunter."
+            }
+          ],
+          "tip": "J in German sounds like 'Y' — so Jäger is 'YAY-ger'!"
+        },
+        {
+          "id": "de-song-reiter",
+          "kind": "vocab",
+          "groupLabel": "Verse 2 of 6 • rot → Reiter",
+          "word": "rot • Reiter",
+          "emoji": "🐎❤️",
+          "colorVisual": {
+            "colorHex": "#EF4444",
+            "strokeHex": "#991B1B",
+            "badgeEmoji": "🐎",
+            "ariaLabel": "Red paint splash for the rider (Reiter)"
+          },
+          "transcription": "roht • RYE-ter",
+          "translation": "red • horseback rider",
+          "explanation": "Verse 2 pairs bright red clothes (rot) with a horseback rider (Reiter — 'RYE-ter') wearing a red riding jacket!",
+          "example": "Weil mein Schatz ein Reiter ist.",
+          "exampleTranscription": "vyle mine shahts ine RYE-ter ist.",
+          "exampleTranslation": "Because someone special to me is a rider.",
+          "highlightWords": ["Reiter"],
+          "songLines": [
+            {
+              "german": "Rot, rot, rot sind alle meine Kleider, rot, rot, rot ist alles, was ich hab.",
+              "transcription": "roht, roht, roht zint AH-luh MY-nuh KLY-der, roht ist AH-les vahs ikh hahp.",
+              "english": "Red, red, red are all my clothes, red is everything I have."
+            },
+            {
+              "german": "Darum lieb ich alles, was so rot ist, weil mein Schatz ein Reiter ist.",
+              "transcription": "dah-ROOM leep ikh AH-les vahs zoh roht ist, vyle mine shahts ine RYE-ter ist.",
+              "english": "That is why I love everything so red, because someone special to me is a rider."
+            }
+          ],
+          "tip": "Think of English 'ride' + German 'ei' = 'eye' → Reiter (RYE-ter)!"
+        },
+        {
+          "id": "de-song-matrose",
+          "kind": "vocab",
+          "groupLabel": "Verse 3 of 6 • blau → Matrose",
+          "word": "blau • Matrose",
+          "emoji": "⛵💙",
+          "colorVisual": {
+            "colorHex": "#3B82F6",
+            "strokeHex": "#1E40AF",
+            "badgeEmoji": "⛵",
+            "ariaLabel": "Blue paint splash for the sailor (Matrose)"
+          },
+          "transcription": "blou • mah-TROH-zuh",
+          "translation": "blue • sailor",
+          "explanation": "Verse 3 pairs ocean blue clothes (blau) with a sailor (Matrose — 'mah-TROH-zuh') sailing across the blue sea!",
+          "example": "Weil mein Schatz ein Matrose ist.",
+          "exampleTranscription": "vyle mine shahts ine mah-TROH-zuh ist.",
+          "exampleTranslation": "Because someone special to me is a sailor.",
+          "highlightWords": ["Matrose"],
+          "songLines": [
+            {
+              "german": "Blau, blau, blau sind alle meine Kleider, blau, blau, blau ist alles, was ich hab.",
+              "transcription": "blou, blou, blou zint AH-luh MY-nuh KLY-der, blou ist AH-les vahs ikh hahp.",
+              "english": "Blue, blue, blue are all my clothes, blue is everything I have."
+            },
+            {
+              "german": "Darum lieb ich alles, was so blau ist, weil mein Schatz ein Matrose ist.",
+              "transcription": "dah-ROOM leep ikh AH-les vahs zoh blou ist, vyle mine shahts ine mah-TROH-zuh ist.",
+              "english": "That is why I love everything so blue, because someone special to me is a sailor."
+            }
+          ],
+          "tip": "Easy connection: Blue sea (blau) ➔ Sailor on a boat (Matrose)!"
+        },
+        {
+          "id": "de-song-schornsteinfeger",
+          "kind": "vocab",
+          "groupLabel": "Verse 4 of 6 • schwarz → Schornsteinfeger",
+          "word": "schwarz • Schornsteinfeger",
+          "emoji": "🧹🖤",
+          "colorVisual": {
+            "colorHex": "#111827",
+            "strokeHex": "#000000",
+            "badgeEmoji": "🧹",
+            "ariaLabel": "Black paint splash for the chimney sweep (Schornsteinfeger)"
+          },
+          "transcription": "shvahrts • SHORN-shtine-fay-ger",
+          "translation": "black • chimney sweep",
+          "explanation": "Verse 4 pairs black clothes (schwarz) with a chimney sweep (Schornsteinfeger — 'SHORN-shtine-fay-ger') who cleans dark chimneys and brings good luck!",
+          "example": "Weil mein Schatz ein Schornsteinfeger ist.",
+          "exampleTranscription": "vyle mine shahts ine SHORN-shtine-fay-ger ist.",
+          "exampleTranslation": "Because someone special to me is a chimney sweep.",
+          "highlightWords": ["Schornsteinfeger"],
+          "songLines": [
+            {
+              "german": "Schwarz, schwarz, schwarz sind alle meine Kleider, schwarz, schwarz, schwarz ist alles, was ich hab.",
+              "transcription": "shvahrts, shvahrts, shvahrts zint AH-luh MY-nuh KLY-der, shvahrts ist AH-les vahs ikh hahp.",
+              "english": "Black, black, black are all my clothes, black is everything I have."
+            },
+            {
+              "german": "Darum lieb ich alles, was so schwarz ist, weil mein Schatz ein Schornsteinfeger ist.",
+              "transcription": "dah-ROOM leep ikh AH-les vahs zoh shvahrts ist, vyle mine shahts ine SHORN-shtine-fay-ger ist.",
+              "english": "That is why I love everything so black, because someone special to me is a chimney sweep."
+            }
+          ],
+          "tip": "Break the giant word into 4 fun pieces: SHORN + shtine + fay + ger! 'Schornstein' = chimney, 'Feger' = sweeper!"
+        },
+        {
+          "id": "de-song-mueller",
+          "kind": "vocab",
+          "groupLabel": "Verse 5 of 6 • weiß → Müller",
+          "word": "weiß • Müller",
+          "emoji": "🌾🤍",
+          "colorVisual": {
+            "colorHex": "#FFFFFF",
+            "strokeHex": "#334155",
+            "badgeEmoji": "🌾",
+            "ariaLabel": "White paint splash for the miller (Müller)"
+          },
+          "transcription": "vice • MUE-ler",
+          "translation": "white • miller (flour maker)",
+          "explanation": "Verse 5 pairs white clothes (weiß) with a miller (Müller — 'MUE-ler') covered in soft white wheat flour!",
+          "example": "Weil mein Schatz ein Müller ist.",
+          "exampleTranscription": "vyle mine shahts ine MUE-ler ist.",
+          "exampleTranslation": "Because someone special to me is a miller.",
+          "highlightWords": ["Müller"],
+          "songLines": [
+            {
+              "german": "Weiß, weiß, weiß sind alle meine Kleider, weiß, weiß, weiß ist alles, was ich hab.",
+              "transcription": "vice, vice, vice zint AH-luh MY-nuh KLY-der, vice ist AH-les vahs ikh hahp.",
+              "english": "White, white, white are all my clothes, white is everything I have."
+            },
+            {
+              "german": "Darum lieb ich alles, was so weiß ist, weil mein Schatz ein Müller ist.",
+              "transcription": "dah-ROOM leep ikh AH-les vahs zoh vice ist, vyle mine shahts ine MUE-ler ist.",
+              "english": "That is why I love everything so white, because someone special to me is a miller."
+            }
+          ],
+          "tip": "Remember: white flour dusted all over the miller's apron = weiß & Müller!"
+        },
+        {
+          "id": "de-song-maler",
+          "kind": "vocab",
+          "groupLabel": "Verse 6 of 6 • bunt → Maler",
+          "word": "bunt • Maler",
+          "emoji": "🎨🌈",
+          "colorVisual": {
+            "isRainbow": true,
+            "badgeEmoji": "🎨",
+            "ariaLabel": "Colorful rainbow splash for the painter (Maler)"
+          },
+          "transcription": "boont • MAH-ler",
+          "translation": "colorful • painter (artist)",
+          "explanation": "Verse 6 pairs colorful paint-splashed clothes (bunt) with a painter (Maler — 'MAH-ler') holding a rainbow brush!",
+          "example": "Weil mein Schatz ein Maler ist.",
+          "exampleTranscription": "vyle mine shahts ine MAH-ler ist.",
+          "exampleTranslation": "Because someone special to me is a painter.",
+          "highlightWords": ["Maler"],
+          "songLines": [
+            {
+              "german": "Bunt, bunt, bunt sind alle meine Kleider, bunt, bunt, bunt ist alles, was ich hab.",
+              "transcription": "boont, boont, boont zint AH-luh MY-nuh KLY-der, boont ist AH-les vahs ikh hahp.",
+              "english": "Colorful are all my clothes, colorful is everything I have."
+            },
+            {
+              "german": "Darum lieb ich alles, was so bunt ist, weil mein Schatz ein Maler ist.",
+              "transcription": "dah-ROOM leep ikh AH-les vahs zoh boont ist, vyle mine shahts ine MAH-ler ist.",
+              "english": "That is why I love everything so colorful, because someone special to me is a painter."
+            }
+          ],
+          "tip": "Artists get paint splashes of every color on their smock — that's why Maler wears bunt!"
+        },
+        {
+          "id": "de-song-recap",
+          "kind": "rule",
+          "groupLabel": "All 6 Verses • Lied-Überblick",
+          "frontTitle": "All 6 Song Colors & Jobs!",
+          "frontTitleLang": "en-US",
+          "emoji": "🏆🎵",
+          "transcription": "grün/Jäger • rot/Reiter • blau/Matrose • schwarz/Schornsteinfeger • weiß/Müller • bunt/Maler",
+          "translation": "Complete Song Cheat Sheet",
+          "explanation": "You know the whole song! Green = Hunter (Jäger), Red = Rider (Reiter), Blue = Sailor (Matrose), Black = Chimney Sweep (Schornsteinfeger), White = Miller (Müller), Colorful = Painter (Maler)!",
+          "example": "grün → Jäger, rot → Reiter, blau → Matrose, schwarz → Schornsteinfeger, weiß → Müller, bunt → Maler.",
+          "exampleLang": "de-DE",
+          "exampleTranscription": "gruen YAY-ger, roht RYE-ter, blou mah-TROH-zuh, shvahrts SHORN-shtine-fay-ger, vice MUE-ler, boont MAH-ler.",
+          "exampleTranslation": "green hunter, red rider, blue sailor, black chimney sweep, white miller, colorful painter.",
+          "highlightWords": ["Jäger", "Reiter", "Matrose", "Schornsteinfeger", "Müller", "Maler"],
+          "songLines": [
+            {
+              "german": "💚 grün → 🏹 Jäger",
+              "transcription": "gruen → YAY-ger",
+              "english": "green → hunter"
+            },
+            {
+              "german": "❤️ rot → 🐎 Reiter",
+              "transcription": "roht → RYE-ter",
+              "english": "red → horseback rider"
+            },
+            {
+              "german": "💙 blau → ⛵ Matrose",
+              "transcription": "blou → mah-TROH-zuh",
+              "english": "blue → sailor"
+            },
+            {
+              "german": "🖤 schwarz → 🧹 Schornsteinfeger",
+              "transcription": "shvahrts → SHORN-shtine-fay-ger",
+              "english": "black → chimney sweep"
+            },
+            {
+              "german": "🤍 weiß → 🌾 Müller",
+              "transcription": "vice → MUE-ler",
+              "english": "white → miller"
+            },
+            {
+              "german": "🌈 bunt → 🎨 Maler",
+              "transcription": "boont → MAH-ler",
+              "english": "colorful → painter"
+            }
+          ],
+          "tip": "Now play 'Song Color & Job Match!' to connect every color to its job!"
+        }
+      ],
+      "activity": {
+        "type": "match_pairs",
+        "title": "Song Color & Job Match!",
+        "instruction": "Match each German color on the left to the job in 'Grün, grün, grün sind alle meine Kleider'!",
+        "leftTitle": "German Color",
+        "rightTitle": "Song Job",
+        "leftLang": "de-DE",
+        "rightLang": "de-DE",
+        "successNoun": "song pairs",
+        "moreButtonLabel": "🔄 Match 4 More Pairs",
+        "pairCount": 4,
+        "allPairs": [
+          ["grün", "Jäger"],
+          ["rot", "Reiter"],
+          ["blau", "Matrose"],
+          ["schwarz", "Schornsteinfeger"],
+          ["weiß", "Müller"],
+          ["bunt", "Maler"]
+        ]
+      }
+    }
+  ],
+  "practices": [
+    {
+      "id": "w1_de_practice_colors",
+      "category": "colors",
+      "practiceLabel": "Color Practice",
+      "title": "Practice 1: Die Farben (Colors)",
+      "icon": "🌈",
+      "description": "Practice all 12 German colors with paint splashes, English translations, and Say-It pronunciations!",
+      "hint": "Check the paint splash color and the 'Say it' bubble to read the German word!",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_de_practice_sentences",
+      "category": "sentences",
+      "practiceLabel": "Conversation Practice",
+      "title": "Practice 2: Likes, Ja & Nein",
+      "icon": "💬",
+      "description": "Practice 'Das ist...', 'Ich mag...', 'Magst du...?', 'Ja!', 'Nein.', and 'Hallo!' from your slides.",
+      "hint": "Ich mag = I like. Das ist = That is. Magst du...? = Do you like...? Ja = Yes, Nein = No.",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_de_practice_song",
+      "category": "song",
+      "practiceLabel": "Song Practice",
+      "title": "Practice 3: Song Colors & Jobs",
+      "icon": "🎵",
+      "description": "Match all 6 colors & jobs from 'Grün, grün, grün sind alle meine Kleider' and learn what the lyrics mean!",
+      "hint": "Think about what each helper wears or works with: green forest, blue sea, black chimney, white flour, colorful paint!",
+      "questionCount": 10
+    }
+  ],
+  "quiz": {
+    "id": "w1_de_final_quiz",
+    "title": "Week 1 Final Quiz: Die Farben",
+    "icon": "🏆",
+    "description": "A fun 10-question mix of German colors, sentences, Ja/Nein, and song jobs!",
+    "hint": "Read carefully, check the 'Say it' pronunciation guide, and tap 🔊 to listen!",
+    "instruction": "Read or listen, then tap the best answer!",
+    "questions": [
+      {
+        "id": "q2-de-w1-col-01",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#EF4444", "strokeHex": "#991B1B", "ariaLabel": "Red paint splash" },
+        "options": ["rot", "gelb", "blau", "grau"],
+        "answer": "rot",
+        "hint": "Firetrucks and strawberries are this color — rhymes with 'boat'!",
+        "explanation": "rot (Say it: 'roht') = red!"
+      },
+      {
+        "id": "q2-de-w1-col-02",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#EAB308", "strokeHex": "#854D0E", "ariaLabel": "Yellow paint splash" },
+        "options": ["gelb", "grün", "rosa", "schwarz"],
+        "answer": "gelb",
+        "hint": "The sun and bananas are this bright color — say 'gelp'!",
+        "explanation": "gelb (Say it: 'gelp') = yellow!"
+      },
+      {
+        "id": "q2-de-w1-col-03",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#22C55E", "strokeHex": "#166534", "ariaLabel": "Green paint splash" },
+        "options": ["grün", "gelb", "braun", "lila"],
+        "answer": "grün",
+        "hint": "Grass and frogs are this color, and the song starts with this word!",
+        "explanation": "grün (Say it: 'gruen') = green!"
+      },
+      {
+        "id": "q2-de-w1-col-04",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#3B82F6", "strokeHex": "#1E40AF", "ariaLabel": "Blue paint splash" },
+        "options": ["blau", "braun", "grau", "bunt"],
+        "answer": "blau",
+        "hint": "The sky and sea are this color — sounds like 'blou'!",
+        "explanation": "blau (Say it: 'blou') = blue!"
+      },
+      {
+        "id": "q2-de-w1-col-05",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#FFFFFF", "strokeHex": "#334155", "ariaLabel": "White paint splash" },
+        "options": ["weiß", "schwarz", "orange", "rosa"],
+        "answer": "weiß",
+        "hint": "Snow and clouds are this color — rhymes with 'ice' ('vice')!",
+        "explanation": "weiß (Say it: 'vice') = white!"
+      },
+      {
+        "id": "q2-de-w1-col-06",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#F97316", "strokeHex": "#9A3412", "ariaLabel": "Orange paint splash" },
+        "options": ["orange", "rot", "rosa", "gelb"],
+        "answer": "orange",
+        "hint": "It is spelled the same in German and English!",
+        "explanation": "orange (Say it: 'oh-RAHN-zhuh') = orange!"
+      },
+      {
+        "id": "q2-de-w1-col-07",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#A855F7", "strokeHex": "#6B21A8", "ariaLabel": "Purple paint splash" },
+        "options": ["lila", "rosa", "blau", "grau"],
+        "answer": "lila",
+        "hint": "Think of lilac flowers — sounds like 'LEE-lah'!",
+        "explanation": "lila (Say it: 'LEE-lah') = purple!"
+      },
+      {
+        "id": "q2-de-w1-col-08",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#6B7280", "strokeHex": "#374151", "ariaLabel": "Grey paint splash" },
+        "options": ["grau", "grün", "braun", "blau"],
+        "answer": "grau",
+        "hint": "Rain clouds and elephants are this color — sounds like 'grou'!",
+        "explanation": "grau (Say it: 'grou') = grey!"
+      },
+      {
+        "id": "q2-de-w1-col-09",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#111827", "strokeHex": "#000000", "ariaLabel": "Black paint splash" },
+        "options": ["schwarz", "weiß", "grau", "braun"],
+        "answer": "schwarz",
+        "hint": "The night sky is this color — sounds like 'shvahrts'!",
+        "explanation": "schwarz (Say it: 'shvahrts') = black!"
+      },
+      {
+        "id": "q2-de-w1-col-10",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#F472B6", "strokeHex": "#9D174D", "ariaLabel": "Pink paint splash" },
+        "options": ["rosa", "rot", "lila", "orange"],
+        "answer": "rosa",
+        "hint": "Think of a pink rose — say 'ROH-zah'!",
+        "explanation": "rosa (Say it: 'ROH-zah') = pink!"
+      },
+      {
+        "id": "q2-de-w1-col-11",
+        "category": "colors",
+        "instruction": "Look at the paint splash. Which German color is it?",
+        "text": "What color is this?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#92400E", "strokeHex": "#451A03", "ariaLabel": "Brown paint splash" },
+        "options": ["braun", "blau", "schwarz", "grau"],
+        "answer": "braun",
+        "hint": "Chocolate and teddy bears are this color — sounds like English 'brown'!",
+        "explanation": "braun (Say it: 'broun') = brown!"
+      },
+      {
+        "id": "q2-de-w1-col-12",
+        "category": "colors",
+        "instruction": "Look at the rainbow splash. Which German word means colorful?",
+        "text": "What describes this rainbow splash?",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "colorVisual": { "isRainbow": true, "ariaLabel": "Rainbow colorful splash" },
+        "options": ["bunt", "weiß", "grau", "gelb"],
+        "answer": "bunt",
+        "hint": "Say 'boont' — it appears in the painter verse of our song!",
+        "explanation": "bunt (Say it: 'boont') = colorful / many colors!"
+      },
+      {
+        "id": "q2-de-w1-col-13",
+        "category": "colors",
+        "instruction": "What does this German word mean in English?",
+        "text": "weiß",
+        "textLang": "de-DE",
+        "transcription": "vice",
+        "optionsLang": "en-US",
+        "options": ["White", "Black", "Yellow", "Pink"],
+        "answer": "White",
+        "hint": "Think of snow and clouds — 'weiß' rhymes with 'ice'!",
+        "explanation": "weiß (Say it: 'vice') = White!"
+      },
+      {
+        "id": "q2-de-w1-col-14",
+        "category": "colors",
+        "instruction": "What does this German word mean in English?",
+        "text": "schwarz",
+        "textLang": "de-DE",
+        "transcription": "shvahrts",
+        "optionsLang": "en-US",
+        "options": ["Black", "Grey", "Brown", "White"],
+        "answer": "Black",
+        "hint": "In the song, the chimney sweep wears this dark color!",
+        "explanation": "schwarz (Say it: 'shvahrts') = Black!"
+      },
+      {
+        "id": "q2-de-w1-col-15",
+        "category": "colors",
+        "instruction": "What does this German word mean in English?",
+        "text": "lila",
+        "textLang": "de-DE",
+        "transcription": "LEE-lah",
+        "optionsLang": "en-US",
+        "options": ["Purple", "Pink", "Green", "Orange"],
+        "answer": "Purple",
+        "hint": "Remember lilac flowers — lila is NOT pink (rosa)!",
+        "explanation": "lila (Say it: 'LEE-lah') = Purple!"
+      },
+      {
+        "id": "q2-de-w1-col-16",
+        "category": "colors",
+        "instruction": "What does this German word mean in English?",
+        "text": "rosa",
+        "textLang": "de-DE",
+        "transcription": "ROH-zah",
+        "optionsLang": "en-US",
+        "options": ["Pink", "Red", "Purple", "Yellow"],
+        "answer": "Pink",
+        "hint": "Sounds like a rose — soft flower pink!",
+        "explanation": "rosa (Say it: 'ROH-zah') = Pink! (Red is rot.)"
+      },
+      {
+        "id": "q2-de-w1-col-17",
+        "category": "colors",
+        "instruction": "What does this German word mean in English?",
+        "text": "gelb",
+        "textLang": "de-DE",
+        "transcription": "gelp",
+        "optionsLang": "en-US",
+        "options": ["Yellow", "Green", "Blue", "Brown"],
+        "answer": "Yellow",
+        "hint": "Think of sunny lemons — Magst du gelb? Ja!",
+        "explanation": "gelb (Say it: 'gelp') = Yellow!"
+      },
+      {
+        "id": "q2-de-w1-col-18",
+        "category": "colors",
+        "instruction": "What does this German word mean in English?",
+        "text": "grau",
+        "textLang": "de-DE",
+        "transcription": "grou",
+        "optionsLang": "en-US",
+        "options": ["Grey", "Green", "Blue", "Brown"],
+        "answer": "Grey",
+        "hint": "Be careful! Grün = green, braun = brown, grau = ...",
+        "explanation": "grau (Say it: 'grou') = Grey!"
+      },
+      {
+        "id": "q2-de-w1-col-19",
+        "category": "colors",
+        "instruction": "What does this German word mean in English?",
+        "text": "braun",
+        "textLang": "de-DE",
+        "transcription": "broun",
+        "optionsLang": "en-US",
+        "options": ["Brown", "Blue", "Black", "Grey"],
+        "answer": "Brown",
+        "hint": "Say it out loud: 'broun' sounds just like the English color!",
+        "explanation": "braun (Say it: 'broun') = Brown!"
+      },
+      {
+        "id": "q2-de-w1-col-20",
+        "category": "colors",
+        "instruction": "What does the title of our German unit mean?",
+        "text": "Die Farben",
+        "textLang": "de-DE",
+        "transcription": "dee FAHR-ben",
+        "optionsLang": "en-US",
+        "options": ["The Colors", "The Animals", "The Numbers", "The Clothes"],
+        "answer": "The Colors",
+        "hint": "Slide 1 says 'Die Farben' before showing all the paint splashes!",
+        "explanation": "Die Farben (Say it: 'dee FAHR-ben') = The Colors!"
+      },
+      {
+        "id": "q2-de-w1-col-21",
+        "category": "colors",
+        "instruction": "Pick the German word for this real-life clue:",
+        "text": "A ripe strawberry 🍓 and a stop sign 🛑 are...",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "options": ["rot", "blau", "lila", "weiß"],
+        "answer": "rot",
+        "hint": "Say 'roht' — that means red!",
+        "explanation": "Strawberries are rot (Say it: 'roht') = red!"
+      },
+      {
+        "id": "q2-de-w1-col-22",
+        "category": "colors",
+        "instruction": "Pick the German word for this real-life clue:",
+        "text": "Soft tree frogs 🐸 and spring leaves 🌿 are...",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "options": ["grün", "grau", "gelb", "schwarz"],
+        "answer": "grün",
+        "hint": "Say 'gruen' — that means green!",
+        "explanation": "Frogs and leaves are grün (Say it: 'gruen') = green!"
+      },
+      {
+        "id": "q2-de-w1-sen-01",
+        "category": "sentences",
+        "instruction": "What does this German sentence mean in English?",
+        "text": "Das ist rot.",
+        "textLang": "de-DE",
+        "transcription": "dahs ist roht.",
+        "optionsLang": "en-US",
+        "options": ["That is red.", "I like red.", "Do you like red?", "That is pink."],
+        "answer": "That is red.",
+        "hint": "'Das ist' means 'That is' when you point to a color!",
+        "explanation": "Das ist rot. (Say it: 'dahs ist roht.') = That is red."
+      },
+      {
+        "id": "q2-de-w1-sen-02",
+        "category": "sentences",
+        "instruction": "What does this German sentence mean in English?",
+        "text": "Ich mag blau.",
+        "textLang": "de-DE",
+        "transcription": "ikh mahk blou.",
+        "optionsLang": "en-US",
+        "options": ["I like blue.", "That is blue.", "Do you like blue?", "I like brown."],
+        "answer": "I like blue.",
+        "hint": "'Ich mag' tells what YOU like! And blau = blue.",
+        "explanation": "Ich mag blau. (Say it: 'ikh mahk blou.') = I like blue."
+      },
+      {
+        "id": "q2-de-w1-sen-03",
+        "category": "sentences",
+        "instruction": "How do you say this in German?",
+        "text": "That is green.",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "options": ["Das ist grün.", "Ich mag grün.", "Magst du grün?", "Das ist grau."],
+        "answer": "Das ist grün.",
+        "hint": "'That is' = 'Das ist' and green = 'grün'.",
+        "explanation": "Das ist grün. (Say it: 'dahs ist gruen.') = That is green."
+      },
+      {
+        "id": "q2-de-w1-sen-04",
+        "category": "sentences",
+        "instruction": "How do you say this in German?",
+        "text": "I like yellow.",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "options": ["Ich mag gelb.", "Das ist gelb.", "Magst du gelb?", "Ich mag grün."],
+        "answer": "Ich mag gelb.",
+        "hint": "'I like' = 'Ich mag', and yellow = 'gelb'.",
+        "explanation": "Ich mag gelb. (Say it: 'ikh mahk gelp.') = I like yellow."
+      },
+      {
+        "id": "q2-de-w1-sen-05",
+        "category": "sentences",
+        "instruction": "What is this German question asking?",
+        "text": "Magst du gelb?",
+        "textLang": "de-DE",
+        "transcription": "mahkst doo gelp?",
+        "optionsLang": "en-US",
+        "options": ["Do you like yellow?", "That is yellow.", "I like yellow.", "Do you like green?"],
+        "answer": "Do you like yellow?",
+        "hint": "Notice the question mark and 'du' (you)! You saw this on Slide 15 😊.",
+        "explanation": "Magst du gelb? (Say it: 'mahkst doo gelp?') = Do you like yellow?"
+      },
+      {
+        "id": "q2-de-w1-sen-06",
+        "category": "sentences",
+        "instruction": "Look at the happy smiley 😊. How do you answer in German?",
+        "text": "Magst du gelb? 😊",
+        "textLang": "de-DE",
+        "speechText": "Magst du gelb?",
+        "transcription": "mahkst doo gelp?",
+        "translation": "Do you like yellow? (Happy face!)",
+        "optionsLang": "de-DE",
+        "options": ["Ja.", "Nein.", "Hallo.", "Das ist."],
+        "answer": "Ja.",
+        "colorVisual": { "colorHex": "#EAB308", "strokeHex": "#854D0E", "badgeEmoji": "😊" },
+        "hint": "The happy smiley means YES! In German, Yes = Ja ('yah').",
+        "explanation": "Magst du gelb? Ja! (Say it: 'yah') = Do you like yellow? Yes!"
+      },
+      {
+        "id": "q2-de-w1-sen-07",
+        "category": "sentences",
+        "instruction": "Look at the sad face 😔. How do you answer in German?",
+        "text": "Magst du grau? 😔",
+        "textLang": "de-DE",
+        "speechText": "Magst du grau?",
+        "transcription": "mahkst doo grou?",
+        "translation": "Do you like grey? (No thank you!)",
+        "optionsLang": "de-DE",
+        "options": ["Nein.", "Ja.", "Hallo!", "Ich mag."],
+        "answer": "Nein.",
+        "colorVisual": { "colorHex": "#6B7280", "strokeHex": "#374151", "badgeEmoji": "😔" },
+        "hint": "The sad face means NO! In German, No = Nein (sounds like 'nine').",
+        "explanation": "Magst du grau? Nein. (Say it: 'nine') = Do you like grey? No."
+      },
+      {
+        "id": "q2-de-w1-sen-08",
+        "category": "sentences",
+        "instruction": "Pick the missing German word to say 'I like orange.'",
+        "text": "___ mag orange.",
+        "transcription": "___ mahk oh-RAHN-zhuh",
+        "translation": "I like orange.",
+        "speechParts": [
+          { "id": "instr", "text": "Pick the missing German word to say I like orange.", "lang": "en-US" },
+          { "id": "opt-lbl", "text": "Options:", "lang": "en-US" }
+        ],
+        "optionsLang": "de-DE",
+        "options": ["Ich", "Das", "Du", "Ja"],
+        "answer": "Ich",
+        "hint": "Which German word means 'I' (pronounced 'ikh')?",
+        "explanation": "Ich mag orange. (Say it: 'ikh mahk oh-RAHN-zhuh.') = I like orange."
+      },
+      {
+        "id": "q2-de-w1-sen-09",
+        "category": "sentences",
+        "instruction": "Pick the missing German word to say 'I like pink.'",
+        "text": "Ich ___ rosa.",
+        "transcription": "ikh ___ ROH-zah",
+        "translation": "I like pink.",
+        "speechParts": [
+          { "id": "instr", "text": "Pick the missing German word to say I like pink.", "lang": "en-US" },
+          { "id": "opt-lbl", "text": "Options:", "lang": "en-US" }
+        ],
+        "optionsLang": "de-DE",
+        "options": ["mag", "ist", "du", "nein"],
+        "answer": "mag",
+        "hint": "Which word means 'like' in 'Ich ___ rosa'?",
+        "explanation": "Ich mag rosa. (Say it: 'ikh mahk ROH-zah.') = I like pink."
+      },
+      {
+        "id": "q2-de-w1-sen-10",
+        "category": "sentences",
+        "instruction": "Pick the missing German words to say 'That is white.'",
+        "text": "___ ist weiß.",
+        "transcription": "___ ist vice",
+        "translation": "That is white.",
+        "speechParts": [
+          { "id": "instr", "text": "Pick the missing German word to say That is white.", "lang": "en-US" },
+          { "id": "opt-lbl", "text": "Options:", "lang": "en-US" }
+        ],
+        "optionsLang": "de-DE",
+        "options": ["Das", "Ich", "Magst", "Nein"],
+        "answer": "Das",
+        "hint": "Slide 7 says: '___ ist weiß.' ('That is white.')",
+        "explanation": "Das ist weiß. (Say it: 'dahs ist vice.') = That is white."
+      },
+      {
+        "id": "q2-de-w1-sen-11",
+        "category": "sentences",
+        "instruction": "Pick the missing German word to ask 'Do you like purple?'",
+        "text": "___ du lila?",
+        "transcription": "___ doo LEE-lah?",
+        "translation": "Do you like purple?",
+        "speechParts": [
+          { "id": "instr", "text": "Pick the missing German word to ask Do you like purple?", "lang": "en-US" },
+          { "id": "opt-lbl", "text": "Options:", "lang": "en-US" }
+        ],
+        "optionsLang": "de-DE",
+        "options": ["Magst", "Das", "Ich", "Ja"],
+        "answer": "Magst",
+        "hint": "When asking 'you' (du), 'mag' gets an -st: Magst du...?",
+        "explanation": "Magst du lila? (Say it: 'mahkst doo LEE-lah?') = Do you like purple?"
+      },
+      {
+        "id": "q2-de-w1-sen-12",
+        "category": "sentences",
+        "instruction": "What does 'Ja' mean in English?",
+        "text": "Ja",
+        "textLang": "de-DE",
+        "transcription": "yah",
+        "optionsLang": "en-US",
+        "options": ["Yes", "No", "Hello", "Red"],
+        "answer": "Yes",
+        "hint": "Smile like Slide 15 😊 — Ja means...",
+        "explanation": "Ja (Say it: 'yah') = Yes!"
+      },
+      {
+        "id": "q2-de-w1-sen-13",
+        "category": "sentences",
+        "instruction": "What does 'Nein' mean in English?",
+        "text": "Nein",
+        "textLang": "de-DE",
+        "transcription": "nine",
+        "optionsLang": "en-US",
+        "options": ["No", "Yes", "Good", "Hello"],
+        "answer": "No",
+        "hint": "It sounds like the number 9, and Slide 16 shows 😔!",
+        "explanation": "Nein (Say it: 'nine') = No!"
+      },
+      {
+        "id": "q2-de-w1-sen-14",
+        "category": "sentences",
+        "instruction": "How do you greet a friend and say 'I like black'?",
+        "text": "Hello! I like black.",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "options": [
+          "Hallo! Ich mag schwarz.",
+          "Nein! Das ist weiß.",
+          "Magst du schwarz?",
+          "Hallo! Ich mag braun."
+        ],
+        "answer": "Hallo! Ich mag schwarz.",
+        "hint": "Hallo = Hello, Ich mag = I like, schwarz = black!",
+        "explanation": "Hallo! Ich mag schwarz. (Say it: 'HAH-loh! ikh mahk shvahrts.') = Hello! I like black."
+      },
+      {
+        "id": "q2-de-w1-sen-15",
+        "category": "sentences",
+        "instruction": "What does this German sentence mean in English?",
+        "text": "Das ist braun. Ich mag braun.",
+        "textLang": "de-DE",
+        "transcription": "dahs ist broun. ikh mahk broun.",
+        "optionsLang": "en-US",
+        "options": [
+          "That is brown. I like brown.",
+          "That is blue. I like blue.",
+          "Do you like brown? Yes.",
+          "That is black. I do not like black."
+        ],
+        "answer": "That is brown. I like brown.",
+        "hint": "Slide 13 shows these exact two sentences next to brown paint!",
+        "explanation": "Das ist braun. Ich mag braun. = That is brown. I like brown."
+      },
+      {
+        "id": "q2-de-w1-sen-16",
+        "category": "sentences",
+        "instruction": "How do you say 'I like purple' in German?",
+        "text": "I like purple.",
+        "textLang": "en-US",
+        "optionsLang": "de-DE",
+        "options": ["Ich mag lila.", "Das ist lila.", "Ich mag rosa.", "Magst du lila?"],
+        "answer": "Ich mag lila.",
+        "hint": "purple = lila (LEE-lah), and I like = Ich mag.",
+        "explanation": "Ich mag lila. (Say it: 'ikh mahk LEE-lah.') = I like purple."
+      },
+      {
+        "id": "q2-de-w1-sen-17",
+        "category": "sentences",
+        "instruction": "Mia asks: 'Magst du rosa?' Leo loves pink! What does Leo say?",
+        "text": "Magst du rosa? 😊",
+        "textLang": "de-DE",
+        "speechText": "Magst du rosa?",
+        "transcription": "mahkst doo ROH-zah?",
+        "translation": "Do you like pink?",
+        "optionsLang": "de-DE",
+        "options": ["Ja, ich mag rosa!", "Nein, das ist grau.", "Magst du gelb?", "Das ist weiß."],
+        "answer": "Ja, ich mag rosa!",
+        "hint": "Start with 'Ja' (Yes) + 'ich mag rosa!' (I like pink!).",
+        "explanation": "Ja, ich mag rosa! (Say it: 'yah, ikh mahk ROH-zah!') = Yes, I like pink!"
+      },
+      {
+        "id": "q2-de-w1-sen-18",
+        "category": "sentences",
+        "instruction": "What does 'Das ist orange. Ich mag orange.' mean?",
+        "text": "Das ist orange. Ich mag orange.",
+        "textLang": "de-DE",
+        "transcription": "dahs ist oh-RAHN-zhuh. ikh mahk oh-RAHN-zhuh.",
+        "optionsLang": "en-US",
+        "options": [
+          "That is orange. I like orange.",
+          "Do you like orange? No.",
+          "That is yellow. I like green.",
+          "Hello! I like pink."
+        ],
+        "answer": "That is orange. I like orange.",
+        "hint": "Break it in two: 'Das ist orange' + 'Ich mag orange'!",
+        "explanation": "Das ist orange. Ich mag orange. = That is orange. I like orange."
+      },
+      {
+        "id": "q2-de-w1-sng-01",
+        "category": "song",
+        "instruction": "In the song 'Grün, grün, grün', which job wears green?",
+        "text": "grün 💚",
+        "textLang": "de-DE",
+        "speechText": "grün",
+        "transcription": "gruen (green)",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#22C55E", "strokeHex": "#166534", "badgeEmoji": "🏹" },
+        "options": ["Jäger", "Reiter", "Matrose", "Maler"],
+        "answer": "Jäger",
+        "hint": "Who goes in the green woods? Say 'YAY-ger' (hunter)!",
+        "explanation": "grün → Jäger (Say it: 'YAY-ger') = hunter!"
+      },
+      {
+        "id": "q2-de-w1-sng-02",
+        "category": "song",
+        "instruction": "In the song, which job wears red?",
+        "text": "rot ❤️",
+        "textLang": "de-DE",
+        "speechText": "rot",
+        "transcription": "roht (red)",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#EF4444", "strokeHex": "#991B1B", "badgeEmoji": "🐎" },
+        "options": ["Reiter", "Jäger", "Müller", "Schornsteinfeger"],
+        "answer": "Reiter",
+        "hint": "Think of a horseback rider wearing a red jacket — say 'RYE-ter'!",
+        "explanation": "rot → Reiter (Say it: 'RYE-ter') = horseback rider!"
+      },
+      {
+        "id": "q2-de-w1-sng-03",
+        "category": "song",
+        "instruction": "In the song, which job wears ocean blue?",
+        "text": "blau 💙",
+        "textLang": "de-DE",
+        "speechText": "blau",
+        "transcription": "blou (blue)",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#3B82F6", "strokeHex": "#1E40AF", "badgeEmoji": "⛵" },
+        "options": ["Matrose", "Maler", "Jäger", "Reiter"],
+        "answer": "Matrose",
+        "hint": "Who sails on the blue ocean ⛵? Say 'mah-TROH-zuh' (sailor)!",
+        "explanation": "blau → Matrose (Say it: 'mah-TROH-zuh') = sailor!"
+      },
+      {
+        "id": "q2-de-w1-sng-04",
+        "category": "song",
+        "instruction": "In the song, which job wears black?",
+        "text": "schwarz 🖤",
+        "textLang": "de-DE",
+        "speechText": "schwarz",
+        "transcription": "shvahrts (black)",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#111827", "strokeHex": "#000000", "badgeEmoji": "🧹" },
+        "options": ["Schornsteinfeger", "Müller", "Matrose", "Maler"],
+        "answer": "Schornsteinfeger",
+        "hint": "The fun long word for chimney sweep 🧹: SHORN-shtine-fay-ger!",
+        "explanation": "schwarz → Schornsteinfeger (Say it: 'SHORN-shtine-fay-ger') = chimney sweep!"
+      },
+      {
+        "id": "q2-de-w1-sng-05",
+        "category": "song",
+        "instruction": "In the song, which job wears white (from flour)?",
+        "text": "weiß 🤍",
+        "textLang": "de-DE",
+        "speechText": "weiß",
+        "transcription": "vice (white)",
+        "optionsLang": "de-DE",
+        "colorVisual": { "colorHex": "#FFFFFF", "strokeHex": "#334155", "badgeEmoji": "🌾" },
+        "options": ["Müller", "Jäger", "Reiter", "Schornsteinfeger"],
+        "answer": "Müller",
+        "hint": "The flour maker gets covered in white wheat dust — say 'MUE-ler'!",
+        "explanation": "weiß → Müller (Say it: 'MUE-ler') = miller (flour maker)!"
+      },
+      {
+        "id": "q2-de-w1-sng-06",
+        "category": "song",
+        "instruction": "In the song, which job wears colorful clothes?",
+        "text": "bunt 🌈",
+        "textLang": "de-DE",
+        "speechText": "bunt",
+        "transcription": "boont (colorful)",
+        "optionsLang": "de-DE",
+        "colorVisual": { "isRainbow": true, "badgeEmoji": "🎨" },
+        "options": ["Maler", "Matrose", "Müller", "Reiter"],
+        "answer": "Maler",
+        "hint": "Who splashes rainbow paint 🎨 everywhere? Say 'MAH-ler'!",
+        "explanation": "bunt → Maler (Say it: 'MAH-ler') = painter!"
+      },
+      {
+        "id": "q2-de-w1-sng-07",
+        "category": "song",
+        "instruction": "What does this German song job mean in English?",
+        "text": "Jäger",
+        "textLang": "de-DE",
+        "transcription": "YAY-ger",
+        "optionsLang": "en-US",
+        "options": ["Hunter", "Sailor", "Painter", "Miller"],
+        "answer": "Hunter",
+        "hint": "Remember Verse 1: green clothes in the forest!",
+        "explanation": "Jäger (Say it: 'YAY-ger') = Hunter (forest ranger)!"
+      },
+      {
+        "id": "q2-de-w1-sng-08",
+        "category": "song",
+        "instruction": "What does this German song job mean in English?",
+        "text": "Reiter",
+        "textLang": "de-DE",
+        "transcription": "RYE-ter",
+        "optionsLang": "en-US",
+        "options": ["Horseback rider", "Sailor", "Chimney sweep", "Painter"],
+        "answer": "Horseback rider",
+        "hint": "Say 'RYE-ter' — sounds almost like 'rider'!",
+        "explanation": "Reiter (Say it: 'RYE-ter') = Horseback rider!"
+      },
+      {
+        "id": "q2-de-w1-sng-09",
+        "category": "song",
+        "instruction": "What does this German song job mean in English?",
+        "text": "Matrose",
+        "textLang": "de-DE",
+        "transcription": "mah-TROH-zuh",
+        "optionsLang": "en-US",
+        "options": ["Sailor", "Hunter", "Miller", "Rider"],
+        "answer": "Sailor",
+        "hint": "Remember Verse 3: blau (blue) ⛵!",
+        "explanation": "Matrose (Say it: 'mah-TROH-zuh') = Sailor!"
+      },
+      {
+        "id": "q2-de-w1-sng-10",
+        "category": "song",
+        "instruction": "What does this German song job mean in English?",
+        "text": "Schornsteinfeger",
+        "textLang": "de-DE",
+        "transcription": "SHORN-shtine-fay-ger",
+        "optionsLang": "en-US",
+        "options": ["Chimney sweep", "Painter", "Sailor", "Hunter"],
+        "answer": "Chimney sweep",
+        "hint": "Remember Verse 4: schwarz (black) 🧹!",
+        "explanation": "Schornsteinfeger (Say it: 'SHORN-shtine-fay-ger') = Chimney sweep!"
+      },
+      {
+        "id": "q2-de-w1-sng-11",
+        "category": "song",
+        "instruction": "What does this German song job mean in English?",
+        "text": "Müller",
+        "textLang": "de-DE",
+        "transcription": "MUE-ler",
+        "optionsLang": "en-US",
+        "options": ["Miller (flour maker)", "Painter", "Rider", "Sailor"],
+        "answer": "Miller (flour maker)",
+        "hint": "Remember Verse 5: weiß (white) flour 🌾!",
+        "explanation": "Müller (Say it: 'MUE-ler') = Miller (flour maker)!"
+      },
+      {
+        "id": "q2-de-w1-sng-12",
+        "category": "song",
+        "instruction": "What does this German song job mean in English?",
+        "text": "Maler",
+        "textLang": "de-DE",
+        "transcription": "MAH-ler",
+        "optionsLang": "en-US",
+        "options": ["Painter", "Hunter", "Chimney sweep", "Miller"],
+        "answer": "Painter",
+        "hint": "Remember Verse 6: bunt (colorful) 🎨!",
+        "explanation": "Maler (Say it: 'MAH-ler') = Painter!"
+      },
+      {
+        "id": "q2-de-w1-sng-13",
+        "category": "song",
+        "instruction": "What does this word from the song mean in English?",
+        "text": "Kleider",
+        "textLang": "de-DE",
+        "transcription": "KLY-der",
+        "optionsLang": "en-US",
+        "options": ["Clothes", "Colors", "Shoes", "Paint"],
+        "answer": "Clothes",
+        "hint": "Grün, grün, grün sind alle meine Kleider = Green, green, green are all my...",
+        "explanation": "Kleider (Say it: 'KLY-der') = Clothes!"
+      },
+      {
+        "id": "q2-de-w1-sng-14",
+        "category": "song",
+        "instruction": "Which color does the Matrose (sailor) wear in the song?",
+        "text": "Matrose ⛵",
+        "textLang": "de-DE",
+        "speechText": "Matrose",
+        "transcription": "mah-TROH-zuh (sailor)",
+        "optionsLang": "de-DE",
+        "options": ["blau", "rot", "weiß", "schwarz"],
+        "answer": "blau",
+        "hint": "Think of the ocean water where a sailor sails!",
+        "explanation": "Der Matrose wears blau (Say it: 'blou') = blue!"
+      },
+      {
+        "id": "q2-de-w1-sng-15",
+        "category": "song",
+        "instruction": "Which color does the Schornsteinfeger (chimney sweep) wear in the song?",
+        "text": "Schornsteinfeger 🧹",
+        "textLang": "de-DE",
+        "speechText": "Schornsteinfeger",
+        "transcription": "SHORN-shtine-fay-ger (chimney sweep)",
+        "optionsLang": "de-DE",
+        "options": ["schwarz", "weiß", "grün", "bunt"],
+        "answer": "schwarz",
+        "hint": "Dark chimney soot is black — in German that is schwarz!",
+        "explanation": "Der Schornsteinfeger wears schwarz (Say it: 'shvahrts') = black!"
+      },
+      {
+        "id": "q2-de-w1-sng-16",
+        "category": "song",
+        "instruction": "Which color does the Müller (miller) wear in the song?",
+        "text": "Müller 🌾",
+        "textLang": "de-DE",
+        "speechText": "Müller",
+        "transcription": "MUE-ler (miller)",
+        "optionsLang": "de-DE",
+        "options": ["weiß", "blau", "rot", "schwarz"],
+        "answer": "weiß",
+        "hint": "Soft flour dust is white — in German that is weiß!",
+        "explanation": "Der Müller wears weiß (Say it: 'vice') = white!"
+      },
+      {
+        "id": "q2-de-w1-sng-17",
+        "category": "song",
+        "instruction": "Which color word describes the Maler (painter) in the song?",
+        "text": "Maler 🎨",
+        "textLang": "de-DE",
+        "speechText": "Maler",
+        "transcription": "MAH-ler (painter)",
+        "optionsLang": "de-DE",
+        "options": ["bunt", "grau", "weiß", "rot"],
+        "answer": "bunt",
+        "hint": "Artists use ALL colors together — bunt ('boont') means colorful!",
+        "explanation": "Der Maler is bunt (Say it: 'boont') = colorful!"
+      },
+      {
+        "id": "q2-de-w1-sng-18",
+        "category": "song",
+        "instruction": "What does this song line mean in English?",
+        "text": "Grün, grün, grün sind alle meine Kleider.",
+        "textLang": "de-DE",
+        "transcription": "gruen, gruen, gruen zint AH-luh MY-nuh KLY-der.",
+        "optionsLang": "en-US",
+        "options": [
+          "Green, green, green are all my clothes.",
+          "Blue, blue, blue is everything I eat.",
+          "I like green paint on my shoes.",
+          "Do you like green clothes?"
+        ],
+        "answer": "Green, green, green are all my clothes.",
+        "hint": "grün = green, alle meine Kleider = all my clothes!",
+        "explanation": "Grün, grün, grün sind alle meine Kleider. = Green, green, green are all my clothes."
+      },
+      {
+        "id": "q2-de-w1-sng-19",
+        "category": "song",
+        "instruction": "What does 'Darum lieb ich alles, was so rot ist' mean?",
+        "text": "Darum lieb ich alles, was so rot ist.",
+        "textLang": "de-DE",
+        "transcription": "dah-ROOM leep ikh AH-les, vahs zoh roht ist.",
+        "optionsLang": "en-US",
+        "options": [
+          "That is why I love everything that is so red.",
+          "That is red and I do not like it.",
+          "My special someone paints red houses.",
+          "All my red clothes are in the closet."
+        ],
+        "answer": "That is why I love everything that is so red.",
+        "hint": "'lieb ich' = I love, 'alles' = everything, 'rot' = red!",
+        "explanation": "Darum lieb ich alles, was so rot ist. = That is why I love everything that is so red."
+      },
+      {
+        "id": "q2-de-w1-sng-20",
+        "category": "song",
+        "instruction": "Finish the song verse with the matching job:",
+        "text": "Rot, rot, rot sind alle meine Kleider — weil mein Schatz ein ___ ist.",
+        "transcription": "roht ... vyle mine shahts ine ___ ist.",
+        "translation": "Red are all my clothes — because my special someone is a ___.",
+        "speechParts": [
+          { "id": "instr", "text": "Finish the red song verse with the matching job.", "lang": "en-US" },
+          { "id": "opt-lbl", "text": "Options:", "lang": "en-US" }
+        ],
+        "optionsLang": "de-DE",
+        "options": ["Reiter", "Jäger", "Matrose", "Maler"],
+        "answer": "Reiter",
+        "hint": "Verse 2 pairs rot (red) with the horseback rider!",
+        "explanation": "Weil mein Schatz ein Reiter ist! (Say it: 'RYE-ter') = because my special someone is a rider!"
+      }
+    ]
+  }
+}
