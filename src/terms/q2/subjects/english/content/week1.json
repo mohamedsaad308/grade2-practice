@@ -7,7 +7,7 @@
       "id": "w1_lesson1_blends",
       "title": "Lesson 1: Blends with L, R, S",
       "icon": "🚂",
-      "description": "Learn L, R, and S consonant blends, practice spelling words, and play Sort it!",
+      "description": "Learn 2- and 3-letter L, R, and S consonant blends, review spelling words, and play Sort it!",
       "hint": "Say each blend sound quickly together like a train: s-p-ace → space!",
       "cards": [
         {
@@ -17,9 +17,21 @@
           "emoji": "🚂",
           "frontHint": "Two or three consonants that work together",
           "backTitle": "What is a Blend?",
-          "explanation": "A blend is two or three letters that sit together. You say each sound quickly, like a train: s-p-ace → space!",
-          "example": "Two letters blend together in train and space.",
-          "highlightWords": ["train", "space"]
+          "explanation": "A blend is two consonants together (like pl in plum) or three consonants together (like str in strap). Say each sound quickly like a train!",
+          "example": "Two letters blend in plum, and three letters blend in strap!",
+          "highlightWords": ["plum", "strap"]
+        },
+        {
+          "id": "blend-l-plum",
+          "kind": "blend",
+          "groupLabel": "2-Letter L Blend (pl)",
+          "emoji": "🍑",
+          "prefix": "",
+          "blend": "pl",
+          "suffix": "um",
+          "word": "plum",
+          "explanation": "Two consonants blend together (p + l → pl).",
+          "example": "I ate a sweet purple plum for a snack."
         },
         {
           "id": "blend-l-globe",
@@ -118,6 +130,42 @@
           "example": "I ate a cheesy slice of pizza."
         },
         {
+          "id": "blend-l-slid",
+          "kind": "blend",
+          "groupLabel": "Review L Blend (sl)",
+          "emoji": "🛷",
+          "prefix": "",
+          "blend": "sl",
+          "suffix": "id",
+          "word": "slid",
+          "explanation": "Review spelling word! The second letter is L (s + l → sl).",
+          "example": "The playful puppy slid across the smooth floor."
+        },
+        {
+          "id": "blend-l-close",
+          "kind": "blend",
+          "groupLabel": "Review L Blend (cl)",
+          "emoji": "🚪",
+          "prefix": "",
+          "blend": "cl",
+          "suffix": "ose",
+          "word": "close",
+          "explanation": "Review spelling word! The second letter is L (c + l → cl).",
+          "example": "Please close the classroom door gently."
+        },
+        {
+          "id": "blend-l-plate",
+          "kind": "blend",
+          "groupLabel": "Review L Blend (pl)",
+          "emoji": "🍽️",
+          "prefix": "",
+          "blend": "pl",
+          "suffix": "ate",
+          "word": "plate",
+          "explanation": "Review spelling word! The second letter is L (p + l → pl).",
+          "example": "Put the warm pancakes on a clean plate."
+        },
+        {
           "id": "blend-r-grade",
           "kind": "blend",
           "groupLabel": "R Blend (gr)",
@@ -152,6 +200,30 @@
           "word": "grass",
           "explanation": "The second letter is R (g + r → gr).",
           "example": "Soft green grass grows in the yard."
+        },
+        {
+          "id": "blend-r-grin",
+          "kind": "blend",
+          "groupLabel": "R Blend (gr)",
+          "emoji": "😁",
+          "prefix": "",
+          "blend": "gr",
+          "suffix": "in",
+          "word": "grin",
+          "explanation": "The second letter is R (g + r → gr). Hear each sound in grin!",
+          "example": "The happy boy gave a big grin."
+        },
+        {
+          "id": "blend-r-grape",
+          "kind": "blend",
+          "groupLabel": "Review R Blend (gr)",
+          "emoji": "🍇",
+          "prefix": "",
+          "blend": "gr",
+          "suffix": "ape",
+          "word": "grape",
+          "explanation": "Review spelling word! The second letter is R (g + r → gr).",
+          "example": "One juicy purple grape rolled off the plate."
         },
         {
           "id": "blend-r-throne",
@@ -226,6 +298,18 @@
           "example": "Mom cooks warm soup on the stove."
         },
         {
+          "id": "blend-s-strap",
+          "kind": "blend",
+          "groupLabel": "3-Letter S Blend (str)",
+          "emoji": "🎒",
+          "prefix": "",
+          "blend": "str",
+          "suffix": "ap",
+          "word": "strap",
+          "explanation": "str = 3 consonants in a blend! s + t + r sit together.",
+          "example": "Buckle the red strap on your backpack."
+        },
+        {
           "id": "blend-s-test",
           "kind": "blend",
           "groupLabel": "Ending -st Blend",
@@ -266,7 +350,7 @@
           "kind": "wordList",
           "frontTitle": "Spelling Words List",
           "emoji": "📝",
-          "frontHint": "12 Spelling Words + 4 Extra Review Words",
+          "frontHint": "12 Basic Spelling Words + 4 Review Words",
           "backTitle": "Week 1 Spelling Words",
           "explanation": "Read each word out loud and spot the L, R, or S blend!",
           "example": "Read each spelling word out loud and spot the blend!",
@@ -282,24 +366,25 @@
       "activity": {
         "type": "sort_buckets",
         "title": "Sort it!",
-        "instruction": "Tap or drag each word into the right blend box!",
+        "instruction": "Sort all 12 Basic Spelling Words into the right blend box!",
         "buckets": [
           { "id": "L", "label": "L blends", "emoji": "🔵", "hint": "2nd letter is L" },
           { "id": "R", "label": "R blends", "emoji": "🟢", "hint": "2nd letter is R" },
-          { "id": "S", "label": "S blends", "emoji": "🟣", "hint": "Starts with S" }
+          { "id": "S", "label": "S blends", "emoji": "🟣", "hint": "Starts with S or ends in -st" }
         ],
         "items": [
           { "word": "globe", "bucket": "L", "emoji": "🌍" },
+          { "word": "place", "bucket": "L", "emoji": "📍" },
           { "word": "glide", "bucket": "L", "emoji": "🪂" },
-          { "word": "clip", "bucket": "L", "emoji": "📎" },
-          { "word": "flag", "bucket": "L", "emoji": "🇪🇬" },
           { "word": "grade", "bucket": "R", "emoji": "🅰️" },
           { "word": "drag", "bucket": "R", "emoji": "🧲" },
-          { "word": "grass", "bucket": "R", "emoji": "🌱" },
           { "word": "space", "bucket": "S", "emoji": "🚀" },
           { "word": "swim", "bucket": "S", "emoji": "🏊" },
+          { "word": "last", "bucket": "S", "emoji": "🏁" },
+          { "word": "test", "bucket": "S", "emoji": "📝" },
           { "word": "skin", "bucket": "S", "emoji": "🧴" },
-          { "word": "snake", "bucket": "S", "emoji": "🐍" }
+          { "word": "just", "bucket": "S", "emoji": "✅" },
+          { "word": "stove", "bucket": "S", "emoji": "🍳" }
         ]
       }
     },
@@ -315,72 +400,72 @@
           "kind": "vocab",
           "word": "ace",
           "emoji": "🏆",
-          "explanation": "excellent, very good, or an expert.",
+          "explanation": "A person who is very good at something; excellent, really good, or an expert.",
           "example": "She is an ace at tennis.",
-          "tip": "Think of a top player or an A+ star!"
+          "tip": "It often means really good or the best!"
         },
         {
           "id": "pw-eagerly",
           "kind": "vocab",
           "word": "eagerly",
           "emoji": "🤩",
-          "explanation": "with lots of excitement.",
+          "explanation": "Wanting very much to do or have something; with great enthusiasm and excitement.",
           "example": "He waited eagerly for the game.",
-          "tip": "When you can't wait for fun, you wait eagerly!"
+          "tip": "When you really want something, you wait eagerly!"
         },
         {
           "id": "pw-agency",
           "kind": "vocab",
           "word": "agency",
           "emoji": "🏢",
-          "explanation": "a group or company that gives a service to people.",
+          "explanation": "A business or organization that provides a service and helps others.",
           "example": "We asked a travel agency to plan our trip.",
-          "tip": "Helpers in an office who help plan things."
+          "tip": "A place where people work together to help others."
         },
         {
           "id": "pw-business",
           "kind": "vocab",
           "word": "business",
           "emoji": "💼",
-          "explanation": "work of making, buying or selling things.",
+          "explanation": "The making, buying, and selling of goods or services; an activity that makes money.",
           "example": "Her family has a business.",
-          "tip": "Remember: \"busy\" + \"ness\" → business!"
+          "tip": "Think of a shop or company where people buy and sell things!"
         },
         {
           "id": "pw-confidently",
           "kind": "vocab",
           "word": "confidently",
           "emoji": "💪",
-          "explanation": "feeling sure of yourself.",
+          "explanation": "Sure of oneself and one's abilities; believing in yourself.",
           "example": "He answered confidently.",
-          "tip": "Stand tall because you know you are ready!"
+          "tip": "It means without doubt — feeling sure you can do something well!"
         },
         {
           "id": "pw-located",
           "kind": "vocab",
           "word": "located",
           "emoji": "📍",
-          "explanation": "placed in a certain spot.",
+          "explanation": "Situated or placed in a particular spot or place.",
           "example": "The school is located near the park.",
-          "tip": "Located tells you WHERE something is."
+          "tip": "Located tells you WHERE something is found!"
         },
         {
           "id": "pw-mystery",
           "kind": "vocab",
           "word": "mystery",
           "emoji": "🕵️",
-          "explanation": "something hard to understand or explain.",
+          "explanation": "Something unknown or difficult to understand or explain.",
           "example": "The story was a mystery.",
-          "tip": "A puzzle that needs clues to solve!"
+          "tip": "It is something unknown that needs clues to solve!"
         },
         {
           "id": "pw-seeps",
           "kind": "vocab",
           "word": "seeps",
           "emoji": "💧",
-          "explanation": "flows slowly through tiny holes.",
+          "explanation": "Flows or leaks slowly through small holes — the opposite of pours out!",
           "example": "Water seeps from the wall.",
-          "tip": "Not a big splash—just slow drops coming through."
+          "tip": "Not a big splash—just slow drops little by little, the opposite of pours out."
         }
       ],
       "activity": {
@@ -388,14 +473,14 @@
         "title": "Match it!",
         "instruction": "Match 4 Power Words to their meanings!",
         "allPairs": [
-          ["ace 🏆", "excellent, very good, or an expert"],
-          ["eagerly 🤩", "with lots of excitement"],
-          ["agency 🏢", "a company that gives a service"],
-          ["business 💼", "work of making, buying or selling things"],
-          ["confidently 💪", "feeling sure of yourself"],
-          ["located 📍", "placed in a certain spot"],
-          ["mystery 🕵️", "something hard to explain"],
-          ["seeps 💧", "flows slowly through tiny holes"]
+          ["ace 🏆", "excellent, really good, or an expert"],
+          ["eagerly 🤩", "wanting very much; with excitement"],
+          ["agency 🏢", "an organization that helps or gives a service"],
+          ["business 💼", "making, buying, and selling goods or services"],
+          ["confidently 💪", "sure of yourself and your abilities"],
+          ["located 📍", "placed in a particular spot"],
+          ["mystery 🕵️", "something unknown or hard to explain"],
+          ["seeps 💧", "flows slowly; opposite of pours out"]
         ],
         "pairCount": 4
       }
@@ -404,7 +489,7 @@
       "id": "w1_lesson3_nouns",
       "title": "Lesson 3: Singular & Plural Nouns",
       "icon": "🐱",
-      "description": "Learn ONE vs MORE THAN ONE nouns, when to add -s or -es, and play Add -s or -es?",
+      "description": "Learn ONE vs MORE THAN ONE nouns, all 10 poster pairs, and play Add -s or -es?",
       "hint": "Look at the end of the word: s, x, ch, sh → add -es!",
       "cards": [
         {
@@ -423,9 +508,9 @@
           "kind": "intro",
           "frontTitle": "Singular vs Plural",
           "emoji": "🐱 → 🐱🐱🐱",
-          "frontHint": "ONE vs MORE THAN ONE",
+          "frontHint": "ONE (cat, book, girl) vs MORE THAN ONE (cats, books, girls)",
           "backTitle": "One or More Than One!",
-          "explanation": "Singular = ONE (cat 🐱). Plural = MORE THAN ONE (cats 🐱🐱).",
+          "explanation": "Singular = ONE person, place, animal or thing (cat, book, girl, apple). Plural = MORE THAN ONE (cats, books, girls, apples).",
           "example": "One cat sleeps, and three cats play.",
           "highlightWords": ["cat", "cats"]
         },
@@ -440,11 +525,10 @@
           "example": "Two dogs sit under the tall trees.",
           "highlightWords": ["dogs", "trees"],
           "examples": [
-            "cat 🐱 → cats 🐱🐱🐱",
-            "book 📘 → books 📚",
-            "dog 🐶 → dogs 🐶🐶",
-            "chair 🪑 → chairs 🪑🪑",
-            "tree 🌳 → trees 🌳🌳🌳"
+            "cat 🐱 → cats 🐱🐱🐱  •  apple 🍎 → apples 🍎🍎",
+            "book 📘 → books 📚  •  girl 👧 → girls 👧👧",
+            "dog 🐶 → dogs 🐶🐶  •  chair 🪑 → chairs 🪑🪑",
+            "tree 🌳 → trees 🌳🌳🌳  •  globe 🌍 → globes 🌍🌍"
           ]
         },
         {
@@ -458,19 +542,33 @@
           "example": "Two buses stop by the big boxes.",
           "highlightWords": ["buses", "boxes"],
           "examples": [
-            "bus 🚌 → buses 🚌🚌",
-            "box 📦 → boxes 📦📦",
-            "watch ⌚ → watches ⌚⌚",
-            "brush 🪥 → brushes 🪥🪥",
-            "glass 🥛 → glasses 🥛🥛"
+            "bus 🚌 → buses 🚌🚌  •  glass 🥛 → glasses 🥛🥛",
+            "box 📦 → boxes 📦📦  •  fox 🦊 → foxes 🦊🦊",
+            "watch ⌚ → watches ⌚⌚  •  brush 🪥 → brushes 🪥🪥"
           ]
         }
       ],
       "activity": {
         "type": "tap_plural",
         "title": "Add -s or -es?",
-        "instruction": "Tap the correct plural for each noun!",
+        "instruction": "Tap the correct plural for all 10 nouns!",
         "items": [
+          {
+            "id": "tp-cat",
+            "singular": "cat",
+            "picture": "🐱 → 🐱🐱",
+            "options": ["cats", "cates", "cat"],
+            "answer": "cats",
+            "explanation": "Most nouns add -s: cat → cats!"
+          },
+          {
+            "id": "tp-book",
+            "singular": "book",
+            "picture": "📘 → 📚",
+            "options": ["books", "bookes", "book"],
+            "answer": "books",
+            "explanation": "Most nouns add -s: book → books!"
+          },
           {
             "id": "tp-dog",
             "singular": "dog",
@@ -478,6 +576,22 @@
             "options": ["dogs", "doges", "dog"],
             "answer": "dogs",
             "explanation": "Most nouns add -s: dog → dogs!"
+          },
+          {
+            "id": "tp-chair",
+            "singular": "chair",
+            "picture": "🪑 → 🪑🪑",
+            "options": ["chairs", "chaires", "chair"],
+            "answer": "chairs",
+            "explanation": "Most nouns add -s: chair → chairs!"
+          },
+          {
+            "id": "tp-tree",
+            "singular": "tree",
+            "picture": "🌳 → 🌳🌳🌳",
+            "options": ["trees", "treees", "tree"],
+            "answer": "trees",
+            "explanation": "Most nouns add -s: tree → trees!"
           },
           {
             "id": "tp-bus",
@@ -504,12 +618,20 @@
             "explanation": "Watch ends in ch → add -es: watches!"
           },
           {
-            "id": "tp-tree",
-            "singular": "tree",
-            "picture": "🌳 → 🌳🌳🌳",
-            "options": ["trees", "treees", "tree"],
-            "answer": "trees",
-            "explanation": "Most nouns add -s: tree → trees!"
+            "id": "tp-brush",
+            "singular": "brush",
+            "picture": "🪥 → 🪥🪥",
+            "options": ["brushes", "brushs", "brush"],
+            "answer": "brushes",
+            "explanation": "Brush ends in sh → add -es: brushes!"
+          },
+          {
+            "id": "tp-glass",
+            "singular": "glass",
+            "picture": "🥛 → 🥛🥛",
+            "options": ["glasses", "glasss", "glass"],
+            "answer": "glasses",
+            "explanation": "Glass ends in s → add -es: glasses!"
           }
         ]
       }
@@ -518,7 +640,7 @@
       "id": "w1_lesson4_agreement",
       "title": "Lesson 4: Subject-Verb Agreement",
       "icon": "⚖️",
-      "description": "Make the subject and verb match on the see-saw and play Fix the sentence!",
+      "description": "Make the subject and verb match in present tense and play Fix the sentence!",
       "hint": "He, She, It — the -s must fit! I, You, We, They — no -s, hooray!",
       "cards": [
         {
@@ -528,9 +650,9 @@
           "emoji": "⚖️",
           "frontHint": "ONE subject = + -s  |  MANY subjects = NO -s",
           "backTitle": "The NOW Tense See-Saw",
-          "explanation": "Think of a see-saw! The subject and the verb must match in the NOW tense (present).",
-          "example": "One girl plays, and two kids run.",
-          "highlightWords": ["plays", "run"]
+          "explanation": "The correct verb form depends on the subject. Think of a see-saw in the NOW tense (present): one subject adds -s, more than one has no -s!",
+          "example": "The teacher sits, and the teachers sit.",
+          "highlightWords": ["sits", "sit"]
         },
         {
           "id": "sv-singular",
@@ -539,13 +661,14 @@
           "emoji": "👧",
           "frontHint": "Singular Subject = + -s",
           "backTitle": "Singular Subjects",
-          "explanation": "One person or thing (singular) → verb ends in -s.",
+          "explanation": "In a sentence that tells about now, one person or thing (singular) uses a verb that ends in -s.",
           "example": "Greta looks for her backpack.",
           "highlightWords": ["looks"],
           "examples": [
-            "The student sits. 🪑",
+            "The teacher sits in the desk chair. 🪑",
+            "The student sits in the classroom. 🏫",
             "Greta looks for her backpack. 🎒",
-            "Dwayne jumps. 🦘"
+            "Dwayne jumps to catch the ball. ⚽"
           ]
         },
         {
@@ -555,12 +678,13 @@
           "emoji": "👧👦",
           "frontHint": "Plural Subject = No -s",
           "backTitle": "Plural Subjects",
-          "explanation": "More than one (plural) → no -s on the verb!",
+          "explanation": "In a sentence that tells about now, plural subjects (more than one) use a verb without -s!",
           "example": "Stars light up the sky.",
           "highlightWords": ["light"],
           "examples": [
-            "The students sit. 🪑",
-            "My friends run. 🏃",
+            "The teachers sit in the desk chairs. 🪑",
+            "Plants and trees grow in the forest. 🌲",
+            "My friends run to catch the bus. 🚌",
             "Stars light up the sky. ✨"
           ]
         },
@@ -571,13 +695,14 @@
           "emoji": "✨",
           "frontHint": "For ONE person or thing",
           "backTitle": "Add -es for ONE",
-          "explanation": "Verbs ending in s, sh, ch, tch, z, x → add -es for ONE:",
-          "example": "She washes the cup and fixes the toy.",
-          "highlightWords": ["washes", "fixes"],
+          "explanation": "Verbs ending in -s, -sh, -ch, -tch, -z, or -x add -es to match a singular subject:",
+          "example": "The train passes and the boy reaches.",
+          "highlightWords": ["passes", "reaches"],
           "examples": [
-            "pass → passes  •  miss → misses",
-            "watch → watches  •  teach → teaches  •  reach → reaches",
-            "wash → washes  •  mix → mixes  •  fix → fixes"
+            "The train passes → The trains pass 🚂",
+            "The girl watches → The girls watch ⛸️",
+            "The chef mixes → The chefs mix 🍲",
+            "A fly buzzes • The dart misses • Mom washes"
           ]
         },
         {
@@ -587,13 +712,13 @@
           "emoji": "👉",
           "frontHint": "One person or thing",
           "backTitle": "He, She, It",
-          "explanation": "He, She, or It is ONE → always add -s or -es!",
-          "example": "He catches the ball.",
-          "highlightWords": ["catches"],
+          "explanation": "If the pronoun he, she, or it is the subject in the present tense, always add -s or -es to the verb!",
+          "example": "He throws and she catches the ball.",
+          "highlightWords": ["throws", "catches"],
           "examples": [
-            "He catches the ball. ⚾",
-            "She picks a movie. 🎬",
-            "It seems late. ⏰"
+            "He throws the ball. ⚾  •  She catches the ball. 🧤",
+            "He washes the car. 🚗  •  She picks a movie. 🎬",
+            "It seems later than six o'clock. ⏰"
           ]
         },
         {
@@ -603,13 +728,13 @@
           "emoji": "🙌",
           "frontHint": "Keep the base verb!",
           "backTitle": "I, You, We, They",
-          "explanation": "I, You, We, They → NO -s on the verb!",
-          "example": "You tell the truth and we cheer.",
-          "highlightWords": ["tell", "cheer"],
+          "explanation": "If the pronoun I, you, we, or they is the subject in the present tense, do NOT add -s or -es!",
+          "example": "They watch the game and we cheer.",
+          "highlightWords": ["watch", "cheer"],
           "examples": [
-            "I reach. 🙋",
-            "You tell the truth. 💬",
-            "We cheer. 🎉  •  They walk. 🚶"
+            "I reach for the ticket. 🎟️  •  I eat breakfast. 🥣",
+            "You tell the truth. 💬  •  They cheer when we score. 🎉",
+            "We cheer very loudly. 📣  •  They sit on chairs. 🪑"
           ]
         },
         {
@@ -646,24 +771,106 @@
             "options": [
               "A fly buzzes by my ear.",
               "A fly buzzs by my ear.",
-              "A fly buzz by my ear."
+              "A fly buzzing by my ear."
             ],
             "answer": "A fly buzzes by my ear.",
             "explanation": "A fly is ONE thing and buzz ends in z → add -es: buzzes!"
+          },
+          {
+            "id": "fix-coach-carr",
+            "wrongSentence": "Coach Carr teach us how to throw.",
+            "options": [
+              "Coach Carr teaches us how to throw.",
+              "Coach Carr teachs us how to throw.",
+              "Coach Carr teaching us how to throw."
+            ],
+            "answer": "Coach Carr teaches us how to throw.",
+            "explanation": "Coach Carr is ONE person and teach ends in ch → add -es: teaches!"
+          },
+          {
+            "id": "fix-dart",
+            "wrongSentence": "The dart miss the target.",
+            "options": [
+              "The dart misses the target.",
+              "The dart misss the target.",
+              "The dart missing the target."
+            ],
+            "answer": "The dart misses the target.",
+            "explanation": "The dart is ONE thing and miss ends in s → add -es: misses!"
+          },
+          {
+            "id": "fix-mom-shoes",
+            "wrongSentence": "Mom wash my muddy shoes.",
+            "options": [
+              "Mom washes my muddy shoes.",
+              "Mom washs my muddy shoes.",
+              "Mom washing my muddy shoes."
+            ],
+            "answer": "Mom washes my muddy shoes.",
+            "explanation": "Mom is ONE person and wash ends in sh → add -es: washes!"
           },
           {
             "id": "fix-we",
             "wrongSentence": "We laughs at the joke.",
             "options": [
               "We laugh at the joke.",
-              "We laughs at the joke.",
+              "We laughss at the joke.",
               "We laughing at the joke."
             ],
             "answer": "We laugh at the joke.",
             "explanation": "I, You, We, They — no -s, hooray! We laugh at the joke."
+          },
+          {
+            "id": "fix-i-know",
+            "wrongSentence": "I knows the best shortcut.",
+            "options": [
+              "I know the best shortcut.",
+              "I knowes the best shortcut.",
+              "I knowing the best shortcut."
+            ],
+            "answer": "I know the best shortcut.",
+            "explanation": "I, You, We, They — no -s, hooray! I know the best shortcut."
           }
         ]
       }
+    }
+  ],
+  "practices": [
+    {
+      "id": "w1_practice_phonics",
+      "category": "phonics",
+      "title": "Worksheet 1: Blends & Spelling",
+      "icon": "✏️",
+      "description": "Practice missing letters, correct spellings, word unscrambling, picture blends, and spelling sentences!",
+      "hint": "Say each L, R, or S blend slowly and listen to every letter sound!",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_practice_vocabulary",
+      "category": "vocabulary",
+      "title": "Worksheet 2: Power Words",
+      "icon": "🧠",
+      "description": "Practice all 8 Power Word descriptions, fill-in-the-blank sentences, and Power Words Match!",
+      "hint": "Read the clue carefully and picture what the Power Word means!",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_practice_nouns",
+      "category": "nouns",
+      "title": "Worksheet 3: Nouns & Plurals",
+      "icon": "📦",
+      "description": "Practice singular vs plural nouns, picture counts, adding -s or -es, and Phonics Review plurals!",
+      "hint": "One = singular, more than one = plural. Ends in s, x, ch, sh → add -es!",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_practice_agreement",
+      "category": "agreement",
+      "title": "Worksheet 4: Subject-Verb & Writing",
+      "icon": "✍️",
+      "description": "Practice Grammar 1.6.1–1.6.5, Zoey's Zoo Visit paragraph editing, and Exercises page 19!",
+      "hint": "He, She, It — the -s must fit! I, You, We, They — no -s, hooray!",
+      "questionCount": 10
     }
   ],
   "quiz": {
@@ -676,6 +883,7 @@
       {
         "id": "q2-w1-q01",
         "category": "phonics",
+        "instruction": "Find the S-blend:",
         "text": "Which word starts with an S-blend?",
         "options": ["swim", "globe", "drag"],
         "answer": "swim",
@@ -685,15 +893,17 @@
       {
         "id": "q2-w1-q02",
         "category": "phonics",
+        "instruction": "Complete the blend:",
         "text": "Which letters finish the word? __ag 🇪🇬",
         "options": ["fl", "gr", "sw"],
         "answer": "fl",
         "hint": "Say the picture word slowly: f-l-a-g.",
-        "explanation": "flag"
+        "explanation": "flag starts with fl."
       },
       {
         "id": "q2-w1-q03",
         "category": "phonics",
+        "instruction": "Find the R-blend:",
         "text": "Which word has an R blend?",
         "options": ["drag", "clip", "skin"],
         "answer": "drag",
@@ -703,33 +913,37 @@
       {
         "id": "q2-w1-q04",
         "category": "phonics",
+        "instruction": "Complete the blend:",
         "text": "Fill in the blend: __ove 🍳",
         "options": ["st", "sp", "sn"],
         "answer": "st",
         "hint": "Say the kitchen word: s-t-ove.",
-        "explanation": "stove"
+        "explanation": "stove starts with st."
       },
       {
         "id": "q2-w1-q05",
         "category": "phonics",
+        "instruction": "Complete the blend:",
         "text": "Fill in the blend: g__ass 🌱",
         "options": ["gl", "gr", "sw"],
         "answer": "gr",
         "hint": "Say the green plant word: g-r-ass.",
-        "explanation": "grass"
+        "explanation": "grass has the gr blend."
       },
       {
         "id": "q2-w1-q06",
         "category": "phonics",
+        "instruction": "Choose the correct spelling:",
         "text": "Which word is spelled correctly? 🌍",
-        "options": ["globe", "gloub", "glob"],
+        "options": ["globe", "glode", "gloub"],
         "answer": "globe",
-        "hint": "This round map word ends with a silent e.",
-        "explanation": "globe"
+        "hint": "This round map word ends with a silent e and has a b.",
+        "explanation": "g-l-o-b-e spells globe!"
       },
       {
         "id": "q2-w1-q07",
         "category": "phonics",
+        "instruction": "Find the L-blend:",
         "text": "Which word has an L blend?",
         "options": ["clip", "test", "grade"],
         "answer": "clip",
@@ -739,16 +953,362 @@
       {
         "id": "q2-w1-q08",
         "category": "phonics",
-        "text": "Which word names the picture? 🔥",
+        "instruction": "Read the question. Choose the word that names the picture:",
+        "text": "Is it a frame, fame, or flame? 🔥",
         "options": ["frame", "flame", "fame"],
         "answer": "flame",
         "hint": "Fire has a bright fl- word.",
         "explanation": "flame starts with fl."
       },
       {
+        "id": "q2-w1-ph-clip",
+        "category": "phonics",
+        "instruction": "Read the question. Choose the word that names the picture:",
+        "text": "Is it a flip, clip, or strip? 📎",
+        "options": ["clip", "flip", "strip"],
+        "answer": "clip",
+        "hint": "You use this to hold papers together: c-l-i-p.",
+        "explanation": "clip starts with cl and names the paper clip!"
+      },
+      {
+        "id": "q2-w1-ph-grade",
+        "category": "phonics",
+        "instruction": "Read the question. Choose the word that names the picture:",
+        "text": "Is it a grade, glade, or blade? 📝 🅰️",
+        "options": ["grade", "glade", "blade"],
+        "answer": "grade",
+        "hint": "A school mark like A+ on a paper is a gr- word.",
+        "explanation": "grade starts with the R-blend gr."
+      },
+      {
+        "id": "q2-w1-ph-plug",
+        "category": "phonics",
+        "instruction": "Read the question. Choose the word that names the picture:",
+        "text": "Is it a plug, snug, or slug? 🔌",
+        "options": ["plug", "snug", "slug"],
+        "answer": "plug",
+        "hint": "You put this into the wall to power a lamp: p-l-u-g.",
+        "explanation": "plug starts with the L-blend pl."
+      },
+      {
+        "id": "q2-w1-ph-throne",
+        "category": "phonics",
+        "instruction": "Read the question. Choose the word that names the picture:",
+        "text": "Is it a throne, stone, or scone? 👑",
+        "options": ["throne", "stone", "scone"],
+        "answer": "throne",
+        "hint": "A king or queen sits on this special 3-letter blend seat.",
+        "explanation": "throne starts with the 3-letter blend thr."
+      },
+      {
+        "id": "q2-w1-ph-slice",
+        "category": "phonics",
+        "instruction": "Read the question. Choose the word that names the picture:",
+        "text": "Is it a spice, price, or slice? 🍕",
+        "options": ["slice", "spice", "price"],
+        "answer": "slice",
+        "hint": "One piece of pizza is called a s-l-i-c-e.",
+        "explanation": "slice starts with the L-blend sl."
+      },
+      {
+        "id": "q2-w1-ph-strap",
+        "category": "phonics",
+        "instruction": "Find the 3-letter blend:",
+        "text": "Which word begins with a 3-letter consonant blend? 🎒",
+        "options": ["strap", "plum", "swim"],
+        "answer": "strap",
+        "hint": "Count the consonants before the first vowel!",
+        "explanation": "strap starts with 3 consonants blended together: s-t-r!"
+      },
+      {
+        "id": "q2-w1-sp-a01",
+        "category": "phonics",
+        "instruction": "Complete the Spelling Word:",
+        "text": "Which Spelling Word finishes: l _ st? 🏁",
+        "options": ["last", "list", "lost"],
+        "answer": "last",
+        "hint": "Say the Week 1 Spelling Word at the end of a race: l-a-s-t.",
+        "explanation": "Put 'a' in the blank: l-a-s-t spells last!"
+      },
+      {
+        "id": "q2-w1-sp-a02",
+        "category": "phonics",
+        "instruction": "Complete the Spelling Word:",
+        "text": "Which Spelling Word finishes: t _ st? 📝",
+        "options": ["test", "tent", "text"],
+        "answer": "test",
+        "hint": "This Week 1 word ends in -st and means a quiz at school.",
+        "explanation": "Put 'e' in the blank: t-e-s-t spells test!"
+      },
+      {
+        "id": "q2-w1-sp-a03",
+        "category": "phonics",
+        "instruction": "Complete the Spelling Word:",
+        "text": "Which Spelling Word finishes: sk _ n? 🧴",
+        "options": ["skin", "skip", "skid"],
+        "answer": "skin",
+        "hint": "Sunscreen protects your s-k-i-n.",
+        "explanation": "Put 'i' in the blank: s-k-i-n spells skin!"
+      },
+      {
+        "id": "q2-w1-sp-a04",
+        "category": "phonics",
+        "instruction": "Complete the Spelling Word:",
+        "text": "Which Spelling Word finishes: dr _ g? 🧲",
+        "options": ["drag", "drop", "drip"],
+        "answer": "drag",
+        "hint": "To pull a heavy bag along the floor is to d-r-a-g it.",
+        "explanation": "Put 'a' in the blank: d-r-a-g spells drag!"
+      },
+      {
+        "id": "q2-w1-sp-a05",
+        "category": "phonics",
+        "instruction": "Complete the Spelling Word:",
+        "text": "Which Spelling Word finishes: sw _ m? 🏊",
+        "options": ["swim", "swam", "swum"],
+        "answer": "swim",
+        "hint": "Say the Week 1 word for moving in the pool right now: s-w-i-m.",
+        "explanation": "Put 'i' in the blank: s-w-i-m spells swim!"
+      },
+      {
+        "id": "q2-w1-sp-a06",
+        "category": "phonics",
+        "instruction": "Complete the Spelling Word:",
+        "text": "Which Spelling Word finishes: pl _ ce? 📍",
+        "options": ["place", "plane", "plate"],
+        "answer": "place",
+        "hint": "A spot to visit is a p-l-a-c-e.",
+        "explanation": "Put 'a' in the blank: p-l-a-c-e spells place!"
+      },
+      {
+        "id": "q2-w1-sp-a07",
+        "category": "phonics",
+        "instruction": "Complete the Spelling Word:",
+        "text": "Which Spelling Word finishes: g _ obe? 🌍",
+        "options": ["globe", "glove", "glow"],
+        "answer": "globe",
+        "hint": "Listen for the L blend in this round map of the world: g-l-o-b-e.",
+        "explanation": "Put 'l' in the blank: g-l-o-b-e spells globe!"
+      },
+      {
+        "id": "q2-w1-sp-a08",
+        "category": "phonics",
+        "instruction": "Complete the Spelling Word:",
+        "text": "Which Spelling Word finishes: gr _ de? 🅰️",
+        "options": ["grade", "grape", "graze"],
+        "answer": "grade",
+        "hint": "A school mark is a g-r-a-d-e.",
+        "explanation": "Put 'a' in the blank: g-r-a-d-e spells grade!"
+      },
+      {
+        "id": "q2-w1-sp-a09",
+        "category": "phonics",
+        "instruction": "Complete the Spelling Word:",
+        "text": "Which Spelling Word finishes: gl _ de? 🪂",
+        "options": ["glide", "glade", "globe"],
+        "answer": "glide",
+        "hint": "Birds g-l-i-d-e smoothly through the sky.",
+        "explanation": "Put 'i' in the blank: g-l-i-d-e spells glide!"
+      },
+      {
+        "id": "q2-w1-sp-a10",
+        "category": "phonics",
+        "instruction": "Complete the Spelling Word:",
+        "text": "Which Spelling Word finishes: j _ st? ✅",
+        "options": ["just", "jest", "jump"],
+        "answer": "just",
+        "hint": "Listen to the middle vowel: j-u-s-t.",
+        "explanation": "Put 'u' in the blank: j-u-s-t spells just!"
+      },
+      {
+        "id": "q2-w1-sp-b01",
+        "category": "phonics",
+        "instruction": "Circle the correct spelling:",
+        "text": "Which word is spelled correctly? 🚀",
+        "options": ["space", "spake", "spase"],
+        "answer": "space",
+        "hint": "In space, the letter c makes the soft /s/ sound before e.",
+        "explanation": "s-p-a-c-e spells space!"
+      },
+      {
+        "id": "q2-w1-sp-b03",
+        "category": "phonics",
+        "instruction": "Circle the correct spelling:",
+        "text": "Which word is spelled correctly? 🅰️",
+        "options": ["grade", "grede", "gride"],
+        "answer": "grade",
+        "hint": "Hear the long a sound made by a_e.",
+        "explanation": "g-r-a-d-e spells grade!"
+      },
+      {
+        "id": "q2-w1-sp-b05",
+        "category": "phonics",
+        "instruction": "Circle the correct spelling:",
+        "text": "Which word is spelled correctly? 📍",
+        "options": ["place", "plase", "plaice"],
+        "answer": "place",
+        "hint": "It uses a-c-e at the end just like space!",
+        "explanation": "p-l-a-c-e spells place!"
+      },
+      {
+        "id": "q2-w1-sp-b06",
+        "category": "phonics",
+        "instruction": "Circle the correct spelling:",
+        "text": "Which Week 1 Spelling Word means at the very end? 🏁",
+        "options": ["last", "lest", "lust"],
+        "answer": "last",
+        "hint": "Say it out loud: l-a-s-t!",
+        "explanation": "l-a-s-t spells last!"
+      },
+      {
+        "id": "q2-w1-sp-c01",
+        "category": "phonics",
+        "instruction": "Unscramble the letters to make a Week 1 Spelling Word:",
+        "text": "Unscramble \"stet\" (s, t, e, t):",
+        "options": ["test", "tent", "text"],
+        "answer": "test",
+        "hint": "Use all four letters s, t, e, t to spell a school quiz word.",
+        "explanation": "s, t, e, t unscrambles to test!"
+      },
+      {
+        "id": "q2-w1-sp-c02",
+        "category": "phonics",
+        "instruction": "Unscramble the letters to make a Week 1 Spelling Word:",
+        "text": "Unscramble \"olbeg\" (o, l, b, e, g):",
+        "options": ["globe", "glide", "grade"],
+        "answer": "globe",
+        "hint": "Start with the L blend gl-!",
+        "explanation": "o, l, b, e, g unscrambles to globe!"
+      },
+      {
+        "id": "q2-w1-sp-c03",
+        "category": "phonics",
+        "instruction": "Unscramble the letters to make a Week 1 Spelling Word:",
+        "text": "Unscramble \"agder\" (a, g, d, e, r):",
+        "options": ["grade", "drag", "grape"],
+        "answer": "grade",
+        "hint": "Start with the R blend gr-!",
+        "explanation": "a, g, d, e, r unscrambles to grade!"
+      },
+      {
+        "id": "q2-w1-sp-c04",
+        "category": "phonics",
+        "instruction": "Unscramble the letters to make a Week 1 Spelling Word:",
+        "text": "Unscramble \"wims\" (w, i, m, s):",
+        "options": ["swim", "skim", "slim"],
+        "answer": "swim",
+        "hint": "Start with the S blend sw-!",
+        "explanation": "w, i, m, s unscrambles to swim!"
+      },
+      {
+        "id": "q2-w1-sp-c05",
+        "category": "phonics",
+        "instruction": "Unscramble the letters to make a Week 1 Spelling Word:",
+        "text": "Unscramble \"sjtu\" (s, j, t, u):",
+        "options": ["just", "jump", "jest"],
+        "answer": "just",
+        "hint": "End with the -st blend!",
+        "explanation": "s, j, t, u unscrambles to just!"
+      },
+      {
+        "id": "q2-w1-sp-d01",
+        "category": "phonics",
+        "instruction": "Use Spelling Words in a sentence:",
+        "text": "Which sentence uses TWO Week 1 Spelling Words correctly?",
+        "options": [
+          "I got a great grade on my math test.",
+          "I got a great gride on my math test.",
+          "The brown puppy naps softly on the rug."
+        ],
+        "answer": "I got a great grade on my math test.",
+        "hint": "Look for two real Week 1 Spelling Words (like grade and test) spelled right!",
+        "explanation": "Both grade and test are Week 1 Spelling Words spelled correctly!"
+      },
+      {
+        "id": "q2-w1-sp-s01",
+        "category": "phonics",
+        "instruction": "Choose the Spelling Word that best completes each sentence:",
+        "text": "Dad cooked dinner on the ___. 🍳",
+        "options": ["stove", "globe", "grade"],
+        "answer": "stove",
+        "hint": "Which kitchen word starts with the S blend st-?",
+        "explanation": "Dad cooked dinner on the stove."
+      },
+      {
+        "id": "q2-w1-sp-s02",
+        "category": "phonics",
+        "instruction": "Choose the Spelling Word that best completes each sentence:",
+        "text": "I got a good ___ on my project. 🅰️",
+        "options": ["grade", "glide", "drag"],
+        "answer": "grade",
+        "hint": "Which R-blend word means a school mark?",
+        "explanation": "I got a good grade on my project."
+      },
+      {
+        "id": "q2-w1-sp-s03",
+        "category": "phonics",
+        "instruction": "Choose the Spelling Word that best completes each sentence:",
+        "text": "See the bird ___ through the air. 🪂",
+        "options": ["glide", "swim", "place"],
+        "answer": "glide",
+        "hint": "Which L-blend word means to move smoothly in the air?",
+        "explanation": "See the bird glide through the air."
+      },
+      {
+        "id": "q2-w1-sp-s04",
+        "category": "phonics",
+        "instruction": "Choose the Spelling Word that best completes each sentence:",
+        "text": "The slow runner came in ___. 🏁",
+        "options": ["last", "just", "test"],
+        "answer": "last",
+        "hint": "Which -st word means behind all the others?",
+        "explanation": "The slow runner came in last."
+      },
+      {
+        "id": "q2-w1-sp-s05",
+        "category": "phonics",
+        "instruction": "Choose the Spelling Word that best completes each sentence:",
+        "text": "Jane did well on her math ___. 📝",
+        "options": ["test", "skin", "space"],
+        "answer": "test",
+        "hint": "Which -st word is something you take in class?",
+        "explanation": "Jane did well on her math test."
+      },
+      {
+        "id": "q2-w1-sp-s06",
+        "category": "phonics",
+        "instruction": "Choose the Spelling Word that best completes each sentence:",
+        "text": "Cal likes to ___ in the pool. 🏊",
+        "options": ["swim", "glide", "drag"],
+        "answer": "swim",
+        "hint": "Which sw- word tells what you do in a pool?",
+        "explanation": "Cal likes to swim in the pool."
+      },
+      {
+        "id": "q2-w1-sp-s07",
+        "category": "phonics",
+        "instruction": "Choose the Spelling Word that best completes each sentence:",
+        "text": "He got a sunburn on his ___. 🧴",
+        "options": ["skin", "stove", "globe"],
+        "answer": "skin",
+        "hint": "Which sk- word gets protected by sunscreen?",
+        "explanation": "He got a sunburn on his skin."
+      },
+      {
+        "id": "q2-w1-sp-s08",
+        "category": "phonics",
+        "instruction": "Choose the Spelling Word that best completes each sentence:",
+        "text": "The library has a ___ of the world. 🌍",
+        "options": ["globe", "place", "grade"],
+        "answer": "globe",
+        "hint": "Which gl- word is a round model of Earth?",
+        "explanation": "The library has a globe of the world."
+      },
+      {
         "id": "q2-w1-q09",
         "category": "vocabulary",
-        "text": "Which word means \"excellent, very good\"?",
+        "instruction": "Choose the correct Power Word for each description:",
+        "text": "Excellent; very good.",
         "options": ["ace", "mystery", "seeps"],
         "answer": "ace",
         "hint": "Think of someone who is an expert at a sport.",
@@ -757,6 +1317,7 @@
       {
         "id": "q2-w1-q10",
         "category": "vocabulary",
+        "instruction": "Complete the sentence with the right Power Word:",
         "text": "The school is ___ near the park.",
         "options": ["located", "eagerly", "ace"],
         "answer": "located",
@@ -766,15 +1327,17 @@
       {
         "id": "q2-w1-q11",
         "category": "vocabulary",
-        "text": "Which word means \"hard to understand\"?",
+        "instruction": "Choose the correct Power Word for each description:",
+        "text": "Something difficult to understand or explain.",
         "options": ["business", "mystery", "agency"],
         "answer": "mystery",
         "hint": "Think of a puzzle or a secret story.",
-        "explanation": "\"mystery\" means something hard to understand or explain."
+        "explanation": "\"mystery\" means something difficult to understand or explain."
       },
       {
         "id": "q2-w1-q12",
         "category": "vocabulary",
+        "instruction": "Complete the sentence with the right Power Word:",
         "text": "She waited ___ for her birthday party.",
         "options": ["confidently", "eagerly", "seeps"],
         "answer": "eagerly",
@@ -784,15 +1347,17 @@
       {
         "id": "q2-w1-q13",
         "category": "vocabulary",
+        "instruction": "Fill in the blank with the right Power Word:",
         "text": "The water ___ from the cracked pipe.",
         "options": ["seeps", "ace", "located"],
         "answer": "seeps",
         "hint": "Water moves slowly through tiny holes.",
-        "explanation": "It flows out slowly."
+        "explanation": "\"seeps\" means flows or leaks slowly."
       },
       {
         "id": "q2-w1-q14",
         "category": "vocabulary",
+        "instruction": "Complete the sentence with the right Power Word:",
         "text": "He answered ___ because he was sure.",
         "options": ["confidently", "eagerly", "mystery"],
         "answer": "confidently",
@@ -800,71 +1365,497 @@
         "explanation": "\"confidently\" means feeling sure of yourself."
       },
       {
+        "id": "q2-w1-voc-a02",
+        "category": "vocabulary",
+        "instruction": "Choose the correct Power Word for each description:",
+        "text": "Placed in a particular spot.",
+        "options": ["located", "business", "eagerly"],
+        "answer": "located",
+        "hint": "Which Power Word tells where something is found?",
+        "explanation": "\"located\" means placed in a particular spot."
+      },
+      {
+        "id": "q2-w1-voc-a04",
+        "category": "vocabulary",
+        "instruction": "Choose the correct Power Word for each description:",
+        "text": "Flows or leaks slowly through small holes.",
+        "options": ["seeps", "agency", "ace"],
+        "answer": "seeps",
+        "hint": "Water dripping through a tiny crack does this.",
+        "explanation": "\"seeps\" means flows or leaks slowly through small holes."
+      },
+      {
+        "id": "q2-w1-voc-a05",
+        "category": "vocabulary",
+        "instruction": "Choose the correct Power Word for each description:",
+        "text": "Wanting very much to do or have something.",
+        "options": ["eagerly", "confidently", "located"],
+        "answer": "eagerly",
+        "hint": "Think of feeling very excited for something!",
+        "explanation": "\"eagerly\" means wanting very much to do or have something."
+      },
+      {
+        "id": "q2-w1-voc-a06",
+        "category": "vocabulary",
+        "instruction": "Choose the correct Power Word for each description:",
+        "text": "The making, buying, and selling of goods or services.",
+        "options": ["business", "mystery", "ace"],
+        "answer": "business",
+        "hint": "Think of a company or store that makes or sells things.",
+        "explanation": "\"business\" is the making, buying, and selling of goods or services."
+      },
+      {
+        "id": "q2-w1-voc-a07",
+        "category": "vocabulary",
+        "instruction": "Choose the correct Power Word for each description:",
+        "text": "A business or organization that provides a service.",
+        "options": ["agency", "business", "mystery"],
+        "answer": "agency",
+        "hint": "Think of a travel or detective office that helps people.",
+        "explanation": "\"agency\" is a business or organization that provides a service."
+      },
+      {
+        "id": "q2-w1-voc-a08",
+        "category": "vocabulary",
+        "instruction": "Choose the correct Power Word for each description:",
+        "text": "Sure of oneself and one's abilities.",
+        "options": ["confidently", "eagerly", "located"],
+        "answer": "confidently",
+        "hint": "Stand tall and speak without doubt!",
+        "explanation": "\"confidently\" means sure of oneself and one's abilities."
+      },
+      {
+        "id": "q2-w1-voc-b02",
+        "category": "vocabulary",
+        "instruction": "Fill in the blank with the right Power Word:",
+        "text": "I waited ___ for my turn to play.",
+        "options": ["eagerly", "confidently", "located"],
+        "answer": "eagerly",
+        "hint": "You couldn't wait to play next — with lots of excitement!",
+        "explanation": "I waited eagerly for my turn to play."
+      },
+      {
+        "id": "q2-w1-voc-b03",
+        "category": "vocabulary",
+        "instruction": "Fill in the blank with the right Power Word:",
+        "text": "We need to find a good travel ___ to plan our trip.",
+        "options": ["agency", "mystery", "seeps"],
+        "answer": "agency",
+        "hint": "Which office or company helps people plan travel?",
+        "explanation": "A travel agency provides a service to plan trips!"
+      },
+      {
+        "id": "q2-w1-voc-b04",
+        "category": "vocabulary",
+        "instruction": "Fill in the blank with the right Power Word:",
+        "text": "She spoke ___ in front of the class.",
+        "options": ["confidently", "eagerly", "business"],
+        "answer": "confidently",
+        "hint": "She felt sure of herself when speaking!",
+        "explanation": "She spoke confidently in front of the class."
+      },
+      {
+        "id": "q2-w1-voc-b05",
+        "category": "vocabulary",
+        "instruction": "Fill in the blank with the right Power Word:",
+        "text": "He is a very good baseball player, a real ___.",
+        "options": ["ace", "agency", "mystery"],
+        "answer": "ace",
+        "hint": "Which short word means an expert or star player?",
+        "explanation": "An ace is a person who is very good at something!"
+      },
+      {
+        "id": "q2-w1-voc-m01",
+        "category": "vocabulary",
+        "instruction": "Power Words Match — Pick the Power Word from The Puddle Puzzle:",
+        "text": "Which word means the opposite of pours out?",
+        "options": ["seeps", "eagerly", "ace"],
+        "answer": "seeps",
+        "hint": "Instead of pouring out fast, water slowly leaks little by little.",
+        "explanation": "\"seeps\" means flows slowly — the opposite of pours out!"
+      },
+      {
+        "id": "q2-w1-voc-m02",
+        "category": "vocabulary",
+        "instruction": "Power Words Match — Pick the Power Word from The Puddle Puzzle:",
+        "text": "Which word names a place where people work to help others?",
+        "options": ["agency", "mystery", "seeps"],
+        "answer": "agency",
+        "hint": "This organization provides a helpful service.",
+        "explanation": "An \"agency\" is a place or company where people work to help others."
+      },
+      {
+        "id": "q2-w1-voc-m03",
+        "category": "vocabulary",
+        "instruction": "Power Words Match — Pick the Power Word from The Puddle Puzzle:",
+        "text": "Which word do you use to tell where something is?",
+        "options": ["located", "business", "confidently"],
+        "answer": "located",
+        "hint": "Where is your school? It is ___ near the park!",
+        "explanation": "\"located\" tells where something is found or placed."
+      },
+      {
+        "id": "q2-w1-voc-m04",
+        "category": "vocabulary",
+        "instruction": "Power Words Match — Pick the Power Word from The Puddle Puzzle:",
+        "text": "Which word names something that is unknown or hard to understand?",
+        "options": ["mystery", "agency", "eagerly"],
+        "answer": "mystery",
+        "hint": "Think of a puzzle you need clues to figure out!",
+        "explanation": "A \"mystery\" is something unknown or hard to understand."
+      },
+      {
+        "id": "q2-w1-voc-m05",
+        "category": "vocabulary",
+        "instruction": "Power Words Match — Pick the Power Word from The Puddle Puzzle:",
+        "text": "Which word describes how you act when you feel sure you can do something well?",
+        "options": ["confidently", "eagerly", "located"],
+        "answer": "confidently",
+        "hint": "When you believe in yourself, you act ___!",
+        "explanation": "\"confidently\" means sure of oneself and one's abilities."
+      },
+      {
+        "id": "q2-w1-voc-m06",
+        "category": "vocabulary",
+        "instruction": "Power Words Match — Pick the Power Word from The Puddle Puzzle:",
+        "text": "Which word describes how you would act if you really wanted to go to the park?",
+        "options": ["eagerly", "confidently", "mystery"],
+        "answer": "eagerly",
+        "hint": "When you really want something, you get ready with excitement!",
+        "explanation": "\"eagerly\" means wanting very much to do something."
+      },
+      {
+        "id": "q2-w1-voc-m07",
+        "category": "vocabulary",
+        "instruction": "Power Words Match — Pick the Power Word from The Puddle Puzzle:",
+        "text": "Which word describes what happens at a place where people shop?",
+        "options": ["business", "agency", "seeps"],
+        "answer": "business",
+        "hint": "Making, buying, and selling goods is ___!",
+        "explanation": "\"business\" is the making, buying, and selling of goods or services."
+      },
+      {
+        "id": "q2-w1-voc-m08",
+        "category": "vocabulary",
+        "instruction": "Power Words Match — Pick the Power Word from The Puddle Puzzle:",
+        "text": "Which word means really good?",
+        "options": ["ace", "located", "business"],
+        "answer": "ace",
+        "hint": "A very skilled player or top helper is an ___!",
+        "explanation": "\"ace\" means excellent or really good."
+      },
+      {
         "id": "q2-w1-q15",
         "category": "nouns",
+        "instruction": "Add -s or -es to make the plural:",
         "text": "What is the plural of \"dog\"?",
         "options": ["dogs", "doges", "dog"],
         "answer": "dogs",
         "hint": "Most nouns just add -s.",
-        "explanation": "Add -s."
+        "explanation": "Most nouns add -s: dog → dogs."
       },
       {
         "id": "q2-w1-q16",
         "category": "nouns",
+        "instruction": "Add -s or -es to make the plural:",
         "text": "What is the plural of \"bus\"?",
         "options": ["buss", "buses", "bus"],
         "answer": "buses",
         "hint": "Look at the end of bus: it ends in s!",
-        "explanation": "Ends in s → add -es."
+        "explanation": "Nouns ending in s add -es: bus → buses."
       },
       {
         "id": "q2-w1-q17",
         "category": "nouns",
+        "instruction": "Add -s or -es to make the plural:",
         "text": "What is the plural of \"watch\"?",
         "options": ["watchs", "watchies", "watches"],
         "answer": "watches",
         "hint": "Watch ends in ch!",
-        "explanation": "Ends in ch → add -es."
+        "explanation": "Nouns ending in ch add -es: watch → watches."
       },
       {
         "id": "q2-w1-q18",
         "category": "nouns",
+        "instruction": "Add -s or -es to make the plural:",
         "text": "What is the plural of \"glass\"?",
         "options": ["glasses", "glass's", "glasss"],
         "answer": "glasses",
         "hint": "Glass ends in s!",
-        "explanation": "Ends in s → add -es."
+        "explanation": "Nouns ending in s add -es: glass → glasses."
+      },
+      {
+        "id": "q2-w1-nn-def1",
+        "category": "nouns",
+        "instruction": "Know your noun rules:",
+        "text": "A noun names a ___, place, animal, or thing.",
+        "options": ["person", "blend", "verb"],
+        "answer": "person",
+        "hint": "Think of the 4 things a noun names!",
+        "explanation": "A noun names a person, place, animal, or thing."
+      },
+      {
+        "id": "q2-w1-nn-def2",
+        "category": "nouns",
+        "instruction": "Know your noun rules:",
+        "text": "What does a singular noun name?",
+        "options": [
+          "One person, place, animal, or thing",
+          "More than one person, place, animal, or thing",
+          "An action you do now"
+        ],
+        "answer": "One person, place, animal, or thing",
+        "hint": "Single sounds like ONE!",
+        "explanation": "A singular noun names ONE person, place, animal, or thing."
+      },
+      {
+        "id": "q2-w1-nn-def3",
+        "category": "nouns",
+        "instruction": "Know your noun rules:",
+        "text": "Which group shows ONLY plural nouns (more than one)?",
+        "options": [
+          "cats, books, girls",
+          "cat, book, girl",
+          "swim, run, cheer"
+        ],
+        "answer": "cats, books, girls",
+        "hint": "Plural nouns name MORE THAN ONE!",
+        "explanation": "cats, books, and girls each name more than one."
+      },
+      {
+        "id": "q2-w1-nn-p01",
+        "category": "nouns",
+        "instruction": "Look at the picture. Choose the singular or plural noun:",
+        "text": "🍎  (One)",
+        "options": ["apple", "apples", "applees"],
+        "answer": "apple",
+        "hint": "How many? Just ONE!",
+        "explanation": "One apple is singular: apple."
+      },
+      {
+        "id": "q2-w1-nn-p02",
+        "category": "nouns",
+        "instruction": "Look at the picture. Choose the singular or plural noun:",
+        "text": "🍎 🍎 🍎  (More than one — 3)",
+        "options": ["apples", "apple", "appleses"],
+        "answer": "apples",
+        "hint": "There are 3 (more than one) → add -s!",
+        "explanation": "Three is more than one, so add -s: apples."
+      },
+      {
+        "id": "q2-w1-nn-p03",
+        "category": "nouns",
+        "instruction": "Look at the picture. Choose the singular or plural noun:",
+        "text": "🐶  (One)",
+        "options": ["dog", "dogs", "doges"],
+        "answer": "dog",
+        "hint": "Just ONE puppy!",
+        "explanation": "One dog is singular: dog."
+      },
+      {
+        "id": "q2-w1-nn-p04",
+        "category": "nouns",
+        "instruction": "Look at the picture. Choose the singular or plural noun:",
+        "text": "🐶 🐶  (More than one — 2)",
+        "options": ["dogs", "dog", "doges"],
+        "answer": "dogs",
+        "hint": "There are 2 → plural adds -s!",
+        "explanation": "Two is more than one: dogs."
+      },
+      {
+        "id": "q2-w1-nn-p05",
+        "category": "nouns",
+        "instruction": "Look at the picture. Choose the singular or plural noun:",
+        "text": "📘  (One)",
+        "options": ["book", "books", "bookes"],
+        "answer": "book",
+        "hint": "Count the book: only ONE!",
+        "explanation": "One book is singular: book."
+      },
+      {
+        "id": "q2-w1-nn-p06",
+        "category": "nouns",
+        "instruction": "Look at the picture. Choose the singular or plural noun:",
+        "text": "📘 📘 📘  (More than one — 3)",
+        "options": ["books", "book", "bookes"],
+        "answer": "books",
+        "hint": "More than one book → add -s!",
+        "explanation": "Three books is plural: books."
+      },
+      {
+        "id": "q2-w1-nn-p07",
+        "category": "nouns",
+        "instruction": "Look at the picture. Choose the singular or plural noun:",
+        "text": "👧  (One)",
+        "options": ["girl", "girls", "girles"],
+        "answer": "girl",
+        "hint": "Just ONE girl!",
+        "explanation": "One girl is singular: girl."
+      },
+      {
+        "id": "q2-w1-nn-p08",
+        "category": "nouns",
+        "instruction": "Look at the picture. Choose the singular or plural noun:",
+        "text": "👧 👧 👧  (More than one — 3)",
+        "options": ["girls", "girl", "girles"],
+        "answer": "girls",
+        "hint": "Three girls → plural adds -s!",
+        "explanation": "Three is more than one: girls."
+      },
+      {
+        "id": "q2-w1-nn-cat",
+        "category": "nouns",
+        "instruction": "Add -s or -es to make the plural:",
+        "text": "What is the plural of \"cat\"? 🐱🐱",
+        "options": ["cats", "cates", "cat"],
+        "answer": "cats",
+        "hint": "Most nouns just add -s!",
+        "explanation": "Add -s to cat: cats."
+      },
+      {
+        "id": "q2-w1-nn-book",
+        "category": "nouns",
+        "instruction": "Add -s or -es to make the plural:",
+        "text": "What is the plural of \"book\"? 📚",
+        "options": ["books", "bookes", "book"],
+        "answer": "books",
+        "hint": "Most nouns just add -s!",
+        "explanation": "Add -s to book: books."
+      },
+      {
+        "id": "q2-w1-nn-chair",
+        "category": "nouns",
+        "instruction": "Add -s or -es to make the plural:",
+        "text": "What is the plural of \"chair\"? 🪑🪑",
+        "options": ["chairs", "chaires", "chair"],
+        "answer": "chairs",
+        "hint": "Does chair end in s, x, ch, or sh? No, so just add -s!",
+        "explanation": "Add -s to chair: chairs."
+      },
+      {
+        "id": "q2-w1-nn-tree",
+        "category": "nouns",
+        "instruction": "Add -s or -es to make the plural:",
+        "text": "What is the plural of \"tree\"? 🌳🌳",
+        "options": ["trees", "treees", "tree"],
+        "answer": "trees",
+        "hint": "Most nouns just add -s!",
+        "explanation": "Add -s to tree: trees."
+      },
+      {
+        "id": "q2-w1-nn-box",
+        "category": "nouns",
+        "instruction": "Add -s or -es to make the plural:",
+        "text": "What is the plural of \"box\"? 📦📦",
+        "options": ["boxes", "boxs", "box"],
+        "answer": "boxes",
+        "hint": "Box ends in x!",
+        "explanation": "Nouns ending in x add -es: box → boxes."
+      },
+      {
+        "id": "q2-w1-nn-brush",
+        "category": "nouns",
+        "instruction": "Add -s or -es to make the plural:",
+        "text": "What is the plural of \"brush\"? 🪥🪥",
+        "options": ["brushes", "brushs", "brush"],
+        "answer": "brushes",
+        "hint": "Brush ends in sh!",
+        "explanation": "Nouns ending in sh add -es: brush → brushes."
+      },
+      {
+        "id": "q2-w1-pr-foxes",
+        "category": "nouns",
+        "instruction": "To name each picture, add -s or -es to the one correct word:",
+        "text": "🦊 🦊  (fox / frog)",
+        "options": ["foxes", "frogs", "foxs"],
+        "answer": "foxes",
+        "hint": "The picture shows foxes. Fox ends in x → add -es!",
+        "explanation": "fox ends in x, so add -es: foxes!"
+      },
+      {
+        "id": "q2-w1-pr-globes",
+        "category": "nouns",
+        "instruction": "To name each picture, add -s or -es to the one correct word:",
+        "text": "🌍 🌍  (grade / globe)",
+        "options": ["globes", "grades", "globe"],
+        "answer": "globes",
+        "hint": "Pick the world model (globe) and add -s for more than one!",
+        "explanation": "There are two globes: globe + -s → globes!"
+      },
+      {
+        "id": "q2-w1-pr-snakes",
+        "category": "nouns",
+        "instruction": "To name each picture, add -s or -es to the one correct word:",
+        "text": "🐍 🐍  (stake / snake)",
+        "options": ["snakes", "stakes", "snake"],
+        "answer": "snakes",
+        "hint": "Pick the slithering animal and add -s for two!",
+        "explanation": "There are two snakes: snake + -s → snakes!"
+      },
+      {
+        "id": "q2-w1-pr-buses",
+        "category": "nouns",
+        "instruction": "To name each picture, add -s or -es to the one correct word:",
+        "text": "🚌 🚌  (bus / gas)",
+        "options": ["buses", "gases", "buss"],
+        "answer": "buses",
+        "hint": "Bus ends in s → add -es!",
+        "explanation": "bus ends in s, so add -es: buses!"
+      },
+      {
+        "id": "q2-w1-pr-flags",
+        "category": "nouns",
+        "instruction": "To name each picture, add -s or -es to the one correct word:",
+        "text": "🇪🇬 🇪🇬  (flag / frog)",
+        "options": ["flags", "frogs", "flag"],
+        "answer": "flags",
+        "hint": "Pick flag and add -s for more than one!",
+        "explanation": "There are two flags: flag + -s → flags!"
+      },
+      {
+        "id": "q2-w1-pr-roses",
+        "category": "nouns",
+        "instruction": "To name each picture, add -s or -es to the one correct word:",
+        "text": "🌹 🌹  (robe / rose)",
+        "options": ["roses", "robes", "rose"],
+        "answer": "roses",
+        "hint": "Pick the flower (rose) and add -s for two!",
+        "explanation": "There are two roses: rose + -s → roses!"
       },
       {
         "id": "q2-w1-q19",
         "category": "agreement",
+        "instruction": "Choose the correct verb for the sentence:",
         "text": "Plants and trees ___ in the forest.",
         "options": ["grow", "grows", "growing"],
         "answer": "grow",
         "hint": "Plants and trees = more than one subject!",
-        "explanation": "More than one → no -s."
+        "explanation": "Plural subject → no -s: Plants and trees grow."
       },
       {
         "id": "q2-w1-q20",
         "category": "agreement",
+        "instruction": "Choose the correct verb for the sentence:",
         "text": "Greta ___ for her backpack.",
         "options": ["look", "looks", "looking"],
         "answer": "looks",
         "hint": "Greta is ONE person.",
-        "explanation": "One person → add -s."
+        "explanation": "Singular subject → add -s: Greta looks."
       },
       {
         "id": "q2-w1-q21",
         "category": "agreement",
+        "instruction": "Choose the correct verb for the sentence:",
         "text": "The dart ___ the target.",
         "options": ["miss", "misses", "missing"],
         "answer": "misses",
-        "hint": "The dart is ONE thing, and miss ends in ss.",
-        "explanation": "Ends in ss → add -es."
+        "hint": "The dart is ONE thing, and miss ends in s.",
+        "explanation": "One thing + verb ending in s → add -es: misses."
       },
       {
         "id": "q2-w1-q22",
         "category": "agreement",
+        "instruction": "Choose the sentence written correctly:",
         "text": "Which sentence is correct?",
         "options": [
           "We laughs at the joke.",
@@ -873,38 +1864,42 @@
         ],
         "answer": "We laugh at the joke.",
         "hint": "Remember the rhyme: I, You, We, They — no -s, hooray!",
-        "explanation": "We = no -s."
+        "explanation": "With \"We\", keep the base verb without -s: We laugh."
       },
       {
         "id": "q2-w1-q23",
         "category": "agreement",
+        "instruction": "Choose the correct verb for the sentence:",
         "text": "He ___ orange juice every day.",
         "options": ["drink", "drinks", "drinking"],
         "answer": "drinks",
         "hint": "Remember: He, She, It — the -s must fit!",
-        "explanation": "He → add -s."
+        "explanation": "With \"He\", add -s: He drinks."
       },
       {
         "id": "q2-w1-q24",
         "category": "agreement",
+        "instruction": "Choose the correct verb for the sentence:",
         "text": "The worker ___ cement.",
         "options": ["mix", "mixes", "mixs"],
         "answer": "mixes",
         "hint": "The worker is ONE person, and mix ends in x.",
-        "explanation": "Ends in x → add -es."
+        "explanation": "Singular subject + verb ending in x → add -es: mixes."
       },
       {
         "id": "q2-w1-q25",
         "category": "agreement",
+        "instruction": "Choose the correct verb for the sentence:",
         "text": "Mom ___ my muddy shoes.",
         "options": ["wash", "washes", "washing"],
         "answer": "washes",
         "hint": "Mom is ONE person, and wash ends in sh.",
-        "explanation": "Ends in sh → add -es."
+        "explanation": "Singular subject + verb ending in sh → add -es: washes."
       },
       {
         "id": "q2-w1-q26",
         "category": "agreement",
+        "instruction": "Choose the sentence written correctly:",
         "text": "Which sentence is correct?",
         "options": [
           "I knows the best shortcut.",
@@ -913,7 +1908,473 @@
         ],
         "answer": "I know the best shortcut.",
         "hint": "Remember the rhyme: I, You, We, They — no -s, hooray!",
-        "explanation": "I = no -s."
+        "explanation": "With \"I\", do not add -s: I know the best shortcut."
+      },
+      {
+        "id": "q2-w1-sv-s1",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "My friend ___ the man a ticket.",
+        "options": ["hands", "hand", "handing"],
+        "answer": "hands",
+        "hint": "Is \"My friend\" one person or more than one?",
+        "explanation": "My friend is ONE person → add -s: hands."
+      },
+      {
+        "id": "q2-w1-sv-s2",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "We ___ for help finding our seats.",
+        "options": ["ask", "asks", "asking"],
+        "answer": "ask",
+        "hint": "I, You, We, They — no -s, hooray!",
+        "explanation": "With \"We\", use no -s: ask."
+      },
+      {
+        "id": "q2-w1-sv-s3",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "The kids ___ at the end of the movie.",
+        "options": ["cheer", "cheers", "cheering"],
+        "answer": "cheer",
+        "hint": "\"The kids\" means more than one!",
+        "explanation": "Plural subject → no -s: The kids cheer."
+      },
+      {
+        "id": "q2-w1-sv-s4",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "My mom ___ the movie, too.",
+        "options": ["likes", "like", "liking"],
+        "answer": "likes",
+        "hint": "My mom is ONE person!",
+        "explanation": "Singular subject → add -s: My mom likes."
+      },
+      {
+        "id": "q2-w1-sv-p1_2",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "My friends ___ to catch the bus.",
+        "options": ["run", "runs", "running"],
+        "answer": "run",
+        "hint": "\"My friends\" is plural (more than one)!",
+        "explanation": "More than one friend → no -s: My friends run."
+      },
+      {
+        "id": "q2-w1-sv-p1_4",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "Stars ___ up the sky.",
+        "options": ["light", "lights", "lighting"],
+        "answer": "light",
+        "hint": "\"Stars\" is plural (more than one star)!",
+        "explanation": "Plural subject → no -s: Stars light up the sky."
+      },
+      {
+        "id": "q2-w1-sv-p1_5",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "Dwayne ___ to catch the ball.",
+        "options": ["jumps", "jump", "jumping"],
+        "answer": "jumps",
+        "hint": "Dwayne is ONE person!",
+        "explanation": "Singular subject → add -s: Dwayne jumps."
+      },
+      {
+        "id": "q2-w1-sv-s2_1",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "Coach Alex ___ the skates.",
+        "options": ["fixes", "fix", "fixing"],
+        "answer": "fixes",
+        "hint": "Coach Alex is ONE person, and fix ends in x.",
+        "explanation": "One person + verb ending in x → add -es: fixes."
+      },
+      {
+        "id": "q2-w1-sv-s2_2",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "The goalie ___ over the puck.",
+        "options": ["hunches", "hunch", "hunching"],
+        "answer": "hunches",
+        "hint": "The goalie is ONE player, and hunch ends in ch.",
+        "explanation": "One person + verb ending in ch → add -es: hunches."
+      },
+      {
+        "id": "q2-w1-sv-s2_3",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "The hockey players ___ onto the ice.",
+        "options": ["rush", "rushes", "rushing"],
+        "answer": "rush",
+        "hint": "\"The hockey players\" is plural!",
+        "explanation": "More than one player → no -es: rush."
+      },
+      {
+        "id": "q2-w1-sv-s2_4",
+        "category": "agreement",
+        "instruction": "Choose the correct verb for each sentence:",
+        "text": "The parents ___ the two teams play.",
+        "options": ["watch", "watches", "watching"],
+        "answer": "watch",
+        "hint": "\"The parents\" means more than one parent!",
+        "explanation": "Plural subject → no -es: watch."
+      },
+      {
+        "id": "q2-w1-sv-p2_1",
+        "category": "agreement",
+        "instruction": "Choose the correct sentence:",
+        "text": "Which sentence is correct?",
+        "options": [
+          "Harlan fixes my bicycle.",
+          "Harlan fix my bicycle.",
+          "Harlan fixs my bicycle."
+        ],
+        "answer": "Harlan fixes my bicycle.",
+        "hint": "Harlan is ONE person, and fix ends in x → add -es!",
+        "explanation": "Harlan fixes my bicycle."
+      },
+      {
+        "id": "q2-w1-sv-p2_2",
+        "category": "agreement",
+        "instruction": "Choose the correct sentence:",
+        "text": "Which sentence is correct?",
+        "options": [
+          "A fly buzzes by my ear.",
+          "A fly buzz by my ear.",
+          "A fly buzzs by my ear."
+        ],
+        "answer": "A fly buzzes by my ear.",
+        "hint": "A fly is ONE thing, and buzz ends in z → add -es!",
+        "explanation": "A fly buzzes by my ear."
+      },
+      {
+        "id": "q2-w1-sv-p2_3",
+        "category": "agreement",
+        "instruction": "Choose the correct sentence:",
+        "text": "Which sentence is correct?",
+        "options": [
+          "Coach Carr teaches us how to throw.",
+          "Coach Carr teach us how to throw.",
+          "Coach Carr teachs us how to throw."
+        ],
+        "answer": "Coach Carr teaches us how to throw.",
+        "hint": "Coach Carr is ONE person, and teach ends in ch → add -es!",
+        "explanation": "Coach Carr teaches us how to throw."
+      },
+      {
+        "id": "q2-w1-sv-p3_1",
+        "category": "agreement",
+        "instruction": "Choose the correct verb to match the subject:",
+        "text": "I ___ for the ticket.",
+        "options": ["reach", "reaches", "reaching"],
+        "answer": "reach",
+        "hint": "I, You, We, They — no -s or -es!",
+        "explanation": "With \"I\", do not add -s or -es: I reach."
+      },
+      {
+        "id": "q2-w1-sv-p3_2",
+        "category": "agreement",
+        "instruction": "Choose the correct verb to match the subject:",
+        "text": "He ___ very cold.",
+        "options": ["looks", "look", "looking"],
+        "answer": "looks",
+        "hint": "He, She, It — the -s must fit!",
+        "explanation": "With \"He\", add -s: He looks."
+      },
+      {
+        "id": "q2-w1-sv-p3_3",
+        "category": "agreement",
+        "instruction": "Choose the correct verb to match the subject:",
+        "text": "They ___ when we score.",
+        "options": ["cheer", "cheers", "cheering"],
+        "answer": "cheer",
+        "hint": "I, You, We, They — no -s, hooray!",
+        "explanation": "With \"They\", do not add -s: They cheer."
+      },
+      {
+        "id": "q2-w1-sv-p3_4",
+        "category": "agreement",
+        "instruction": "Choose the correct verb to match the subject:",
+        "text": "You ___ the truth.",
+        "options": ["tell", "tells", "telling"],
+        "answer": "tell",
+        "hint": "I, You, We, They — no -s, hooray!",
+        "explanation": "With \"You\", do not add -s: You tell."
+      },
+      {
+        "id": "q2-w1-sv-p3_5",
+        "category": "agreement",
+        "instruction": "Choose the correct verb to match the subject:",
+        "text": "It ___ later than 6:00.",
+        "options": ["seems", "seem", "seeming"],
+        "answer": "seems",
+        "hint": "He, She, It — the -s must fit!",
+        "explanation": "With \"It\", add -s: It seems."
+      },
+      {
+        "id": "q2-w1-sv-p4_1",
+        "category": "agreement",
+        "instruction": "Choose the correct verb to match the subject:",
+        "text": "Cows ___ in the field.",
+        "options": ["graze", "grazes", "grazing"],
+        "answer": "graze",
+        "hint": "Cows = more than one cow!",
+        "explanation": "Plural subject → no -s: Cows graze."
+      },
+      {
+        "id": "q2-w1-sv-p4_2",
+        "category": "agreement",
+        "instruction": "Choose the correct verb to match the subject:",
+        "text": "She ___ out a funny movie.",
+        "options": ["picks", "pick", "picking"],
+        "answer": "picks",
+        "hint": "He, She, It — the -s must fit!",
+        "explanation": "With \"She\", add -s: She picks."
+      },
+      {
+        "id": "q2-w1-sv-p4_3",
+        "category": "agreement",
+        "instruction": "Choose the correct verb to match the subject:",
+        "text": "The train ___ down the tracks.",
+        "options": ["chugs", "chug", "chugging"],
+        "answer": "chugs",
+        "hint": "The train is ONE thing!",
+        "explanation": "Singular subject → add -s: The train chugs."
+      },
+      {
+        "id": "q2-w1-sv-p4_5",
+        "category": "agreement",
+        "instruction": "Choose the correct verb to match the subject:",
+        "text": "Flowers ___ in the spring.",
+        "options": ["bloom", "blooms", "blooming"],
+        "answer": "bloom",
+        "hint": "Flowers = more than one!",
+        "explanation": "Plural subject → no -s: Flowers bloom."
+      },
+      {
+        "id": "q2-w1-sv-p4_6",
+        "category": "agreement",
+        "instruction": "Choose the sentence written correctly:",
+        "text": "Which sentence is written correctly?",
+        "options": [
+          "The student reads books in the library.",
+          "The student read books in the library.",
+          "The student reading books in the library."
+        ],
+        "answer": "The student reads books in the library.",
+        "hint": "The student is ONE person, so add -s in the now tense!",
+        "explanation": "Singular subject \"The student\" needs -s: reads."
+      },
+      {
+        "id": "q2-w1-sv-p4_8",
+        "category": "agreement",
+        "instruction": "Choose the sentence written correctly:",
+        "text": "Which sentence is written correctly?",
+        "options": [
+          "They walk around the block.",
+          "They walks around the block.",
+          "They walking around the block."
+        ],
+        "answer": "They walk around the block.",
+        "hint": "With \"They\", do not add -s!",
+        "explanation": "I, You, We, They → no -s: They walk around the block."
+      },
+      {
+        "id": "q2-w1-sv-p4_9",
+        "category": "agreement",
+        "instruction": "Choose the sentence written correctly:",
+        "text": "Which sentence is written correctly?",
+        "options": [
+          "He mixes the paints.",
+          "He mix the paints.",
+          "He mixs the paints."
+        ],
+        "answer": "He mixes the paints.",
+        "hint": "\"He\" + verb ending in x → add -es!",
+        "explanation": "With \"He\" and mix (ends in x), add -es: He mixes the paints."
+      },
+      {
+        "id": "q2-w1-sv-p5_1",
+        "category": "agreement",
+        "instruction": "Read Zoey's paragraph and choose the best revision:",
+        "passage": {
+          "title": "Zoey's Zoo Visit",
+          "sentences": [
+            "I visit the zoo with Grandpa.",
+            "An elephant swings its trunk.",
+            "A giraffe eats leaves.",
+            "Monkeys swings in the trees.",
+            "On the way home we stops and get lunch.",
+            "I can't wait to visit the zoo again."
+          ]
+        },
+        "text": "What change, if any, should be made in sentence 4?",
+        "options": [
+          "Monkeys swing in the trees.",
+          "Monkeys swinging in the trees.",
+          "Monkey swing in the trees.",
+          "Make no change."
+        ],
+        "answer": "Monkeys swing in the trees.",
+        "hint": "Look at \"Monkeys\": is it singular or plural?",
+        "explanation": "\"Monkeys\" is plural (more than one), so the verb has no -s: Monkeys swing in the trees."
+      },
+      {
+        "id": "q2-w1-sv-p5_2",
+        "category": "agreement",
+        "instruction": "Read Zoey's paragraph and choose the best revision:",
+        "passage": {
+          "title": "Zoey's Zoo Visit",
+          "sentences": [
+            "I visit the zoo with Grandpa.",
+            "An elephant swings its trunk.",
+            "A giraffe eats leaves.",
+            "Monkeys swings in the trees.",
+            "On the way home we stops and get lunch.",
+            "I can't wait to visit the zoo again."
+          ]
+        },
+        "text": "What change, if any, should be made in sentence 5?",
+        "options": [
+          "On the way home we stops and get lunches.",
+          "On the way home we stop and gets lunch.",
+          "On the way home we stop and get lunch.",
+          "Make no change."
+        ],
+        "answer": "On the way home we stop and get lunch.",
+        "hint": "With \"we\", both present-tense verbs drop -s!",
+        "explanation": "I, You, We, They — no -s! Use \"stop and get\": On the way home we stop and get lunch."
+      },
+      {
+        "id": "q2-w1-ex19-01",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "He ___ the car. 🚗",
+        "options": ["wash", "washes", "washing"],
+        "answer": "washes",
+        "hint": "\"He\" + wash (ends in sh) → add -es!",
+        "explanation": "With \"He\" and wash, add -es: He washes the car."
+      },
+      {
+        "id": "q2-w1-ex19-02",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "I ___ breakfast in the morning. 🥣",
+        "options": ["eat", "eats", "eating"],
+        "answer": "eat",
+        "hint": "I, You, We, They — no -s, hooray!",
+        "explanation": "With \"I\", use the base verb without -s: I eat."
+      },
+      {
+        "id": "q2-w1-ex19-03",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "They ___ early. ⏰",
+        "options": ["sleeping", "sleeps", "sleep"],
+        "answer": "sleep",
+        "hint": "I, You, We, They — no -s, hooray!",
+        "explanation": "With \"They\", use the base verb without -s: They sleep."
+      },
+      {
+        "id": "q2-w1-ex19-04",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "Hend ___ her teeth in the morning. 🦷",
+        "options": ["brush", "brushes", "brushing"],
+        "answer": "brushes",
+        "hint": "Hend is ONE person, and brush ends in sh!",
+        "explanation": "Singular subject + sh ending → add -es: Hend brushes."
+      },
+      {
+        "id": "q2-w1-ex19-05",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "Ahmed ___ a story. 📖",
+        "options": ["read", "reads", "reading"],
+        "answer": "reads",
+        "hint": "Ahmed is ONE person!",
+        "explanation": "Singular subject → add -s: Ahmed reads."
+      },
+      {
+        "id": "q2-w1-ex19-06",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "Ali ___ after school. ⚽",
+        "options": ["play", "plays", "playing"],
+        "answer": "plays",
+        "hint": "Ali is ONE person!",
+        "explanation": "Singular subject → add -s: Ali plays."
+      },
+      {
+        "id": "q2-w1-ex19-07",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "I ___ up at seven o'clock. 🛏️",
+        "options": ["wake", "wakes", "waking"],
+        "answer": "wake",
+        "hint": "I, You, We, They — no -s, hooray!",
+        "explanation": "With \"I\", keep the base verb without -s: I wake."
+      },
+      {
+        "id": "q2-w1-ex19-08",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "She ___ in her notebook. 📓",
+        "options": ["write", "writing", "writes"],
+        "answer": "writes",
+        "hint": "He, She, It — the -s must fit!",
+        "explanation": "With \"She\", add -s: She writes."
+      },
+      {
+        "id": "q2-w1-ex19-09",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "Aya ___ her desk. 🪑",
+        "options": ["clean", "cleans", "cleaning"],
+        "answer": "cleans",
+        "hint": "Aya is ONE person!",
+        "explanation": "Singular subject → add -s: Aya cleans."
+      },
+      {
+        "id": "q2-w1-ex19-10",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "I ___ a picture. 🎨",
+        "options": ["draws", "drawing", "draw"],
+        "answer": "draw",
+        "hint": "I, You, We, They — no -s, hooray!",
+        "explanation": "With \"I\", keep the base verb without -s: I draw."
+      },
+      {
+        "id": "q2-w1-ex19-11",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "They ___ on chairs. 🪑",
+        "options": ["sit", "sitting", "sits"],
+        "answer": "sit",
+        "hint": "I, You, We, They — no -s, hooray!",
+        "explanation": "With \"They\", keep the base verb without -s: They sit."
+      },
+      {
+        "id": "q2-w1-ex19-12",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "My teacher ___ me at school. 👩‍🏫",
+        "options": ["teach", "teaches", "teaching"],
+        "answer": "teaches",
+        "hint": "My teacher is ONE person, and teach ends in ch!",
+        "explanation": "Singular subject + ch ending → add -es: My teacher teaches."
+      },
+      {
+        "id": "q2-w1-ex19-13",
+        "category": "agreement",
+        "instruction": "Choose the correct present-tense verb:",
+        "text": "My mother ___ me. ❤️",
+        "options": ["help", "helping", "helps"],
+        "answer": "helps",
+        "hint": "My mother is ONE person!",
+        "explanation": "Singular subject → add -s: My mother helps."
       }
     ]
   }

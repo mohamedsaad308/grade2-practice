@@ -57,7 +57,7 @@ import FlashcardLesson, { tokenizeExampleSentence } from '../views/FlashcardLess
 import SessionSummary from '../views/SessionSummary.jsx';
 import ParentDashboard from '../views/ParentDashboard.jsx';
 import week1Data from '../terms/q2/subjects/english/content/week1.json';
-import { selectWeekQuizQuestions } from '../terms/q2/subjects/english/index.js';
+import { selectWeekQuizQuestions, selectPracticeCategoryQuestions } from '../terms/q2/subjects/english/index.js';
 
 describe('School Term Registry, Routes, Migration & UI Isolation', () => {
   beforeEach(() => {
@@ -86,9 +86,9 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     ]);
     expect(q2Subjects.map((s) => s.icon)).toEqual(['📚', '🔢', '🔬', '🌍', '🇩🇪']);
 
-    // Only English is unlocked with Week 1 topics
+    // Only English is unlocked with Week 1 topics (4 lessons + 4 worksheet practices + 1 final quiz)
     expect(isSubjectActive(q2Subjects[0])).toBe(true);
-    expect(q2Subjects[0].topics.length).toBe(5);
+    expect(q2Subjects[0].topics.length).toBe(9);
 
     // Math, Science, Social, German stay inactive Coming soon
     q2Subjects.slice(1).forEach((subj) => {
@@ -375,17 +375,44 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(parentHtml).toContain('8');
   });
 
-  it('9. Q2 English Week 1 validates all 4 flashcard lessons, mini-activities, and 26 quiz questions (sampling 10 with >=2 per category)', () => {
+  it('9. Q2 English Week 1 validates all 4 flashcard lessons, mini-activities, 4 worksheet practices, and 142-question bank (sampling 10 with >=2 per category)', () => {
     const q2English = getSubjectByTermAndId('q2', 'english');
     expect(isSubjectActive(q2English)).toBe(true);
     expect(week1Data.lessons.length).toBe(4);
-    expect(week1Data.quiz.questions.length).toBe(26);
+    expect(week1Data.practices.length).toBe(4);
+    expect(week1Data.quiz.questions.length).toBe(142);
 
-    // Validate all 26 quiz questions have 3 options and exact answer inside options
+    // Validate all 142 questions have 3-4 unique options and exact answer inside options
+    const seenIds = new Set();
     week1Data.quiz.questions.forEach((q) => {
-      expect(q.options.length).toBe(3);
+      expect(seenIds.has(q.id)).toBe(false);
+      seenIds.add(q.id);
+      expect(q.options.length).toBeGreaterThanOrEqual(3);
+      expect(q.options.length).toBeLessThanOrEqual(4);
+      expect(new Set(q.options).size).toBe(q.options.length);
       expect(q.options).toContain(q.answer);
     });
+
+    // Validate Worksheet Practice sampling returns 10 questions strictly inside that category
+    week1Data.practices.forEach((practice) => {
+      const picked = selectPracticeCategoryQuestions(week1Data.quiz, practice, null, 'q2');
+      expect(picked.length).toBe(10);
+      picked.forEach((q) => expect(q.category).toBe(practice.category));
+    });
+
+    // Render Connect to Writing (Grammar 1.6.5) Zoo Passage question cleanly
+    const connectWritingQ = week1Data.quiz.questions.find((q) => q.id === 'q2-w1-sv-p5_1');
+    expect(connectWritingQ?.passage?.sentences?.length).toBe(6);
+    const passageHtml = renderToString(
+      React.createElement(QuestionDispatcher, {
+        question: { ...connectWritingQ, type: 'choice' },
+        onSubmit: () => {},
+        disabled: false,
+        soundEnabled: false
+      })
+    );
+    expect(passageHtml).toContain("Zoey&#x27;s Zoo Visit");
+    expect(passageHtml).toContain('Monkeys swing in the trees.');
 
     // Validate stratified 10-question sampling guarantees >= 2 from each of 4 categories
     const sampled = selectWeekQuizQuestions(week1Data.quiz, null, 'q2');
@@ -417,6 +444,8 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     ));
     expect(topicsHtml).toContain('Week 1');
     expect(topicsHtml).toContain('Lesson 1: Blends with L, R, S');
+    expect(topicsHtml).toContain('Worksheet 1: Blends &amp; Spelling');
+    expect(topicsHtml).toContain('Worksheet 4: Subject-Verb &amp; Writing');
     expect(topicsHtml).toContain('Week 1 Final Quiz');
 
     const lessonTopic = getTopicByTermSubjectAndId('q2', 'english', 'w1_lesson1_blends');
@@ -430,9 +459,10 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
         settings: { soundEnabled: true, spokenPraiseEnabled: true }
       })
     ));
-    expect(flashcardHtml).toContain('Card 1 of 22');
+    expect(flashcardHtml).toContain(`Card 1 of ${week1Data.lessons[0].cards.length}`);
     expect(flashcardHtml).toContain('Sort it!');
 
+    const quizTopic = getTopicByTermSubjectAndId('q2', 'english', 'w1_final_quiz');
     const summaryHtml = clean(renderToString(
       React.createElement(SessionSummary, {
         summaryData: {
@@ -441,7 +471,7 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
           total: 10,
           termId: 'q2',
           subject: q2English,
-          topic: q2English.topics[4],
+          topic: quizTopic,
           missedQuestions: sampled.slice(0, 2)
         },
         player: { name: 'Maya', avatar: 'fox', stars: 8 },
@@ -628,17 +658,41 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
         expect(fs.statSync(mp3Path).size).toBeGreaterThan(100);
       };
 
-      // Every Q2 Week 1 card word, explanation, example & quiz question/options
+      // Every Q2 Week 1 card, mini-activity & worksheet/quiz question/passage/options
       week1Data.lessons.forEach((lesson) => {
         lesson.cards.forEach((card) => {
           assertAudioClipExists(card.word || card.frontTitle);
           assertAudioClipExists(card.explanation);
           assertAudioClipExists(card.example);
+          (card.examples || []).forEach((ex) => assertAudioClipExists(ex));
         });
+        const act = lesson.activity;
+        if (act?.type === 'sort_buckets') {
+          act.items.forEach((it) => assertAudioClipExists(it.word));
+        } else if (act?.type === 'tap_plural') {
+          act.items.forEach((it) => {
+            assertAudioClipExists(`What is the plural of ${it.singular}?`);
+            it.options.forEach((opt) => assertAudioClipExists(opt));
+          });
+        } else if (act?.type === 'fix_sentence') {
+          act.items.forEach((it) => {
+            assertAudioClipExists(`Fix the sentence: ${it.wrongSentence}`);
+            it.options.forEach((opt) => assertAudioClipExists(opt));
+          });
+        } else if (act?.type === 'match_pairs') {
+          act.allPairs.forEach(([w, m]) => {
+            assertAudioClipExists(w);
+            assertAudioClipExists(m);
+          });
+        }
       });
       week1Data.quiz.questions.forEach((q) => {
+        if (q.instruction) assertAudioClipExists(q.instruction.replace(/[:]+$/, ''));
+        if (q.passage?.title) assertAudioClipExists(q.passage.title);
+        (q.passage?.sentences || []).forEach((s) => assertAudioClipExists(s));
         assertAudioClipExists(q.text);
         q.options.forEach((opt) => assertAudioClipExists(opt));
+        if (q.explanation) assertAudioClipExists(q.explanation);
       });
 
       // Every Q1 English topic instruction and item text

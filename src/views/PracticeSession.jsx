@@ -357,6 +357,10 @@ function PracticeQuizSession({
       const parts = [];
       const instruction = q.prompt || q.instruction || topic?.instruction;
       if (instruction) parts.push({ id: 'instruction', text: instruction.replace(/[:]+$/, '') });
+      if (q.passage?.sentences?.length) {
+        if (q.passage.title) parts.push({ id: 'passage-title', text: q.passage.title });
+        q.passage.sentences.forEach((s, i) => parts.push({ id: `passage-${i}`, text: s }));
+      }
       if (q.text) {
         parts.push({ id: 'text', text: q.text });
       }
@@ -440,6 +444,10 @@ function PracticeQuizSession({
       const parts = [];
       const instruction = q.prompt || q.instruction || topic?.instruction;
       if (instruction) parts.push(instruction.replace(/[:]+$/, ''));
+      if (q.passage?.sentences?.length) {
+        if (q.passage.title) parts.push(q.passage.title);
+        q.passage.sentences.forEach((s) => parts.push(s));
+      }
       if (q.text) {
         parts.push(q.text.replace(/_+/g, 'blank'));
       }

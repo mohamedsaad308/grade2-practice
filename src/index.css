@@ -4637,6 +4637,11 @@ input, button, textarea, a, [role="button"] {
   background: linear-gradient(180deg, #FFFBEB 0%, #FFFFFF 40%);
 }
 
+.topic-card-practice {
+  border-color: #818CF8;
+  background: linear-gradient(180deg, #EEF2FF 0%, #FFFFFF 40%);
+}
+
 .correct-explanation-note {
   margin-top: 0.55rem;
   padding: 0.55rem 0.85rem;

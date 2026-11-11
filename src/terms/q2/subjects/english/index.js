@@ -4,6 +4,54 @@ import { getItemOutcomes, getCurrentPlayer } from '../../../../player/playerStor
 
 const QUIZ_CATEGORIES = ['phonics', 'vocabulary', 'nouns', 'agreement'];
 
+function sortByAdaptive(items, explicitPlayerId = null, termId = 'q2') {
+  const playerId = explicitPlayerId || getCurrentPlayer()?.id;
+  const outcomes = getItemOutcomes(playerId, termId, 'english');
+
+  const missed = [];
+  const unseen = [];
+  const mastered = [];
+  for (const q of items) {
+    const stat = outcomes[q.id];
+    if (!stat) {
+      unseen.push(q);
+    } else if (stat.lastOutcome === 'missed' || (stat.missed > 0 && !stat.firstTry)) {
+      missed.push(q);
+    } else {
+      mastered.push(q);
+    }
+  }
+  return [...shuffle(missed), ...shuffle(unseen), ...shuffle(mastered)];
+}
+
+/**
+ * Sample 10 adaptive practice questions from a single category inside quiz.questions,
+ * prioritizing missed/unseen items and shuffling both question order and option order.
+ */
+export function selectPracticeCategoryQuestions(quizConfig, practiceConfig, explicitPlayerId = null, termId = 'q2') {
+  const allQuestions = Array.isArray(quizConfig?.questions) ? quizConfig.questions : [];
+  const categoryPool = practiceConfig?.category
+    ? allQuestions.filter((q) => q.category === practiceConfig.category)
+    : allQuestions;
+
+  const ordered = sortByAdaptive(categoryPool, explicitPlayerId, termId);
+  const count = Math.min(practiceConfig?.questionCount || 10, ordered.length);
+  const picked = shuffle(ordered.slice(0, count));
+
+  return picked.map((q) => ({
+    ...q,
+    type: 'choice',
+    topicId: practiceConfig.id,
+    topicTitle: practiceConfig.title,
+    topicIcon: practiceConfig.icon || '✏️',
+    topicHint: q.hint || practiceConfig.hint,
+    hint: q.hint || practiceConfig.hint,
+    options: shuffle([...(q.options || [])]),
+    showExplanationOnCorrect: true,
+    explanation: q.explanation || `The correct answer is "${q.answer}".`
+  }));
+}
+
 /**
  * Sample 10 random quiz questions with AT LEAST 2 from each of the 4 topics
  * (phonics, vocabulary, nouns, agreement), prioritizing missed/unseen items
@@ -11,32 +59,17 @@ const QUIZ_CATEGORIES = ['phonics', 'vocabulary', 'nouns', 'agreement'];
  */
 export function selectWeekQuizQuestions(quizConfig, explicitPlayerId = null, termId = 'q2') {
   const allQuestions = Array.isArray(quizConfig?.questions) ? quizConfig.questions : [];
-  const playerId = explicitPlayerId || getCurrentPlayer()?.id;
-  const outcomes = getItemOutcomes(playerId, termId, 'english');
-
-  const sortByAdaptive = (items) => {
-    const missed = [];
-    const unseen = [];
-    const mastered = [];
-    for (const q of items) {
-      const stat = outcomes[q.id];
-      if (!stat) {
-        unseen.push(q);
-      } else if (stat.lastOutcome === 'missed' || (stat.missed > 0 && !stat.firstTry)) {
-        missed.push(q);
-      } else {
-        mastered.push(q);
-      }
-    }
-    return [...shuffle(missed), ...shuffle(unseen), ...shuffle(mastered)];
-  };
 
   const chosen = [];
   const chosenIds = new Set();
 
   // Guarantee at least 2 questions from each of the 4 categories
   for (const cat of QUIZ_CATEGORIES) {
-    const catPool = sortByAdaptive(allQuestions.filter((q) => q.category === cat));
+    const catPool = sortByAdaptive(
+      allQuestions.filter((q) => q.category === cat),
+      explicitPlayerId,
+      termId
+    );
     const picks = catPool.slice(0, 2);
     for (const q of picks) {
       chosen.push(q);
@@ -44,8 +77,12 @@ export function selectWeekQuizQuestions(quizConfig, explicitPlayerId = null, ter
     }
   }
 
-  // Fill remaining slots (up to 10 total) randomly from remaining questions
-  const remainingPool = sortByAdaptive(allQuestions.filter((q) => !chosenIds.has(q.id)));
+  // Fill remaining slots (up to 10 total) adaptively from remaining questions
+  const remainingPool = sortByAdaptive(
+    allQuestions.filter((q) => !chosenIds.has(q.id)),
+    explicitPlayerId,
+    termId
+  );
   const needed = Math.max(0, 10 - chosen.length);
   const extras = remainingPool.slice(0, needed);
 
@@ -67,7 +104,7 @@ export function selectWeekQuizQuestions(quizConfig, explicitPlayerId = null, ter
 
 /**
  * Helper to turn any structured week JSON file (like week1.json or future week2.json)
- * into clickable Q2 English lesson & quiz topics.
+ * into clickable Q2 English lesson, worksheet practice & quiz topics.
  */
 export function createWeekTopics(weekData) {
   const weekId = weekData.weekId || 'week1';
@@ -90,6 +127,33 @@ export function createWeekTopics(weekData) {
   }));
 
   const topics = [...lessonTopics];
+
+  if (weekData.quiz && Array.isArray(weekData.practices)) {
+    weekData.practices.forEach((practice) => {
+      const poolSize = (weekData.quiz.questions || []).filter(
+        (q) => !practice.category || q.category === practice.category
+      ).length;
+      const sessionCount = Math.min(practice.questionCount || 10, poolSize || 10);
+      topics.push({
+        id: practice.id,
+        weekId,
+        weekTitle,
+        weekSubtitle,
+        mode: 'practice',
+        title: practice.title,
+        icon: practice.icon || '✏️',
+        description: practice.description,
+        hint: practice.hint,
+        questionCount: sessionCount,
+        totalPoolSize: poolSize,
+        practiceData: practice,
+        levels: [1],
+        getQuestions(level = 1, playerId = null, termId = 'q2') {
+          return selectPracticeCategoryQuestions(weekData.quiz, practice, playerId, termId);
+        }
+      });
+    });
+  }
 
   if (weekData.quiz) {
     const quiz = weekData.quiz;
@@ -126,7 +190,7 @@ export default {
   icon: '📚',
   color: '#EC4899',
   lightColor: '#FDF2F8',
-  description: 'Week 1 lessons, flashcards, mini-activities, and quiz for Grade 2 superstars!',
+  description: 'Week 1 lessons, flashcards, worksheet practices, and quiz for Grade 2 superstars!',
   topics: [
     ...createWeekTopics(week1Data)
   ]

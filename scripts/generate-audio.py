@@ -147,7 +147,12 @@ def collect_q2_content(bucket: dict):
                     for part in pair:
                         add_text(bucket, part)
 
-        # Structured Week Quiz
+        # Structured Worksheet Practice sections
+        for practice in data.get("practices", []) or []:
+            add_text(bucket, practice.get("instruction"))
+            add_text(bucket, practice.get("hint"))
+
+        # Structured Week Quiz (and Worksheet Practice questions)
         quiz = data.get("quiz") or {}
         if quiz:
             add_text(bucket, quiz.get("instruction"))
@@ -156,6 +161,15 @@ def collect_q2_content(bucket: dict):
                 instruction = q.get("prompt") or q.get("instruction") or quiz.get("instruction") or ""
                 if instruction:
                     add_text(bucket, instruction.rstrip(":"))
+                passage = q.get("passage") or {}
+                if isinstance(passage, dict):
+                    if passage.get("title"):
+                        add_text(bucket, passage.get("title"))
+                    sents = passage.get("sentences") or []
+                    for s in sents:
+                        add_text(bucket, s)
+                    if sents:
+                        add_text(bucket, " ".join(sents))
                 text = q.get("text") or ""
                 add_text(bucket, text)
                 for opt in q.get("options", []) or []:
@@ -202,6 +216,8 @@ def collect_q1_english(bucket: dict):
                         add_text(bucket, pair[1])
             passage = item.get("passage") or {}
             if isinstance(passage, dict):
+                if passage.get("title"):
+                    add_text(bucket, passage.get("title"))
                 sents = passage.get("sentences") or []
                 for s in sents:
                     add_text(bucket, s)

@@ -188,19 +188,26 @@ export default function SubjectTopicsView({
                 const wins = (topicStat?.firstTryWins || 0) + (topicStat?.secondTryWins || 0);
                 const countLabel = getQuestionCountLabel(topic);
                 const isLesson = topic.mode === 'lesson';
+                const isPractice = topic.mode === 'practice';
                 const isQuiz = topic.mode === 'quiz';
 
                 return (
                   <div
                     key={topic.id}
-                    className={`topic-card ${isQuiz ? 'topic-card-quiz' : ''}`}
+                    className={`topic-card ${isQuiz ? 'topic-card-quiz' : isPractice ? 'topic-card-practice' : ''}`}
                     data-topic-card={topic.id}
                   >
                     <div className="topic-card-header">
                       <div className="topic-card-icon-box">{topic.icon || '📝'}</div>
                       <div className="topic-card-title-group">
                         <span className="topic-number-label">
-                          {isQuiz ? 'Final Quiz' : isLesson ? `Lesson • Cards + Game` : `Topic ${displayIdx + 1}`}
+                          {isQuiz
+                            ? 'Final Quiz'
+                            : isLesson
+                              ? 'Lesson • Cards + Game'
+                              : isPractice
+                                ? 'Worksheet Practice'
+                                : `Topic ${displayIdx + 1}`}
                         </span>
                         <h3 className="topic-card-title">{topic.title}</h3>
                       </div>
@@ -237,7 +244,13 @@ export default function SubjectTopicsView({
                         className="topic-start-btn"
                         onClick={() => handleStart(topic)}
                       >
-                        {isLesson ? `Start (${countLabel}) ▶` : isQuiz ? `Quiz (${countLabel}) ▶` : `Play (${countLabel}) ▶`}
+                        {isLesson
+                          ? `Start (${countLabel}) ▶`
+                          : isQuiz
+                            ? `Quiz (${countLabel}) ▶`
+                            : isPractice
+                              ? `Practice (${countLabel}) ▶`
+                              : `Play (${countLabel}) ▶`}
                       </button>
                     </div>
                   </div>

@@ -1018,7 +1018,7 @@ function TapQuizMiniActivity({
   onComplete
 }) {
   const [items] = useState(() =>
-    (activity.items || []).map((item) => ({
+    shuffle([...(activity.items || [])]).map((item) => ({
       ...item,
       options: shuffle([...(item.options || [])])
     }))
