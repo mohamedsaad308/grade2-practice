@@ -71,6 +71,11 @@ import {
   selectWeekQuizQuestions as selectReadingWeekQuizQuestions,
   selectPracticeCategoryQuestions as selectReadingPracticeCategoryQuestions
 } from '../terms/q2/subjects/reading/index.js';
+import scienceWeek1Data from '../terms/q2/subjects/science/content/week1.json';
+import {
+  selectWeekQuizQuestions as selectScienceWeekQuizQuestions,
+  selectPracticeCategoryQuestions as selectSciencePracticeCategoryQuestions
+} from '../terms/q2/subjects/science/index.js';
 
 describe('School Term Registry, Routes, Migration & UI Isolation', () => {
   beforeEach(() => {
@@ -88,7 +93,7 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(DEFAULT_TERM_ID).toBe('q2');
   });
 
-  it('2. Q2 has 6 subjects in exact order (English, Math, Science, Social, German, Reading): English, German, and Reading are active with Week 1; Math, Science, Social stay Coming soon', () => {
+  it('2. Q2 has 6 subjects in exact order (English, Math, Science, Social, German, Reading): English, Science, German, and Reading are active with Week 1; Math and Social stay Coming soon', () => {
     const q2Subjects = getSubjectsForTerm('q2');
     expect(q2Subjects.map((s) => s.title)).toEqual([
       'English',
@@ -104,11 +109,15 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(isSubjectActive(q2Subjects[0])).toBe(true);
     expect(q2Subjects[0].topics.length).toBe(9);
 
-    // Math, Science, Social stay inactive Coming soon
-    q2Subjects.slice(1, 4).forEach((subj) => {
+    // Math and Social stay inactive Coming soon
+    [q2Subjects[1], q2Subjects[3]].forEach((subj) => {
       expect(subj.topics).toEqual([]);
       expect(isSubjectActive(subj)).toBe(false);
     });
+
+    // Science is unlocked with Week 1 Earth's Habitats (3 lessons + 3 practices + 1 final quiz)
+    expect(isSubjectActive(q2Subjects[2])).toBe(true);
+    expect(q2Subjects[2].topics.length).toBe(7);
 
     // German is unlocked with Week 1 topics (3 lessons + 3 practices + 1 final quiz)
     expect(isSubjectActive(q2Subjects[4])).toBe(true);
@@ -325,7 +334,7 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     recordSessionCompletion(player.id, 'synonyms', 8, [{ firstTry: true }], 'q1');
     const refreshed = getCurrentPlayer();
 
-    // Home Q2: shows Q2 | Q1 pills and 5 Coming soon subjects
+    // Home Q2: shows Q2 | Q1 pills, active subjects, and Coming soon subjects
     const clean = (html) => html.replace(/<!-- -->/g, '');
 
     const q2HomeHtml = clean(renderToString(
@@ -338,18 +347,20 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(q2HomeHtml).toContain('Q1');
     expect(q2HomeHtml).toContain('Coming soon');
     expect(q2HomeHtml).toContain('English');
+    expect(q2HomeHtml).toContain('Science');
     expect(q2HomeHtml).toContain('German');
+    expect(q2HomeHtml).toContain('Reading');
     expect(q2HomeHtml).not.toContain('Q3');
     expect(q2HomeHtml).not.toContain('Q4');
 
     // Coming Soon screen when tapping an empty Q2 subject
     const q2Term = getTermById('q2');
-    const q2Science = getSubjectByTermAndId('q2', 'science');
+    const q2Social = getSubjectByTermAndId('q2', 'social');
     const comingSoonHtml = clean(renderToString(
       React.createElement(SubjectTopicsView, {
         player: refreshed,
         term: q2Term,
-        subject: q2Science
+        subject: q2Social
       })
     ));
     expect(comingSoonHtml).toContain('New topics are coming soon!');
@@ -792,6 +803,37 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
         if (q.explanation) assertAudioClipExists(q.explanation, 'en-US');
       });
 
+      // Every Q2 Science Week 1 (Earth's Habitats) card, mini-activity, and quiz item
+      scienceWeek1Data.lessons.forEach((lesson) => {
+        lesson.cards.forEach((card) => {
+          assertAudioClipExists(card.word || card.frontTitle, 'en-US');
+          assertAudioClipExists(card.explanation, 'en-US');
+          assertAudioClipExists(card.example, 'en-US');
+        });
+        const act = lesson.activity;
+        if (act?.type === 'match_pairs') {
+          act.allPairs.forEach(([left, right]) => {
+            assertAudioClipExists(left, 'en-US');
+            assertAudioClipExists(right, 'en-US');
+          });
+        } else if (act?.type === 'tap_choice') {
+          act.items.forEach((it) => {
+            assertAudioClipExists(it.prompt, 'en-US');
+            if (it.targetText) assertAudioClipExists(it.targetText, 'en-US');
+            it.options.forEach((opt) => assertAudioClipExists(opt, 'en-US'));
+            assertAudioClipExists(it.explanation, 'en-US');
+          });
+        }
+      });
+      scienceWeek1Data.quiz.questions.forEach((q) => {
+        if (q.instruction) assertAudioClipExists(q.instruction.replace(/[:]+$/, ''), 'en-US');
+        if (q.passage?.title) assertAudioClipExists(q.passage.title, 'en-US');
+        (q.passage?.sentences || []).forEach((s) => assertAudioClipExists(s, 'en-US'));
+        assertAudioClipExists(q.text, 'en-US');
+        q.options.forEach((opt) => assertAudioClipExists(opt, 'en-US'));
+        if (q.explanation) assertAudioClipExists(q.explanation, 'en-US');
+      });
+
       // Disambiguate shared words across English & German ('orange' -> separate MP3 clips!)
       const enOrange = getManifestAudioPath('orange', 'en-US');
       const deOrange = getManifestAudioPath('orange', 'de-DE');
@@ -1150,5 +1192,107 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
       global.window = origWindow;
       global.fetch = origFetch;
     }
+  });
+
+  it('16. Q2 Science Week 1 (Earth\'s Habitats) validates all 3 flashcard lessons (23 cards with target highlights), 3 practices, and 45-question bank', () => {
+    const q2Science = getSubjectByTermAndId('q2', 'science');
+    expect(isSubjectActive(q2Science)).toBe(true);
+    expect(q2Science.icon).toBe('🔬');
+    expect(q2Science.topics.length).toBe(7);
+    expect(scienceWeek1Data.lessons.length).toBe(3);
+    expect(scienceWeek1Data.practices.length).toBe(3);
+    expect(scienceWeek1Data.quiz.questions.length).toBe(45);
+
+    const clean = (html) => html.replace(/<!-- -->/g, '');
+    let totalCards = 0;
+
+    scienceWeek1Data.lessons.forEach((lesson) => {
+      lesson.cards.forEach((card) => {
+        totalCards += 1;
+        expect(typeof card.example).toBe('string');
+        expect(card.example.trim().length).toBeGreaterThan(8);
+        expect(typeof card.explanation).toBe('string');
+        expect(card.explanation.trim().length).toBeGreaterThan(8);
+
+        const targets = card.highlightWords?.length
+          ? card.highlightWords
+          : card.word
+            ? [card.word]
+            : [];
+        expect(targets.length).toBeGreaterThan(0);
+
+        const { tokens } = tokenizeExampleSentence(card.example, targets);
+        const highlighted = tokens.filter((t) => t.type === 'word' && t.isTarget);
+        expect(highlighted.length).toBeGreaterThan(0);
+
+        const html = clean(renderToString(
+          React.createElement(FlashcardLesson, {
+            player: { name: 'Maya', avatar: 'fox', stars: 0 },
+            termId: 'q2',
+            subject: q2Science,
+            topic: {
+              id: `${lesson.id}_${card.id}`,
+              title: lesson.title,
+              icon: lesson.icon,
+              lessonData: { ...lesson, cards: [card] }
+            },
+            settings: { soundEnabled: true, spokenPraiseEnabled: true }
+          })
+        ));
+        expect(html).toContain('flashcard-front-example-text');
+        expect(html).toContain('sentence-target-word');
+      });
+    });
+    expect(totalCards).toBe(23);
+
+    // Validate all 45 quiz questions
+    const seenIds = new Set();
+    scienceWeek1Data.quiz.questions.forEach((q) => {
+      expect(seenIds.has(q.id)).toBe(false);
+      seenIds.add(q.id);
+      expect(q.options.length).toBeGreaterThanOrEqual(3);
+      expect(q.options.length).toBeLessThanOrEqual(4);
+      expect(new Set(q.options).size).toBe(q.options.length);
+      expect(q.options).toContain(q.answer);
+    });
+
+    // Validate Topic Practice sampling per category & adaptive isolation under ('q2', 'science')
+    scienceWeek1Data.practices.forEach((practice) => {
+      const picked = selectSciencePracticeCategoryQuestions(scienceWeek1Data.quiz, practice, null, 'q2');
+      expect(picked.length).toBe(10);
+      picked.forEach((q) => {
+        expect(q.category).toBe(practice.category);
+        const html = renderToString(
+          React.createElement(QuestionDispatcher, {
+            question: q,
+            onSubmit: () => {},
+            disabled: false,
+            soundEnabled: false
+          })
+        );
+        expect(html.length).toBeGreaterThan(40);
+      });
+    });
+
+    // Stratified 10-question final quiz guarantees >= 3 from each of 3 categories (dry_land, forest_tundra, water)
+    const sampledQuiz = selectScienceWeekQuizQuestions(scienceWeek1Data.quiz, null, 'q2');
+    expect(sampledQuiz.length).toBe(10);
+    ['dry_land', 'forest_tundra', 'water'].forEach((cat) => {
+      expect(sampledQuiz.filter((q) => q.category === cat).length).toBeGreaterThanOrEqual(3);
+    });
+
+    // Render Q2 Science Topics screen & verify key topics render cleanly
+    const q2Term = getTermById('q2');
+    const topicsHtml = clean(renderToString(
+      React.createElement(SubjectTopicsView, {
+        player: { name: 'Maya', avatar: 'fox', stars: 0 },
+        term: q2Term,
+        subject: q2Science
+      })
+    ));
+    expect(topicsHtml).toContain('Lesson 1: Garden, Desert &amp; Savanna');
+    expect(topicsHtml).toContain('Lesson 2: Rainforests, Forests &amp; Tundra');
+    expect(topicsHtml).toContain('Lesson 3: Freshwater, Wetlands &amp; Oceans');
+    expect(topicsHtml).toContain("Week 1 Final Quiz: Earth&#x27;s Habitats");
   });
 });

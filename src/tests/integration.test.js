@@ -116,6 +116,11 @@ describe('End-to-End User Flow & Player Lifecycle', () => {
 
     const q2Science = getSubjectByTermAndId('q2', 'science');
     expect(q2Science).toBeDefined();
-    expect(isSubjectActive(q2Science)).toBe(false);
+    expect(isSubjectActive(q2Science)).toBe(true);
+    expect(q2Science.topics.length).toBe(7);
+
+    const q2Social = getSubjectByTermAndId('q2', 'social');
+    expect(q2Social).toBeDefined();
+    expect(isSubjectActive(q2Social)).toBe(false);
   });
 });

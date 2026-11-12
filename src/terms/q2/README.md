@@ -3,7 +3,7 @@
 Q2 subjects live in `src/terms/q2/subjects/` in this order:
 1. `english/` (📚 English — **Active! Week 1 unlocked**)
 2. `math/` (🔢 Math — Coming soon)
-3. `science/` (🔬 Science — Coming soon)
+3. `science/` (🔬 Science — **Active! Week 1 Earth's Habitats unlocked**)
 4. `social/` (🌍 Social — Coming soon)
 5. `german/` (🇩🇪 German — **Active! Week 1 unlocked**)
 6. `reading/` (📖 Reading — **Active! Week 1 Elements of Drama unlocked**)

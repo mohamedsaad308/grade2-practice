@@ -1,0 +1,1204 @@
+{
+  "weekId": "week1",
+  "weekTitle": "Week 1",
+  "weekSubtitle": "Habitats on Earth (Land Habitats, Forests, Tundra, Freshwater & Oceans)",
+  "lessons": [
+    {
+      "id": "w1_sc_lesson1_dry_land",
+      "title": "Lesson 1: Garden, Desert & Savanna",
+      "icon": "🌵",
+      "description": "Explore the Home Garden, Desert plants and reptiles, and the Savanna tropical grassland!",
+      "hint": "Look at how much rain each habitat gets and how plants and animals survive there!",
+      "cards": [
+        {
+          "id": "sc-habitat-intro",
+          "kind": "intro",
+          "groupLabel": "Science Guide • Habitats",
+          "frontTitle": "What is a Habitat?",
+          "emoji": "🌍🐾🌱",
+          "frontHint": "Every living thing has a special home!",
+          "backTitle": "Home Sweet Habitat!",
+          "explanation": "A habitat is the natural home where a plant or animal lives and gets food, water, air, and shelter to survive.",
+          "example": "Each animal lives in a habitat that gives it food, water, and shelter.",
+          "highlightWords": ["habitat", "food", "water", "shelter"],
+          "tip": "Think of a habitat like a neighborhood built just right for the plants and animals living there!"
+        },
+        {
+          "id": "sc-garden-animals",
+          "kind": "vocab",
+          "groupLabel": "Land Habitat • Home Garden",
+          "word": "Home Garden",
+          "emoji": "🐝🐰🐌",
+          "explanation": "Many kinds of insects, such as bees, beetles, and butterflies, live in a home garden. There may also be snails and larger animals like rabbits and mice. Some animals live underground too!",
+          "example": "Bees, butterflies, snails, rabbits, and mice live in a sunny home garden.",
+          "highlightWords": ["Bees", "butterflies", "snails", "rabbits", "mice", "garden"],
+          "tip": "Check both above the flowers AND underground — worms and mice dig cozy burrows!"
+        },
+        {
+          "id": "sc-desert-habitat",
+          "kind": "vocab",
+          "groupLabel": "Land Habitat • Deserts",
+          "word": "Desert",
+          "emoji": "🌵☀️🏜️",
+          "explanation": "A desert is a dry habitat that gets very little rainfall. Some deserts are very hot, while others are hot during the day and cold at night. Because there is not much water, few plants and animals live there.",
+          "example": "A desert is a dry habitat with very little rainfall and few plants.",
+          "highlightWords": ["desert", "dry", "rainfall"],
+          "tip": "Desert plants can survive for a long time without water!"
+        },
+        {
+          "id": "sc-desert-flora",
+          "kind": "vocab",
+          "groupLabel": "Desert Flora Tag • Plants",
+          "word": "Desert Plants",
+          "emoji": "🌵💧🌱",
+          "explanation": "Desert plants survive with very little water. Some have long roots to reach water deep underground, others have roots that spread out wide, and some store water right inside their stems!",
+          "example": "Some desert plants use long roots or store water in their thick stems.",
+          "highlightWords": ["roots", "store", "water", "stems"],
+          "tip": "Flora means plants! Remember 3 desert plant tricks: deep roots, wide roots, or water-storing stems!"
+        },
+        {
+          "id": "sc-desert-fauna",
+          "kind": "vocab",
+          "groupLabel": "Desert Fauna Tag • Animals",
+          "word": "Desert Animals",
+          "emoji": "🐍🦎🐢",
+          "explanation": "Reptiles such as snakes, lizards, and tortoises live in deserts. Desert animals can survive with little water, and many get the water they need by eating plants!",
+          "example": "Snakes, lizards, and tortoises survive in the desert with very little water.",
+          "highlightWords": ["Snakes", "lizards", "tortoises", "desert"],
+          "tip": "Fauna means animals! Eating juicy desert plants gives desert animals both food and water!"
+        },
+        {
+          "id": "sc-savanna-habitat",
+          "kind": "vocab",
+          "groupLabel": "Land Habitat • Tropical Grassland",
+          "word": "Savanna",
+          "emoji": "🌾🌳☀️",
+          "explanation": "A savanna, also called a tropical grassland, is a habitat that is hot and dry for most of the year. It has large areas of grasses, small shrubs, and scattered trees.",
+          "example": "A savanna is a hot and dry tropical grassland with tall grasses and scattered trees.",
+          "highlightWords": ["savanna", "grassland", "grasses", "trees"],
+          "tip": "Savanna = tropical grassland: mostly grass with only a few scattered trees!"
+        },
+        {
+          "id": "sc-savanna-fauna",
+          "kind": "vocab",
+          "groupLabel": "Savanna Fauna Tag • Animals",
+          "word": "Savanna Animals",
+          "emoji": "🐘🦒🦓🦁",
+          "explanation": "Savanna animals include elephants, giraffes, zebras, wildebeests, lions, and a variety of birds!",
+          "example": "Elephants, giraffes, zebras, wildebeests, and lions live on the sunny savanna.",
+          "highlightWords": ["Elephants", "giraffes", "zebras", "wildebeests", "lions", "savanna"],
+          "tip": "Picture a sunny safari with giraffes nibbling tree tops and zebras eating tall grass!"
+        },
+        {
+          "id": "sc-savanna-waterholes",
+          "kind": "rule",
+          "groupLabel": "Savanna Survival Clue",
+          "frontTitle": "Waterholes & Plant Food",
+          "emoji": "💧🦓🌿",
+          "frontHint": "Where do savanna animals drink?",
+          "backTitle": "Staying Fed & Hydrated",
+          "explanation": "Many animals in a savanna get food and water by eating plants. When it rains, large waterholes form in the ground and attract lots of animals!",
+          "example": "When it rains on the savanna, animals gather at large waterholes in the ground.",
+          "highlightWords": ["savanna", "animals", "waterholes"],
+          "tip": "During dry days, plants give moisture; when rain falls, waterholes fill up like giant puddles!"
+        }
+      ],
+      "activity": {
+        "type": "match_pairs",
+        "title": "Garden, Desert & Savanna Match!",
+        "instruction": "Tap a Habitat or Clue on the left, then tap its matching answer on the right!",
+        "leftTitle": "Habitat / Clue",
+        "rightTitle": "Matches",
+        "successNoun": "land habitat clues",
+        "moreButtonLabel": "🔄 Match 4 More Clues",
+        "pairCount": 4,
+        "allPairs": [
+          ["Home Garden", "Bees, butterflies, snails, rabbits & mice"],
+          ["Desert", "Dry habitat with very little rainfall"],
+          ["Desert Plants (Flora)", "Long roots, wide roots, or water in stems"],
+          ["Desert Animals (Fauna)", "Snakes, lizards, tortoises eating plants for water"],
+          ["Savanna", "Tropical grassland with grasses & scattered trees"],
+          ["Savanna Animals", "Elephants, giraffes, zebras, wildebeests & lions"],
+          ["Savanna Waterholes", "Large rain pools in the ground attracting animals"],
+          ["Living underground", "Animals in the garden that burrow below soil"]
+        ]
+      }
+    },
+    {
+      "id": "w1_sc_lesson2_forest_tundra",
+      "title": "Lesson 2: Rainforests, Forests & Tundra",
+      "icon": "🌴",
+      "description": "Compare warm, rainy Tropical Rainforests, cozy Temperate Forests, and snowy Tundra!",
+      "hint": "Notice which land habitat is the most diverse, which has tree hollows, and which is a cold treeless plain!",
+      "cards": [
+        {
+          "id": "sc-rainforest-habitat",
+          "kind": "vocab",
+          "groupLabel": "Foundation Card • Tropical Rainforests",
+          "word": "Tropical Rainforest",
+          "emoji": "🌴🌧️☀️",
+          "explanation": "A tropical rainforest gets lots of rain and sunlight and stays warm all year round. It is the most diverse land habitat on Earth! Even though rainforests cover less than three percent of Earth's surface, they hold more than half of Earth's land animals!",
+          "example": "A tropical rainforest gets lots of rain and sunlight and is the most diverse land habitat.",
+          "highlightWords": ["tropical", "rainforest", "rain", "sunlight", "diverse"],
+          "tip": "Less than 3% of Earth's surface — yet MORE than half of all land animals live there!"
+        },
+        {
+          "id": "sc-rainforest-plants",
+          "kind": "vocab",
+          "groupLabel": "Rainforest Flora • Plants",
+          "word": "Rainforest Plants",
+          "emoji": "🌿🪵🌳",
+          "explanation": "Many kinds of plants grow in every part of a rainforest: tall trees of all shapes and sizes, shrubs, ferns, and mosses. Mosses and small plants even grow on rocks, tree trunks, and logs!",
+          "example": "Tall trees, shrubs, ferns, and mosses grow on rocks, trunks, and logs.",
+          "highlightWords": ["trees", "shrubs", "ferns", "mosses"],
+          "tip": "Look up and look down: tall trees tower overhead while ferns and mosses hug logs below!"
+        },
+        {
+          "id": "sc-rainforest-fauna",
+          "kind": "vocab",
+          "groupLabel": "Rainforest Fauna • Animals",
+          "word": "Rainforest Animals",
+          "emoji": "🦜🐸🐆",
+          "explanation": "The huge variety of rainforest plants provides food and shelter for many animals, including birds, snakes, frogs, insects, and both large and small mammals!",
+          "example": "Birds, snakes, frogs, insects, and mammals find food and shelter in the rainforest.",
+          "highlightWords": ["Birds", "snakes", "frogs", "insects", "mammals", "rainforest"],
+          "tip": "More plant variety means more food and hiding places for every kind of animal!"
+        },
+        {
+          "id": "sc-temperate-forest",
+          "kind": "vocab",
+          "groupLabel": "Land Habitat • Temperate Forests",
+          "word": "Temperate Forest",
+          "emoji": "🌳🦉🍂",
+          "explanation": "A temperate forest has many plants and trees that give lots of food and places for animals to live. Hollows inside tree trunks provide safe shelter for many types of birds!",
+          "example": "Hollows in temperate forest trees provide shelter for many types of birds.",
+          "highlightWords": ["Hollows", "temperate", "forest", "trees", "shelter", "birds"],
+          "tip": "Look inside old tree trunks — woodpeckers and owls love cozy tree hollows!"
+        },
+        {
+          "id": "sc-temperate-animals",
+          "kind": "vocab",
+          "groupLabel": "Temperate Forest Animals",
+          "word": "Forest Animals",
+          "emoji": "🐿️🦝🐻🦌",
+          "explanation": "Animals living in a temperate forest include squirrels, raccoons, bears, deer, and many types of birds nesting in tree hollows.",
+          "example": "Squirrels, raccoons, bears, and deer live among the trees in a temperate forest.",
+          "highlightWords": ["Squirrels", "raccoons", "bears", "deer", "forest"],
+          "tip": "Think of acorns and leafy woods: squirrels, raccoons, bears, and deer belong here!"
+        },
+        {
+          "id": "sc-tundra-habitat",
+          "kind": "vocab",
+          "groupLabel": "Land Habitat • Cold & Windy",
+          "word": "Tundra",
+          "emoji": "❄️🌬️🌼",
+          "explanation": "A tundra is cold all year round with very little rain and strong winds, and snow or ice covers the ground most of the year. The word tundra comes from a Finnish word meaning 'treeless plain' — few trees grow, mostly grasses and small shrubs that bloom with colorful wildflowers in warmer spring and summer months!",
+          "example": "A cold, windy tundra has snow most of the year and colorful summer wildflowers.",
+          "highlightWords": ["cold", "windy", "tundra", "snow", "wildflowers"],
+          "tip": "Tundra = Finnish 'tunturi' (treeless plain)! Few trees, low shrubs, summer wildflowers!"
+        },
+        {
+          "id": "sc-tundra-animals",
+          "kind": "vocab",
+          "groupLabel": "Tundra Fauna • Animals",
+          "word": "Tundra Animals",
+          "emoji": "🐻‍❄️🦌🦊🐇",
+          "explanation": "Not many animals can survive the cold, dry tundra. Animals there include polar bears, reindeer, foxes, and hares. During winter, many tundra animals move underground to stay warm or travel to warmer places!",
+          "example": "Polar bears, reindeer, foxes, and hares live in the cold tundra habitat.",
+          "highlightWords": ["Polar", "bears", "reindeer", "foxes", "hares", "tundra"],
+          "tip": "Winter survival tip in the tundra: go underground to keep warm OR migrate to warmer places!"
+        }
+      ],
+      "activity": {
+        "type": "tap_choice",
+        "title": "Forest & Tundra Detective!",
+        "instruction": "Read each habitat clue and tap the best answer!",
+        "items": [
+          {
+            "id": "sc-act2-1",
+            "picture": "🌴🐆",
+            "prompt": "Which habitat gets lots of rain and sunlight, stays warm all year, and is the MOST diverse land habitat on Earth?",
+            "targetText": "Covers < 3% of Earth, holds > half of land animals!",
+            "options": [
+              "Tropical rainforest",
+              "Desert",
+              "Tundra"
+            ],
+            "answer": "Tropical rainforest",
+            "explanation": "Tropical rainforests are warm and rainy all year and are the most diverse land habitat on Earth!"
+          },
+          {
+            "id": "sc-act2-2",
+            "picture": "🦉🌳",
+            "prompt": "Where do squirrels, raccoons, bears, deer, and birds sheltering in tree hollows live?",
+            "targetText": "Leafy woods & cozy tree hollows!",
+            "options": [
+              "Temperate forest",
+              "Ocean",
+              "Desert"
+            ],
+            "answer": "Temperate forest",
+            "explanation": "Temperate forests are home to squirrels, raccoons, bears, deer, and birds nesting in tree hollows!"
+          },
+          {
+            "id": "sc-act2-3",
+            "picture": "❄️🌼",
+            "prompt": "What is a 'treeless plain' that is cold all year with little rain, snow/ice most of the year, and summer wildflowers?",
+            "targetText": "Finnish word: tunturi",
+            "options": [
+              "Tundra",
+              "Savanna",
+              "Tropical rainforest"
+            ],
+            "answer": "Tundra",
+            "explanation": "Tundra comes from 'tunturi' (treeless plain) — cold and windy with grasses, shrubs, and summer wildflowers!"
+          },
+          {
+            "id": "sc-act2-4",
+            "picture": "🐻‍❄️🦊",
+            "prompt": "How do many tundra animals survive the freezing winter?",
+            "targetText": "When winter gets icy in the tundra...",
+            "options": [
+              "Move underground to stay warm or move to warmer places",
+              "Grow leaves on their backs",
+              "Turn into salt water fish"
+            ],
+            "answer": "Move underground to stay warm or move to warmer places",
+            "explanation": "During winter, many tundra animals burrow underground to keep warm or move to warmer places!"
+          },
+          {
+            "id": "sc-act2-5",
+            "picture": "🌿🪵",
+            "prompt": "In a tropical rainforest, what grows right on rocks, tree trunks, and logs?",
+            "targetText": "Small green carpet-like plants",
+            "options": [
+              "Mosses and small plants",
+              "Giant cactuses",
+              "Polar icebergs"
+            ],
+            "answer": "Mosses and small plants",
+            "explanation": "Besides tall trees, shrubs, and ferns, mosses and other small plants grow on rocks, tree trunks, and logs!"
+          },
+          {
+            "id": "sc-act2-6",
+            "picture": "🦌🐇",
+            "prompt": "Which group of animals can survive in the tundra?",
+            "targetText": "Cold-weather animals",
+            "options": [
+              "Polar bears, reindeer, foxes, and hares",
+              "Tortoises, camels, and toucans",
+              "Sharks and whales"
+            ],
+            "answer": "Polar bears, reindeer, foxes, and hares",
+            "explanation": "Polar bears, reindeer, arctic foxes, and hares are tundra animals!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "w1_sc_lesson3_water",
+      "title": "Lesson 3: Freshwater, Wetlands & Oceans",
+      "icon": "🌊",
+      "description": "Dive into Ponds & Lakes, Rivers & Streams, Wetlands, and Saltwater Oceans (Gills vs. Lungs)!",
+      "hint": "Notice which water habitats have fresh water vs. salt water, and how ocean animals breathe!",
+      "cards": [
+        {
+          "id": "sc-ponds-lakes",
+          "kind": "vocab",
+          "groupLabel": "Water Habitat • Closed Freshwater",
+          "word": "Ponds and Lakes",
+          "emoji": "🪷🐸🐢",
+          "explanation": "Ponds and lakes are closed freshwater habitats. Plants grow in the land around the water, on top of the water, and under the water! Surrounding flowers attract insects and small animals.",
+          "example": "Ponds and lakes are closed freshwater habitats with plants around, on, and under water.",
+          "highlightWords": ["Ponds", "lakes", "freshwater", "water"],
+          "tip": "Closed freshwater means the water stays in one basin like a big bowl (instead of flowing like a river)!"
+        },
+        {
+          "id": "sc-ponds-animals",
+          "kind": "vocab",
+          "groupLabel": "Ponds & Lakes Fauna",
+          "word": "Pond Animals",
+          "emoji": "🐸🐢🦎🐍",
+          "explanation": "Common pond and lake animals include turtles, frogs, and birds, plus reptiles like lizards and snakes. Animals live near, on, or under the water!",
+          "example": "Turtles, frogs, birds, lizards, and snakes live near or in pond water.",
+          "highlightWords": ["Turtles", "frogs", "birds", "lizards", "snakes", "pond"],
+          "tip": "Picture a turtle on a log, a frog on a lily pad, and fish swimming underneath!"
+        },
+        {
+          "id": "sc-rivers-streams",
+          "kind": "vocab",
+          "groupLabel": "Water Habitat • Moving Freshwater",
+          "word": "Rivers and Streams",
+          "emoji": "🏞️🐊🐬",
+          "explanation": "Rivers and streams are freshwater habitats where water moves from one place to another. Trees, shrubs, and grasses take in water through roots in the wet soil. Animals include fish, reptiles, mammals, and birds — even the Amazon river dolphin!",
+          "example": "In rivers and streams, freshwater moves from one place to another.",
+          "highlightWords": ["rivers", "streams", "freshwater", "moves"],
+          "tip": "Fun fact: the pink Amazon river dolphin lives in freshwater rivers instead of the ocean!"
+        },
+        {
+          "id": "sc-wetlands-habitat",
+          "kind": "vocab",
+          "groupLabel": "Water Habitat • Flooded Land",
+          "word": "Wetlands",
+          "emoji": "🌾🐟🐾",
+          "explanation": "A wetland is a habitat flooded with water for all or most of the year. Some wetlands have fresh water and some have salt water! Wet-season plants include grasses, shrubs, and small trees, and animals include insects, fish, amphibians, reptiles, and mammals.",
+          "example": "A wetland is flooded with fresh or salt water for most of the year.",
+          "highlightWords": ["wetland", "flooded", "fresh", "salt", "water"],
+          "tip": "Wet + land = land soaked or flooded by water almost all year!"
+        },
+        {
+          "id": "sc-wetlands-changes",
+          "kind": "rule",
+          "groupLabel": "Wetland Change Question",
+          "frontTitle": "When a Wetland Dries Up",
+          "emoji": "☀️💧🌱",
+          "frontHint": "What happens to plants and animals?",
+          "backTitle": "Plants & Animals Adapt",
+          "explanation": "When the water amount changes, wetland plants and animals change too! Some plants may die during dry times and grow back when water returns, while animals move to wetter spots, hide in mud, or wait for rain!",
+          "example": "If a wetland dries up, plants grow back and animals return when water comes back.",
+          "highlightWords": ["wetland", "dries", "plants", "animals", "water"],
+          "tip": "Even if a wetland dries for a while, seeds and burrows help life bounce back with the rain!"
+        },
+        {
+          "id": "sc-ocean-largest",
+          "kind": "vocab",
+          "groupLabel": "Salt Water • Largest Habitat",
+          "word": "Ocean",
+          "emoji": "🌊🌍🐋",
+          "explanation": "The ocean is a very large body of salt water. Oceans are the largest habitat on Earth and cover most of Earth's surface! Unlike rivers and lakes, ocean water is salty and huge.",
+          "example": "The ocean is a huge body of salt water and the largest habitat on Earth.",
+          "highlightWords": ["ocean", "salt", "water", "largest", "habitat"],
+          "tip": "Remember: Lakes/Rivers = freshwater; Oceans = SALT water & cover most of Earth!"
+        },
+        {
+          "id": "sc-ocean-zones",
+          "kind": "rule",
+          "groupLabel": "Parts of the Ocean",
+          "frontTitle": "Shallow Warm vs. Deep Cold",
+          "emoji": "🐠🏝️❄️",
+          "frontHint": "Do all ocean parts feel the same?",
+          "backTitle": "Different Ocean Zones",
+          "explanation": "Ocean habitats differ in many ways! Some parts are shallow and have warm water, while deep ocean habitats are cold all year round. Different animals live in different parts of the ocean.",
+          "example": "Shallow ocean parts can be warm, while deep ocean habitats stay cold all year.",
+          "highlightWords": ["Shallow", "ocean", "warm", "deep", "cold"],
+          "tip": "Sunlight warms shallow water near the top; way down deep it stays dark and cold!"
+        },
+        {
+          "id": "sc-ocean-gills-lungs",
+          "kind": "rule",
+          "groupLabel": "AB Activity 3.11 • Ocean Breathing",
+          "frontTitle": "Gills vs. Lungs",
+          "emoji": "🦈🌬️🐬",
+          "frontHint": "How do fish vs. dolphins breathe?",
+          "backTitle": "Breathing in the Ocean!",
+          "explanation": "Fish, like most ocean animals, have gills to get the air they need directly from water. Other ocean animals — like dolphins, whales, and turtles — have lungs and swim to the surface to breathe air!",
+          "example": "Fish use gills to breathe under water, while whales and dolphins surface with lungs.",
+          "highlightWords": ["Fish", "gills", "whales", "dolphins", "lungs"],
+          "tip": "Fish = Gills (breathe underwater). Dolphins, whales & turtles = Lungs (come up for air)!"
+        }
+      ],
+      "activity": {
+        "type": "tap_choice",
+        "title": "Splash! Water Habitat Explorer!",
+        "instruction": "Read each water habitat clue and pick the best answer!",
+        "items": [
+          {
+            "id": "sc-act3-1",
+            "picture": "🌍🌊",
+            "prompt": "Which habitat is a very large body of salt water that covers most of Earth's surface?",
+            "targetText": "Largest habitat on Earth!",
+            "options": [
+              "The ocean",
+              "A pond",
+              "A desert"
+            ],
+            "answer": "The ocean",
+            "explanation": "Oceans are huge bodies of salt water and are the largest habitat on Earth!"
+          },
+          {
+            "id": "sc-act3-2",
+            "picture": "🦈🐬",
+            "prompt": "Whales, dolphins, and sea turtles come to the top of the ocean to breathe air because they have ___.",
+            "targetText": "Just like you and me!",
+            "options": [
+              "lungs",
+              "roots",
+              "petals"
+            ],
+            "answer": "lungs",
+            "explanation": "Dolphins, whales, and turtles have lungs and come to the surface to breathe in air!"
+          },
+          {
+            "id": "sc-act3-3",
+            "picture": "🐟💧",
+            "prompt": "How do fish get the air they need right out of the water?",
+            "targetText": "Special underwater breathing parts",
+            "options": [
+              "Using gills",
+              "Using stems",
+              "Using tree hollows"
+            ],
+            "answer": "Using gills",
+            "explanation": "Fish have gills to get the air they need directly from the water!"
+          },
+          {
+            "id": "sc-act3-4",
+            "picture": "🏞️➡️",
+            "prompt": "Which freshwater habitats have water that MOVES from one place to another?",
+            "targetText": "Home to the Amazon river dolphin!",
+            "options": [
+              "Rivers and streams",
+              "Deserts",
+              "Tundras"
+            ],
+            "answer": "Rivers and streams",
+            "explanation": "In rivers and streams, fresh water moves from one place to another!"
+          },
+          {
+            "id": "sc-act3-5",
+            "picture": "🪷🐢",
+            "prompt": "Ponds and lakes are ___ freshwater habitats where turtles, frogs, and water plants live.",
+            "targetText": "Not flowing away!",
+            "options": [
+              "closed",
+              "freezing salt",
+              "dry sandy"
+            ],
+            "answer": "closed",
+            "explanation": "Ponds and lakes are closed freshwater habitats!"
+          },
+          {
+            "id": "sc-act3-6",
+            "picture": "🌾💧",
+            "prompt": "Which habitat is flooded with water for all or most of the year (either fresh or salt water)?",
+            "targetText": "Changes between wet and dry seasons!",
+            "options": [
+              "A wetland",
+              "A desert",
+              "A savanna"
+            ],
+            "answer": "A wetland",
+            "explanation": "A wetland is flooded with fresh or salt water for all or most of the year!"
+          }
+        ]
+      }
+    }
+  ],
+  "practices": [
+    {
+      "id": "w1_sc_practice_dry_land",
+      "category": "dry_land",
+      "practiceLabel": "Land Practice 1",
+      "title": "Practice 1: Garden, Desert & Savanna",
+      "icon": "🌵",
+      "description": "Practice insects and animals in the Home Garden, Desert plants & reptiles, and Savanna grasslands & waterholes!",
+      "hint": "Garden = bees, snails, rabbits; Desert = very dry, long roots/water stems, reptiles; Savanna = hot grassland with scattered trees & waterholes!",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_sc_practice_forest_tundra",
+      "category": "forest_tundra",
+      "practiceLabel": "Land Practice 2",
+      "title": "Practice 2: Rainforests, Forests & Tundra",
+      "icon": "🌴",
+      "description": "Practice Tropical Rainforests (most diverse!), Temperate Forests (tree hollows), and Cold Windy Tundra!",
+      "hint": "Rainforest = warm, wet, ferns & mosses; Temperate forest = bears, deer, squirrels & tree hollows; Tundra = cold treeless plain!",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_sc_practice_water",
+      "category": "water",
+      "practiceLabel": "Water Practice 3",
+      "title": "Practice 3: Ponds, Rivers, Wetlands & Oceans",
+      "icon": "🌊",
+      "description": "Practice closed Ponds & Lakes, moving Rivers & Streams, flooded Wetlands, and Oceans (Gills vs. Lungs)!",
+      "hint": "Freshwater = ponds, lakes, rivers, streams. Salt water = oceans (fish use gills; dolphins/whales use lungs!).",
+      "questionCount": 10
+    }
+  ],
+  "quiz": {
+    "id": "w1_sc_final_quiz",
+    "title": "Week 1 Final Quiz: Earth's Habitats",
+    "icon": "🏆",
+    "description": "A fun 10-question Science quiz mixing Garden, Desert, Savanna, Rainforest, Temperate Forest, Tundra, Freshwater, Wetlands, and Oceans!",
+    "hint": "Think about the weather, water, plants (flora), and animals (fauna) in each habitat!",
+    "instruction": "Read the science question and tap the best answer!",
+    "questions": [
+      {
+        "id": "q2-sc-w1-dry-01",
+        "category": "dry_land",
+        "instruction": "Think about animals in a home garden.",
+        "text": "Which insects might you spot flying among flowers in a home garden?",
+        "options": [
+          "Bees, beetles, and butterflies",
+          "Whales and dolphins",
+          "Polar bears and reindeer",
+          "Lions and giraffes"
+        ],
+        "answer": "Bees, beetles, and butterflies",
+        "hint": "Think of tiny buzzing and fluttering garden insects!",
+        "explanation": "Many insects — such as bees, beetles, and butterflies — live in a home garden!"
+      },
+      {
+        "id": "q2-sc-w1-dry-02",
+        "category": "dry_land",
+        "instruction": "Remember larger animals and underground dwellers in a garden.",
+        "text": "Besides insects and snails, which larger animals can live in or under a home garden?",
+        "options": [
+          "Rabbits and mice (some living underground)",
+          "Sharks and octopuses",
+          "Elephants and wildebeests",
+          "Amazon river dolphins"
+        ],
+        "answer": "Rabbits and mice (some living underground)",
+        "hint": "Think of furry hoppers and tiny burrowers near the garden plants!",
+        "explanation": "Rabbits and mice live in gardens too, and some garden animals live underground!"
+      },
+      {
+        "id": "q2-sc-w1-dry-03",
+        "category": "dry_land",
+        "instruction": "Remember what a desert is like.",
+        "text": "Which sentence best describes a desert habitat?",
+        "options": [
+          "It is dry and gets very little rainfall",
+          "It gets heavy rain every single day",
+          "It is flooded with water all year long",
+          "It is covered with ice and snow all year"
+        ],
+        "answer": "It is dry and gets very little rainfall",
+        "hint": "Think of sunny sand, cactuses, and almost no rain!",
+        "explanation": "A desert is a dry habitat that gets very little rainfall!"
+      },
+      {
+        "id": "q2-sc-w1-dry-04",
+        "category": "dry_land",
+        "instruction": "Think about temperature in different deserts.",
+        "text": "How can temperatures change from day to night in some deserts?",
+        "options": [
+          "Hot during the day and cold during the night",
+          "Always freezing snowy ice both day and night",
+          "Warm underwater all year round",
+          "Rainy and flooded every night"
+        ],
+        "answer": "Hot during the day and cold during the night",
+        "hint": "Our desert card explains: Some deserts are very hot, while others change between daytime and nighttime!",
+        "explanation": "Some deserts are hot during the day and become cold during the night!"
+      },
+      {
+        "id": "q2-sc-w1-dry-05",
+        "category": "dry_land",
+        "instruction": "Look at how desert plants (Flora) survive.",
+        "text": "How do desert plants get and keep the water they need?",
+        "options": [
+          "They have long deep roots, spread-out roots, or store water in their stems",
+          "They swim inside ocean waves",
+          "They absorb melted snow on frozen ice",
+          "They have gills to breathe underwater"
+        ],
+        "answer": "They have long deep roots, spread-out roots, or store water in their stems",
+        "hint": "Think about a cactus stem and long underground roots!",
+        "explanation": "Desert plants reach water with long or wide-spreading roots, and plants like cactuses store water in their stems!"
+      },
+      {
+        "id": "q2-sc-w1-dry-06",
+        "category": "dry_land",
+        "instruction": "Look at desert animals (Fauna).",
+        "text": "Which group of reptiles can be found in desert habitats?",
+        "options": [
+          "Snakes, lizards, and tortoises",
+          "Frogs, dolphins, and whales",
+          "Polar bears and reindeer",
+          "Salmon and river dolphins"
+        ],
+        "answer": "Snakes, lizards, and tortoises",
+        "hint": "Remember the desert Fauna card: scaly reptiles that survive with little water!",
+        "explanation": "Reptiles such as snakes, lizards, and tortoises live in deserts!"
+      },
+      {
+        "id": "q2-sc-w1-dry-07",
+        "category": "dry_land",
+        "instruction": "Think about how desert animals get water.",
+        "text": "When there are no ponds nearby, how do many desert animals get the water they need?",
+        "options": [
+          "By eating plants",
+          "By swimming in deep oceans",
+          "By melting tundra snow",
+          "By breathing through gills"
+        ],
+        "answer": "By eating plants",
+        "hint": "Juicy desert plants hold stored water inside them!",
+        "explanation": "Many desert animals get the water they need by eating plants!"
+      },
+      {
+        "id": "q2-sc-w1-dry-08",
+        "category": "dry_land",
+        "instruction": "Identify the Savanna habitat.",
+        "text": "A savanna is also called a ___ that is hot and dry for most of the year.",
+        "options": [
+          "tropical grassland",
+          "closed freshwater pond",
+          "treeless snow plain",
+          "deep cold ocean"
+        ],
+        "answer": "tropical grassland",
+        "hint": "Notice it has large areas of grass!",
+        "explanation": "A savanna, also called a tropical grassland, is hot and dry for most of the year!"
+      },
+      {
+        "id": "q2-sc-w1-dry-09",
+        "category": "dry_land",
+        "instruction": "Think about plants growing on a savanna.",
+        "text": "What kinds of plants grow across a savanna habitat?",
+        "options": [
+          "Large areas of grasses, small shrubs, and scattered trees",
+          "Only mosses growing on ice",
+          "Lily pads floating under a pond",
+          "Only tall rainforest ferns in heavy daily rain"
+        ],
+        "answer": "Large areas of grasses, small shrubs, and scattered trees",
+        "hint": "Not crowded like a thick forest — lots of grass with trees spread apart!",
+        "explanation": "A savanna has large areas of grasses, small shrubs, and scattered trees!"
+      },
+      {
+        "id": "q2-sc-w1-dry-10",
+        "category": "dry_land",
+        "instruction": "Spot savanna animals (Fauna).",
+        "text": "Which set of animals lives together in a savanna habitat?",
+        "options": [
+          "Elephants, giraffes, zebras, wildebeests, and lions",
+          "Polar bears, hares, and arctic foxes",
+          "Whales, sharks, and sea turtles",
+          "Capybaras and Amazon river dolphins"
+        ],
+        "answer": "Elephants, giraffes, zebras, wildebeests, and lions",
+        "hint": "Think of tall-necked leaf-eaters and striped grass-eaters near a waterhole!",
+        "explanation": "Elephants, giraffes, zebras, wildebeests, lions, and many birds live in a savanna!"
+      },
+      {
+        "id": "q2-sc-w1-dry-11",
+        "category": "dry_land",
+        "instruction": "Remember what happens when it rains on the savanna.",
+        "text": "When it rains in a savanna, what attracts many animals to drink?",
+        "options": [
+          "Large waterholes that form in the ground",
+          "Deep ocean trenches",
+          "Snowbanks covering the ground",
+          "Hollows high up in oak trees"
+        ],
+        "answer": "Large waterholes that form in the ground",
+        "hint": "Elephants, zebras, and giraffes gather around these big rain pools!",
+        "explanation": "When it rains, savanna animals are attracted to large waterholes that form in the ground!"
+      },
+      {
+        "id": "q2-sc-w1-dry-12",
+        "category": "dry_land",
+        "instruction": "Compare desert plants and waterholes.",
+        "text": "Why can only a FEW plants and animals live in deserts?",
+        "options": [
+          "Because there is not much water in the desert",
+          "Because deserts get flooded by oceans every week",
+          "Because desert trees grow too tall and block the sun",
+          "Because deserts have too many rushing rivers"
+        ],
+        "answer": "Because there is not much water in the desert",
+        "hint": "All living things need water, and deserts get very little rainfall!",
+        "explanation": "With not much water available, only few specially adapted plants and animals can live in deserts!"
+      },
+      {
+        "id": "q2-sc-w1-dry-13",
+        "category": "dry_land",
+        "instruction": "Compare garden and savanna.",
+        "text": "Where would you find bees and butterflies pollinating flowers right outside a house?",
+        "options": [
+          "A home garden habitat",
+          "A deep cold ocean",
+          "A snowy tundra",
+          "An African savanna"
+        ],
+        "answer": "A home garden habitat",
+        "hint": "Look at our Home Garden animal card with a bunny, snail, and butterflies!",
+        "explanation": "Insects like bees, beetles, and butterflies live right in a home garden habitat!"
+      },
+      {
+        "id": "q2-sc-w1-dry-14",
+        "category": "dry_land",
+        "instruction": "Spot the false claim about deserts.",
+        "text": "Which statement about DESERT plants is TRUE?",
+        "options": [
+          "Desert plants can survive for a long time without water",
+          "Desert plants must be flooded underwater all year",
+          "Desert plants have zero roots",
+          "Desert plants only bloom under snow"
+        ],
+        "answer": "Desert plants can survive for a long time without water",
+        "hint": "Cactuses store water inside their stems for dry days!",
+        "explanation": "Desert plants can survive a long time without water using deep/wide roots and water-storing stems!"
+      },
+      {
+        "id": "q2-sc-w1-dry-15",
+        "category": "dry_land",
+        "instruction": "Compare savanna food & water sources.",
+        "text": "Many savanna animals get BOTH food and water by eating ___.",
+        "options": [
+          "plants",
+          "sand",
+          "ice cubes",
+          "rocks"
+        ],
+        "answer": "plants",
+        "hint": "Plants contain both nutrients and moisture!",
+        "explanation": "Many animals in a savanna get the food and water they need by eating plants!"
+      },
+      {
+        "id": "q2-sc-w1-for-01",
+        "category": "forest_tundra",
+        "instruction": "Think about weather in a Tropical Rainforest.",
+        "text": "What is the weather like in a tropical rainforest?",
+        "options": [
+          "Lots of rain and sunlight, and warm all year round",
+          "Dry with almost no rain all year",
+          "Covered in snow and ice all year",
+          "Cold and windy with no trees"
+        ],
+        "answer": "Lots of rain and sunlight, and warm all year round",
+        "hint": "Why is it called a TROPICAL RAIN-forest?",
+        "explanation": "A tropical rainforest gets lots of rain and sunlight and stays warm all year round!"
+      },
+      {
+        "id": "q2-sc-w1-for-02",
+        "category": "forest_tundra",
+        "instruction": "Remember this Amazing Fact about Tropical Rainforests!",
+        "text": "Which land habitat is the MOST DIVERSE land habitat on Earth?",
+        "options": [
+          "Tropical rainforest",
+          "Desert",
+          "Tundra",
+          "Home garden"
+        ],
+        "answer": "Tropical rainforest",
+        "hint": "Even though it covers under 3% of Earth's surface, more than half of Earth's land animals live here!",
+        "explanation": "Tropical rainforests are the most diverse land habitat on Earth!"
+      },
+      {
+        "id": "q2-sc-w1-for-03",
+        "category": "forest_tundra",
+        "instruction": "Remember the Tropical Rainforest Amazing Fact numbers!",
+        "text": "Tropical rainforests cover less than 3% of Earth's surface, yet are home to ___.",
+        "options": [
+          "more than half of Earth's land animals",
+          "only polar bears and foxes",
+          "zero insects or frogs",
+          "only saltwater whales"
+        ],
+        "answer": "more than half of Earth's land animals",
+        "hint": "Think how crowded with life rainforests are — more than 50% of land animals!",
+        "explanation": "Even though they cover less than 3% of Earth's surface, tropical rainforests hold more than half of Earth's land animals!"
+      },
+      {
+        "id": "q2-sc-w1-for-04",
+        "category": "forest_tundra",
+        "instruction": "Look at Tropical Rainforest plants.",
+        "text": "In a rainforest, mosses and other small plants grow right on ___.",
+        "options": [
+          "rocks, tree trunks, and logs",
+          "floating icebergs",
+          "ocean fish gills",
+          "desert sandstorms"
+        ],
+        "answer": "rocks, tree trunks, and logs",
+        "hint": "Think of soft green moss hugging damp forest surfaces!",
+        "explanation": "Alongside tall trees, shrubs, and ferns, mosses and small plants grow on rocks, tree trunks, and logs!"
+      },
+      {
+        "id": "q2-sc-w1-for-05",
+        "category": "forest_tundra",
+        "instruction": "Identify plants in a Tropical Rainforest.",
+        "text": "Which group lists plants found in a tropical rainforest?",
+        "options": [
+          "Tall trees, shrubs, ferns, and mosses",
+          "Only spiky desert cactuses",
+          "Only ocean seaweed",
+          "Zero plants can grow there"
+        ],
+        "answer": "Tall trees, shrubs, ferns, and mosses",
+        "hint": "Rainforests have layers of plants from tall canopy trees down to leafy ferns and soft mosses!",
+        "explanation": "Tropical rainforests have tall trees of all shapes and sizes, shrubs, ferns, and mosses!"
+      },
+      {
+        "id": "q2-sc-w1-for-06",
+        "category": "forest_tundra",
+        "instruction": "Notice why so many animals live in a rainforest.",
+        "text": "Why can so many birds, snakes, frogs, insects, and mammals live in a tropical rainforest?",
+        "options": [
+          "The great diversity of plants gives them lots of food and shelter",
+          "Because there are no plants at all",
+          "Because the ground stays frozen all year",
+          "Because it never rains there"
+        ],
+        "answer": "The great diversity of plants gives them lots of food and shelter",
+        "hint": "Plants provide leaves, fruits, branches, and hiding spots!",
+        "explanation": "The great diversity of plants in a rainforest provides food and shelter for many kinds of animals!"
+      },
+      {
+        "id": "q2-sc-w1-for-07",
+        "category": "forest_tundra",
+        "instruction": "Identify Temperate Forest animals.",
+        "text": "Which animals might you see in a temperate forest?",
+        "options": [
+          "Squirrels, raccoons, bears, and deer",
+          "Elephants, giraffes, and zebras",
+          "Sharks, whales, and dolphins",
+          "Desert tortoises and camels"
+        ],
+        "answer": "Squirrels, raccoons, bears, and deer",
+        "hint": "Remember our slide with the cute bear climbing a trunk and two squirrels holding an acorn!",
+        "explanation": "Temperate forests may have squirrels, raccoons, bears, deer, and many types of birds!"
+      },
+      {
+        "id": "q2-sc-w1-for-08",
+        "category": "forest_tundra",
+        "instruction": "Find the bird home in a Temperate Forest.",
+        "text": "What part of trees in a temperate forest provides shelter for many types of birds?",
+        "options": [
+          "Hollows in trees",
+          "Roots deep underwater",
+          "Snowbanks",
+          "Waterholes in sand"
+        ],
+        "answer": "Hollows in trees",
+        "hint": "Look at the woodpecker beside the round opening in the tree trunk!",
+        "explanation": "Hollows in temperate forest trees provide cozy shelter for many types of birds!"
+      },
+      {
+        "id": "q2-sc-w1-for-09",
+        "category": "forest_tundra",
+        "instruction": "Describe the Tundra climate.",
+        "text": "Which sentence describes a tundra habitat?",
+        "options": [
+          "It is cold all year round, often windy, and gets very little rain",
+          "It is hot and humid with tall tropical ferns",
+          "It is flooded with warm water every month",
+          "It has giant palm trees on sandy beaches"
+        ],
+        "answer": "It is cold all year round, often windy, and gets very little rain",
+        "hint": "Snowflakes and wind are in our Tundra picture!",
+        "explanation": "A tundra habitat is cold all year round with very little rain and is often windy!"
+      },
+      {
+        "id": "q2-sc-w1-for-10",
+        "category": "forest_tundra",
+        "instruction": "Remember the origin of the word 'tundra'.",
+        "text": "The word 'tundra' comes from the Finnish word 'tunturi', which means ___.",
+        "options": [
+          "treeless plain",
+          "rainy jungle",
+          "sunny desert",
+          "deep salt water"
+        ],
+        "answer": "treeless plain",
+        "hint": "Few trees can grow in the cold, windy tundra!",
+        "explanation": "Tundra comes from the Finnish word 'tunturi', meaning 'treeless plain'!"
+      },
+      {
+        "id": "q2-sc-w1-for-11",
+        "category": "forest_tundra",
+        "instruction": "Think about plants in the Tundra.",
+        "text": "During the warmer spring and summer months in a tundra, what do many small shrubs produce?",
+        "options": [
+          "Colorful wildflowers",
+          "Bananas and coconuts",
+          "Tall palm trunks",
+          "Coral reefs"
+        ],
+        "answer": "Colorful wildflowers",
+        "hint": "Look at the bottom of the Tundra card showing purple, yellow, and pink blooms peeking through snow!",
+        "explanation": "When spring and summer warm up the tundra, many shrubs produce colorful wildflowers!"
+      },
+      {
+        "id": "q2-sc-w1-for-12",
+        "category": "forest_tundra",
+        "instruction": "Notice what plants mostly grow in the Tundra.",
+        "text": "Why do FEW trees grow in tundras, while most plants are grasses or small shrubs?",
+        "options": [
+          "Because the tundra stays cold, windy, and snowy/icy most of the year",
+          "Because trees prefer saltwater oceans",
+          "Because tundras get too much sunlight and rain",
+          "Because giraffes eat all the tundra trees"
+        ],
+        "answer": "Because the tundra stays cold, windy, and snowy/icy most of the year",
+        "hint": "Frozen icy ground and cold winds make it hard for big trees to grow!",
+        "explanation": "Because a tundra is cold, windy, and icy for most of the year, few trees grow there — mostly grasses and small shrubs!"
+      },
+      {
+        "id": "q2-sc-w1-for-13",
+        "category": "forest_tundra",
+        "instruction": "Identify Tundra animals.",
+        "text": "Which animals are adapted to live in the tundra?",
+        "options": [
+          "Polar bears, reindeer, foxes, and hares",
+          "Snakes, lizards, and desert tortoises",
+          "Toucans and tree frogs",
+          "Whales and sharks"
+        ],
+        "answer": "Polar bears, reindeer, foxes, and hares",
+        "hint": "Look at the polar bear, bunny hare, reindeer, and fox near the igloo on our Tundra Fauna card!",
+        "explanation": "Polar bears, reindeer, foxes, and hares are tundra animals!"
+      },
+      {
+        "id": "q2-sc-w1-for-14",
+        "category": "forest_tundra",
+        "instruction": "Understand Tundra winter survival.",
+        "text": "During freezing winters, what do many tundra animals do?",
+        "options": [
+          "Move underground to stay warm or move to warmer places",
+          "Climb to the tops of tall rainforest trees",
+          "Drink salt water from the ocean",
+          "Stand on top of open ocean waves"
+        ],
+        "answer": "Move underground to stay warm or move to warmer places",
+        "hint": "How can an animal escape the icy winter wind?",
+        "explanation": "During winter, many tundra animals burrow underground to stay warm or travel to warmer places!"
+      },
+      {
+        "id": "q2-sc-w1-for-15",
+        "category": "forest_tundra",
+        "instruction": "Compare Tropical Rainforest vs. Tundra.",
+        "text": "Which statement correctly compares a Tropical Rainforest and a Tundra?",
+        "options": [
+          "A rainforest is warm with lots of rain and diverse plants; a tundra is cold with few trees",
+          "A tundra has tall leafy palm trees; a rainforest is covered in ice",
+          "Neither habitat has any animals at all",
+          "Both are saltwater ocean habitats"
+        ],
+        "answer": "A rainforest is warm with lots of rain and diverse plants; a tundra is cold with few trees",
+        "hint": "Contrast warm & rainy vs. cold & snowy!",
+        "explanation": "Rainforests are warm, rainy, and full of diverse trees and animals, while tundras are cold with few trees!"
+      },
+      {
+        "id": "q2-sc-w1-wat-01",
+        "category": "water",
+        "instruction": "Classify Ponds and Lakes.",
+        "text": "Ponds and lakes are ___ freshwater habitats.",
+        "options": [
+          "closed",
+          "moving ocean",
+          "saltwater",
+          "dry sandy"
+        ],
+        "answer": "closed",
+        "hint": "Unlike a flowing river, pond water stays enclosed in one basin!",
+        "explanation": "Ponds and lakes are closed freshwater habitats!"
+      },
+      {
+        "id": "q2-sc-w1-wat-02",
+        "category": "water",
+        "instruction": "Notice where plants grow in Ponds and Lakes.",
+        "text": "In pond and lake habitats, where can plants grow?",
+        "options": [
+          "In the surrounding land, ON the water, and UNDER the water",
+          "Only on icy mountain tops",
+          "Nowhere — ponds have zero plants",
+          "Only in salt water far out at sea"
+        ],
+        "answer": "In the surrounding land, ON the water, and UNDER the water",
+        "hint": "Think of cattails on the bank, lily pads on top, and waterweeds underwater!",
+        "explanation": "Pond and lake plants live in the land around water, floating on the water, and underwater too — and flowers attract insects!"
+      },
+      {
+        "id": "q2-sc-w1-wat-03",
+        "category": "water",
+        "instruction": "Spot animals of Ponds and Lakes.",
+        "text": "Which animals are common in pond and lake habitats?",
+        "options": [
+          "Turtles, frogs, birds, and reptiles like lizards and snakes",
+          "Polar bears and reindeer",
+          "Giraffes, zebras, and lions",
+          "Whales and deep-sea sharks"
+        ],
+        "answer": "Turtles, frogs, birds, and reptiles like lizards and snakes",
+        "hint": "Remember the green turtle and dragonfly card for Activity 3.8!",
+        "explanation": "Ponds and lakes are home to turtles, frogs, birds, and reptiles such as lizards and snakes!"
+      },
+      {
+        "id": "q2-sc-w1-wat-04",
+        "category": "water",
+        "instruction": "Compare Rivers/Streams to Ponds/Lakes.",
+        "text": "How is the water in a river or stream DIFFERENT from a closed pond?",
+        "options": [
+          "The freshwater in a river moves from one place to another",
+          "A river has salt water while oceans have fresh water",
+          "A river never contains any water",
+          "Rivers only flow inside deserts without plants"
+        ],
+        "answer": "The freshwater in a river moves from one place to another",
+        "hint": "Think of water flowing downstream!",
+        "explanation": "Rivers and streams are freshwater habitats where the water moves from one place to another!"
+      },
+      {
+        "id": "q2-sc-w1-wat-05",
+        "category": "water",
+        "instruction": "Think about plants near Rivers and Streams.",
+        "text": "How do trees, large shrubs, and grasses around rivers and streams get water?",
+        "options": [
+          "Their roots take in water from the wet soil",
+          "They swim inside the river with fins",
+          "They catch snowflakes in their petals",
+          "They have lungs like dolphins"
+        ],
+        "answer": "Their roots take in water from the wet soil",
+        "hint": "The riverbank soil stays damp from the moving water!",
+        "explanation": "Trees, large shrubs, and grasses grow around rivers and streams because their roots take in water from the wet soil!"
+      },
+      {
+        "id": "q2-sc-w1-wat-06",
+        "category": "water",
+        "instruction": "Remember this Amazing Fact from the Rivers card!",
+        "text": "What special animal lives in the freshwater rivers and streams of the Amazon river?",
+        "options": [
+          "The Amazon river dolphin",
+          "The polar bear",
+          "The desert tortoise",
+          "The savanna giraffe"
+        ],
+        "answer": "The Amazon river dolphin",
+        "hint": "Most dolphins live in saltwater oceans, except this special freshwater pink dolphin!",
+        "explanation": "The Amazon river dolphin is a special dolphin species that lives in freshwater rivers and streams!"
+      },
+      {
+        "id": "q2-sc-w1-wat-07",
+        "category": "water",
+        "instruction": "Define a Wetland habitat.",
+        "text": "What makes a habitat a WETLAND?",
+        "options": [
+          "Land that is flooded with water for all or most of the year",
+          "Land that never sees a drop of rain",
+          "A frozen iceberg in the middle of the ocean",
+          "A dry tropical grassland with lions"
+        ],
+        "answer": "Land that is flooded with water for all or most of the year",
+        "hint": "Look right inside the word: WET + LAND!",
+        "explanation": "A wetland is a habitat that is flooded with water for all or most of the year!"
+      },
+      {
+        "id": "q2-sc-w1-wat-08",
+        "category": "water",
+        "instruction": "Check what kind of water Wetlands can have.",
+        "text": "Which statement about water in wetlands is TRUE?",
+        "options": [
+          "Some wetlands have fresh water and some have salt water",
+          "All wetlands can only ever have frozen snow",
+          "Wetlands have zero water at any time",
+          "Wetlands only hold orange juice"
+        ],
+        "answer": "Some wetlands have fresh water and some have salt water",
+        "hint": "Think: inland wetlands vs. coastal wetlands near the sea!",
+        "explanation": "Some wetlands have fresh water, and wetlands near the ocean can have salt water!"
+      },
+      {
+        "id": "q2-sc-w1-wat-09",
+        "category": "water",
+        "instruction": "Answer the Wetland Cloud Question!",
+        "text": "What happens when the amount of water in a wetland changes or dries up for a while?",
+        "options": [
+          "Plants and animals change too — plants grow back and animals return or come out when water returns",
+          "All oceans disappear forever",
+          "Cactuses instantly grow into oak trees",
+          "Nothing in nature ever notices water changes"
+        ],
+        "answer": "Plants and animals change too — plants grow back and animals return or come out when water returns",
+        "hint": "Remember our Wetlands card: some plants die in dry times and grow back when water returns, and animals adapt or move!",
+        "explanation": "As water in a wetland changes, plants and animals change too: plants grow back when water returns, and animals move to wet spots or shelter in mud until water comes back!"
+      },
+      {
+        "id": "q2-sc-w1-wat-10",
+        "category": "water",
+        "instruction": "Spot Wetland animals.",
+        "text": "What kinds of animals live in a wetland habitat?",
+        "options": [
+          "A huge variety: insects, fish, amphibians, reptiles, and mammals",
+          "Only polar bears",
+          "Only animals with no legs",
+          "No animals live in wetlands"
+        ],
+        "answer": "A huge variety: insects, fish, amphibians, reptiles, and mammals",
+        "hint": "Remember the capybara family with little fish and lily pads on Activity 3.10!",
+        "explanation": "Wetlands hold a great variety of insects, fish, amphibians, reptiles, and mammals!"
+      },
+      {
+        "id": "q2-sc-w1-wat-11",
+        "category": "water",
+        "instruction": "Identify the largest habitat on Earth.",
+        "text": "Which habitat is the LARGEST habitat on Earth and covers most of Earth's surface?",
+        "options": [
+          "Oceans",
+          "Ponds",
+          "Tundras",
+          "Home gardens"
+        ],
+        "answer": "Oceans",
+        "hint": "Look at a blue globe of Earth — most of it is covered in huge salt water!",
+        "explanation": "Oceans are huge bodies of salt water and are the largest habitat on Earth!"
+      },
+      {
+        "id": "q2-sc-w1-wat-12",
+        "category": "water",
+        "instruction": "Compare Oceans with Rivers and Lakes.",
+        "text": "How are ocean habitats DIFFERENT from lakes and rivers?",
+        "options": [
+          "Oceans have salty water and cover most of Earth, while lakes and rivers have fresh water",
+          "Lakes and rivers have salt water, while oceans are completely dry",
+          "Oceans are closed tiny puddles in a garden",
+          "There is no difference between oceans and ponds"
+        ],
+        "answer": "Oceans have salty water and cover most of Earth, while lakes and rivers have fresh water",
+        "hint": "Think: fresh water vs. salt water, and size!",
+        "explanation": "Oceans are vast bodies of salt water covering most of Earth, whereas lakes and rivers are smaller freshwater habitats!"
+      },
+      {
+        "id": "q2-sc-w1-wat-13",
+        "category": "water",
+        "instruction": "Compare shallow vs. deep ocean habitats.",
+        "text": "How can two parts of the ocean be different from each other?",
+        "options": [
+          "Shallow ocean habitats have warm water, while deep ocean habitats are cold all year round",
+          "Deep ocean water is dry sand, while shallow water is frozen solid",
+          "Every inch of the ocean has the exact same warmth",
+          "Only plants live in the ocean, never animals"
+        ],
+        "answer": "Shallow ocean habitats have warm water, while deep ocean habitats are cold all year round",
+        "hint": "Does sunlight reach deep down to the bottom of the ocean?",
+        "explanation": "Shallow ocean parts are warm from sunlight, while deep ocean habitats stay cold all year round — and different animals live in different parts!"
+      },
+      {
+        "id": "q2-sc-w1-wat-14",
+        "category": "water",
+        "instruction": "Check Activity 3.11: How do fish breathe?",
+        "text": "Fish, like most ocean animals, have ___ to get the air they need directly from water.",
+        "options": [
+          "gills",
+          "lungs",
+          "roots",
+          "feathers"
+        ],
+        "answer": "gills",
+        "hint": "Fish do NOT have to swim to the surface to gulp air — look at the slits on their sides!",
+        "explanation": "Most ocean animals, like fish, have gills to get the air they need from water!"
+      },
+      {
+        "id": "q2-sc-w1-wat-15",
+        "category": "water",
+        "instruction": "Check Activity 3.11: How do ocean mammals & turtles breathe?",
+        "text": "Dolphins, whales, and sea turtles come up to the ocean surface to breathe in air because they have ___.",
+        "options": [
+          "lungs",
+          "gills",
+          "stems",
+          "hollows"
+        ],
+        "answer": "lungs",
+        "hint": "Think of a dolphin jumping or blowing air from its blowhole at the surface!",
+        "explanation": "Ocean animals like dolphins, whales, and turtles have lungs and come up to the surface to breathe air!"
+      }
+    ]
+  }
+}
