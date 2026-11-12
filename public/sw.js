@@ -1,5 +1,5 @@
 // Service Worker for Grade 2 Stars PWA
-const CACHE_VERSION = 'grade2-stars-v2.4.0';
+const CACHE_VERSION = 'grade2-stars-v2.5.0';
 const STATIC_CACHE = `static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `dynamic-${CACHE_VERSION}`;
 
@@ -47,10 +47,10 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
 
-  // HTML navigation: network-first
+  // HTML navigation: network-first (bypass HTTP cache so updates arrive immediately)
   if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {
     event.respondWith(
-      fetch(request)
+      fetch(request, { cache: 'no-cache' })
         .then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             const clone = networkResponse.clone();
@@ -60,6 +60,26 @@ self.addEventListener('fetch', (event) => {
         })
         .catch(() => {
           return caches.match(request).then((cached) => cached || caches.match('./index.html'));
+        })
+    );
+    return;
+  }
+
+  // Audio manifest: network-first (bypass HTTP cache) so newly deployed MP3 clips work immediately
+  if (url.pathname.endsWith('audio-manifest.json')) {
+    event.respondWith(
+      fetch(request, { cache: 'no-store' })
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(DYNAMIC_CACHE).then((cache) => cache.put(request, clone));
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          return caches
+            .match(request, { ignoreSearch: true })
+            .then((cached) => cached || Response.error());
         })
     );
     return;
@@ -82,7 +102,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // General assets: stale-while-revalidate
+  // General assets (MP3s, icons): stale-while-revalidate
   event.respondWith(
     caches.match(request).then((cached) => {
       const fetchPromise = fetch(request)
@@ -93,7 +113,7 @@ self.addEventListener('fetch', (event) => {
           }
           return networkResponse;
         })
-        .catch(() => cached);
+        .catch(() => cached || Response.error());
 
       return cached || fetchPromise;
     })

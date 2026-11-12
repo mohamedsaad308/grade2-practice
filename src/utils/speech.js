@@ -8,6 +8,12 @@
 const EMOJI_STRIP_RE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\uFE00-\uFE0F\u200D]/gu;
 const MAX_PRELOAD_CACHE = 70;
 const DEFAULT_CARD_PAUSE_MS = 280;
+const MANIFEST_WAIT_TIMEOUT_MS = 2500;
+const SILENT_WAV_DATA_URI =
+  'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
+
+const BUILD_AUDIO_MANIFEST_VERSION =
+  typeof __AUDIO_MANIFEST_VERSION__ !== 'undefined' ? String(__AUDIO_MANIFEST_VERSION__ || '') : '';
 
 let manifestCache = null;
 let lowerManifestCache = null;
@@ -18,7 +24,14 @@ let activeUtterances = [];
 let activeTimers = [];
 let activeStopNotifier = null;
 let sharedAudioEl = null;
+let audioElementUnlocked = false;
 const preloadedAudioMap = new Map();
+
+export function getAudioManifestAssetPath() {
+  return BUILD_AUDIO_MANIFEST_VERSION
+    ? `audio-manifest.json?v=${encodeURIComponent(BUILD_AUDIO_MANIFEST_VERSION)}`
+    : 'audio-manifest.json';
+}
 
 function getSharedAudioElement() {
   if (typeof window === 'undefined' || typeof window.Audio === 'undefined') {
@@ -123,6 +136,12 @@ export function setAudioManifestForTests(mockManifest) {
     manifestCache = null;
     lowerManifestCache = null;
     manifestPromise = null;
+    audioElementUnlocked = false;
+    if (sharedAudioEl) {
+      clearSharedAudioHandlers(sharedAudioEl);
+      sharedAudioEl = null;
+    }
+    preloadedAudioMap.clear();
     return;
   }
   indexManifest(mockManifest);
@@ -140,11 +159,25 @@ export function loadAudioManifest() {
     return Promise.resolve({});
   }
 
-  const manifestUrl = resolveAudioAssetUrl('audio-manifest.json');
-  manifestPromise = fetch(manifestUrl)
-    .then((res) => (res && res.ok ? res.json() : {}))
-    .then((json) => indexManifest(json))
-    .catch(() => indexManifest({}));
+  const manifestUrl = resolveAudioAssetUrl(getAudioManifestAssetPath());
+  manifestPromise = fetch(manifestUrl, { cache: 'no-store' })
+    .then((res) => {
+      if (!res || !res.ok) {
+        throw new Error(`Audio manifest HTTP ${res?.status || 'error'}`);
+      }
+      return res.json();
+    })
+    .then((json) => {
+      if (!json || typeof json !== 'object' || Object.keys(json).length === 0) {
+        manifestPromise = null;
+        return {};
+      }
+      return indexManifest(json);
+    })
+    .catch(() => {
+      manifestPromise = null;
+      return {};
+    });
 
   return manifestPromise;
 }
@@ -440,8 +473,13 @@ function playSinglePart(part, mySeq, options, callbacks) {
 
   try {
     audio.pause();
+    audio.muted = false;
     audio.src = audioUrl;
-    audio.currentTime = 0;
+    try {
+      audio.currentTime = 0;
+    } catch {
+      // Ignore InvalidStateError on engines that disallow setting currentTime before metadata
+    }
     const playResult = audio.play();
     if (playResult && typeof playResult.then === 'function') {
       playResult.catch(() => {
@@ -542,6 +580,37 @@ export function playSpeechSequence(parts = [], options = {}) {
       }
     });
   };
+
+  if (!manifestCache && typeof window !== 'undefined' && typeof fetch === 'function') {
+    const audio = getSharedAudioElement();
+    if (audio && !audioElementUnlocked) {
+      audioElementUnlocked = true;
+      try {
+        audio.muted = true;
+        audio.src = SILENT_WAV_DATA_URI;
+        const unlockPlay = audio.play();
+        if (unlockPlay && typeof unlockPlay.catch === 'function') {
+          unlockPlay.catch(() => {});
+        }
+      } catch {
+        // Ignore unlock errors on restricted environments
+      }
+    }
+
+    let timeoutId = null;
+    const timeoutPromise = new Promise((resolve) => {
+      timeoutId = setTimeout(resolve, MANIFEST_WAIT_TIMEOUT_MS);
+      activeTimers.push(timeoutId);
+    });
+
+    Promise.race([loadAudioManifest(), timeoutPromise]).finally(() => {
+      if (timeoutId) clearTimeout(timeoutId);
+      if (mySeq === activeSequenceId) {
+        runIndex(0);
+      }
+    });
+    return;
+  }
 
   runIndex(0);
 }

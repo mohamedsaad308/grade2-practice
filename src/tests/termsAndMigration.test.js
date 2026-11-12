@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, it, expect, beforeEach } from 'vitest';
@@ -6,7 +7,9 @@ import { renderToString } from 'react-dom/server';
 import {
   cleanTextForSpeech,
   resolveAudioAssetUrl,
+  getAudioManifestAssetPath,
   setAudioManifestForTests,
+  loadAudioManifest,
   getManifestAudioPath,
   playSpeech,
   playSpeechSequence,
@@ -1035,5 +1038,117 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     );
     expect(scriptHtml).toContain('The Lost Crown');
     expect(scriptHtml).toContain('Inside a sunny castle throne room');
+  });
+
+  it('15. audio manifest uses content-hashed URL, network-first Service Worker caching, transient error recovery, and awaits pending manifest load before Web Speech fallback', async () => {
+    // 1. Versioned manifest query string matches public/audio-manifest.json SHA-1
+    const manifestBytes = fs.readFileSync(path.resolve(process.cwd(), 'public', 'audio-manifest.json'));
+    const expectedHash = crypto.createHash('sha1').update(manifestBytes).digest('hex').slice(0, 12);
+    expect(getAudioManifestAssetPath()).toBe(`audio-manifest.json?v=${expectedHash}`);
+
+    // 2. Service Worker must serve audio-manifest.json network-first with no-store & offline ignoreSearch fallback
+    const swSource = fs.readFileSync(path.resolve(process.cwd(), 'public', 'sw.js'), 'utf-8');
+    expect(swSource).toContain("url.pathname.endsWith('audio-manifest.json')");
+    expect(swSource).toContain("fetch(request, { cache: 'no-store' })");
+    expect(swSource).toContain('ignoreSearch: true');
+    expect(swSource.indexOf("url.pathname.endsWith('audio-manifest.json')")).toBeLessThan(
+      swSource.indexOf('General assets')
+    );
+
+    // 3. Service Worker registration bypasses HTTP cache for sw.js updates
+    const mainSource = fs.readFileSync(path.resolve(process.cwd(), 'src', 'main.jsx'), 'utf-8');
+    expect(mainSource).toContain("updateViaCache: 'none'");
+
+    // 4. loadAudioManifest recovers from transient failure and playSpeechSequence waits for pending manifest
+    const origWindow = global.window;
+    const origFetch = global.fetch;
+    const fetchCalls = [];
+    const playedSrcs = [];
+    const spokenFallback = [];
+
+    class MockAudio {
+      constructor() {
+        this._src = '';
+        this.muted = false;
+      }
+      set src(val) {
+        this._src = val;
+      }
+      get src() {
+        return this._src;
+      }
+      pause() {}
+      removeAttribute() {}
+      play() {
+        if (!this.muted && this._src && !this._src.startsWith('data:')) {
+          playedSrcs.push(this._src);
+        }
+        this.onplaying?.();
+        this.onended?.();
+        return Promise.resolve();
+      }
+    }
+
+    try {
+      setAudioManifestForTests(null);
+      global.window = {
+        location: { origin: 'https://example.github.io', pathname: '/grade2-practice/' },
+        Audio: MockAudio,
+        SpeechSynthesisUtterance: function MockUtterance(text) {
+          this.text = text;
+        },
+        speechSynthesis: {
+          cancel: () => {},
+          speak: (u) => {
+            spokenFallback.push(u.text);
+            u.onstart?.();
+            u.onend?.();
+          }
+        }
+      };
+
+      // Attempt 1 fails transiently -> must not poison manifestCache
+      let attempt = 0;
+      global.fetch = (url, opts) => {
+        attempt += 1;
+        fetchCalls.push({ url, opts });
+        if (attempt === 1) {
+          return Promise.reject(new Error('Transient network error'));
+        }
+        return Promise.resolve({
+          ok: true,
+          json: () =>
+            Promise.resolve({
+              'Drama (a Play)': 'audio/reading_drama.mp3'
+            })
+        });
+      };
+
+      const failedResult = await loadAudioManifest();
+      expect(failedResult).toEqual({});
+
+      // Now child taps 🔊 before manifest is loaded -> waits for retry fetch and plays neural MP3, NOT Web Speech
+      await new Promise((resolve) => {
+        playSpeechSequence([{ id: 'word', text: 'Drama (a Play)' }], {
+          pauseMs: 0,
+          onEnd: resolve
+        });
+      });
+
+      expect(attempt).toBe(2);
+      expect(fetchCalls[1].url).toBe(
+        `https://example.github.io/grade2-practice/audio-manifest.json?v=${expectedHash}`
+      );
+      expect(fetchCalls[1].opts).toEqual({ cache: 'no-store' });
+      expect(playedSrcs).toEqual([
+        'https://example.github.io/grade2-practice/audio/reading_drama.mp3'
+      ]);
+      expect(spokenFallback).toEqual([]);
+      stopSpeaking();
+    } finally {
+      setAudioManifestForTests(null);
+      global.window = origWindow;
+      global.fetch = origFetch;
+    }
   });
 });
