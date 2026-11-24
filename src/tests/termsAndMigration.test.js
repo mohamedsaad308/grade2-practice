@@ -114,9 +114,9 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(isSubjectActive(q2Subjects[0])).toBe(true);
     expect(q2Subjects[0].topics.length).toBe(9);
 
-    // Math is active with Revision (4 adventure lessons + 3 practices + 1 final quiz)
+    // Math is active with Revision (3 practices + 1 final quiz)
     expect(isSubjectActive(q2Subjects[1])).toBe(true);
-    expect(q2Subjects[1].topics.length).toBe(8);
+    expect(q2Subjects[1].topics.length).toBe(4);
 
     // Science is unlocked with Week 1 Earth's Habitats (3 lessons + 3 practices + 1 final quiz)
     expect(isSubjectActive(q2Subjects[2])).toBe(true);
@@ -842,34 +842,18 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
         if (q.explanation) assertAudioClipExists(q.explanation, 'en-US');
       });
 
-      // Every Q2 Math Revision (Treasure Quest & Adventure Games) card, activity, and quiz item
-      mathRevisionData.lessons.forEach((lesson) => {
-        assertAudioClipExists(lesson.title, 'en-US');
-        assertAudioClipExists(lesson.hint, 'en-US');
-        lesson.cards.forEach((card) => {
-          assertAudioClipExists(card.word || card.frontTitle, 'en-US');
-          assertAudioClipExists(card.explanation, 'en-US');
-          assertAudioClipExists(card.example, 'en-US');
-        });
-        const act = lesson.activity;
-        if (act?.type === 'adventure_quest') {
-          assertAudioClipExists(act.title, 'en-US');
-          assertAudioClipExists(act.instruction, 'en-US');
-          if (act.mapTitle) assertAudioClipExists(act.mapTitle, 'en-US');
-          if (act.victoryTitle) assertAudioClipExists(act.victoryTitle, 'en-US');
-          if (act.victoryMessage) assertAudioClipExists(act.victoryMessage, 'en-US');
-          (act.milestones || []).forEach((m) => assertAudioClipExists(m.label, 'en-US'));
-          (act.items || []).forEach((it) => {
-            if (it.stageTitle) assertAudioClipExists(it.stageTitle, 'en-US');
-            assertAudioClipExists(it.prompt, 'en-US');
-            assertAudioClipExists(it.targetText, 'en-US');
-            (it.options || []).forEach((opt) => assertAudioClipExists(opt, 'en-US'));
-            assertAudioClipExists(it.answer, 'en-US');
-            assertAudioClipExists(it.explanation, 'en-US');
-            if (it.clue) assertAudioClipExists(it.clue, 'en-US');
+      // Every Q2 Math Revision practice and quiz item
+      if (Array.isArray(mathRevisionData.lessons)) {
+        mathRevisionData.lessons.forEach((lesson) => {
+          assertAudioClipExists(lesson.title, 'en-US');
+          assertAudioClipExists(lesson.hint, 'en-US');
+          lesson.cards.forEach((card) => {
+            assertAudioClipExists(card.word || card.frontTitle, 'en-US');
+            assertAudioClipExists(card.explanation, 'en-US');
+            assertAudioClipExists(card.example, 'en-US');
           });
-        }
-      });
+        });
+      }
       mathRevisionData.quiz.questions.forEach((q) => {
         if (q.instruction) assertAudioClipExists(q.instruction.replace(/[:]+$/, ''), 'en-US');
         assertAudioClipExists(q.text, 'en-US');
@@ -1341,84 +1325,15 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(topicsHtml).toContain("Week 1 Final Quiz: Earth&#x27;s Habitats");
   });
 
-  it('17. Q2 Math Revision (Treasure Quest & Adventure Games) validates all 4 adventure lessons (24 cards with highlights), 4 adventure map quests, 3 practices, and 45-question bank', () => {
+  it('17. Q2 Math Revision validates 3 practice sets and 45-question bank without lesson cards', () => {
     const q2Math = getSubjectByTermAndId('q2', 'math');
     expect(isSubjectActive(q2Math)).toBe(true);
     expect(q2Math.icon).toBe('🔢');
-    expect(q2Math.topics.length).toBe(8);
-    expect(mathRevisionData.lessons.length).toBe(4);
+    expect(q2Math.topics.length).toBe(4);
     expect(mathRevisionData.practices.length).toBe(3);
     expect(mathRevisionData.quiz.questions.length).toBe(45);
 
     const clean = (html) => html.replace(/<!-- -->/g, '');
-    let totalCards = 0;
-
-    mathRevisionData.lessons.forEach((lesson) => {
-      lesson.cards.forEach((card) => {
-        totalCards += 1;
-        expect(typeof card.example).toBe('string');
-        expect(card.example.trim().length).toBeGreaterThan(8);
-        expect(typeof card.explanation).toBe('string');
-        expect(card.explanation.trim().length).toBeGreaterThan(8);
-
-        const targets = card.highlightWords?.length
-          ? card.highlightWords
-          : card.word
-            ? [card.word]
-            : [];
-        expect(targets.length).toBeGreaterThan(0);
-
-        const { tokens } = tokenizeExampleSentence(card.example, targets);
-        const highlighted = tokens.filter((t) => t.type === 'word' && t.isTarget);
-        expect(highlighted.length).toBeGreaterThan(0);
-
-        const html = clean(renderToString(
-          React.createElement(FlashcardLesson, {
-            player: { name: 'Maya', avatar: 'fox', stars: 0 },
-            termId: 'q2',
-            subject: q2Math,
-            topic: {
-              id: `${lesson.id}_${card.id}`,
-              title: lesson.title,
-              icon: lesson.icon,
-              lessonData: { ...lesson, cards: [card] }
-            },
-            settings: { soundEnabled: true, spokenPraiseEnabled: true }
-          })
-        ));
-        expect(html).toContain('flashcard-front-example-text');
-        expect(html).toContain('sentence-target-word');
-      });
-
-      // Verify each lesson has an adventure_quest activity with milestones and 4 stages
-      const act = lesson.activity;
-      expect(act.type).toBe('adventure_quest');
-      expect(act.milestones.length).toBe(5);
-      expect(act.items.length).toBe(4);
-      act.items.forEach((it) => {
-        expect(it.options.length).toBe(4);
-        expect(it.options).toContain(it.answer);
-      });
-    });
-    expect(totalCards).toBe(24);
-
-    // Verify Treasure Quest (Lesson 1) exact problems from user's uploaded image
-    const tq = mathRevisionData.lessons[0].activity;
-    expect(tq.items[0].prompt).toContain('Mia and Leo found 248 gold coins');
-    expect(tq.items[0].targetText).toBe('248 + 135 = ?');
-    expect(tq.items[0].answer).toBe('383');
-
-    expect(tq.items[1].prompt).toContain('There are 376 crystals in the cave');
-    expect(tq.items[1].targetText).toBe('376 - 142 = ?');
-    expect(tq.items[1].answer).toBe('234');
-
-    expect(tq.items[2].prompt).toContain('The monkey has 126 bananas');
-    expect(tq.items[2].targetText).toBe('126 + 238 = ?');
-    expect(tq.items[2].answer).toBe('364');
-
-    expect(tq.items[3].prompt).toContain('There are 524 balloons on the bridge');
-    expect(tq.items[3].targetText).toBe('524 - 217 = ?');
-    expect(tq.items[3].answer).toBe('307');
 
     // Validate all 45 quiz questions (unique IDs, 4 unique options, correct answer in options)
     const seenIds = new Set();
@@ -1455,7 +1370,7 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
       expect(sampledQuiz.filter((q) => q.category === cat).length).toBeGreaterThanOrEqual(3);
     });
 
-    // Render Q2 Math Topics screen & verify Section "Revision" and all 4 games appear
+    // Render Q2 Math Topics screen & verify Section "Revision", practices, and final quiz appear without lesson cards
     const q2Term = getTermById('q2');
     const topicsHtml = clean(renderToString(
       React.createElement(SubjectTopicsView, {
@@ -1465,13 +1380,11 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
       })
     ));
     expect(topicsHtml).toContain('Revision');
-    expect(topicsHtml).toContain('Treasure Quest');
-    expect(topicsHtml).toContain('Space Odyssey');
-    expect(topicsHtml).toContain('Magic Kingdom');
-    expect(topicsHtml).toContain('Safari Rescue');
+    expect(topicsHtml).not.toContain('Lesson 1:');
+    expect(topicsHtml).not.toContain('Treasure Quest (Island Math Adventure)');
     expect(topicsHtml).toContain('Practice 1: ➕ Addition Quests');
     expect(topicsHtml).toContain('Practice 2: ➖ Subtraction Quests');
     expect(topicsHtml).toContain('Practice 3: 🔄 Mixed Adventure Clues');
-    expect(topicsHtml).toContain('Week 1 Final Quiz: Grand Adventure Math Quest');
+    expect(topicsHtml).toContain('Revision Final Quiz: Grand Adventure Math Quest');
   });
 });

@@ -103,29 +103,14 @@ export function selectRevisionQuizQuestions(quizConfig, explicitPlayerId = null,
 
 /**
  * Helper to turn structured Q2 Math revision JSON files into clickable
- * adventure game lessons, topic practices, and the revision final quiz.
+ * topic practices and the revision final quiz.
  */
 export function createRevisionTopics(revisionData) {
   const weekId = revisionData.weekId || 'revision';
   const weekTitle = revisionData.weekTitle || 'Revision';
   const weekSubtitle = revisionData.weekSubtitle || '';
 
-  const lessonTopics = (revisionData.lessons || []).map((lesson) => ({
-    id: lesson.id,
-    weekId,
-    weekTitle,
-    weekSubtitle,
-    mode: 'lesson',
-    title: lesson.title,
-    icon: lesson.icon || '🔢',
-    description: lesson.description,
-    hint: lesson.hint,
-    cardCount: (lesson.cards || []).length,
-    lessonData: lesson,
-    levels: [1]
-  }));
-
-  const topics = [...lessonTopics];
+  const topics = [];
 
   if (revisionData.quiz && Array.isArray(revisionData.practices)) {
     revisionData.practices.forEach((practice) => {
@@ -189,7 +174,7 @@ export default {
   icon: '🔢',
   color: '#4F46E5',
   lightColor: '#EEF2FF',
-  description: 'Revision: Treasure Quest & Adventure Math Games — 3-Digit Addition & Subtraction Word Problems!',
+  description: 'Revision: 3-Digit Addition & Subtraction Word Problems — Practice Quests & Final Quiz!',
   topics: [
     ...createRevisionTopics(revisionData)
   ]
