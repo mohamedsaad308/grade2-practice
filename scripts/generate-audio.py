@@ -170,6 +170,15 @@ def collect_q2_content(bucket: dict):
             activity = lesson.get("activity") or {}
             act_type = activity.get("type")
             add_text(bucket, activity.get("instruction"), "en-US")
+            add_text(bucket, activity.get("title"), "en-US")
+            if activity.get("mapTitle"):
+                add_text(bucket, activity.get("mapTitle"), "en-US")
+            if activity.get("victoryTitle"):
+                add_text(bucket, activity.get("victoryTitle"), "en-US")
+            if activity.get("victoryMessage"):
+                add_text(bucket, activity.get("victoryMessage"), "en-US")
+            for m in activity.get("milestones", []) or []:
+                add_text(bucket, m.get("label"), "en-US")
 
             for item in activity.get("items", []) or []:
                 if act_type == "sort_buckets":
@@ -190,15 +199,19 @@ def collect_q2_content(bucket: dict):
                         add_text(bucket, opt, "en-US")
                     add_text(bucket, item.get("answer"), "en-US")
                     add_text(bucket, item.get("explanation"), "en-US")
-                elif act_type == "tap_choice":
+                elif act_type in ("tap_choice", "adventure_quest"):
                     item_lang = item.get("itemLang") or activity.get("itemLang") or lesson_lang
                     opts_lang = item.get("optionsLang") or activity.get("optionsLang") or "en-US"
+                    if item.get("stageTitle"):
+                        add_text(bucket, item.get("stageTitle"), "en-US")
                     add_text(bucket, item.get("prompt"), "en-US")
                     add_text(bucket, item.get("targetText"), item_lang)
                     for opt in item.get("options", []) or []:
                         add_text(bucket, opt, opts_lang)
                     add_text(bucket, item.get("answer"), opts_lang)
                     add_text(bucket, item.get("explanation"), "en-US")
+                    if item.get("clue"):
+                        add_text(bucket, item.get("clue"), "en-US")
 
             left_lang = activity.get("leftLang") or lesson_lang
             right_lang = activity.get("rightLang") or "en-US"
@@ -245,7 +258,7 @@ def collect_q2_content(bucket: dict):
                 text_lang = q.get("textLang") or "en-US"
                 if q.get("speechText"):
                     add_text(bucket, q.get("speechText"), text_lang)
-                elif not speech_parts and q.get("text"):
+                if not speech_parts and q.get("text"):
                     add_text(bucket, q.get("text"), text_lang)
 
                 if q.get("translationSpeech"):

@@ -1,0 +1,1120 @@
+{
+  "weekId": "revision",
+  "weekTitle": "Revision",
+  "weekSubtitle": "Treasure Quest & Adventure Math Games — 3-Digit Addition & Subtraction Word Problems!",
+  "lessons": [
+    {
+      "id": "w1_math_lesson1_treasure_quest",
+      "title": "Lesson 1: 🏴‍☠️ Treasure Quest (Island Math Adventure)",
+      "icon": "🏴‍☠️",
+      "description": "Join Mia and Leo on the pirate island map! Solve Gold Coins, Crystal Cave, Monkey's Bananas, and Balloon Bridge to reach the Golden Chest!",
+      "hint": "Clue words: 'found more' and 'altogether' mean add (+); 'are gone' and 'float away' mean subtract (-)!",
+      "cards": [
+        {
+          "id": "math-rev-intro",
+          "kind": "intro",
+          "groupLabel": "Math Explorer Guide • Word Problems",
+          "frontTitle": "What are Word Problem Clues?",
+          "emoji": "🗺️🔍➕➖",
+          "frontHint": "Look for the secret clue words in every story!",
+          "backTitle": "Addition vs. Subtraction Clues",
+          "explanation": "Word problems tell a fun story! Look for addition words like 'more', 'altogether', and 'in all' (+). Look for subtraction words like 'left', 'are gone', and 'float away' (-). Always work step-by-step: ones, tens, then hundreds!",
+          "example": "Mia found clue words: 'more' means add, while 'left' means subtract.",
+          "highlightWords": ["clue", "words", "add", "subtract"],
+          "tip": "Tip: Read the story, find the numbers, look for the clue word, and solve!"
+        },
+        {
+          "id": "math-rev-gold-coins",
+          "kind": "vocab",
+          "groupLabel": "Treasure Quest • Stage 1",
+          "word": "1. Gold Coins",
+          "emoji": "🏴‍☠️💰✨",
+          "explanation": "Mia and Leo found 248 gold coins. Then they found 135 more coins. How many coins do they have altogether? 'More' and 'altogether' tell us to ADD: 248 + 135 = 383 coins! Ones: 8 + 5 = 13 (carry 1 ten). Tens: 1 + 4 + 3 = 8. Hundreds: 2 + 1 = 3.",
+          "example": "Mia and Leo found 248 coins and 135 more coins, making 383 gold coins altogether.",
+          "highlightWords": ["coins", "more", "altogether", "gold"],
+          "tip": "When ones equal 10 or more, carry 1 to the tens column!"
+        },
+        {
+          "id": "math-rev-crystal-cave",
+          "kind": "vocab",
+          "groupLabel": "Treasure Quest • Stage 2",
+          "word": "2. Crystal Cave",
+          "emoji": "🐉🔮💎",
+          "explanation": "There are 376 crystals in the cave. 142 crystals are gone. How many crystals are left? 'Gone' and 'left' tell us to SUBTRACT: 376 - 142 = 234 crystals! Ones: 6 - 2 = 4. Tens: 7 - 4 = 3. Hundreds: 3 - 1 = 2.",
+          "example": "From 376 crystals, 142 crystals are gone, leaving 234 crystals in the cave.",
+          "highlightWords": ["crystals", "gone", "left", "cave"],
+          "tip": "Subtract straight down: 6 - 2 = 4, 7 - 4 = 3, 3 - 1 = 2. No regrouping needed here!"
+        },
+        {
+          "id": "math-rev-monkey-bananas",
+          "kind": "vocab",
+          "groupLabel": "Treasure Quest • Stage 3",
+          "word": "3. Monkey's Bananas",
+          "emoji": "🐵🍌🌴",
+          "explanation": "The monkey has 126 bananas. Then he gets 238 more bananas. How many bananas does he have? 'Gets more' means ADD: 126 + 238 = 364 bananas! Ones: 6 + 8 = 14 (write 4, carry 1 ten). Tens: 1 + 2 + 3 = 6. Hundreds: 1 + 2 = 3.",
+          "example": "The monkey had 126 bananas, got 238 more, and now has 364 bananas.",
+          "highlightWords": ["monkey", "bananas", "more", "gets"],
+          "tip": "Don't forget the carried 1 in the tens column: 1 + 2 + 3 = 6!"
+        },
+        {
+          "id": "math-rev-balloon-bridge",
+          "kind": "vocab",
+          "groupLabel": "Treasure Quest • Stage 4",
+          "word": "4. Balloon Bridge",
+          "emoji": "🎈🌉☁️",
+          "explanation": "There are 524 balloons on the bridge. 217 balloons float away. How many balloons are left? 'Float away' and 'left' mean SUBTRACT: 524 - 217 = 307 balloons! In ones: 4 - 7 needs regrouping! Borrow 1 ten (leaving 1 ten): 14 - 7 = 7. Tens: 1 - 1 = 0. Hundreds: 5 - 2 = 3.",
+          "example": "From 524 balloons on the bridge, 217 floated away, so 307 balloons are left.",
+          "highlightWords": ["balloons", "bridge", "float", "left"],
+          "tip": "When top ones is smaller than bottom ones, borrow 1 ten to make 14 ones!"
+        },
+        {
+          "id": "math-rev-pirate-treasure",
+          "kind": "rule",
+          "groupLabel": "Victory Milestone • The Golden Chest",
+          "frontTitle": "You Did It! Reaching the Treasure",
+          "emoji": "🏆👑💰✨",
+          "frontHint": "All 4 map milestones solved!",
+          "backTitle": "Great Job, Explorers!",
+          "explanation": "You solved all 4 stages of the island adventure: 248 + 135 = 383 coins, 376 - 142 = 234 crystals, 126 + 238 = 364 bananas, and 524 - 217 = 307 balloons! You have unlocked the Golden Treasure Chest!",
+          "example": "The brave math explorers unlocked the golden chest with great addition and subtraction skills.",
+          "highlightWords": ["treasure", "explorers", "addition", "subtraction"],
+          "tip": "Always check your work: addition can check subtraction, and subtraction can check addition!"
+        }
+      ],
+      "activity": {
+        "type": "adventure_quest",
+        "title": "Treasure Quest: Pirate Adventure Map!",
+        "instruction": "Help Mia and Leo solve each problem on the adventure map to unlock the Golden Treasure Chest!",
+        "mapTitle": "Our Adventure Map",
+        "victoryTitle": "You Did It! You have reached the treasure!",
+        "victoryMessage": "Great Job, Explorers! You solved all 4 stages on the island map!",
+        "milestones": [
+          { "id": 1, "label": "Gold Coins", "icon": "💰" },
+          { "id": 2, "label": "Crystal Cave", "icon": "🔮" },
+          { "id": 3, "label": "Monkey's Bananas", "icon": "🐵" },
+          { "id": 4, "label": "Balloon Bridge", "icon": "🎈" },
+          { "id": 5, "label": "Treasure Chest", "icon": "🏆" }
+        ],
+        "items": [
+          {
+            "id": "tq-stage-1",
+            "stageNumber": 1,
+            "stageTitle": "1. Gold Coins",
+            "picture": "🏴‍☠️💰",
+            "prompt": "Mia and Leo found 248 gold coins. Then they found 135 more coins. How many coins do they have altogether?",
+            "targetText": "248 + 135 = ?",
+            "options": ["383", "373", "283", "393"],
+            "answer": "383",
+            "clue": "Add ones first: 8 + 5 = 13. Write 3, carry 1 to tens! Then 1 + 4 + 3 = 8, and 2 + 1 = 3.",
+            "explanation": "248 + 135 = 383! Mia and Leo have 383 gold coins altogether."
+          },
+          {
+            "id": "tq-stage-2",
+            "stageNumber": 2,
+            "stageTitle": "2. Crystal Cave",
+            "picture": "🐉🔮",
+            "prompt": "There are 376 crystals in the cave. 142 crystals are gone. How many crystals are left?",
+            "targetText": "376 - 142 = ?",
+            "options": ["234", "244", "134", "232"],
+            "answer": "234",
+            "clue": "Subtract straight down: 6 - 2 = 4, 7 - 4 = 3, 3 - 1 = 2.",
+            "explanation": "376 - 142 = 234! There are 234 crystals left in the cave."
+          },
+          {
+            "id": "tq-stage-3",
+            "stageNumber": 3,
+            "stageTitle": "3. Monkey's Bananas",
+            "picture": "🐵🍌",
+            "prompt": "The monkey has 126 bananas. Then he gets 238 more bananas. How many bananas does he have?",
+            "targetText": "126 + 238 = ?",
+            "options": ["364", "354", "264", "374"],
+            "answer": "364",
+            "clue": "Add ones: 6 + 8 = 14 (write 4, carry 1 ten). Tens: 1 + 2 + 3 = 6. Hundreds: 1 + 2 = 3.",
+            "explanation": "126 + 238 = 364! The happy monkey has 364 bananas in his tree."
+          },
+          {
+            "id": "tq-stage-4",
+            "stageNumber": 4,
+            "stageTitle": "4. Balloon Bridge",
+            "picture": "🎈🌉",
+            "prompt": "There are 524 balloons on the bridge. 217 balloons float away. How many balloons are left?",
+            "targetText": "524 - 217 = ?",
+            "options": ["307", "317", "297", "303"],
+            "answer": "307",
+            "clue": "Borrow 1 ten for ones: 14 - 7 = 7. Tens: 1 - 1 = 0. Hundreds: 5 - 2 = 3.",
+            "explanation": "524 - 217 = 307! There are 307 balloons left on the bridge."
+          }
+        ]
+      }
+    },
+    {
+      "id": "w1_math_lesson2_space_odyssey",
+      "title": "Lesson 2: 🚀 Space Odyssey (Cosmic Math Mission)",
+      "icon": "🚀",
+      "description": "Blast off with Astronaut Mia & Leo! Solve Star Crystals, Moon Crater Rocks, Alien Berries, and Comet Shields to dock at Galaxy Station!",
+      "hint": "Check if ones or tens need carrying or borrowing before writing your answer!",
+      "cards": [
+        {
+          "id": "math-space-intro",
+          "kind": "intro",
+          "groupLabel": "Cosmic Explorer Guide • Space Math",
+          "frontTitle": "Spaceship Launch Math",
+          "emoji": "🚀🌌⭐",
+          "frontHint": "Astronauts use math to navigate the galaxy!",
+          "backTitle": "Cosmic Navigation",
+          "explanation": "Welcome aboard the Star Voyager rocket! Astronauts use addition and subtraction every day to measure fuel, count shiny star crystals, and calculate safe distance around comets.",
+          "example": "Astronauts count fuel and star crystals using 3-digit addition and subtraction.",
+          "highlightWords": ["astronauts", "fuel", "addition", "subtraction"],
+          "tip": "Keep your numbers aligned in columns: Hundreds, Tens, and Ones!"
+        },
+        {
+          "id": "math-space-crystals",
+          "kind": "vocab",
+          "groupLabel": "Space Odyssey • Stage 1",
+          "word": "1. Star Crystals",
+          "emoji": "⭐✨🛸",
+          "explanation": "Astronaut Mia collected 314 star crystals. Then Leo found 178 more crystals. How many star crystals do they have in all? 'In all' means ADD: 314 + 178 = 492 crystals! Ones: 4 + 8 = 12 (write 2, carry 1 ten). Tens: 1 + 1 + 7 = 9. Hundreds: 3 + 1 = 4.",
+          "example": "Collecting 314 crystals and 178 more gives 492 star crystals in all.",
+          "highlightWords": ["crystals", "star", "more", "all"],
+          "tip": "Regroup the ones: 4 + 8 = 12, so 2 stays in ones and 1 joins the tens!"
+        },
+        {
+          "id": "math-space-rocks",
+          "kind": "vocab",
+          "groupLabel": "Space Odyssey • Stage 2",
+          "word": "2. Moon Crater Rocks",
+          "emoji": "🌕🪨🔬",
+          "explanation": "The lunar rover collected 486 moon rocks. Scientists tested 251 rocks in the spaceship lab. How many moon rocks are left? 'Left' means SUBTRACT: 486 - 251 = 235 rocks! Ones: 6 - 1 = 5. Tens: 8 - 5 = 3. Hundreds: 4 - 2 = 2.",
+          "example": "From 486 moon rocks, testing 251 leaves 235 rocks in the rover container.",
+          "highlightWords": ["moon", "rocks", "tested", "leaves"],
+          "tip": "Subtract each column without regrouping: 6 - 1 = 5, 8 - 5 = 3, 4 - 2 = 2!"
+        },
+        {
+          "id": "math-space-berries",
+          "kind": "vocab",
+          "groupLabel": "Space Odyssey • Stage 3",
+          "word": "3. Alien Berries",
+          "emoji": "👽🫐🪐",
+          "explanation": "A friendly alien in a flying saucer had 237 cosmic berries. He picked 245 more berries from the glow-tree. How many berries does he have now? 'Picked more' means ADD: 237 + 245 = 482 berries! Ones: 7 + 5 = 12 (write 2, carry 1 ten). Tens: 1 + 3 + 4 = 8. Hundreds: 2 + 2 = 4.",
+          "example": "The friendly alien had 237 berries, picked 245 more, and now has 482 cosmic berries.",
+          "highlightWords": ["alien", "berries", "picked", "more"],
+          "tip": "Watch the tens column: 1 (carried) + 3 + 4 = 8 tens!"
+        },
+        {
+          "id": "math-space-shields",
+          "kind": "vocab",
+          "groupLabel": "Space Odyssey • Stage 4",
+          "word": "4. Comet Trail Shields",
+          "emoji": "☄️🛡️✨",
+          "explanation": "The spaceship started with 635 shield power units. A dusty comet shower drained 318 units. How many shield units are left? 'Drained' and 'left' mean SUBTRACT: 635 - 318 = 317 units! In ones: 5 - 8 needs regrouping: borrow 1 ten to make 15 ones: 15 - 8 = 7. Tens: 2 - 1 = 1. Hundreds: 6 - 3 = 3.",
+          "example": "From 635 shield units, losing 318 units leaves 317 shield units ready for flight.",
+          "highlightWords": ["shield", "units", "losing", "leaves"],
+          "tip": "15 - 8 = 7 in ones; then the tens column becomes 2 - 1 = 1!"
+        },
+        {
+          "id": "math-space-docking",
+          "kind": "rule",
+          "groupLabel": "Mission Complete • Galaxy Station",
+          "frontTitle": "Docking at Galaxy Station!",
+          "emoji": "🛰️🌌🏆✨",
+          "frontHint": "Star coordinates unlocked!",
+          "backTitle": "Galaxy Commander Award",
+          "explanation": "Mission accomplished! You solved all 4 cosmic math puzzles: 314 + 178 = 492 crystals, 486 - 251 = 235 rocks, 237 + 245 = 482 berries, and 635 - 318 = 317 shield units. Welcome to Galaxy Station!",
+          "example": "The crew safely docked at Galaxy Station after solving all the space equations.",
+          "highlightWords": ["docked", "station", "space", "equations"],
+          "tip": "Mastering 3-digit addition and subtraction prepares you for every space mission!"
+        }
+      ],
+      "activity": {
+        "type": "adventure_quest",
+        "title": "Space Odyssey: Cosmic Mission Map!",
+        "instruction": "Help Astronaut Mia & Leo solve each space challenge to dock safely at Galaxy Station!",
+        "mapTitle": "Cosmic Flight Map",
+        "victoryTitle": "You Did It! Docked at Galaxy Station!",
+        "victoryMessage": "Awesome Job, Star Explorers! You solved all 4 cosmic space challenges!",
+        "milestones": [
+          { "id": 1, "label": "Star Crystals", "icon": "⭐" },
+          { "id": 2, "label": "Moon Rocks", "icon": "🌕" },
+          { "id": 3, "label": "Alien Berries", "icon": "👽" },
+          { "id": 4, "label": "Comet Shields", "icon": "☄️" },
+          { "id": 5, "label": "Galaxy Station", "icon": "🏆" }
+        ],
+        "items": [
+          {
+            "id": "so-stage-1",
+            "stageNumber": 1,
+            "stageTitle": "1. Star Crystals",
+            "picture": "🚀⭐",
+            "prompt": "Astronaut Mia collected 314 star crystals. Then Leo found 178 more crystals. How many star crystals do they have in all?",
+            "targetText": "314 + 178 = ?",
+            "options": ["492", "482", "392", "502"],
+            "answer": "492",
+            "clue": "Add ones: 4 + 8 = 12 (write 2, carry 1 ten). Tens: 1 + 1 + 7 = 9. Hundreds: 3 + 1 = 4.",
+            "explanation": "314 + 178 = 492! The astronauts collected 492 star crystals in all."
+          },
+          {
+            "id": "so-stage-2",
+            "stageNumber": 2,
+            "stageTitle": "2. Moon Crater Rocks",
+            "picture": "🌕🪨",
+            "prompt": "The lunar rover collected 486 moon rocks. Scientists tested 251 rocks in the spaceship lab. How many moon rocks are left?",
+            "targetText": "486 - 251 = ?",
+            "options": ["235", "245", "135", "231"],
+            "answer": "235",
+            "clue": "Subtract column by column: 6 - 1 = 5, 8 - 5 = 3, 4 - 2 = 2.",
+            "explanation": "486 - 251 = 235! There are 235 moon rocks left in the rover storage."
+          },
+          {
+            "id": "so-stage-3",
+            "stageNumber": 3,
+            "stageTitle": "3. Alien Berries",
+            "picture": "👽🫐",
+            "prompt": "A friendly alien had 237 cosmic berries. He picked 245 more berries from the glow-tree. How many berries does he have now?",
+            "targetText": "237 + 245 = ?",
+            "options": ["482", "472", "382", "492"],
+            "answer": "482",
+            "clue": "Add ones: 7 + 5 = 12 (write 2, carry 1 ten). Tens: 1 + 3 + 4 = 8. Hundreds: 2 + 2 = 4.",
+            "explanation": "237 + 245 = 482! The friendly alien has 482 juicy cosmic berries."
+          },
+          {
+            "id": "so-stage-4",
+            "stageNumber": 4,
+            "stageTitle": "4. Comet Trail Shields",
+            "picture": "☄️🛡️",
+            "prompt": "The spaceship started with 635 shield units. A comet shower drained 318 units. How many shield units are left?",
+            "targetText": "635 - 318 = ?",
+            "options": ["317", "327", "217", "315"],
+            "answer": "317",
+            "clue": "Borrow 1 ten for ones: 15 - 8 = 7. Tens: 2 - 1 = 1. Hundreds: 6 - 3 = 3.",
+            "explanation": "635 - 318 = 317! The spaceship has 317 shield units left."
+          }
+        ]
+      }
+    },
+    {
+      "id": "w1_math_lesson3_magic_kingdom",
+      "title": "Lesson 3: 🏰 Magic Kingdom (Dragon & Castle Carnival)",
+      "icon": "🏰",
+      "description": "Step inside the royal castle carnival! Help dragon Barnaby solve Magic Potions, Ride Tickets, Fairy Cupcakes, and Castle Fireworks!",
+      "hint": "Check the ones place first: do you need to carry or borrow 1 ten?",
+      "cards": [
+        {
+          "id": "math-magic-intro",
+          "kind": "intro",
+          "groupLabel": "Royal Kingdom Guide • Fairytale Math",
+          "frontTitle": "Welcome to the Castle Carnival",
+          "emoji": "🏰🎠🎪",
+          "frontHint": "Carnival games are packed with numbers!",
+          "backTitle": "Fairytale Math Fun",
+          "explanation": "The royal castle is celebrating with a grand carnival! Knights, friendly dragons, and wizards use math to count potion bottles, admission tickets, and sparkling fireworks.",
+          "example": "Dragon Barnaby counts carnival tickets and potion bottles with 3-digit math.",
+          "highlightWords": ["carnival", "tickets", "potion", "math"],
+          "tip": "Word problems are just puzzles with a friendly story wrapped around them!"
+        },
+        {
+          "id": "math-magic-potions",
+          "kind": "vocab",
+          "groupLabel": "Magic Kingdom • Stage 1",
+          "word": "1. Magic Potions",
+          "emoji": "🧪✨🧙‍♂️",
+          "explanation": "The wizard brewed 265 blue bubble potions. Then he brewed 158 green sparkle potions. How many potions did he brew altogether? 'Altogether' means ADD: 265 + 158 = 423 potions! Ones: 5 + 8 = 13 (write 3, carry 1 ten). Tens: 1 + 6 + 5 = 12 (write 2, carry 1 hundred). Hundreds: 1 + 2 + 1 = 4.",
+          "example": "Brewing 265 blue potions and 158 green potions creates 423 potions altogether.",
+          "highlightWords": ["potions", "blue", "green", "altogether"],
+          "tip": "Double regrouping: ones made 13 (carry 1), then tens made 12 (carry 1)!"
+        },
+        {
+          "id": "math-magic-tickets",
+          "kind": "vocab",
+          "groupLabel": "Magic Kingdom • Stage 2",
+          "word": "2. Ride Tickets",
+          "emoji": "🎟️🎡🎪",
+          "explanation": "The carousel booth had 578 ride tickets. Excited kids used 243 tickets. How many tickets are left? 'Used' and 'left' mean SUBTRACT: 578 - 243 = 335 tickets! Ones: 8 - 3 = 5. Tens: 7 - 4 = 3. Hundreds: 5 - 2 = 3.",
+          "example": "From 578 ride tickets, using 243 tickets leaves 335 tickets at the booth.",
+          "highlightWords": ["tickets", "ride", "used", "leaves"],
+          "tip": "Straightforward subtraction: 8 - 3 = 5, 7 - 4 = 3, 5 - 2 = 3!"
+        },
+        {
+          "id": "math-magic-cupcakes",
+          "kind": "vocab",
+          "groupLabel": "Magic Kingdom • Stage 3",
+          "word": "3. Rainbow Cupcakes",
+          "emoji": "🧁🌈✨",
+          "explanation": "The castle bakery made 184 fairy cupcakes in the morning. They baked 239 more cupcakes in the afternoon. How many cupcakes in all? 'In all' means ADD: 184 + 239 = 423 cupcakes! Ones: 4 + 9 = 13 (write 3, carry 1 ten). Tens: 1 + 8 + 3 = 12 (write 2, carry 1 hundred). Hundreds: 1 + 1 + 2 = 4.",
+          "example": "Baking 184 cupcakes and 239 more gives 423 rainbow cupcakes in all.",
+          "highlightWords": ["cupcakes", "morning", "afternoon", "all"],
+          "tip": "Notice how 184 + 239 also equals 423 cupcakes: math patterns are magical!"
+        },
+        {
+          "id": "math-magic-fireworks",
+          "kind": "vocab",
+          "groupLabel": "Magic Kingdom • Stage 4",
+          "word": "4. Castle Fireworks",
+          "emoji": "🎆🏰✨",
+          "explanation": "The royal guards had 642 celebration fireworks. 219 fireworks shot into the starry sky. How many fireworks remain? 'Remain' means SUBTRACT: 642 - 219 = 423 fireworks! In ones: 2 - 9 needs regrouping: borrow 1 ten to make 12 ones: 12 - 9 = 3. Tens: 3 - 1 = 2. Hundreds: 6 - 2 = 4.",
+          "example": "From 642 fireworks, firing 219 leaves 423 fireworks ready for tomorrow.",
+          "highlightWords": ["fireworks", "celebration", "leaves", "ready"],
+          "tip": "Regroup the ones: 12 - 9 = 3. Tens became 3, so 3 - 1 = 2!"
+        },
+        {
+          "id": "math-magic-trophy",
+          "kind": "rule",
+          "groupLabel": "Carnival Champion • Royal Medal",
+          "frontTitle": "Royal Carnival Champion!",
+          "emoji": "👑🐉🏆✨",
+          "frontHint": "Dragon Barnaby celebrates with you!",
+          "backTitle": "Golden Crown Award",
+          "explanation": "Hooray! You helped dragon Barnaby solve all 4 carnival challenges: 265 + 158 = 423 potions, 578 - 243 = 335 tickets, 184 + 239 = 423 cupcakes, and 642 - 219 = 423 fireworks! The King awards you the Royal Math Medal!",
+          "example": "The kingdom cheered for the Royal Math Champion after solving all the carnival puzzles.",
+          "highlightWords": ["champion", "royal", "medal", "puzzles"],
+          "tip": "You are now a true master of 3-digit addition and subtraction!"
+        }
+      ],
+      "activity": {
+        "type": "adventure_quest",
+        "title": "Magic Kingdom: Castle Carnival Map!",
+        "instruction": "Help baby dragon Barnaby solve each carnival math puzzle to win the Royal Math Crown!",
+        "mapTitle": "Castle Carnival Trail",
+        "victoryTitle": "You Did It! Crowned Royal Math Champion!",
+        "victoryMessage": "Sensational Job, Royal Explorers! You solved all 4 castle carnival puzzles!",
+        "milestones": [
+          { "id": 1, "label": "Magic Potions", "icon": "🧪" },
+          { "id": 2, "label": "Ride Tickets", "icon": "🎟️" },
+          { "id": 3, "label": "Rainbow Cupcakes", "icon": "🧁" },
+          { "id": 4, "label": "Castle Fireworks", "icon": "🎆" },
+          { "id": 5, "label": "Royal Crown", "icon": "🏆" }
+        ],
+        "items": [
+          {
+            "id": "mk-stage-1",
+            "stageNumber": 1,
+            "stageTitle": "1. Magic Potions",
+            "picture": "🧙‍♂️🧪",
+            "prompt": "The wizard brewed 265 blue bubble potions. Then he brewed 158 green sparkle potions. How many potions did he brew altogether?",
+            "targetText": "265 + 158 = ?",
+            "options": ["423", "413", "323", "433"],
+            "answer": "423",
+            "clue": "Add ones: 5 + 8 = 13 (write 3, carry 1 ten). Tens: 1 + 6 + 5 = 12 (write 2, carry 1 hundred). Hundreds: 1 + 2 + 1 = 4.",
+            "explanation": "265 + 158 = 423! The wizard brewed 423 sparkling potions altogether."
+          },
+          {
+            "id": "mk-stage-2",
+            "stageNumber": 2,
+            "stageTitle": "2. Ride Tickets",
+            "picture": "🎟️🎡",
+            "prompt": "The carnival booth had 578 ride tickets. Excited kids used 243 tickets. How many tickets are left?",
+            "targetText": "578 - 243 = ?",
+            "options": ["335", "345", "235", "331"],
+            "answer": "335",
+            "clue": "Subtract without regrouping: 8 - 3 = 5, 7 - 4 = 3, 5 - 2 = 3.",
+            "explanation": "578 - 243 = 335! There are 335 ride tickets left at the booth."
+          },
+          {
+            "id": "mk-stage-3",
+            "stageNumber": 3,
+            "stageTitle": "3. Rainbow Cupcakes",
+            "picture": "🧁🌈",
+            "prompt": "The castle bakery made 184 fairy cupcakes in the morning. They baked 239 more in the afternoon. How many cupcakes in all?",
+            "targetText": "184 + 239 = ?",
+            "options": ["423", "413", "323", "433"],
+            "answer": "423",
+            "clue": "Add ones: 4 + 9 = 13 (carry 1). Tens: 1 + 8 + 3 = 12 (carry 1). Hundreds: 1 + 1 + 2 = 4.",
+            "explanation": "184 + 239 = 423! The bakery baked 423 rainbow cupcakes in all."
+          },
+          {
+            "id": "mk-stage-4",
+            "stageNumber": 4,
+            "stageTitle": "4. Castle Fireworks",
+            "picture": "🎆🏰",
+            "prompt": "The royal guards had 642 celebration fireworks. 219 fireworks shot into the sky. How many fireworks remain?",
+            "targetText": "642 - 219 = ?",
+            "options": ["423", "433", "323", "421"],
+            "answer": "423",
+            "clue": "Borrow 1 ten for ones: 12 - 9 = 3. Tens: 3 - 1 = 2. Hundreds: 6 - 2 = 4.",
+            "explanation": "642 - 219 = 423! There are 423 fireworks left in the tower."
+          }
+        ]
+      }
+    },
+    {
+      "id": "w1_math_lesson4_safari_rescue",
+      "title": "Lesson 4: 🦁 Safari Rescue (Wild Animal Park)",
+      "icon": "🦁",
+      "description": "Ride the safari jeep with Ranger Mia! Solve Watering Hole Zebras, Sea Turtle Nests, Elephant Apples, and Flying Flamingos!",
+      "hint": "Check the clue word: 'more' and 'altogether' (+), 'reach the ocean' or 'fly away' (-).",
+      "cards": [
+        {
+          "id": "math-safari-intro",
+          "kind": "intro",
+          "groupLabel": "Wildlife Ranger Guide • Safari Math",
+          "frontTitle": "Welcome to the Safari Park",
+          "emoji": "🦁🦓🐘",
+          "frontHint": "Park rangers use math to care for wild animals!",
+          "backTitle": "Ranger Expedition",
+          "explanation": "Hop into the safari jeep! Rangers count zebras at the waterhole, check on newborn sea turtles, and pack crisp apples for hungry elephants. Math keeps all the animals safe!",
+          "example": "Rangers count wild animals and supply baskets with 3-digit addition and subtraction.",
+          "highlightWords": ["rangers", "animals", "addition", "subtraction"],
+          "tip": "Careful observation and accurate math make a champion wildlife ranger!"
+        },
+        {
+          "id": "math-safari-zebras",
+          "kind": "vocab",
+          "groupLabel": "Safari Rescue • Stage 1",
+          "word": "1. Watering Hole Zebras",
+          "emoji": "🦓💧☀️",
+          "explanation": "Rangers saw 248 zebras drinking at the waterhole. Then 165 more zebras galloped over. How many zebras are at the waterhole altogether? 'More' means ADD: 248 + 165 = 413 zebras! Ones: 8 + 5 = 13 (write 3, carry 1 ten). Tens: 1 + 4 + 6 = 11 (write 1, carry 1 hundred). Hundreds: 1 + 2 + 1 = 4.",
+          "example": "There were 248 zebras, then 165 more arrived, making 413 zebras altogether.",
+          "highlightWords": ["zebras", "waterhole", "more", "altogether"],
+          "tip": "Carry 1 to tens (8 + 5 = 13), then carry 1 to hundreds (1 + 4 + 6 = 11)!"
+        },
+        {
+          "id": "math-safari-turtles",
+          "kind": "vocab",
+          "groupLabel": "Safari Rescue • Stage 2",
+          "word": "2. Sea Turtle Shore",
+          "emoji": "🐢🌊🏖️",
+          "explanation": "There were 467 baby turtles resting on the beach sand. 235 turtles scrambled into the ocean waves. How many turtles are still on the beach? 'Still on the beach' means SUBTRACT: 467 - 235 = 232 turtles! Ones: 7 - 5 = 2. Tens: 6 - 3 = 3. Hundreds: 4 - 2 = 2.",
+          "example": "From 467 baby turtles, 235 swam away, leaving 232 turtles resting on the warm sand.",
+          "highlightWords": ["turtles", "beach", "swam", "leaving"],
+          "tip": "Clean subtraction without regrouping: 7 - 5 = 2, 6 - 3 = 3, 4 - 2 = 2!"
+        },
+        {
+          "id": "math-safari-elephants",
+          "kind": "vocab",
+          "groupLabel": "Safari Rescue • Stage 3",
+          "word": "3. Elephant Apples",
+          "emoji": "🐘🍎🧺",
+          "explanation": "The big elephant ate 158 sweet apples for breakfast. Keepers gave him 267 more apples for lunch. How many apples did he eat in all? 'In all' means ADD: 158 + 267 = 425 apples! Ones: 8 + 7 = 15 (write 5, carry 1 ten). Tens: 1 + 5 + 6 = 12 (write 2, carry 1 hundred). Hundreds: 1 + 1 + 2 = 4.",
+          "example": "The hungry elephant ate 158 apples and then 267 more, eating 425 apples in all.",
+          "highlightWords": ["elephant", "apples", "more", "all"],
+          "tip": "Regroup twice: 8 + 7 = 15 (carry 1 ten), then 1 + 5 + 6 = 12 (carry 1 hundred)!"
+        },
+        {
+          "id": "math-safari-flamingos",
+          "kind": "vocab",
+          "groupLabel": "Safari Rescue • Stage 4",
+          "word": "4. Flying Flamingos",
+          "emoji": "🦩🌅🌾",
+          "explanation": "There were 625 pink flamingos wading in the lake. 218 flamingos flew into the evening sky. How many flamingos are left in the lake? 'Left' means SUBTRACT: 625 - 218 = 407 flamingos! In ones: 5 - 8 needs regrouping: borrow 1 ten to make 15 ones: 15 - 8 = 7. Tens: 1 - 1 = 0. Hundreds: 6 - 2 = 4.",
+          "example": "From 625 flamingos, 218 flew away, so 407 flamingos are left in the lake.",
+          "highlightWords": ["flamingos", "lake", "flew", "left"],
+          "tip": "Notice the 0 in the tens place: 1 - 1 = 0 tens, giving 407!"
+        },
+        {
+          "id": "math-safari-badge",
+          "kind": "rule",
+          "groupLabel": "Ranger Honor • Golden Safari Badge",
+          "frontTitle": "Head Wildlife Ranger Honor!",
+          "emoji": "🎖️🦁🐘🏆",
+          "frontHint": "All wildlife puzzles solved!",
+          "backTitle": "Champion Wildlife Ranger",
+          "explanation": "Incredible tracking! You solved all 4 wildlife challenges: 248 + 165 = 413 zebras, 467 - 235 = 232 turtles, 158 + 267 = 425 apples, and 625 - 218 = 407 flamingos. You are officially an Honorary Head Wildlife Ranger!",
+          "example": "The safari team honored the top ranger for excellent math and animal care.",
+          "highlightWords": ["ranger", "wildlife", "safari", "care"],
+          "tip": "You're now ready to tackle any 3-digit word problem adventure!"
+        }
+      ],
+      "activity": {
+        "type": "adventure_quest",
+        "title": "Safari Rescue: Wildlife Trail Map!",
+        "instruction": "Help Ranger Mia solve each wildlife problem along the safari trail to earn the Golden Ranger Badge!",
+        "mapTitle": "Safari Trail Map",
+        "victoryTitle": "You Did It! Golden Ranger Badge Earned!",
+        "victoryMessage": "Superb Job, Wildlife Explorers! You solved all 4 safari rescue challenges!",
+        "milestones": [
+          { "id": 1, "label": "Watering Hole", "icon": "🦓" },
+          { "id": 2, "label": "Turtle Shore", "icon": "🐢" },
+          { "id": 3, "label": "Elephant Grove", "icon": "🐘" },
+          { "id": 4, "label": "Flamingo Lake", "icon": "🦩" },
+          { "id": 5, "label": "Ranger Badge", "icon": "🏆" }
+        ],
+        "items": [
+          {
+            "id": "sr-stage-1",
+            "stageNumber": 1,
+            "stageTitle": "1. Watering Hole Zebras",
+            "picture": "🦓💧",
+            "prompt": "Rangers saw 248 zebras drinking at the waterhole. Then 165 more zebras galloped over. How many zebras are at the waterhole altogether?",
+            "targetText": "248 + 165 = ?",
+            "options": ["413", "403", "313", "423"],
+            "answer": "413",
+            "clue": "Add ones: 8 + 5 = 13 (write 3, carry 1 ten). Tens: 1 + 4 + 6 = 11 (write 1, carry 1 hundred). Hundreds: 1 + 2 + 1 = 4.",
+            "explanation": "248 + 165 = 413! There are 413 zebras at the waterhole altogether."
+          },
+          {
+            "id": "sr-stage-2",
+            "stageNumber": 2,
+            "stageTitle": "2. Sea Turtle Shore",
+            "picture": "🐢🌊",
+            "prompt": "There were 467 baby turtles resting on the beach sand. 235 turtles scrambled into the ocean waves. How many turtles are still on the beach?",
+            "targetText": "467 - 235 = ?",
+            "options": ["232", "242", "132", "230"],
+            "answer": "232",
+            "clue": "Subtract without regrouping: 7 - 5 = 2, 6 - 3 = 3, 4 - 2 = 2.",
+            "explanation": "467 - 235 = 232! There are 232 baby turtles still resting on the beach."
+          },
+          {
+            "id": "sr-stage-3",
+            "stageNumber": 3,
+            "stageTitle": "3. Elephant Apples",
+            "picture": "🐘🍎",
+            "prompt": "The big elephant ate 158 sweet apples for breakfast. Keepers gave him 267 more apples for lunch. How many apples did he eat in all?",
+            "targetText": "158 + 267 = ?",
+            "options": ["425", "415", "325", "435"],
+            "answer": "425",
+            "clue": "Add ones: 8 + 7 = 15 (carry 1 ten). Tens: 1 + 5 + 6 = 12 (carry 1 hundred). Hundreds: 1 + 1 + 2 = 4.",
+            "explanation": "158 + 267 = 425! The elephant ate 425 apples in all."
+          },
+          {
+            "id": "sr-stage-4",
+            "stageNumber": 4,
+            "stageTitle": "4. Flying Flamingos",
+            "picture": "🦩🌅",
+            "prompt": "There were 625 pink flamingos wading in the lake. 218 flamingos flew into the evening sky. How many flamingos are left in the lake?",
+            "targetText": "625 - 218 = ?",
+            "options": ["407", "417", "397", "405"],
+            "answer": "407",
+            "clue": "Borrow 1 ten for ones: 15 - 8 = 7. Tens: 1 - 1 = 0. Hundreds: 6 - 2 = 4.",
+            "explanation": "625 - 218 = 407! There are 407 flamingos left in the lake."
+          }
+        ]
+      }
+    }
+  ],
+  "practices": [
+    {
+      "id": "w1_math_practice_addition",
+      "category": "addition",
+      "practiceLabel": "Math Practice 1",
+      "title": "Practice 1: ➕ Addition Quests (3-Digit Word Problems)",
+      "icon": "➕",
+      "description": "Practice 3-digit addition word problems with clue words like 'more', 'altogether', 'in all', and 'combined'!",
+      "hint": "Line up ones, tens, and hundreds. When ones or tens reach 10, carry 1 over!",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_math_practice_subtraction",
+      "category": "subtraction",
+      "practiceLabel": "Math Practice 2",
+      "title": "Practice 2: ➖ Subtraction Quests (3-Digit Word Problems)",
+      "icon": "➖",
+      "description": "Practice 3-digit subtraction word problems with clue words like 'left', 'are gone', 'float away', and 'difference'!",
+      "hint": "If the top number in a column is smaller, borrow 1 from the column to the left!",
+      "questionCount": 10
+    },
+    {
+      "id": "w1_math_practice_mixed",
+      "category": "mixed",
+      "practiceLabel": "Math Practice 3",
+      "title": "Practice 3: 🔄 Mixed Adventure Clues (Add or Subtract?)",
+      "icon": "🔄",
+      "description": "Detect whether the adventure story is asking you to ADD (+) or SUBTRACT (-), then solve the problem accurately!",
+      "hint": "Check the question: are we combining groups (+), or finding what is left after some leave (-)?" ,
+      "questionCount": 10
+    }
+  ],
+  "quiz": {
+    "id": "w1_math_final_quiz",
+    "title": "Week 1 Final Quiz: Grand Adventure Math Quest",
+    "icon": "🏆",
+    "description": "A fun 10-question Math Adventure quiz mixing Island Pirates, Cosmic Space, Castle Carnival, and Safari Rescue word problems!",
+    "hint": "Read the story carefully, check if you need to add or subtract, and calculate step-by-step!",
+    "instruction": "Read the math adventure story and tap the best answer!",
+    "questions": [
+      {
+        "id": "q2-math-rev-add-01",
+        "category": "addition",
+        "instruction": "Think about the gold coins on the pirate island.",
+        "text": "Mia and Leo found 248 gold coins on the beach. Then they found 135 more coins inside a cave. How many coins do they have altogether?",
+        "speechText": "248 + 135 = ?",
+        "options": ["383", "373", "283", "393"],
+        "answer": "383",
+        "hint": "Add ones first: 8 + 5 = 13. Write 3, carry 1 to tens!",
+        "explanation": "248 + 135 = 383 coins! (8+5=13 ones, 1+4+3=8 tens, 2+1=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-02",
+        "category": "addition",
+        "instruction": "Remember the monkey's banana snack.",
+        "text": "The playful monkey had 126 bananas in his tree. Then he gathered 238 more bananas. How many bananas does he have now?",
+        "speechText": "126 + 238 = ?",
+        "options": ["364", "354", "264", "374"],
+        "answer": "364",
+        "hint": "Add ones: 6 + 8 = 14. Write 4, carry 1 ten to the tens place!",
+        "explanation": "126 + 238 = 364 bananas! (6+8=14 ones, 1+2+3=6 tens, 1+2=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-03",
+        "category": "addition",
+        "instruction": "Count the star crystals on the space voyage.",
+        "text": "Astronaut Mia collected 314 star crystals. Then Leo found 178 more crystals. How many star crystals do they have in all?",
+        "speechText": "314 + 178 = ?",
+        "options": ["492", "482", "392", "502"],
+        "answer": "492",
+        "hint": "Add ones: 4 + 8 = 12. Write 2, carry 1 to tens: 1 + 1 + 7 = 9 tens!",
+        "explanation": "314 + 178 = 492 crystals! (4+8=12 ones, 1+1+7=9 tens, 3+1=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-04",
+        "category": "addition",
+        "instruction": "Help the friendly space alien count berries.",
+        "text": "The alien had 237 cosmic berries in his basket. He picked 245 more berries from the glow-tree. How many berries does he have in all?",
+        "speechText": "237 + 245 = ?",
+        "options": ["482", "472", "382", "492"],
+        "answer": "482",
+        "hint": "Add ones: 7 + 5 = 12. Write 2, carry 1 ten!",
+        "explanation": "237 + 245 = 482 berries! (7+5=12 ones, 1+3+4=8 tens, 2+2=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-05",
+        "category": "addition",
+        "instruction": "Count the wizard's magic potions.",
+        "text": "The castle wizard brewed 265 blue bubble potions and 158 green sparkle potions. How many potions did he brew altogether?",
+        "speechText": "265 + 158 = ?",
+        "options": ["423", "413", "323", "433"],
+        "answer": "423",
+        "hint": "Double regrouping: ones make 13 (carry 1), then tens make 12 (carry 1)!",
+        "explanation": "265 + 158 = 423 potions! (5+8=13 ones, 1+6+5=12 tens, 1+2+1=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-06",
+        "category": "addition",
+        "instruction": "Count the bakery's rainbow cupcakes.",
+        "text": "The castle baker frosted 184 fairy cupcakes in the morning and 239 more in the afternoon. How many cupcakes were frosted in all?",
+        "speechText": "184 + 239 = ?",
+        "options": ["423", "413", "323", "433"],
+        "answer": "423",
+        "hint": "Add ones: 4 + 9 = 13 (carry 1). Add tens: 1 + 8 + 3 = 12 (carry 1)!",
+        "explanation": "184 + 239 = 423 cupcakes! (4+9=13 ones, 1+8+3=12 tens, 1+1+2=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-07",
+        "category": "addition",
+        "instruction": "Count the zebras at the savanna waterhole.",
+        "text": "Rangers observed 248 zebras drinking at the waterhole. Then 165 more zebras arrived. How many zebras are there altogether?",
+        "speechText": "248 + 165 = ?",
+        "options": ["413", "403", "313", "423"],
+        "answer": "413",
+        "hint": "Add ones: 8 + 5 = 13 (carry 1). Add tens: 1 + 4 + 6 = 11 (carry 1)!",
+        "explanation": "248 + 165 = 413 zebras! (8+5=13 ones, 1+4+6=11 tens, 1+2+1=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-08",
+        "category": "addition",
+        "instruction": "Count the apples for the hungry elephant.",
+        "text": "An elephant ate 158 red apples for breakfast and 267 green apples for lunch. How many apples did the elephant eat in all?",
+        "speechText": "158 + 267 = ?",
+        "options": ["425", "415", "325", "435"],
+        "answer": "425",
+        "hint": "Add ones: 8 + 7 = 15 (carry 1). Add tens: 1 + 5 + 6 = 12 (carry 1)!",
+        "explanation": "158 + 267 = 425 apples! (8+7=15 ones, 1+5+6=12 tens, 1+1+2=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-09",
+        "category": "addition",
+        "instruction": "Count the coconuts on the pirate island.",
+        "text": "The pirate ship cook gathered 315 brown coconuts and 242 green coconuts. How many coconuts did he gather in all?",
+        "speechText": "315 + 242 = ?",
+        "options": ["557", "567", "547", "457"],
+        "answer": "557",
+        "hint": "No regrouping needed here! Add straight down: 5+2=7, 1+4=5, 3+2=5.",
+        "explanation": "315 + 242 = 557 coconuts! (5+2=7 ones, 1+4=5 tens, 3+2=5 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-10",
+        "category": "addition",
+        "instruction": "Count the colorful sea shells.",
+        "text": "Leo collected 234 shiny seashells. Mia brought 153 more seashells. How many seashells do they have altogether?",
+        "speechText": "234 + 153 = ?",
+        "options": ["387", "397", "287", "377"],
+        "answer": "387",
+        "hint": "Add ones: 4 + 3 = 7. Add tens: 3 + 5 = 8. Add hundreds: 2 + 1 = 3.",
+        "explanation": "234 + 153 = 387 seashells! (4+3=7 ones, 3+5=8 tens, 2+1=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-11",
+        "category": "addition",
+        "instruction": "Add cosmic space energy cells.",
+        "text": "The space station has 346 solar energy cells in Sector A and 281 cells in Sector B. How many energy cells are there in total?",
+        "speechText": "346 + 281 = ?",
+        "options": ["627", "617", "527", "637"],
+        "answer": "627",
+        "hint": "Add ones: 6 + 1 = 7. Add tens: 4 + 8 = 12 (write 2, carry 1 hundred)!",
+        "explanation": "346 + 281 = 627 energy cells! (6+1=7 ones, 4+8=12 tens, 1+3+2=6 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-12",
+        "category": "addition",
+        "instruction": "Count knights and guards at the castle gate.",
+        "text": "There are 215 royal knights and 178 castle guards on parade. How many protectors are there altogether?",
+        "speechText": "215 + 178 = ?",
+        "options": ["393", "383", "293", "403"],
+        "answer": "393",
+        "hint": "Add ones: 5 + 8 = 13 (carry 1). Add tens: 1 + 1 + 7 = 9. Hundreds: 2 + 1 = 3.",
+        "explanation": "215 + 178 = 393 protectors! (5+8=13 ones, 1+1+7=9 tens, 2+1=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-13",
+        "category": "addition",
+        "instruction": "Count safari baby gazelles.",
+        "text": "A safari wildlife herd has 254 adult gazelles and 168 baby gazelles. How many gazelles are in the herd in all?",
+        "speechText": "254 + 168 = ?",
+        "options": ["422", "412", "322", "432"],
+        "answer": "422",
+        "hint": "Ones: 4 + 8 = 12 (carry 1). Tens: 1 + 5 + 6 = 12 (carry 1). Hundreds: 1 + 2 + 1 = 4.",
+        "explanation": "254 + 168 = 422 gazelles! (4+8=12 ones, 1+5+6=12 tens, 1+2+1=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-14",
+        "category": "addition",
+        "instruction": "Count balloons at the carnival entrance.",
+        "text": "The carnival booth set up 328 blue balloons and 195 yellow balloons. How many balloons are set up altogether?",
+        "speechText": "328 + 195 = ?",
+        "options": ["523", "513", "423", "533"],
+        "answer": "523",
+        "hint": "Ones: 8 + 5 = 13 (carry 1). Tens: 1 + 2 + 9 = 12 (carry 1). Hundreds: 1 + 3 + 1 = 5.",
+        "explanation": "328 + 195 = 523 balloons! (8+5=13 ones, 1+2+9=12 tens, 1+3+1=5 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-add-15",
+        "category": "addition",
+        "instruction": "Count silver coins in the treasure chest.",
+        "text": "Mia put 416 silver coins in the chest. Leo added 259 more silver coins. How many silver coins are in the chest now?",
+        "speechText": "416 + 259 = ?",
+        "options": ["675", "665", "575", "685"],
+        "answer": "675",
+        "hint": "Add ones: 6 + 9 = 15 (carry 1). Tens: 1 + 1 + 5 = 7. Hundreds: 4 + 2 = 6.",
+        "explanation": "416 + 259 = 675 coins! (6+9=15 ones, 1+1+5=7 tens, 4+2=6 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-01",
+        "category": "subtraction",
+        "instruction": "Remember the purple crystals in the cave.",
+        "text": "There were 376 sparkling crystals in the cave. 142 crystals are gone. How many crystals are left?",
+        "speechText": "376 - 142 = ?",
+        "options": ["234", "244", "134", "232"],
+        "answer": "234",
+        "hint": "No borrowing needed: 6 - 2 = 4, 7 - 4 = 3, 3 - 1 = 2.",
+        "explanation": "376 - 142 = 234 crystals! (6-2=4 ones, 7-4=3 tens, 3-1=2 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-02",
+        "category": "subtraction",
+        "instruction": "Remember the balloons floating away over the bridge.",
+        "text": "There were 524 balloons tied to the bridge railing. 217 balloons floated away into the sky. How many balloons are left?",
+        "speechText": "524 - 217 = ?",
+        "options": ["307", "317", "297", "303"],
+        "answer": "307",
+        "hint": "Borrow 1 ten for ones: 14 - 7 = 7. Tens: 1 - 1 = 0. Hundreds: 5 - 2 = 3.",
+        "explanation": "524 - 217 = 307 balloons! (14-7=7 ones, 1-1=0 tens, 5-2=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-03",
+        "category": "subtraction",
+        "instruction": "Subtract moon crater rocks tested in the lab.",
+        "text": "The space rover had 486 moon rocks. Scientists tested 251 rocks under the microscope. How many moon rocks are left?",
+        "speechText": "486 - 251 = ?",
+        "options": ["235", "245", "135", "231"],
+        "answer": "235",
+        "hint": "Subtract straight down: 6 - 1 = 5, 8 - 5 = 3, 4 - 2 = 2.",
+        "explanation": "486 - 251 = 235 rocks! (6-1=5 ones, 8-5=3 tens, 4-2=2 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-04",
+        "category": "subtraction",
+        "instruction": "Calculate remaining spaceship shield power.",
+        "text": "The rocket had 635 shield units. Flying through cosmic dust used up 318 units. How many shield units remain?",
+        "speechText": "635 - 318 = ?",
+        "options": ["317", "327", "217", "315"],
+        "answer": "317",
+        "hint": "Borrow 1 ten for ones: 15 - 8 = 7. Tens: 2 - 1 = 1. Hundreds: 6 - 3 = 3.",
+        "explanation": "635 - 318 = 317 units! (15-8=7 ones, 2-1=1 ten, 6-3=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-05",
+        "category": "subtraction",
+        "instruction": "Count carnival ride tickets left in the box.",
+        "text": "The ticket booth started with 578 tickets. Eager visitors bought 243 tickets. How many tickets are left?",
+        "speechText": "578 - 243 = ?",
+        "options": ["335", "345", "235", "331"],
+        "answer": "335",
+        "hint": "Subtract each place: 8 - 3 = 5, 7 - 4 = 3, 5 - 2 = 3.",
+        "explanation": "578 - 243 = 335 tickets! (8-3=5 ones, 7-4=3 tens, 5-2=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-06",
+        "category": "subtraction",
+        "instruction": "Count remaining celebration fireworks.",
+        "text": "The castle had 642 fireworks. 219 fireworks launched into the night sky. How many fireworks are left in the castle?",
+        "speechText": "642 - 219 = ?",
+        "options": ["423", "433", "323", "421"],
+        "answer": "423",
+        "hint": "Borrow 1 ten for ones: 12 - 9 = 3. Tens: 3 - 1 = 2. Hundreds: 6 - 2 = 4.",
+        "explanation": "642 - 219 = 423 fireworks! (12-9=3 ones, 3-1=2 tens, 6-2=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-07",
+        "category": "subtraction",
+        "instruction": "Count baby turtles resting on the beach.",
+        "text": "There were 467 baby sea turtles on the shore. 235 scrambled into the ocean waves. How many turtles are still on the beach?",
+        "speechText": "467 - 235 = ?",
+        "options": ["232", "242", "132", "230"],
+        "answer": "232",
+        "hint": "Subtract straight down: 7 - 5 = 2, 6 - 3 = 3, 4 - 2 = 2.",
+        "explanation": "467 - 235 = 232 turtles! (7-5=2 ones, 6-3=3 tens, 4-2=2 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-08",
+        "category": "subtraction",
+        "instruction": "Count flamingos still wading in the lake.",
+        "text": "There were 625 pink flamingos in the lake. 218 flamingos flew away to find food. How many flamingos stayed in the lake?",
+        "speechText": "625 - 218 = ?",
+        "options": ["407", "417", "397", "405"],
+        "answer": "407",
+        "hint": "Borrow 1 ten: 15 - 8 = 7 ones. Tens: 1 - 1 = 0. Hundreds: 6 - 2 = 4.",
+        "explanation": "625 - 218 = 407 flamingos! (15-8=7 ones, 1-1=0 tens, 6-2=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-09",
+        "category": "subtraction",
+        "instruction": "Subtract coconuts eaten by island parrots.",
+        "text": "The pirate island grove had 548 ripe coconuts. Hungry parrots ate 226 coconuts. How many coconuts are left on the trees?",
+        "speechText": "548 - 226 = ?",
+        "options": ["322", "332", "222", "320"],
+        "answer": "322",
+        "hint": "Subtract: 8 - 6 = 2, 4 - 2 = 2, 5 - 2 = 3.",
+        "explanation": "548 - 226 = 322 coconuts! (8-6=2 ones, 4-2=2 tens, 5-2=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-10",
+        "category": "subtraction",
+        "instruction": "Subtract space astronaut oxygen tanks.",
+        "text": "The spaceship carried 756 oxygen tanks. The crew used 324 tanks during spacewalks. How many oxygen tanks are left?",
+        "speechText": "756 - 324 = ?",
+        "options": ["432", "442", "332", "430"],
+        "answer": "432",
+        "hint": "Subtract straight down: 6 - 4 = 2, 5 - 2 = 3, 7 - 3 = 4.",
+        "explanation": "756 - 324 = 432 tanks! (6-4=2 ones, 5-2=3 tens, 7-3=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-11",
+        "category": "subtraction",
+        "instruction": "Subtract carnival prizes given away.",
+        "text": "The ring toss booth started with 482 teddy bears. Lucky children won 167 bears. How many teddy bears remain at the booth?",
+        "speechText": "482 - 167 = ?",
+        "options": ["315", "325", "215", "313"],
+        "answer": "315",
+        "hint": "Borrow 1 ten for ones: 12 - 7 = 5. Tens: 7 - 6 = 1. Hundreds: 4 - 1 = 3.",
+        "explanation": "482 - 167 = 315 bears! (12-7=5 ones, 7-6=1 ten, 4-1=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-12",
+        "category": "subtraction",
+        "instruction": "Count safari water canteen bottles.",
+        "text": "The safari ranger base had 650 water canteens. Rangers took 235 canteens on patrol. How many canteens are left at base?",
+        "speechText": "650 - 235 = ?",
+        "options": ["415", "425", "315", "410"],
+        "answer": "415",
+        "hint": "In ones: 0 - 5 needs borrowing! Borrow 1 ten: 10 - 5 = 5. Tens: 4 - 3 = 1. Hundreds: 6 - 2 = 4.",
+        "explanation": "650 - 235 = 415 canteens! (10-5=5 ones, 4-3=1 ten, 6-2=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-13",
+        "category": "subtraction",
+        "instruction": "Subtract pirate gold coins spent on supplies.",
+        "text": "Captain Mia had 875 gold coins. She spent 348 coins to repair the pirate ship. How many coins does she have left?",
+        "speechText": "875 - 348 = ?",
+        "options": ["527", "537", "427", "525"],
+        "answer": "527",
+        "hint": "Borrow 1 ten for ones: 15 - 8 = 7. Tens: 6 - 4 = 2. Hundreds: 8 - 3 = 5.",
+        "explanation": "875 - 348 = 527 coins! (15-8=7 ones, 6-4=2 tens, 8-3=5 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-14",
+        "category": "subtraction",
+        "instruction": "Subtract flowers planted in the royal garden.",
+        "text": "The gardener had 734 flower seeds. He planted 218 seeds in the courtyard. How many seeds are left in his pouch?",
+        "speechText": "734 - 218 = ?",
+        "options": ["516", "526", "416", "514"],
+        "answer": "516",
+        "hint": "Borrow 1 ten: 14 - 8 = 6. Tens: 2 - 1 = 1. Hundreds: 7 - 2 = 5.",
+        "explanation": "734 - 218 = 516 seeds! (14-8=6 ones, 2-1=1 ten, 7-2=5 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-sub-15",
+        "category": "subtraction",
+        "instruction": "Count safari birds resting in the trees.",
+        "text": "There were 583 weaver birds in the acacia trees. 256 birds flew to the river. How many birds stayed in the trees?",
+        "speechText": "583 - 256 = ?",
+        "options": ["327", "337", "227", "325"],
+        "answer": "327",
+        "hint": "Borrow 1 ten for ones: 13 - 6 = 7. Tens: 7 - 5 = 2. Hundreds: 5 - 2 = 3.",
+        "explanation": "583 - 256 = 327 birds! (13-6=7 ones, 7-5=2 tens, 5-2=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-01",
+        "category": "mixed",
+        "instruction": "Decide: do you add or subtract?",
+        "text": "Mia found 320 gold coins. Leo found 145 more coins. Which operation should you use to find how many coins they have altogether?",
+        "speechText": "320 + 145 or 320 - 145?",
+        "options": ["Add (+) to get 465", "Subtract (-) to get 175", "Add (+) to get 365", "Subtract (-) to get 265"],
+        "answer": "Add (+) to get 465",
+        "hint": "The clue words 'more' and 'altogether' mean you should ADD (+).",
+        "explanation": "Because they found MORE coins and we want the total ALTOGETHER, we add: 320 + 145 = 465 coins!"
+      },
+      {
+        "id": "q2-math-rev-mix-02",
+        "category": "mixed",
+        "instruction": "Decide: do you add or subtract?",
+        "text": "There were 450 balloons on the bridge. 130 balloons popped and were gone. Which operation finds how many balloons are left?",
+        "speechText": "450 - 130 or 450 + 130?",
+        "options": ["Subtract (-) to get 320", "Add (+) to get 580", "Subtract (-) to get 310", "Add (+) to get 480"],
+        "answer": "Subtract (-) to get 320",
+        "hint": "The clue words 'popped' and 'left' mean you should SUBTRACT (-).",
+        "explanation": "Because balloons popped and went away, we subtract: 450 - 130 = 320 balloons left!"
+      },
+      {
+        "id": "q2-math-rev-mix-03",
+        "category": "mixed",
+        "instruction": "Solve this island math mystery.",
+        "text": "A pirate ship has 412 wooden planks on deck. The carpenter nailed on 179 more planks. How many planks are there in all?",
+        "speechText": "412 + 179 = ?",
+        "options": ["591", "581", "491", "601"],
+        "answer": "591",
+        "hint": "Add ones: 2 + 9 = 11 (write 1, carry 1 ten). Tens: 1 + 1 + 7 = 9. Hundreds: 4 + 1 = 5.",
+        "explanation": "412 + 179 = 591 planks! (2+9=11 ones, 1+1+7=9 tens, 4+1=5 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-04",
+        "category": "mixed",
+        "instruction": "Solve this cosmic space mystery.",
+        "text": "The moon station had 745 food packs. The astronauts ate 218 packs. How many food packs are left for the rest of the mission?",
+        "speechText": "745 - 218 = ?",
+        "options": ["527", "537", "427", "525"],
+        "answer": "527",
+        "hint": "Borrow 1 ten for ones: 15 - 8 = 7. Tens: 3 - 1 = 2. Hundreds: 7 - 2 = 5.",
+        "explanation": "745 - 218 = 527 packs! (15-8=7 ones, 3-1=2 tens, 7-2=5 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-05",
+        "category": "mixed",
+        "instruction": "Solve this castle carnival mystery.",
+        "text": "Dragon Barnaby collected 246 silver coins. Then the King gave him 185 more silver coins. How many silver coins does Barnaby have in all?",
+        "speechText": "246 + 185 = ?",
+        "options": ["431", "421", "331", "441"],
+        "answer": "431",
+        "hint": "Add ones: 6 + 5 = 11 (carry 1). Add tens: 1 + 4 + 8 = 13 (carry 1). Hundreds: 1 + 2 + 1 = 4.",
+        "explanation": "246 + 185 = 431 coins! (6+5=11 ones, 1+4+8=13 tens, 1+2+1=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-06",
+        "category": "mixed",
+        "instruction": "Solve this safari ranger mystery.",
+        "text": "A safari watering hole had 684 liters of fresh water. Wild elephants drank 238 liters. How many liters of water are left?",
+        "speechText": "684 - 238 = ?",
+        "options": ["446", "456", "346", "444"],
+        "answer": "446",
+        "hint": "Borrow 1 ten: 14 - 8 = 6 ones. Tens: 7 - 3 = 4. Hundreds: 6 - 2 = 4.",
+        "explanation": "684 - 238 = 446 liters! (14-8=6 ones, 7-3=4 tens, 6-2=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-07",
+        "category": "mixed",
+        "instruction": "Compare two groups of pirate treasures.",
+        "text": "Mia's treasure chest has 356 gems. Leo's chest has 234 gems. What is the difference between their gem counts?",
+        "speechText": "356 - 234 = ?",
+        "options": ["122", "132", "112", "590"],
+        "answer": "122",
+        "hint": "'Difference' means subtract: 6 - 4 = 2, 5 - 3 = 2, 3 - 2 = 1.",
+        "explanation": "356 - 234 = 122 gems! (6-4=2 ones, 5-3=2 tens, 3-2=1 hundred)."
+      },
+      {
+        "id": "q2-math-rev-mix-08",
+        "category": "mixed",
+        "instruction": "Find the combined total of space stars.",
+        "text": "Telescope A discovered 268 new stars. Telescope B discovered 175 new stars. What is the combined total of discovered stars?",
+        "speechText": "268 + 175 = ?",
+        "options": ["443", "433", "343", "453"],
+        "answer": "443",
+        "hint": "'Combined total' means add: 8 + 5 = 13 (carry 1), 1 + 6 + 7 = 14 (carry 1), 1 + 2 + 1 = 4.",
+        "explanation": "268 + 175 = 443 stars! (8+5=13 ones, 1+6+7=14 tens, 1+2+1=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-09",
+        "category": "mixed",
+        "instruction": "Count castle banners after a windy storm.",
+        "text": "The castle walls were decorated with 560 colorful banners. A gust of wind blew down 135 banners. How many banners are still hanging?",
+        "speechText": "560 - 135 = ?",
+        "options": ["425", "435", "325", "420"],
+        "answer": "425",
+        "hint": "Borrow 1 ten for ones: 10 - 5 = 5. Tens: 5 - 3 = 2. Hundreds: 5 - 1 = 4.",
+        "explanation": "560 - 135 = 425 banners! (10-5=5 ones, 5-3=2 tens, 5-1=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-10",
+        "category": "mixed",
+        "instruction": "Count safari animals spotted on morning drive.",
+        "text": "Tourists saw 148 wild animals in the north valley and 236 wild animals in the south meadow. How many animals did they see in all?",
+        "speechText": "148 + 236 = ?",
+        "options": ["384", "374", "284", "394"],
+        "answer": "384",
+        "hint": "Add ones: 8 + 6 = 14 (carry 1). Add tens: 1 + 4 + 3 = 8. Hundreds: 1 + 2 = 3.",
+        "explanation": "148 + 236 = 384 animals! (8+6=14 ones, 1+4+3=8 tens, 1+2=3 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-11",
+        "category": "mixed",
+        "instruction": "Solve this pirate map distance puzzle.",
+        "text": "The pirate map measures 860 steps from the bay to Skull Rock. Mia walked 345 steps. How many steps does she have left to walk?",
+        "speechText": "860 - 345 = ?",
+        "options": ["515", "525", "415", "510"],
+        "answer": "515",
+        "hint": "Borrow 1 ten: 10 - 5 = 5 ones. Tens: 5 - 4 = 1. Hundreds: 8 - 3 = 5.",
+        "explanation": "860 - 345 = 515 steps! (10-5=5 ones, 5-4=1 ten, 8-3=5 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-12",
+        "category": "mixed",
+        "instruction": "Solve this cosmic satellite puzzle.",
+        "text": "A communication satellite sent 359 signals on Monday and 264 signals on Tuesday. How many signals were sent altogether?",
+        "speechText": "359 + 264 = ?",
+        "options": ["623", "613", "523", "633"],
+        "answer": "623",
+        "hint": "Add ones: 9 + 4 = 13 (carry 1). Tens: 1 + 5 + 6 = 12 (carry 1). Hundreds: 1 + 3 + 2 = 6.",
+        "explanation": "359 + 264 = 623 signals! (9+4=13 ones, 1+5+6=12 tens, 1+3+2=6 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-13",
+        "category": "mixed",
+        "instruction": "Count carnival candy apples.",
+        "text": "The candy booth made 425 shiny red candy apples. Happy families bought 182 apples. How many candy apples remain?",
+        "speechText": "425 - 182 = ?",
+        "options": ["243", "253", "143", "241"],
+        "answer": "243",
+        "hint": "Ones: 5 - 2 = 3. Tens: 2 - 8 needs borrowing! Borrow 1 hundred: 12 - 8 = 4. Hundreds: 3 - 1 = 2.",
+        "explanation": "425 - 182 = 243 apples! (5-2=3 ones, 12-8=4 tens, 3-1=2 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-14",
+        "category": "mixed",
+        "instruction": "Count safari trees planted for elephants.",
+        "text": "Rangers planted 176 shady acacia trees last month and 258 trees this month. How many trees were planted in all?",
+        "speechText": "176 + 258 = ?",
+        "options": ["434", "424", "334", "444"],
+        "answer": "434",
+        "hint": "Ones: 6 + 8 = 14 (carry 1). Tens: 1 + 7 + 5 = 13 (carry 1). Hundreds: 1 + 1 + 2 = 4.",
+        "explanation": "176 + 258 = 434 trees! (6+8=14 ones, 1+7+5=13 tens, 1+1+2=4 hundreds)."
+      },
+      {
+        "id": "q2-math-rev-mix-15",
+        "category": "mixed",
+        "instruction": "Solve the final treasure chest riddle.",
+        "text": "The legendary golden chest holds 750 shiny jewels in all. 325 jewels are sparkling diamonds. How many jewels are colorful rubies?",
+        "speechText": "750 - 325 = ?",
+        "options": ["425", "435", "325", "420"],
+        "answer": "425",
+        "hint": "Borrow 1 ten: 10 - 5 = 5 ones. Tens: 4 - 2 = 2. Hundreds: 7 - 3 = 4.",
+        "explanation": "750 - 325 = 425 rubies! (10-5=5 ones, 4-2=2 tens, 7-3=4 hundreds)."
+      }
+    ]
+  }
+}

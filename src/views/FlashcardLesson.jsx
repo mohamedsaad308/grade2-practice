@@ -211,6 +211,16 @@ export default function FlashcardLesson({
           }))
         ]);
         preloadSpeechTexts(list.filter((x) => x && x.text));
+      } else if (activity.type === 'adventure_quest') {
+        const list = (activity.items || []).flatMap((it) => [
+          it.stageTitle ? { text: it.stageTitle, lang: 'en-US' } : null,
+          it.prompt ? { text: it.prompt, lang: 'en-US' } : null,
+          it.targetText ? { text: it.targetText, lang: 'en-US' } : null,
+          ...(it.options || []).map((opt) => ({ text: opt, lang: 'en-US' })),
+          it.explanation ? { text: it.explanation, lang: 'en-US' } : null,
+          it.clue ? { text: it.clue, lang: 'en-US' } : null
+        ]);
+        preloadSpeechTexts(list.filter((x) => x && x.text));
       }
     }
   }, [phase, cardIndex, cards, activity, speechSupported, lesson.lang]);
@@ -899,6 +909,19 @@ function MiniActivityRunner({
           onComplete={onComplete}
         />
       )}
+
+      {activity.type === 'adventure_quest' && (
+        <AdventureQuestActivity
+          activity={activity}
+          playerName={playerName}
+          soundEnabled={soundEnabled}
+          spokenPraiseEnabled={spokenPraiseEnabled}
+          speechSupported={speechSupported}
+          onCelebrate={onCelebrate}
+          onFeedbackMood={onFeedbackMood}
+          onComplete={onComplete}
+        />
+      )}
     </div>
   );
 }
@@ -1389,6 +1412,282 @@ function TapQuizMiniActivity({
           >
             {idx + 1 < items.length ? 'Next ➡' : 'Finish Lesson 🏆'}
           </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* 4. Lesson Adventure Quest Activity (Treasure Quest, Space Odyssey, Magic Kingdom, Safari Rescue) */
+function AdventureQuestActivity({
+  activity,
+  playerName,
+  soundEnabled,
+  spokenPraiseEnabled,
+  speechSupported,
+  onCelebrate,
+  onFeedbackMood,
+  onComplete
+}) {
+  const items = activity.items || [];
+  const milestones = activity.milestones || [];
+  const [stageIdx, setStageIdx] = useState(0);
+  const [selectedOpt, setSelectedOpt] = useState(null);
+  const [showClue, setShowClue] = useState(false);
+  const [feedback, setFeedback] = useState(null);
+  const [hadMissOnStage, setHadMissOnStage] = useState(false);
+  const [results, setResults] = useState([]);
+  const [completedStages, setCompletedStages] = useState([]);
+  const [isFinished, setIsFinished] = useState(false);
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const mountedRef = useRef(true);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      stopSpeaking();
+    };
+  }, []);
+
+  const current = items[stageIdx];
+  const isSolved = Boolean(feedback?.ok);
+
+  const handleListen = () => {
+    if (!current) return;
+    const parts = [
+      current.stageTitle ? { id: 'title', text: current.stageTitle, lang: 'en-US' } : null,
+      current.prompt ? { id: 'prompt', text: current.prompt, lang: 'en-US' } : null,
+      current.targetText ? { id: 'math', text: current.targetText, lang: 'en-US' } : null
+    ].filter(Boolean);
+
+    if (parts.length === 0) return;
+    setIsPlayingAudio(true);
+    speakCardSequence(parts, {
+      lang: 'en-US',
+      rate: 0.85,
+      pauseMs: 220,
+      onPartStart: () => {
+        if (mountedRef.current) setIsPlayingAudio(true);
+      },
+      onEnd: () => {
+        if (mountedRef.current) setIsPlayingAudio(false);
+      }
+    });
+  };
+
+  const handleOptionTap = (opt) => {
+    if (isSolved || isFinished) return;
+    playPop(soundEnabled);
+    setSelectedOpt(opt);
+
+    if (opt === current.answer) {
+      playSuccessSound(soundEnabled);
+      onFeedbackMood('celebrating');
+      const updatedCompleted = [...completedStages, current.id];
+      setCompletedStages(updatedCompleted);
+
+      setFeedback({
+        ok: true,
+        text: `✅ Way to go, ${playerName}! ${current.explanation}`
+      });
+
+      if (spokenPraiseEnabled && speechSupported) {
+        speakText(`${current.answer}! Great job, ${playerName}! ${current.explanation}`, { lang: 'en-US', rate: 0.85 });
+      }
+
+      setResults((prev) => [
+        ...prev,
+        { firstTry: !hadMissOnStage, secondTry: hadMissOnStage }
+      ]);
+
+      if (stageIdx + 1 === items.length) {
+        onCelebrate();
+        setIsFinished(true);
+      }
+    } else {
+      playGentleWrongSound(soundEnabled);
+      onFeedbackMood('thinking');
+      setHadMissOnStage(true);
+      setFeedback({
+        ok: false,
+        text: '❌ Not quite yet! Check the ones and tens column, or tap "Reveal Clue" for help.'
+      });
+    }
+  };
+
+  const handleNextStage = () => {
+    stopSpeaking();
+    if (stageIdx + 1 < items.length) {
+      playPop(soundEnabled);
+      setStageIdx((i) => i + 1);
+      setSelectedOpt(null);
+      setShowClue(false);
+      setFeedback(null);
+      setHadMissOnStage(false);
+    }
+  };
+
+  const handleFinalFinish = () => {
+    stopSpeaking();
+    const score = results.filter((r) => r.firstTry).length;
+    onComplete(Math.max(1, score), items.length, results);
+  };
+
+  return (
+    <div className="adventure-quest-container">
+      {/* 1. Adventure Map Banner & Milestone Path */}
+      <div className="adventure-map-board">
+        <div className="adventure-map-header">
+          <span className="adventure-map-badge">🗺️ {activity.mapTitle || 'Our Adventure Map'}</span>
+          <span className="adventure-stage-progress">
+            Stage {Math.min(stageIdx + 1, items.length)} of {items.length}
+          </span>
+        </div>
+
+        <div className="adventure-map-track">
+          {milestones.map((ms, idx) => {
+            const isMilestoneDone = completedStages.includes(items[idx]?.id) || (isFinished && idx === milestones.length - 1);
+            const isMilestoneActive = !isFinished && idx === stageIdx && !isMilestoneDone;
+            return (
+              <React.Fragment key={ms.id}>
+                <div className={`adventure-map-node ${isMilestoneDone ? 'node-done' : ''} ${isMilestoneActive ? 'node-active' : ''}`}>
+                  <div className="adventure-node-circle">
+                    <span className="adventure-node-icon">{ms.icon}</span>
+                    {isMilestoneDone && <span className="adventure-node-check">⭐</span>}
+                  </div>
+                  <span className="adventure-node-label">{ms.label}</span>
+                </div>
+                {idx < milestones.length - 1 && (
+                  <div className={`adventure-map-path ${isMilestoneDone ? 'path-done' : ''}`}>
+                    <span className="path-dot">🐾</span>
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* 2. Victory State When All Stages Finished */}
+      {isFinished ? (
+        <div className="adventure-victory-card">
+          <div className="adventure-victory-badge">🏆 VICTORY!</div>
+          <div className="adventure-victory-chest">
+            <span className="chest-emoji">👑💰💎</span>
+          </div>
+          <h2 className="adventure-victory-title">{activity.victoryTitle || 'You Did It! You have reached the treasure!'}</h2>
+          <p className="adventure-victory-message">
+            {activity.victoryMessage || `Great Job, Explorers! You solved all the math challenges, ${playerName}!`}
+          </p>
+
+          <div className="adventure-answers-summary">
+            <div className="adventure-summary-header">📜 Adventure Log &amp; Answers</div>
+            <div className="adventure-summary-grid">
+              {items.map((it) => (
+                <div key={it.id} className="adventure-summary-item">
+                  <span className="summary-stage-num">{it.stageTitle}:</span>
+                  <strong className="summary-stage-math">{it.targetText.replace('?', it.answer)}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="practice-sticky-bottom-bar">
+            <button
+              type="button"
+              className="next-question-btn sticky-action-btn adventure-finish-btn"
+              onClick={handleFinalFinish}
+            >
+              Finish Adventure &amp; Claim Stars 🏆
+            </button>
+          </div>
+        </div>
+      ) : (
+        /* 3. Active Stage Card */
+        <div className="adventure-stage-card">
+          <div className="adventure-stage-header">
+            <div className="adventure-stage-title-wrap">
+              <span className="adventure-stage-pill">{current.stageTitle}</span>
+            </div>
+            {speechSupported && (
+              <button
+                type="button"
+                className={`mini-listen-pill ${isPlayingAudio ? 'speech-playing' : ''}`}
+                onClick={handleListen}
+                aria-label="Listen to story and equation"
+                aria-pressed={isPlayingAudio}
+              >
+                🔊 Listen
+              </button>
+            )}
+          </div>
+
+          {current.picture && (
+            <div className="adventure-stage-visual">{current.picture}</div>
+          )}
+
+          <div className="adventure-stage-prompt">{current.prompt}</div>
+
+          <div className="adventure-equation-box">
+            <span className="adventure-equation-text">{current.targetText}</span>
+          </div>
+
+          {/* Reveal Clue Helper Button */}
+          {current.clue && !showClue && !isSolved && (
+            <button
+              type="button"
+              className="adventure-reveal-btn"
+              onClick={() => {
+                playPop(soundEnabled);
+                setShowClue(true);
+              }}
+            >
+              🪄 Reveal Clue
+            </button>
+          )}
+
+          {showClue && !isSolved && (
+            <div className="adventure-clue-box">
+              <span className="adventure-clue-label">💡 Helpful Clue:</span>
+              <p className="adventure-clue-text">{current.clue}</p>
+            </div>
+          )}
+
+          {/* Answer Choice Options */}
+          <div className="choice-options-grid choice-options-2col adventure-options-grid">
+            {(current.options || []).map((opt) => (
+              <button
+                key={opt}
+                type="button"
+                disabled={isSolved}
+                className={`choice-option-btn adventure-option-btn ${selectedOpt === opt ? 'choice-option-selected' : ''}`}
+                onClick={() => handleOptionTap(opt)}
+              >
+                <span className="choice-option-label">{opt}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Feedback Display */}
+          {feedback && (
+            <div className={`mini-feedback-box ${feedback.ok ? 'mini-ok' : 'mini-retry'}`}>
+              {feedback.text}
+            </div>
+          )}
+
+          {/* Next Stage Button */}
+          {isSolved && (
+            <div className="practice-sticky-bottom-bar">
+              <button
+                type="button"
+                className="next-question-btn sticky-action-btn"
+                onClick={handleNextStage}
+              >
+                Next Stage ➡
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>

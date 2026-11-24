@@ -114,6 +114,11 @@ describe('End-to-End User Flow & Player Lifecycle', () => {
     expect(isSubjectActive(readingSubj)).toBe(true);
     expect(readingSubj.topics.length).toBe(2);
 
+    const q2Math = getSubjectByTermAndId('q2', 'math');
+    expect(q2Math).toBeDefined();
+    expect(isSubjectActive(q2Math)).toBe(true);
+    expect(q2Math.topics.length).toBe(8);
+
     const q2Science = getSubjectByTermAndId('q2', 'science');
     expect(q2Science).toBeDefined();
     expect(isSubjectActive(q2Science)).toBe(true);
