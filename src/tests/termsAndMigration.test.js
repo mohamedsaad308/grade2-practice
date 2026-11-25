@@ -77,8 +77,10 @@ import {
   selectPracticeCategoryQuestions as selectSciencePracticeCategoryQuestions
 } from '../terms/q2/subjects/science/index.js';
 import mathRevisionData from '../terms/q2/subjects/math/content/revision.json';
+import mathMeasuringData from '../terms/q2/subjects/math/content/measuring.json';
 import {
   selectRevisionQuizQuestions as selectMathRevisionQuizQuestions,
+  selectMeasuringQuizQuestions as selectMathMeasuringQuizQuestions,
   selectPracticeCategoryQuestions as selectMathPracticeCategoryQuestions
 } from '../terms/q2/subjects/math/index.js';
 
@@ -114,9 +116,9 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(isSubjectActive(q2Subjects[0])).toBe(true);
     expect(q2Subjects[0].topics.length).toBe(9);
 
-    // Math is active with Revision (3 practices + 1 final quiz)
+    // Math is active with Operations Revision (4 topics) + Measuring Revision (4 topics)
     expect(isSubjectActive(q2Subjects[1])).toBe(true);
-    expect(q2Subjects[1].topics.length).toBe(4);
+    expect(q2Subjects[1].topics.length).toBe(8);
 
     // Science is unlocked with Week 1 Earth's Habitats (3 lessons + 3 practices + 1 final quiz)
     expect(isSubjectActive(q2Subjects[2])).toBe(true);
@@ -863,6 +865,16 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
         if (q.explanation) assertAudioClipExists(q.explanation, 'en-US');
       });
 
+      // Every Q2 Math Measuring Revision question item
+      mathMeasuringData.quiz.questions.forEach((q) => {
+        if (q.prompt) assertAudioClipExists(q.prompt.replace(/[:]+$/, ''), 'en-US');
+        assertAudioClipExists(q.text, 'en-US');
+        if (q.speechText) assertAudioClipExists(q.speechText, 'en-US');
+        q.options.forEach((opt) => assertAudioClipExists(opt, 'en-US'));
+        assertAudioClipExists(q.hint, 'en-US');
+        if (q.explanation) assertAudioClipExists(q.explanation, 'en-US');
+      });
+
       // Disambiguate shared words across English & German ('orange' -> separate MP3 clips!)
       const enOrange = getManifestAudioPath('orange', 'en-US');
       const deOrange = getManifestAudioPath('orange', 'de-DE');
@@ -1329,7 +1341,7 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     const q2Math = getSubjectByTermAndId('q2', 'math');
     expect(isSubjectActive(q2Math)).toBe(true);
     expect(q2Math.icon).toBe('🔢');
-    expect(q2Math.topics.length).toBe(4);
+    expect(q2Math.topics.length).toBe(8);
     expect(mathRevisionData.practices.length).toBe(3);
     expect(mathRevisionData.quiz.questions.length).toBe(45);
 
@@ -1386,5 +1398,69 @@ describe('School Term Registry, Routes, Migration & UI Isolation', () => {
     expect(topicsHtml).toContain('Practice 2: ➖ Subtraction Quests');
     expect(topicsHtml).toContain('Practice 3: 🔄 Mixed Adventure Clues');
     expect(topicsHtml).toContain('Revision Final Quiz: Grand Adventure Math Quest');
+  });
+
+  it('18. Q2 Math Measuring Revision validates 3 practice sets, 50-question bank with measuring visuals (rulers, meters, estimate cards), and final quiz', () => {
+    const q2Math = getSubjectByTermAndId('q2', 'math');
+    expect(mathMeasuringData.weekId).toBe('measuring_revision');
+    expect(mathMeasuringData.weekTitle).toBe('Measuring Revision');
+    expect(mathMeasuringData.practices.length).toBe(3);
+    expect(mathMeasuringData.quiz.questions.length).toBe(50);
+
+    const clean = (html) => html.replace(/<!-- -->/g, '');
+
+    // Validate all 50 quiz questions (unique IDs, 4 unique options, correct answer in options, valid measuringVisual)
+    const seenIds = new Set();
+    mathMeasuringData.quiz.questions.forEach((q) => {
+      expect(seenIds.has(q.id)).toBe(false);
+      seenIds.add(q.id);
+      expect(q.options.length).toBe(4);
+      expect(new Set(q.options).size).toBe(4);
+      expect(q.options).toContain(q.answer);
+      expect(q.measuringVisual).toBeDefined();
+    });
+
+    // Validate Practice sampling per category (10 questions each)
+    mathMeasuringData.practices.forEach((practice) => {
+      const picked = selectMathPracticeCategoryQuestions(mathMeasuringData.quiz, practice, null, 'q2');
+      expect(picked.length).toBe(10);
+      picked.forEach((q) => {
+        expect(q.category).toBe(practice.category);
+        const html = renderToString(
+          React.createElement(QuestionDispatcher, {
+            question: q,
+            onSubmit: () => {},
+            disabled: false,
+            soundEnabled: false
+          })
+        );
+        expect(html.length).toBeGreaterThan(40);
+        // Verify measuring visual renders in HTML
+        expect(html).toContain('measuring-visual-container');
+      });
+    });
+
+    // Stratified 10-question final quiz guarantees >= 3 from each category (estimating, ruler_cm, comparing)
+    const sampledQuiz = selectMathMeasuringQuizQuestions(mathMeasuringData.quiz, null, 'q2');
+    expect(sampledQuiz.length).toBe(10);
+    ['estimating', 'ruler_cm', 'comparing'].forEach((cat) => {
+      expect(sampledQuiz.filter((q) => q.category === cat).length).toBeGreaterThanOrEqual(3);
+    });
+
+    // Render Q2 Math Topics screen & verify Measuring Revision section appears alongside Operations Revision
+    const q2Term = getTermById('q2');
+    const topicsHtml = clean(renderToString(
+      React.createElement(SubjectTopicsView, {
+        player: { name: 'Maya', avatar: 'fox', stars: 0 },
+        term: q2Term,
+        subject: q2Math
+      })
+    ));
+    expect(topicsHtml).toContain('Revision');
+    expect(topicsHtml).toContain('Measuring Revision');
+    expect(topicsHtml).toContain('Practice 1: 📏 Estimating Length');
+    expect(topicsHtml).toContain('Practice 2: 📐 Measuring with Rulers');
+    expect(topicsHtml).toContain('Practice 3: ⚖️ Comparing Lengths &amp; Heights');
+    expect(topicsHtml).toContain('Revision Final Quiz: Measuring Master Challenge');
   });
 });

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { playPop } from '../utils/audio.js';
 import SocialStudiesVisual from '../components/SocialStudiesVisual.jsx';
 import ColorSplashVisual from '../components/ColorSplashVisual.jsx';
+import MeasuringVisual from '../components/MeasuringVisual.jsx';
 
 function escapeRegex(string) {
   return string.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -130,6 +131,13 @@ export default function ChoiceRenderer({
         {/* Optional Visual Illustration (e.g. Northern Africa Map, Shapes, Colors) */}
         {question.visual && (
           <SocialStudiesVisual type={question.visual} highlight={question.highlight} />
+        )}
+
+        {/* Optional Measuring Visual (Ruler measurements, Height & Meters comparisons, Object scales) */}
+        {question.measuringVisual && (
+          <div className="choice-measuring-visual-wrap">
+            <MeasuringVisual visual={question.measuringVisual} />
+          </div>
         )}
 
         {/* Optional Paint Splash / Multi-Color Palette Visual (German Die Farben) */}

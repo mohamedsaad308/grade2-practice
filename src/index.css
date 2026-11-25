@@ -6074,5 +6074,109 @@ input, button, textarea, a, [role="button"] {
   font-weight: 900;
 }
 
+/* ==========================================================================
+   Measuring Revision Visuals (Rulers, Meters Comparisons, Estimate Cards)
+   ========================================================================== */
+.choice-measuring-visual-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.measuring-visual-container {
+  width: 100%;
+  max-width: 540px;
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.measuring-visual-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.measuring-badge {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid #BFDBFE;
+}
+
+.measuring-obj-badge {
+  background: #FEF3C7;
+  color: #92400E;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid #FDE68A;
+}
+
+.measuring-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.estimate-card-container {
+  background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+  border: 2px solid #CBD5E1;
+}
+
+.estimate-object-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.5rem 0.25rem;
+}
+
+.estimate-object-icon-wrap {
+  width: 64px;
+  height: 64px;
+  background: #EFF6FF;
+  border-radius: 16px;
+  border: 2px solid #BFDBFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.estimate-object-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.estimate-object-info {
+  flex: 1;
+}
+
+.estimate-object-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #0F172A;
+  margin: 0 0 0.25rem 0;
+}
+
+.estimate-object-hint {
+  font-size: 0.95rem;
+  color: #475569;
+  font-weight: 600;
+  margin: 0;
+}
+
+
 
 

@@ -1,8 +1,10 @@
 import revisionData from './content/revision.json';
+import measuringData from './content/measuring.json';
 import { shuffle } from '../../../../utils/mathHelpers.js';
 import { getItemOutcomes, getCurrentPlayer } from '../../../../player/playerStorage.js';
 
-const QUIZ_CATEGORIES = ['addition', 'subtraction', 'mixed'];
+const OPERATIONS_CATEGORIES = ['addition', 'subtraction', 'mixed'];
+const MEASURING_CATEGORIES = ['estimating', 'ruler_cm', 'comparing'];
 
 function sortByAdaptive(items, explicitPlayerId = null, termId = 'q2') {
   const playerId = explicitPlayerId || getCurrentPlayer()?.id;
@@ -53,18 +55,16 @@ export function selectPracticeCategoryQuestions(quizConfig, practiceConfig, expl
 }
 
 /**
- * Sample 10 random quiz questions with AT LEAST 3 from each of the 3 revision categories
- * (addition, subtraction, mixed), prioritizing missed/unseen items inside ('q2', 'math')
- * and shuffling both question order and option order.
+ * Sample 10 random quiz questions with AT LEAST 3 from each category,
+ * prioritizing missed/unseen items and shuffling question & option orders.
  */
-export function selectRevisionQuizQuestions(quizConfig, explicitPlayerId = null, termId = 'q2') {
+export function selectAdaptiveQuizQuestions(quizConfig, categories, explicitPlayerId = null, termId = 'q2') {
   const allQuestions = Array.isArray(quizConfig?.questions) ? quizConfig.questions : [];
 
   const chosen = [];
   const chosenIds = new Set();
 
-  // Guarantee at least 3 questions from each of the 3 categories (9 + 1 extra = 10)
-  for (const cat of QUIZ_CATEGORIES) {
+  for (const cat of categories) {
     const catPool = sortByAdaptive(
       allQuestions.filter((q) => q.category === cat),
       explicitPlayerId,
@@ -101,20 +101,28 @@ export function selectRevisionQuizQuestions(quizConfig, explicitPlayerId = null,
   }));
 }
 
+export function selectRevisionQuizQuestions(quizConfig, explicitPlayerId = null, termId = 'q2') {
+  return selectAdaptiveQuizQuestions(quizConfig, OPERATIONS_CATEGORIES, explicitPlayerId, termId);
+}
+
+export function selectMeasuringQuizQuestions(quizConfig, explicitPlayerId = null, termId = 'q2') {
+  return selectAdaptiveQuizQuestions(quizConfig, MEASURING_CATEGORIES, explicitPlayerId, termId);
+}
+
 /**
  * Helper to turn structured Q2 Math revision JSON files into clickable
  * topic practices and the revision final quiz.
  */
-export function createRevisionTopics(revisionData) {
-  const weekId = revisionData.weekId || 'revision';
-  const weekTitle = revisionData.weekTitle || 'Revision';
-  const weekSubtitle = revisionData.weekSubtitle || '';
+export function createSectionTopics(sectionData, categories, quizSelector) {
+  const weekId = sectionData.weekId || 'revision';
+  const weekTitle = sectionData.weekTitle || 'Revision';
+  const weekSubtitle = sectionData.weekSubtitle || '';
 
   const topics = [];
 
-  if (revisionData.quiz && Array.isArray(revisionData.practices)) {
-    revisionData.practices.forEach((practice) => {
-      const poolSize = (revisionData.quiz.questions || []).filter(
+  if (sectionData.quiz && Array.isArray(sectionData.practices)) {
+    sectionData.practices.forEach((practice) => {
+      const poolSize = (sectionData.quiz.questions || []).filter(
         (q) => !practice.category || q.category === practice.category
       ).length;
       const sessionCount = Math.min(practice.questionCount || 10, poolSize || 10);
@@ -134,14 +142,14 @@ export function createRevisionTopics(revisionData) {
         practiceData: practice,
         levels: [1],
         getQuestions(level = 1, playerId = null, termId = 'q2') {
-          return selectPracticeCategoryQuestions(revisionData.quiz, practice, playerId, termId);
+          return selectPracticeCategoryQuestions(sectionData.quiz, practice, playerId, termId);
         }
       });
     });
   }
 
-  if (revisionData.quiz) {
-    const quiz = revisionData.quiz;
+  if (sectionData.quiz) {
+    const quiz = sectionData.quiz;
     topics.push({
       id: quiz.id,
       weekId,
@@ -156,7 +164,7 @@ export function createRevisionTopics(revisionData) {
       quizData: quiz,
       levels: [1],
       getQuestions(level = 1, playerId = null, termId = 'q2') {
-        return selectRevisionQuizQuestions(quiz, playerId, termId);
+        return quizSelector(quiz, playerId, termId);
       }
     });
   }
@@ -164,9 +172,17 @@ export function createRevisionTopics(revisionData) {
   return topics;
 }
 
+export function createRevisionTopics(data = revisionData) {
+  return createSectionTopics(data, OPERATIONS_CATEGORIES, selectRevisionQuizQuestions);
+}
+
+export function createMeasuringTopics(data = measuringData) {
+  return createSectionTopics(data, MEASURING_CATEGORIES, selectMeasuringQuizQuestions);
+}
+
 /**
  * Q2 Math Subject
- * Section "Revision" is active with Treasure Quest & Adventure Math Games!
+ * Active with Section 1 (Operations Revision) and Section 2 (Measuring Revision)!
  */
 export default {
   id: 'math',
@@ -174,8 +190,9 @@ export default {
   icon: '🔢',
   color: '#4F46E5',
   lightColor: '#EEF2FF',
-  description: 'Revision: 3-Digit Addition & Subtraction Word Problems — Practice Quests & Final Quiz!',
+  description: 'Revision: 3-Digit Addition & Subtraction + Measuring Length & Comparing Meters!',
   topics: [
-    ...createRevisionTopics(revisionData)
+    ...createRevisionTopics(revisionData),
+    ...createMeasuringTopics(measuringData)
   ]
 };

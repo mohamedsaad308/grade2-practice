@@ -1,0 +1,1139 @@
+{
+  "weekId": "measuring_revision",
+  "weekTitle": "Measuring Revision",
+  "weekSubtitle": "Estimating Length (in vs ft), Measuring with Rulers (cm), and Comparing Heights & Meters",
+  "practices": [
+    {
+      "id": "w2_math_practice_estimating",
+      "category": "estimating",
+      "practiceLabel": "Math Practice 1",
+      "title": "Practice 1: 📏 Estimating Length (Inches vs. Feet)",
+      "icon": "📏",
+      "description": "Estimate real-world objects: books, doors, cups, cars, pianos, school buses, suitcases, and animals in inches and feet!",
+      "hint": "Remember: An inch is small like a paperclip or thumb tip. A foot is 12 inches, like a classroom ruler!",
+      "questionCount": 10
+    },
+    {
+      "id": "w2_math_practice_ruler",
+      "category": "ruler_cm",
+      "practiceLabel": "Math Practice 2",
+      "title": "Practice 2: 📐 Measuring with Rulers (Centimeters • cm)",
+      "icon": "📐",
+      "description": "Use the centimeter ruler to measure lines, pencils, blocks, crayons, scissors, and erasers accurately!",
+      "hint": "Always line up the start of the object with 0 on the ruler, then read the number at the other end!",
+      "questionCount": 10
+    },
+    {
+      "id": "w2_math_practice_comparing",
+      "category": "comparing",
+      "practiceLabel": "Math Practice 3",
+      "title": "Practice 3: ⚖️ Comparing Lengths & Heights (Meters & Differences)",
+      "icon": "⚖️",
+      "description": "Compare trees, cars, and trucks in meters. Identify shortest and longest, and subtract to find differences!",
+      "hint": "To find how much longer, taller, or shorter, subtract the smaller length from the larger length!",
+      "questionCount": 10
+    }
+  ],
+  "quiz": {
+    "id": "w2_math_measuring_final_quiz",
+    "title": "Revision Final Quiz: Measuring Master Challenge",
+    "icon": "🏆",
+    "description": "A 10-question challenge testing length estimation, centimeter ruler readings, and comparing meters!",
+    "hint": "Look closely at the rulers, read the numbers at each end, and calculate step-by-step!",
+    "instruction": "Look at the picture or read the question, then tap the best answer!",
+    "questions": [
+      {
+        "id": "q2-meas-est-01",
+        "category": "estimating",
+        "prompt": "Estimate the length of the book. Which gives the best estimate?",
+        "text": "A reading book is about:",
+        "speechText": "A reading book is about 1 foot or 1 inch?",
+        "options": [
+          "1 foot",
+          "1 inch",
+          "10 feet",
+          "12 feet"
+        ],
+        "answer": "1 foot",
+        "hint": "An inch is tiny like a paperclip. A foot is 12 inches, like a standard school ruler!",
+        "explanation": "A book is about 1 foot long (12 inches). 1 inch is much too small!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "📘",
+          "name": "Reading Book",
+          "categoryHint": "About the length of a classroom ruler",
+          "badge": "Estimate Length"
+        }
+      },
+      {
+        "id": "q2-meas-est-02",
+        "category": "estimating",
+        "prompt": "Estimate the height of a house door. Which gives the best estimate?",
+        "text": "A house door is about:",
+        "speechText": "A house door is about 7 feet or 7 inches?",
+        "options": [
+          "7 feet",
+          "7 inches",
+          "70 feet",
+          "1 foot"
+        ],
+        "answer": "7 feet",
+        "hint": "An adult person can walk through a door. A grown-up is around 5 to 6 feet tall!",
+        "explanation": "A house door is about 7 feet tall so tall adults can walk through easily.",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🚪",
+          "name": "House Door",
+          "categoryHint": "Taller than an adult person",
+          "badge": "Estimate Height"
+        }
+      },
+      {
+        "id": "q2-meas-est-03",
+        "category": "estimating",
+        "prompt": "Estimate the height of a coffee mug. Which gives the best estimate?",
+        "text": "A coffee mug is about:",
+        "speechText": "A coffee mug is about 3 inches or 3 feet?",
+        "options": [
+          "3 inches",
+          "3 feet",
+          "30 inches",
+          "1 foot"
+        ],
+        "answer": "3 inches",
+        "hint": "You can hold a mug in one hand. 3 feet would be as tall as a kitchen table!",
+        "explanation": "A coffee mug is about 3 inches tall. 3 feet would be giant!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "☕",
+          "name": "Coffee Mug",
+          "categoryHint": "Small enough to hold in your hand",
+          "badge": "Estimate Height"
+        }
+      },
+      {
+        "id": "q2-meas-est-04",
+        "category": "estimating",
+        "prompt": "Estimate the length of a car. Which gives the best estimate?",
+        "text": "A family car is about:",
+        "speechText": "A family car is about 10 feet or 10 inches?",
+        "options": [
+          "10 feet",
+          "10 inches",
+          "100 feet",
+          "1 foot"
+        ],
+        "answer": "10 feet",
+        "hint": "A car fits several people inside. 10 inches is smaller than a ruler!",
+        "explanation": "A real family car is about 10 to 15 feet long. 10 inches would be a toy car!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🚗",
+          "name": "Family Car",
+          "categoryHint": "Large vehicle for a family",
+          "badge": "Estimate Length"
+        }
+      },
+      {
+        "id": "q2-meas-est-05",
+        "category": "estimating",
+        "prompt": "Estimate the height of a room window. Which gives the best estimate?",
+        "text": "A room window is about:",
+        "speechText": "A room window is about 5 feet or 5 inches?",
+        "options": [
+          "5 feet",
+          "5 inches",
+          "50 feet",
+          "1 inch"
+        ],
+        "answer": "5 feet",
+        "hint": "A window on the wall is almost as tall as an adult! 5 inches is tiny.",
+        "explanation": "A room window is about 5 feet tall. 5 inches is smaller than a pencil!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🪟",
+          "name": "Room Window",
+          "categoryHint": "On the wall of a house",
+          "badge": "Estimate Height"
+        }
+      },
+      {
+        "id": "q2-meas-est-06",
+        "category": "estimating",
+        "prompt": "Estimate the width of a baseball. Which gives the best estimate?",
+        "text": "A baseball is about:",
+        "speechText": "A baseball is about 4 inches or 4 feet?",
+        "options": [
+          "4 inches",
+          "4 feet",
+          "40 inches",
+          "2 feet"
+        ],
+        "answer": "4 inches",
+        "hint": "A baseball fits in your palm. 4 feet would be as wide as a desk!",
+        "explanation": "A baseball is about 3 to 4 inches across so a pitcher can hold and throw it.",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "⚾",
+          "name": "Baseball",
+          "categoryHint": "Fits inside your glove or hand",
+          "badge": "Estimate Width"
+        }
+      },
+      {
+        "id": "q2-meas-est-07",
+        "category": "estimating",
+        "prompt": "Estimate the width of a grand piano. Check the correct option:",
+        "text": "A grand piano is about:",
+        "speechText": "A grand piano is about 58 inches or 58 feet?",
+        "options": [
+          "58 in",
+          "58 ft",
+          "580 in",
+          "5 in"
+        ],
+        "answer": "58 in",
+        "hint": "58 inches is almost 5 feet. 58 feet would be longer than a house!",
+        "explanation": "A grand piano is about 58 inches wide (nearly 5 feet). 58 feet would be giant!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🎹",
+          "name": "Grand Piano",
+          "categoryHint": "Musical instrument in a concert hall",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-08",
+        "category": "estimating",
+        "prompt": "Estimate the length of a school bus. Check the correct option:",
+        "text": "A yellow school bus is about:",
+        "speechText": "A yellow school bus is about 42 feet or 42 inches?",
+        "options": [
+          "42 ft",
+          "42 in",
+          "4 ft",
+          "420 ft"
+        ],
+        "answer": "42 ft",
+        "hint": "A bus carries dozens of children. 42 inches is only 3.5 feet, shorter than a 2nd grader!",
+        "explanation": "A full-size school bus is about 42 feet long to seat many students.",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🚌",
+          "name": "School Bus",
+          "categoryHint": "Carries many students to school",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-09",
+        "category": "estimating",
+        "prompt": "Estimate the height of a cardboard box. Check the correct option:",
+        "text": "A shipping cardboard box is about:",
+        "speechText": "A shipping cardboard box is about 18 inches or 18 feet?",
+        "options": [
+          "18 in",
+          "18 ft",
+          "180 in",
+          "2 ft"
+        ],
+        "answer": "18 in",
+        "hint": "18 inches is 1 and a half feet. 18 feet is as tall as a two-story building!",
+        "explanation": "A cardboard delivery box is about 18 inches tall. 18 feet would be massive!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "📦",
+          "name": "Cardboard Box",
+          "categoryHint": "Delivery package for packages",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-10",
+        "category": "estimating",
+        "prompt": "Estimate the length of a travel suitcase. Check the correct option:",
+        "text": "A travel suitcase is about:",
+        "speechText": "A travel suitcase is about 24 inches or 24 feet?",
+        "options": [
+          "24 in",
+          "24 ft",
+          "2 ft 4 in",
+          "240 in"
+        ],
+        "answer": "24 in",
+        "hint": "24 inches is exactly 2 feet. 24 feet is as long as two cars combined!",
+        "explanation": "A standard luggage suitcase is about 24 inches long (2 feet) to pack clothes.",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🧳",
+          "name": "Travel Suitcase",
+          "categoryHint": "Luggage packed for vacation",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-11",
+        "category": "estimating",
+        "prompt": "Estimate the height of a small step ladder. Check the correct option:",
+        "text": "A household step stool ladder is about:",
+        "speechText": "A household step stool ladder is about 30 inches or 30 feet?",
+        "options": [
+          "30 in",
+          "30 ft",
+          "300 in",
+          "3 ft"
+        ],
+        "answer": "30 in",
+        "hint": "30 inches is 2.5 feet, reaching high kitchen shelves. 30 feet is for fire trucks!",
+        "explanation": "A small kitchen step ladder is about 30 inches tall (2 and a half feet).",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🪜",
+          "name": "Step Ladder",
+          "categoryHint": "Helps reach kitchen cabinets",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-12",
+        "category": "estimating",
+        "prompt": "Estimate the length of an ice popsicle. Check the correct option:",
+        "text": "An ice popsicle is about:",
+        "speechText": "An ice popsicle is about 3 inches or 3 feet?",
+        "options": [
+          "3 in",
+          "3 ft",
+          "30 in",
+          "1 ft"
+        ],
+        "answer": "3 in",
+        "hint": "You hold a popsicle by its wooden stick. 3 feet would be as long as a baseball bat!",
+        "explanation": "A popsicle treat is about 3 inches long. 3 feet would be impossible to hold!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🍧",
+          "name": "Ice Popsicle",
+          "categoryHint": "Sweet summer frozen treat",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-13",
+        "category": "estimating",
+        "prompt": "Estimate the length of a fresh carrot. Check the correct option:",
+        "text": "A garden carrot is about:",
+        "speechText": "A garden carrot is about 6 inches or 6 feet?",
+        "options": [
+          "6 in",
+          "6 ft",
+          "60 in",
+          "1 ft"
+        ],
+        "answer": "6 in",
+        "hint": "A carrot is about half the length of a ruler (6 inches). 6 feet is as tall as a man!",
+        "explanation": "A garden carrot is about 6 inches long. 6 feet would be giant vegetable!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🥕",
+          "name": "Garden Carrot",
+          "categoryHint": "Crunchy orange vegetable",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-14",
+        "category": "estimating",
+        "prompt": "Estimate the height of an African giraffe. Check the correct option:",
+        "text": "A tall giraffe is about:",
+        "speechText": "A tall giraffe is about 12 feet or 12 inches?",
+        "options": [
+          "12 ft",
+          "12 in",
+          "120 ft",
+          "1 ft"
+        ],
+        "answer": "12 ft",
+        "hint": "A giraffe has a super long neck that reaches high tree leaves! 12 inches is just 1 foot.",
+        "explanation": "A giraffe is about 12 to 18 feet tall! 12 inches would be tiny like a kitten.",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🦒",
+          "name": "Tall Giraffe",
+          "categoryHint": "Tallest animal in the savanna",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-15",
+        "category": "estimating",
+        "prompt": "Estimate the height of a notebook. Check the correct option:",
+        "text": "A school notebook is about:",
+        "speechText": "A school notebook is about 8 inches or 8 feet?",
+        "options": [
+          "8 in",
+          "8 ft",
+          "80 in",
+          "1 ft"
+        ],
+        "answer": "8 in",
+        "hint": "A notebook easily fits in your backpack. 8 feet would touch the ceiling!",
+        "explanation": "A school notebook is about 8 to 10 inches tall. 8 feet is as high as a room ceiling!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "📓",
+          "name": "School Notebook",
+          "categoryHint": "Fits inside your backpack",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-16",
+        "category": "estimating",
+        "prompt": "Estimate the length of a yellow banana. Check the correct option:",
+        "text": "A ripe yellow banana is about:",
+        "speechText": "A ripe yellow banana is about 6 inches or 6 feet?",
+        "options": [
+          "6 in",
+          "6 ft",
+          "60 in",
+          "1 ft"
+        ],
+        "answer": "6 in",
+        "hint": "You can hold a banana easily. 6 feet is taller than your teacher!",
+        "explanation": "A ripe banana is about 6 to 8 inches long. 6 feet would be as big as a human!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🍌",
+          "name": "Yellow Banana",
+          "categoryHint": "Sweet fruit for snack",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-17",
+        "category": "estimating",
+        "prompt": "Estimate the length of a kitchen toaster. Check the correct option:",
+        "text": "A kitchen bread toaster is about:",
+        "speechText": "A kitchen bread toaster is about 15 inches or 15 feet?",
+        "options": [
+          "15 in",
+          "15 ft",
+          "150 in",
+          "1 foot"
+        ],
+        "answer": "15 in",
+        "hint": "A toaster sits neatly on the kitchen counter. 15 feet would cover the whole kitchen!",
+        "explanation": "A 2-slice or 4-slice toaster is about 12 to 15 inches long (just over 1 foot).",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🍞",
+          "name": "Bread Toaster",
+          "categoryHint": "Sits on the kitchen counter",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-18",
+        "category": "estimating",
+        "prompt": "Estimate the length of a garden rake or broom. Check the correct option:",
+        "text": "A garden rake is about:",
+        "speechText": "A garden rake is about 2 feet or 2 inches?",
+        "options": [
+          "2 ft",
+          "2 in",
+          "20 ft",
+          "20 in"
+        ],
+        "answer": "2 ft",
+        "hint": "A child garden rake or rake head is around 2 feet. 2 inches is small like a paperclip!",
+        "explanation": "A garden rake or broom is around 2 to 4 feet long so you can sweep leaves.",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🧹",
+          "name": "Garden Rake",
+          "categoryHint": "Tool used to collect autumn leaves",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-19",
+        "category": "estimating",
+        "prompt": "Estimate the length of a brass saxophone. Check the correct option:",
+        "text": "A musical saxophone is about:",
+        "speechText": "A musical saxophone is about 25 inches or 25 feet?",
+        "options": [
+          "25 in",
+          "25 ft",
+          "250 in",
+          "2 ft"
+        ],
+        "answer": "25 in",
+        "hint": "A musician holds the saxophone in their lap. 25 feet is as long as a boat!",
+        "explanation": "An alto saxophone is about 25 inches long (about 2 feet).",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🎷",
+          "name": "Brass Saxophone",
+          "categoryHint": "Musical instrument in school band",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-20",
+        "category": "estimating",
+        "prompt": "Estimate the length of a rescue helicopter. Check the correct option:",
+        "text": "A rescue helicopter is about:",
+        "speechText": "A rescue helicopter is about 85 feet or 85 inches?",
+        "options": [
+          "85 ft",
+          "85 in",
+          "8 ft",
+          "850 ft"
+        ],
+        "answer": "85 ft",
+        "hint": "A helicopter carries pilots, doctors, and patients! 85 inches is only 7 feet, too small!",
+        "explanation": "A real helicopter is about 50 to 85 feet long from rotor to tail rotor.",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🚁",
+          "name": "Rescue Helicopter",
+          "categoryHint": "Flies in the air to rescue people",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-21",
+        "category": "estimating",
+        "prompt": "Estimate the height of a small cottage window. Check the correct option:",
+        "text": "A square window is about:",
+        "speechText": "A square window is about 3 feet or 3 inches?",
+        "options": [
+          "3 ft",
+          "3 in",
+          "30 ft",
+          "30 in"
+        ],
+        "answer": "3 ft",
+        "hint": "3 feet is 36 inches (about 3 rulers). 3 inches is only as big as an eraser!",
+        "explanation": "A standard square cottage window is about 3 feet tall and 3 feet wide.",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🪟",
+          "name": "Square Window",
+          "categoryHint": "Lets sunshine into the bedroom",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-est-22",
+        "category": "estimating",
+        "prompt": "Estimate the width of an autumn pumpkin. Check the correct option:",
+        "text": "An autumn pumpkin is about:",
+        "speechText": "An autumn pumpkin is about 12 inches or 12 feet?",
+        "options": [
+          "12 in",
+          "12 ft",
+          "120 in",
+          "1 ft 6 in"
+        ],
+        "answer": "12 in",
+        "hint": "12 inches is exactly 1 foot, perfect to carve for Halloween! 12 feet is as tall as a house!",
+        "explanation": "A large pumpkin is about 12 inches wide (1 foot). 12 feet would be massive!",
+        "measuringVisual": {
+          "type": "estimate_card",
+          "emoji": "🎃",
+          "name": "Autumn Pumpkin",
+          "categoryHint": "Round orange pumpkin from the patch",
+          "badge": "Inches vs Feet"
+        }
+      },
+      {
+        "id": "q2-meas-rul-01",
+        "category": "ruler_cm",
+        "prompt": "Look at the ruler and measure the black line in centimeters (cm):",
+        "text": "The line is ___ centimeters long.",
+        "speechText": "Look at the ruler. How many centimeters long is the line?",
+        "options": [
+          "14 cm",
+          "13 cm",
+          "15 cm",
+          "12 cm"
+        ],
+        "answer": "14 cm",
+        "hint": "Check where the line starts (0) and where it ends on the ruler.",
+        "explanation": "The line starts at 0 cm and ends right at 14 cm. Its length is 14 cm!",
+        "measuringVisual": {
+          "type": "ruler",
+          "objectType": "line",
+          "objectName": "Straight Line",
+          "objectEmoji": "📏",
+          "lengthCm": 14,
+          "startCm": 0,
+          "maxCm": 15
+        }
+      },
+      {
+        "id": "q2-meas-rul-02",
+        "category": "ruler_cm",
+        "prompt": "Look at the ruler and measure the yellow pencil in centimeters (cm):",
+        "text": "The pencil is ___ centimeters long.",
+        "speechText": "Look at the ruler. How many centimeters long is the pencil?",
+        "options": [
+          "13 cm",
+          "12 cm",
+          "14 cm",
+          "11 cm"
+        ],
+        "answer": "13 cm",
+        "hint": "The eraser is at 0. Follow the sharp tip down to the ruler mark.",
+        "explanation": "The pencil starts at 0 cm and its sharpened point reaches 13 cm. Length = 13 cm!",
+        "measuringVisual": {
+          "type": "ruler",
+          "objectType": "pencil",
+          "objectName": "Yellow Pencil",
+          "objectEmoji": "✏️",
+          "lengthCm": 13,
+          "startCm": 0,
+          "maxCm": 15
+        }
+      },
+      {
+        "id": "q2-meas-rul-03",
+        "category": "ruler_cm",
+        "prompt": "Look at the ruler and measure the blue building block in centimeters (cm):",
+        "text": "The blue block is ___ centimeters long.",
+        "speechText": "Look at the ruler. How many centimeters long is the blue block?",
+        "options": [
+          "11 cm",
+          "10 cm",
+          "12 cm",
+          "9 cm"
+        ],
+        "answer": "11 cm",
+        "hint": "The block starts at 0. Look at the right edge of the blue block.",
+        "explanation": "The blue block starts at 0 cm and ends at 11 cm. Length = 11 cm!",
+        "measuringVisual": {
+          "type": "ruler",
+          "objectType": "blue_block",
+          "objectName": "Blue Block",
+          "objectEmoji": "🧱",
+          "lengthCm": 11,
+          "startCm": 0,
+          "maxCm": 15
+        }
+      },
+      {
+        "id": "q2-meas-rul-04",
+        "category": "ruler_cm",
+        "prompt": "Look at the ruler and measure the red crayon in centimeters (cm):",
+        "text": "The red crayon is ___ centimeters long.",
+        "speechText": "Look at the ruler. How many centimeters long is the red crayon?",
+        "options": [
+          "10 cm",
+          "9 cm",
+          "11 cm",
+          "12 cm"
+        ],
+        "answer": "10 cm",
+        "hint": "The back of the crayon is at 0. Follow the pointed tip down to the ruler.",
+        "explanation": "The red crayon starts at 0 cm and points straight to 10 cm. Length = 10 cm!",
+        "measuringVisual": {
+          "type": "ruler",
+          "objectType": "red_crayon",
+          "objectName": "Red Crayon",
+          "objectEmoji": "🖍️",
+          "lengthCm": 10,
+          "startCm": 0,
+          "maxCm": 15
+        }
+      },
+      {
+        "id": "q2-meas-rul-05",
+        "category": "ruler_cm",
+        "prompt": "Look at the ruler and measure the pink and blue eraser in centimeters (cm):",
+        "text": "The eraser is ___ centimeters long.",
+        "speechText": "Look at the ruler. How many centimeters long is the eraser?",
+        "options": [
+          "6 cm",
+          "7 cm",
+          "5 cm",
+          "8 cm"
+        ],
+        "answer": "6 cm",
+        "hint": "Start at 0 on the left. The right edge of the eraser stops at 6.",
+        "explanation": "The eraser starts at 0 cm and ends at 6 cm. Length = 6 cm!",
+        "measuringVisual": {
+          "type": "ruler",
+          "objectType": "eraser",
+          "objectName": "Desk Eraser",
+          "objectEmoji": "🧼",
+          "lengthCm": 6,
+          "startCm": 0,
+          "maxCm": 15
+        }
+      },
+      {
+        "id": "q2-meas-rul-06",
+        "category": "ruler_cm",
+        "prompt": "Look at the ruler comparing items. How long is the green crayon?",
+        "text": "The crayon is ___ centimeters long.",
+        "speechText": "How long is the crayon on the ruler?",
+        "options": [
+          "7 cm",
+          "6 cm",
+          "8 cm",
+          "9 cm"
+        ],
+        "answer": "7 cm",
+        "hint": "Look at the green crayon at the top. The dotted line points to 7.",
+        "explanation": "The green crayon starts at 0 and ends at 7 cm. It is 7 centimeters long!",
+        "measuringVisual": {
+          "type": "ruler_multi"
+        }
+      },
+      {
+        "id": "q2-meas-rul-07",
+        "category": "ruler_cm",
+        "prompt": "Look at the ruler comparing items. How long are the red scissors?",
+        "text": "The scissors are ___ centimeters long.",
+        "speechText": "How long are the scissors on the ruler?",
+        "options": [
+          "12 cm",
+          "11 cm",
+          "13 cm",
+          "10 cm"
+        ],
+        "answer": "12 cm",
+        "hint": "The handles start at 0. Follow the tips of the blades down to the ruler.",
+        "explanation": "The scissors start at 0 and reach the 12 cm mark. They are 12 centimeters long!",
+        "measuringVisual": {
+          "type": "ruler_multi"
+        }
+      },
+      {
+        "id": "q2-meas-rul-08",
+        "category": "ruler_cm",
+        "prompt": "Look at the ruler comparing items. How long is the glue stick?",
+        "text": "The glue stick is ___ centimeters long.",
+        "speechText": "How long is the glue stick on the ruler?",
+        "options": [
+          "9 cm",
+          "8 cm",
+          "10 cm",
+          "7 cm"
+        ],
+        "answer": "9 cm",
+        "hint": "The bottom of the glue stick is at 0. The cap ends at 9.",
+        "explanation": "The glue stick starts at 0 and ends at 9 cm. It is 9 centimeters long!",
+        "measuringVisual": {
+          "type": "ruler_multi"
+        }
+      },
+      {
+        "id": "q2-meas-rul-09",
+        "category": "ruler_cm",
+        "prompt": "Ruler Measurement Rule: Where must you always start when measuring with a ruler?",
+        "text": "When measuring an object with a ruler, always line up the start with:",
+        "speechText": "When measuring an object with a ruler, always line up the start with what number?",
+        "options": [
+          "0",
+          "1",
+          "10",
+          "The end of the ruler"
+        ],
+        "answer": "0",
+        "hint": "Remember: Start at 0 on the ruler so you count the full length accurately!",
+        "explanation": "Always start at 0 on the ruler! If you start at 1, your measurement will be 1 cm too short.",
+        "measuringVisual": {
+          "type": "ruler",
+          "objectType": "line",
+          "objectName": "Start at 0 Mark",
+          "objectEmoji": "0️⃣",
+          "lengthCm": 8,
+          "startCm": 0,
+          "maxCm": 15
+        }
+      },
+      {
+        "id": "q2-meas-rul-10",
+        "category": "ruler_cm",
+        "prompt": "Understanding units: What does the abbreviation \"cm\" stand for on a classroom ruler?",
+        "text": "The letters \"cm\" stand for:",
+        "speechText": "What does the abbreviation c m stand for on a ruler?",
+        "options": [
+          "centimeters",
+          "cookies",
+          "circular meters",
+          "clean marks"
+        ],
+        "answer": "centimeters",
+        "hint": "It is a metric unit for measuring smaller objects like pencils and erasers.",
+        "explanation": "\"cm\" stands for centimeters. There are 100 centimeters in 1 meter!",
+        "measuringVisual": {
+          "type": "ruler",
+          "objectType": "blue_block",
+          "objectName": "Centimeters (cm)",
+          "objectEmoji": "📏",
+          "lengthCm": 10,
+          "startCm": 0,
+          "maxCm": 15
+        }
+      },
+      {
+        "id": "q2-meas-rul-11",
+        "category": "ruler_cm",
+        "prompt": "Look at the ruler: An object starts at 0 cm and ends at 5 cm. How long is it?",
+        "text": "The object is ___ centimeters long.",
+        "speechText": "An object starts at 0 and ends at 5 centimeters. How long is it?",
+        "options": [
+          "5 cm",
+          "4 cm",
+          "6 cm",
+          "0 cm"
+        ],
+        "answer": "5 cm",
+        "hint": "5 - 0 = 5 centimeters.",
+        "explanation": "Starting at 0 and ending at 5 means the object is exactly 5 cm long.",
+        "measuringVisual": {
+          "type": "ruler",
+          "objectType": "eraser",
+          "objectName": "Mini Eraser",
+          "objectEmoji": "🧼",
+          "lengthCm": 5,
+          "startCm": 0,
+          "maxCm": 15
+        }
+      },
+      {
+        "id": "q2-meas-rul-12",
+        "category": "ruler_cm",
+        "prompt": "Look at the ruler: A marker starts at 0 cm and stops at 12 cm. How long is it?",
+        "text": "The marker is ___ centimeters long.",
+        "speechText": "A marker starts at 0 and stops at 12 centimeters. How long is it?",
+        "options": [
+          "12 cm",
+          "11 cm",
+          "13 cm",
+          "10 cm"
+        ],
+        "answer": "12 cm",
+        "hint": "Read the number where the tip ends: 12.",
+        "explanation": "The marker ends right on 12 cm, so its length is 12 centimeters.",
+        "measuringVisual": {
+          "type": "ruler",
+          "objectType": "pencil",
+          "objectName": "Color Marker",
+          "objectEmoji": "🖊️",
+          "lengthCm": 12,
+          "startCm": 0,
+          "maxCm": 15
+        }
+      },
+      {
+        "id": "q2-meas-cmp-01",
+        "category": "comparing",
+        "prompt": "Look at Tree A (4 m) and Tree B (3 m). Which tree is taller?",
+        "text": "Which tree is taller?",
+        "speechText": "Tree A is 4 meters and Tree B is 3 meters. Which tree is taller?",
+        "options": [
+          "Tree A",
+          "Tree B",
+          "They are the same",
+          "Neither"
+        ],
+        "answer": "Tree A",
+        "hint": "Compare 4 meters and 3 meters. Which number is greater?",
+        "explanation": "Tree A is 4 meters tall, which is taller than Tree B (3 meters). 4 > 3!",
+        "measuringVisual": {
+          "type": "compare_trees"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-02",
+        "category": "comparing",
+        "prompt": "Look at Tree A (4 m) and Tree B (3 m). How much taller is Tree A than Tree B?",
+        "text": "Tree A is ___ meter taller than Tree B.",
+        "speechText": "How much taller is Tree A than Tree B?",
+        "options": [
+          "1 m",
+          "2 m",
+          "7 m",
+          "3 m"
+        ],
+        "answer": "1 m",
+        "hint": "Subtract: 4 m - 3 m = ?",
+        "explanation": "4 m - 3 m = 1 m! Tree A is 1 meter taller than Tree B.",
+        "measuringVisual": {
+          "type": "compare_trees"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-03",
+        "category": "comparing",
+        "prompt": "Look at Car C (2 m) and Car D (3 m). Which car is longer?",
+        "text": "Which car is longer?",
+        "speechText": "Car C is 2 meters and Car D is 3 meters. Which car is longer?",
+        "options": [
+          "Car D",
+          "Car C",
+          "They are the same",
+          "Neither"
+        ],
+        "answer": "Car D",
+        "hint": "Compare 3 meters and 2 meters. Which is longer?",
+        "explanation": "Car D is 3 meters long, which is longer than Car C (2 meters). 3 > 2!",
+        "measuringVisual": {
+          "type": "compare_cars"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-04",
+        "category": "comparing",
+        "prompt": "Look at Car C (2 m) and Car D (3 m). How much longer is Car D than Car C?",
+        "text": "Car D is ___ meter longer than Car C.",
+        "speechText": "How much longer is Car D than Car C?",
+        "options": [
+          "1 m",
+          "2 m",
+          "5 m",
+          "3 m"
+        ],
+        "answer": "1 m",
+        "hint": "Subtract the lengths: 3 m - 2 m = ?",
+        "explanation": "3 m - 2 m = 1 m! Car D is 1 meter longer than Car C.",
+        "measuringVisual": {
+          "type": "compare_cars"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-05",
+        "category": "comparing",
+        "prompt": "Look at Truck A (3 m), Truck B (4 m), and Truck C (6 m). Which truck is the shortest?",
+        "text": "Which truck is the shortest?",
+        "speechText": "Truck A is 3 meters, Truck B is 4 meters, and Truck C is 6 meters. Which truck is the shortest?",
+        "options": [
+          "Truck A",
+          "Truck B",
+          "Truck C",
+          "All are equal"
+        ],
+        "answer": "Truck A",
+        "hint": "Look for the smallest number: 3 m, 4 m, or 6 m?",
+        "explanation": "Truck A is 3 meters long, which is the smallest length among the three trucks.",
+        "measuringVisual": {
+          "type": "compare_trucks"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-06",
+        "category": "comparing",
+        "prompt": "Look at Truck A (3 m), Truck B (4 m), and Truck C (6 m). Which truck is the longest?",
+        "text": "Which truck is the longest?",
+        "speechText": "Which truck is the longest?",
+        "options": [
+          "Truck C",
+          "Truck B",
+          "Truck A",
+          "All are equal"
+        ],
+        "answer": "Truck C",
+        "hint": "Look for the greatest number: 3 m, 4 m, or 6 m?",
+        "explanation": "Truck C is 6 meters long, which makes it the longest truck.",
+        "measuringVisual": {
+          "type": "compare_trucks"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-07",
+        "category": "comparing",
+        "prompt": "Look at Truck A (3 m) and Truck C (6 m). How many meters longer is Truck C than Truck A?",
+        "text": "Truck C is ___ meters longer than Truck A.",
+        "speechText": "Truck C is how many meters longer than Truck A?",
+        "options": [
+          "3 meters",
+          "2 meters",
+          "9 meters",
+          "4 meters"
+        ],
+        "answer": "3 meters",
+        "hint": "Subtract: 6 m - 3 m = ?",
+        "explanation": "6 m - 3 m = 3 meters! Truck C is 3 meters longer than Truck A.",
+        "measuringVisual": {
+          "type": "compare_trucks"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-08",
+        "category": "comparing",
+        "prompt": "Look at Truck A (3 m) and Truck B (4 m). How many meters shorter is Truck A than Truck B?",
+        "text": "Truck A is ___ meter shorter than Truck B.",
+        "speechText": "Truck A is how many meters shorter than Truck B?",
+        "options": [
+          "1 meter",
+          "2 meters",
+          "7 meters",
+          "3 meters"
+        ],
+        "answer": "1 meter",
+        "hint": "Subtract: 4 m - 3 m = ?",
+        "explanation": "4 m - 3 m = 1 meter! Truck A is 1 meter shorter than Truck B.",
+        "measuringVisual": {
+          "type": "compare_trucks"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-09",
+        "category": "comparing",
+        "prompt": "Look at Truck B (4 m) and Truck C (6 m). How many meters shorter is Truck B than Truck C?",
+        "text": "Truck B is ___ meters shorter than Truck C.",
+        "speechText": "Truck B is how many meters shorter than Truck C?",
+        "options": [
+          "2 meters",
+          "1 meter",
+          "10 meters",
+          "3 meters"
+        ],
+        "answer": "2 meters",
+        "hint": "Subtract: 6 m - 4 m = ?",
+        "explanation": "6 m - 4 m = 2 meters! Truck B is 2 meters shorter than Truck C.",
+        "measuringVisual": {
+          "type": "compare_trucks"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-10",
+        "category": "comparing",
+        "prompt": "Look at the ruler with the crayon (7 cm), glue stick (9 cm), and scissors (12 cm). Which object is the shortest?",
+        "text": "Which is the shortest object?",
+        "speechText": "The crayon is 7 cm, glue stick is 9 cm, and scissors are 12 cm. Which is the shortest object?",
+        "options": [
+          "The crayon",
+          "The glue stick",
+          "The scissors",
+          "They are equal"
+        ],
+        "answer": "The crayon",
+        "hint": "Compare 7 cm, 9 cm, and 12 cm. 7 is the smallest number!",
+        "explanation": "The crayon is 7 cm long, which is shorter than the glue stick (9 cm) and scissors (12 cm).",
+        "measuringVisual": {
+          "type": "ruler_multi"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-11",
+        "category": "comparing",
+        "prompt": "Look at the ruler with the crayon (7 cm), glue stick (9 cm), and scissors (12 cm). Which object is the longest?",
+        "text": "Which is the longest object?",
+        "speechText": "Which is the longest object on the ruler?",
+        "options": [
+          "The scissors",
+          "The glue stick",
+          "The crayon",
+          "They are equal"
+        ],
+        "answer": "The scissors",
+        "hint": "Compare 7 cm, 9 cm, and 12 cm. 12 is the greatest number!",
+        "explanation": "The scissors reach all the way to 12 cm, making them the longest object.",
+        "measuringVisual": {
+          "type": "ruler_multi"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-12",
+        "category": "comparing",
+        "prompt": "Look at the scissors (12 cm) and the crayon (7 cm). How much longer are the scissors than the crayon?",
+        "text": "The scissors are ___ centimeters longer than the crayon.",
+        "speechText": "How much longer are the scissors than the crayon?",
+        "options": [
+          "5 cm",
+          "4 cm",
+          "19 cm",
+          "6 cm"
+        ],
+        "answer": "5 cm",
+        "hint": "Subtract the lengths: 12 cm - 7 cm = ?",
+        "explanation": "12 cm - 7 cm = 5 cm! The scissors are 5 centimeters longer than the crayon.",
+        "measuringVisual": {
+          "type": "ruler_multi"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-13",
+        "category": "comparing",
+        "prompt": "Look at the glue stick (9 cm) and the crayon (7 cm). How much longer is the glue stick than the crayon?",
+        "text": "The glue stick is ___ centimeters longer than the crayon.",
+        "speechText": "How much longer is the glue stick than the crayon?",
+        "options": [
+          "2 cm",
+          "3 cm",
+          "16 cm",
+          "1 cm"
+        ],
+        "answer": "2 cm",
+        "hint": "Subtract the lengths: 9 cm - 7 cm = ?",
+        "explanation": "9 cm - 7 cm = 2 cm! The glue stick is 2 centimeters longer than the crayon.",
+        "measuringVisual": {
+          "type": "ruler_multi"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-14",
+        "category": "comparing",
+        "prompt": "Look at the glue stick (9 cm) and the scissors (12 cm). How much shorter is the glue stick than the scissors?",
+        "text": "The glue stick is ___ centimeters shorter than the scissors.",
+        "speechText": "How much shorter is the glue stick than the scissors?",
+        "options": [
+          "3 cm",
+          "2 cm",
+          "21 cm",
+          "4 cm"
+        ],
+        "answer": "3 cm",
+        "hint": "Subtract: 12 cm - 9 cm = ?",
+        "explanation": "12 cm - 9 cm = 3 cm! The glue stick is 3 centimeters shorter than the scissors.",
+        "measuringVisual": {
+          "type": "ruler_multi"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-15",
+        "category": "comparing",
+        "prompt": "Combined lengths: If you park Truck A (3 m) and Truck B (4 m) back to back, what is their total length?",
+        "text": "Truck A (3 m) + Truck B (4 m) = ___ meters in all.",
+        "speechText": "What is 3 meters plus 4 meters?",
+        "options": [
+          "7 meters",
+          "6 meters",
+          "8 meters",
+          "1 meter"
+        ],
+        "answer": "7 meters",
+        "hint": "Add the two lengths together: 3 + 4 = ?",
+        "explanation": "3 m + 4 m = 7 meters! Combined they measure 7 meters in total.",
+        "measuringVisual": {
+          "type": "compare_trucks"
+        }
+      },
+      {
+        "id": "q2-meas-cmp-16",
+        "category": "comparing",
+        "prompt": "Height comparison: A sunflower is 2 meters tall. A corn stalk is 3 meters tall. How much taller is the corn stalk?",
+        "text": "The corn stalk is ___ meter taller than the sunflower.",
+        "speechText": "The corn stalk is 3 meters and the sunflower is 2 meters. How much taller is the corn stalk?",
+        "options": [
+          "1 m",
+          "2 m",
+          "5 m",
+          "3 m"
+        ],
+        "answer": "1 m",
+        "hint": "Subtract: 3 m - 2 m = ?",
+        "explanation": "3 m - 2 m = 1 meter difference in height!",
+        "measuringVisual": {
+          "type": "compare_trees"
+        }
+      }
+    ]
+  }
+}
